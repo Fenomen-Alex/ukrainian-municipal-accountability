@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "ukrainian-municipal-accountability/gold-annotation",
+  "title": "Gold annotation for Ukrainian municipal complaints",
+  "type": "object",
+  "required": [
+    "topics"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "topics": {
+      "type": "array",
+      "description": "One or more independent complaints/requests in the text. Empty when the text carries no actionable complaint.",
+      "items": {
+        "$ref": "#/definitions/topic"
+      }
+    }
+  },
+  "definitions": {
+    "topic": {
+      "type": "object",
+      "required": [
+        "domain",
+        "issue",
+        "object",
+        "requested_action",
+        "attributes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "domain": {
+          "type": "string",
+          "description": "Broad municipal domain of the topic.",
+          "enum": [
+            "roads",
+            "water",
+            "heating",
+            "housing",
+            "transport",
+            "sanitation",
+            "electricity",
+            "construction",
+            "benefits",
+            "government",
+            "commerce",
+            "payments",
+            "other"
+          ]
+        },
+        "issue": {
+          "type": "string",
+          "description": "Concrete problem, stated neutrally."
+        },
+        "object": {
+          "oneOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "string",
+              "description": "Legacy free-text object until structured refactor.",
+              "deprecated": true
+            }
+          ],
+          "description": "Structured target of the complaint (address, facility, service, person/body) or free text."
+        },
+        "requested_action": {
+          "type": "string",
+          "description": "What the complainant asks the municipality to do."
+        },
+        "attributes": {
+          "type": "object",
+          "description": "Additional structured facts present in the text.",
+          "additionalProperties": true
+        }
+      }
+    }
+  }
+}

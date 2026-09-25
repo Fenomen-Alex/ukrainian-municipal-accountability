@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.env
+.DS_Store
+.venv/
+.venv-mlx/
+ml/data/embeddings/
+ml/data/tune/adapters/
+ml/data/tune/eval/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+ml/data/tune/train.jsonl
+ml/data/tune/validation.jsonl
+ml/data/tune/valid.jsonl
+ml/data/tune/test.jsonl

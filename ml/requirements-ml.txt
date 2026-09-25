@@ -1,0 +1,7 @@
+# ML-only dependencies for the embedding baseline experiment (ml/embedding/).
+# The pipeline, TF-IDF baseline and error analysis deliberately stay numpy-only.
+# Install with:  python3 -m venv .venv && .venv/bin/pip install -r ml/requirements-ml.txt
+torch>=2.14.0
+sentence-transformers>=6.1.0
+scikit-learn>=1.9.1
+jsonschema>=4.0.0
