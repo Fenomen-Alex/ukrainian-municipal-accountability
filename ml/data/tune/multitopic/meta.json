@@ -1,0 +1,54 @@
+{
+  "built_by": "ml/tune/build_multitopic.py",
+  "seed": 42,
+  "n_synthetic_target": 420,
+  "holdout_frac": 0.08,
+  "n_holdout": 85,
+  "leakage_frozen_train": [],
+  "leakage_frozen_eval": [],
+  "train": {
+    "n_examples": 979,
+    "n_multi_topic": 979,
+    "n_synthetic": 957,
+    "n_real": 22,
+    "n_topics_dist": {
+      "2": 979
+    },
+    "domain_counts": {
+      "sanitation": 567,
+      "roads": 347,
+      "water": 293,
+      "housing": 212,
+      "heating": 199,
+      "electricity": 108,
+      "transport": 108,
+      "payments": 50,
+      "construction": 45,
+      "government": 19,
+      "commerce": 10
+    },
+    "content_len_median": 360
+  },
+  "eval": {
+    "n_examples": 85,
+    "n_multi_topic": 85,
+    "n_synthetic": 83,
+    "n_real": 2,
+    "n_topics_dist": {
+      "2": 85
+    },
+    "domain_counts": {
+      "sanitation": 48,
+      "roads": 26,
+      "water": 22,
+      "housing": 21,
+      "heating": 19,
+      "construction": 11,
+      "electricity": 10,
+      "transport": 7,
+      "payments": 4,
+      "commerce": 2
+    },
+    "content_len_median": 377
+  }
+}

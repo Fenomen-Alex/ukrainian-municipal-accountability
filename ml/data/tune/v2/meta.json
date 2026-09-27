@@ -1,0 +1,20 @@
+{
+  "built_by": "ml/tune/build_v2.py",
+  "composition": {
+    "v1_single_topic": 5384,
+    "multitopic_augmentation": 3135,
+    "multitopic_upsample": 3,
+    "multitopic_real_upsample": 12,
+    "real_examples": 22,
+    "real_copies": 264,
+    "total": 8519,
+    "multitopic_share": 0.3448
+  },
+  "validation": "frozen copy of v1 validation.jsonl",
+  "test": "frozen copy of v1 test.jsonl",
+  "multitopic_eval_suite": "/Users/alex/WebstormProjects/test/ukrainian-municipal-accountability/ml/data/tune/multitopic/eval.jsonl",
+  "leakage": {
+    "statement": "multitopic augmentation built only from train-split content; no multitopic or v2 train example text appears in the frozen validation/test benchmark (see multitopic/meta.json)."
+  },
+  "synthetic_share": 0.9775
+}

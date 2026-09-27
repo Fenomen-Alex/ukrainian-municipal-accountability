@@ -15,10 +15,10 @@ NOT a statistically rigorous benchmark.
 - **Fine-tune technique:** QLoRA (rank 8, alpha/scale 20, dropout 0), 16 target
   modules, AdamW lr 1e-4, single epoch pass of 400 steps, batch 2 with grad
   accumulation 2 (per-step batch 4), mask_prompt training (`ChatDataset`)
-- **Adapter:** `ml/data/tune/adapters/qwen3-8b-lora/adapters.safetensors`
+- **Adapter (v1, historical):** `ml/data/tune/adapters/qwen3-8b-lora/adapters.safetensors`
   (~38.8 MB), plus decaying checkpoints 0000100–0000400
-- **Fused (deployed) artifact:** `ml/data/tune/adapters/qwen3-8b-lora-fused/`
-  (~4.6 GB MLX weights; 8,190,735,360 params). **Not a GGUF file** — it is a
+- **Fused (deployed) artifact:** `ml/data/tune/adapters/qwen3-8b-lora-v2-fused/`
+  (~4.3 GB MLX weights; 8,190,735,360 params). **Not a GGUF file** — it is a
   MLX/HuggingFace-style directory (config.json + safetensors + tokenizer).
 - **No thinking block:** generation uses Qwen3 chat template with
   `enable_thinking=False`; makes JSON output reliable and ~3x faster.
@@ -64,21 +64,38 @@ an explicit documented mapping.
 | system | passed/20 | schema-valid | full coverage | hallucination flags | multi-topic ok |
 |---|---|---|---|---|---|
 | base | 8 | 20 | 17 | 10 | 0/4 |
-| fine-tuned | 16 | 20 | 17 | 0 | 0/4 |
+| fine-tuned (v1) | 16 | 20 | 17 | 0 | 0/4 |
+| fine-tuned v2 | 17 | 20 | 18 | 0 | 1/4 |
 
 Known behaviours (from the smoke suite):
 - **Excess vocabulary:** `issue` repeats input and may include noise (e.g.
   `траншею ... і кинули` glued to object). `requested_action` often empty even
   when an explicit request exists (pulls the training prior, where ~50% of
   records had no action). Not harmful but leaks minor noise into `object`.
-- **Multi-topic regression:** both base and fine-tuned emit a single topic for
-  all four multi-topic smoke cases; fine-tuned always lands on one of the
-  correct domains. To extract every topic, teach input/output
-  `topics[]` structures more strongly or post-process by splitting.
+- **Multi-topic regression:** base and v1 emit a single topic for all four
+  multi-topic smoke cases. The v2 fine-tune (below) fixes three of the failure
+  modes on the multitopic suite (recall 0.89) but only one of the four smoke
+  multi cases splits (smoke-13); smoke-14/15/16 still collapse to one correct
+  domain. To extract every topic, teach input/output `topics[]` structures more
+  strongly or post-process by splitting.
 - **Domain mapping:** fine-tuned maps to a reasonable schema domain in most
   cases, but everything "adjacent to green space / playground / manhole" tends
   to go `sanitation`; the schema has no finer graining. Acceptable for the
   current 13-domain design.
+
+## v2 fine-tune (multi-topic structural fix) — current deployed model
+
+`ml/data/tune/adapters/qwen3-8b-lora-v2-fused`: same base, same QLoRA config
+(rank 8/scale 20, 16 modules, lr 1e-4, batch 2 + grad-accum 2, 800 iters,
+temperature 0), trained on the single-topic base plus a multi-topic
+augmentation set (see `ml/reports/finetune_v2_report.md`). This replaces v1
+`qwen3-8b-lora-fused` as the artifact served as `qwen3-8b-municipal-finetune`.
+
+Multi-topic suite (85 held-out — v1/base emit 1 topic on all): recall 0.894,
+topic-count accuracy 0.859. Frozen-329 stays within the v1 non-regression gate
+(domain 0.839 vs 0.845, hallucination 0.015 vs 0.024; guardrail
+`multi_topic_rate` 0.037). Smoke 17/20 with smoke-13 multi fixed (see target
+suite table below).
 
 ## Context lengths / limits
 

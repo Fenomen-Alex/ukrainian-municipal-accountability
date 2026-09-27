@@ -10,13 +10,13 @@ The smoke cases use a *richer* free-form domain vocabulary (`lighting`, `water_l
 
 | system | n | passed | schema-valid | full coverage | with hallucination | multi-topic (exp) | multi-topic (ok) |
 |---|---|---|---|---|---|---|---|
-| finetuned | 20 | 16 | 20 | 17 | 0 | 4 | 0 |
+| finetuned | 20 | 17 | 20 | 18 | 0 | 4 | 1 |
 | base | 20 | 8 | 20 | 17 | 10 | 4 | 0 |
 
 ## Failure patterns
 
 ### finetuned
-- **Multi-topic collapse:** 4/4 multi-topic cases emitted only one topic (smoke-13, smoke-14, smoke-15, smoke-16).
+- **Multi-topic collapse:** 3/4 multi-topic cases emitted only one topic (smoke-14, smoke-15, smoke-16).
 - **Hallucination flags:** 0 cases (none).
 
 ### base
@@ -38,11 +38,11 @@ The smoke cases use a *richer* free-form domain vocabulary (`lighting`, `water_l
 
 | id | category | expected | system | domains | object | action | attributes | flags |
 |---|---|---|---|---|---|---|---|---|
-| smoke-01 | Standard Concrete | roads | finetuned | roads | вулиці Шевченка | ∅ | {"street": "вулиці Шевченка",  | – |
+| smoke-01 | Standard Concrete | roads | finetuned | roads | вулиці Шевченка | ∅ | {"street": "вулиці Шевченка"} | – |
 | smoke-01 | Standard Concrete | roads | base | roads | вул. Шевченка, будинок №24 | провести ямковий ремонт асфаль | {"вулиця": "Шевченка", "будино | – |
 | smoke-02 | Standard Concrete | lighting | finetuned | electricity | вул. Героїв Майдану | ∅ | {"street": "вул. Героїв Майдан | – |
 | smoke-02 | Standard Concrete | lighting | base | electricity | вул. Героїв Майдану 12-16 | Відновлення роботи ліхтарів | {"address": "вул. Героїв Майда | – |
-| smoke-03 | Standard Concrete | water_supply | finetuned | water | проспект Свободи 45 витікає холодна вода з лю | ∅ | {"street": "проспект Свободи 4 | – |
+| smoke-03 | Standard Concrete | water_supply | finetuned | water | проспект Свободи | ∅ | {"street": "проспект Свободи"} | – |
 | smoke-03 | Standard Concrete | water_supply | base | water | проспект Свободи 45, під'їзд №2 | ліквідувати порив водопроводу | {"статус": "вже другий день",  | H:topic[0].attributes:неперевірена |
 | smoke-04 | Standard Concrete | waste_management | finetuned | sanitation | вул. Соборній | ∅ | {"street": "вул. Соборній"} | – |
 | smoke-04 | Standard Concrete | waste_management | base | sanitation | вул. Соборній 88 | Забезпечити вивіз побутових ві | {"status": "переповнені", "dat | – |
@@ -56,23 +56,23 @@ The smoke cases use a *richer* free-form domain vocabulary (`lighting`, `water_l
 | smoke-08 | Short & Terse | roads | base | roads | вул. Соборній, зупинка 'Пошта' | виконати ремонт дороги | {"статус": "виявлено"} | H:topic[0].requested_action;topic[0].attributes:виявлено |
 | smoke-09 | Messy & Emotional | road_work_pedestrian | finetuned | sanitation | вул. Перемоги і постійно чіпляюся за розриту  | ∅ | {"street": "вул. Перемоги і по | – |
 | smoke-09 | Messy & Emotional | road_work_pedestrian | base | sanitation | вул. Перемоги, будинок 10 | закопати траншею та зробити но | {"статус": "відкрите", "дата": | H:topic[0].attributes:відкрите |
-| smoke-10 | Messy & Surzhyk | manholes_infrastructure | finetuned | sanitation | вулиці Полтавській закрийте люк | ∅ | {"street": "вулиці Полтавській | – |
+| smoke-10 | Messy & Surzhyk | manholes_infrastructure | finetuned | sanitation | ∅ | ∅ | {} | – |
 | smoke-10 | Messy & Surzhyk | manholes_infrastructure | base | sanitation | вул. Полтавська, район Ковальовка | закрити люк | {"сторона": "ніч", "ризик": "в | H:topic[0].attributes:ніч;topic[0].attributes:впавти |
 | smoke-11 | Messy & Sarcastic | water_leak | finetuned | water | вул. Гагаріна | ∅ | {"street": "вул. Гагаріна"} | – |
 | smoke-11 | Messy & Sarcastic | water_leak | base | water | вул. Гагаріна 5 | Відремонтувати трубу | {"comment": "Басейн у дворі на | – |
 | smoke-12 | Messy & Rambling | playgrounds | finetuned | sanitation | вул. Академіка Корольова | ∅ | {"street": "вул. Академіка Кор | – |
 | smoke-12 | Messy & Rambling | playgrounds | base | sanitation | вул. Академіка Корольова 3 | Відремонтувати або демонтувати | {"status": "Аварійні елементи" | H:topic[0].attributes:Осьовий період |
-| smoke-13 | Multi-Topic | lighting,roads | finetuned | electricity | вулиці Незалежності від будинку 1 до 15 не пр | ∅ | {"street": "вулиці Незалежност | uncovered:roads, multi-fail |
+| smoke-13 | Multi-Topic | lighting,roads | finetuned | electricity,roads | ∅ | ∅ | {} | – |
 | smoke-13 | Multi-Topic | lighting,roads | base | roads | Вулиця Незалежності від будинку 1 до 15 | Відновити освітлення та відрем | {"object": "Вулиця Незалежност | uncovered:lighting, multi-fail |
 | smoke-14 | Multi-Topic | waste_management,animals | finetuned | sanitation | вул. Паркова | ∅ | {"street": "вул. Паркова"} | uncovered:animals, multi-fail |
 | smoke-14 | Multi-Topic | waste_management,animals | base | sanitation | вул. Паркова 12 | Вивезти сміття та викликати сл | {"issue": "переповнені контейн | uncovered:animals, multi-fail |
-| smoke-15 | Multi-Topic | elevators,sewage_basement | finetuned | housing | Вул. Київська 40 | ∅ | {"street": "Вул. Київська 40", | multi-fail |
+| smoke-15 | Multi-Topic | elevators,sewage_basement | finetuned | housing | Вул. Київська | ∅ | {"street": "Вул. Київська"} | multi-fail |
 | smoke-15 | Multi-Topic | elevators,sewage_basement | base | housing | Вул. Київська 40, під'їзд 1 | Відремонтувати ліфт та відкача | {"стать": "підвал", "статус":  | H:topic[0].attributes:прорив, multi-fail |
-| smoke-16 | Multi-Topic | landscaping,traffic_signs | finetuned | sanitation | вул. Гоголя та | ∅ | {"street": "вул. Гоголя та"} | uncovered:traffic_signs, multi-fail |
+| smoke-16 | Multi-Topic | landscaping,traffic_signs | finetuned | roads | вул. Гоголя та Лесі Українки гілки дерев повн | ∅ | {"street": "вул. Гоголя та Лес | uncovered:landscaping, multi-fail |
 | smoke-16 | Multi-Topic | landscaping,traffic_signs | base | roads | перехрестя вул. Гоголя та Лесі Українки | обрізати гілки та вирівняти зн | {"status": "похилився", "date" | uncovered:landscaping, H:topic[0].attributes:неперевідена дата, multi-fail |
 | smoke-17 | Implicit Action | hot_water_leak | finetuned | water | вул. Яновського | ∅ | {"street": "вул. Яновського"} | – |
 | smoke-17 | Implicit Action | hot_water_leak | base | water | Дендропарк на вул. Яновського | ∅ | {"street": "Яновського", "obje | – |
-| smoke-18 | Vague Location | traffic_lights | finetuned | electricity | ∅ | ∅ | {} | – |
+| smoke-18 | Vague Location | traffic_lights | finetuned | roads | ∅ | ∅ | {} | – |
 | smoke-18 | Vague Location | traffic_lights | base | transport | зупинка у центрі міста | ∅ | {"організація": "міська рада"} | H:topic[0].attributes:міська рада |
 | smoke-19 | Non-Municipal / Private | housing_dispute_or_other | finetuned | housing | вул. Миру | ∅ | {"street": "вул. Миру"} | – |
 | smoke-19 | Non-Municipal / Private | housing_dispute_or_other | base | housing | вул. Миру 5 | зробити з сусідом щось | {"квартира": "12", "об’єкт": " | – |
@@ -85,15 +85,15 @@ The smoke cases use a *richer* free-form domain vocabulary (`lighting`, `water_l
 
 **smoke-01** [Standard Concrete] expected=roads
 - schema_valid=True notes=–
-- raw: `{"topics": [{"domain": "roads", "issue": "На вулиці Шевченка, біля будинку №24, утворилася глибока яма на проїжджій частині. провести ямковий ремонт асфальтного покриття.", "object": "вулиці Шевченка", "requested_action": "", "attributes": {"street": "вулиці Шевченка", "building": "24"}}]}`
+- raw: `{"topics": [{"domain": "roads", "issue": "вулиці Шевченка, біля будинку №24, утворилася глибока яма на проїжджій частині. провести ямковий ремонт асфальтного покриття.", "object": "вулиці Шевченка", "requested_action": "", "attributes": {"street": "вулиці Шевченка"}}]}`
 
 **smoke-02** [Standard Concrete] expected=lighting
 - schema_valid=True notes=–
-- raw: `{"topics": [{"domain": "electricity", "issue": "тиждень не працює вуличне освітлення за адресою вул. Героїв Майдану 12-16. , будь ласка, роботу ліхтарів.", "object": "вул. Героїв Майдану", "requested_action": "", "attributes": {"street": "вул. Героїв Майдану", "building": "12-16"}}]}`
+- raw: `{"topics": [{"domain": "electricity", "issue": "Вже тиждень не працює вуличне освітлення за адресою вул. Героїв Майдану 12-16. будь ласка, роботу ліхтарів.", "object": "вул. Героїв Майдану", "requested_action": "", "attributes": {"street": "вул. Героїв Майдану"}}]}`
 
 **smoke-03** [Standard Concrete] expected=water_supply
 - schema_valid=True notes=–
-- raw: `{"topics": [{"domain": "water", "issue": "проспект Свободи 45 витікає холодна вода з люка перед під'їздом №2. тече вже другий день. ліквідувати порив водопроводу.", "object": "проспект Свободи 45 витікає холодна вода з люка перед під'їздом №2", "requested_action": "", "attributes": {"street": "проспект Свободи 45 витікає холодна вода з люка перед під'їздом №2"}}]}`
+- raw: `{"topics": [{"domain": "water", "issue": "проспект Свободи 45 витікає холодна вода з люка перед під'їздом №2. тече вже другий день. ліквідувати порив водопроводу.", "object": "проспект Свободи", "requested_action": "", "attributes": {"street": "проспект Свободи"}}]}`
 
 **smoke-04** [Standard Concrete] expected=waste_management
 - schema_valid=True notes=–
@@ -105,7 +105,7 @@ The smoke cases use a *richer* free-form domain vocabulary (`lighting`, `water_l
 
 **smoke-06** [Short & Terse] expected=hot_water
 - schema_valid=True notes=–
-- raw: `{"topics": [{"domain": "water", "issue": "гарячої води на 14 кв 5.", "object": "", "requested_action": "", "attributes": {}}]}`
+- raw: `{"topics": [{"domain": "water", "issue": "14 кв 5.", "object": "", "requested_action": "", "attributes": {}}]}`
 
 **smoke-07** [Short & Terse] expected=waste_management
 - schema_valid=True notes=–
@@ -113,15 +113,15 @@ The smoke cases use a *richer* free-form domain vocabulary (`lighting`, `water_l
 
 **smoke-08** [Short & Terse] expected=roads
 - schema_valid=True notes=–
-- raw: `{"topics": [{"domain": "roads", "issue": "яма біля зупинки ' на вул. Соборній.", "object": "вул. Соборній", "requested_action": "", "attributes": {"street": "вул. Соборній"}}]}`
+- raw: `{"topics": [{"domain": "roads", "issue": "яма біля зупинки 'Пошта' на вул. Соборній.", "object": "вул. Соборній", "requested_action": "", "attributes": {"street": "вул. Соборній"}}]}`
 
 **smoke-09** [Messy & Emotional] expected=road_work_pedestrian
 - schema_valid=True notes=–
-- raw: `{"topics": [{"domain": "sanitation", "issue": "з дитиною у візочку біля будинку 10 по вул. Перемоги і постійно чіпляюся за розриту траншею, яку розкопали ще місяць тому і кинули! ледь не випала! цей жах і зробіть нормальний тротуар!", "object": "вул. Перемоги і постійно чіпляюся за розриту траншею, яку розкопали ще місяць тому і кинули!", "requested_action": "", "attributes": {"street": "вул. Пере`
+- raw: `{"topics": [{"domain": "sanitation", "issue": "з дитиною у візочку біля будинку 10 по вул. Перемоги і постійно чіпляюся за розриту траншею, яку розкопали ще місяць тому і кинули! ледь не випала! закопайте цей жах і зробіть нормальний тротуар!", "object": "вул. Перемоги і постійно чіпляюся за розриту траншею", "requested_action": "", "attributes": {"street": "вул. Перемоги і постійно чіпляюся за ро`
 
 **smoke-10** [Messy & Surzhyk] expected=manholes_infrastructure
 - schema_valid=True notes=['surzhyk input']
-- raw: `{"topics": [{"domain": "sanitation", "issue": "районє по вулиці закрийте люк, бо туда хтось упаде ноччю, кришки нема вообще!", "object": "вулиці Полтавській закрийте люк", "requested_action": "", "attributes": {"street": "вулиці Полтавській закрийте люк"}}]}`
+- raw: `{"topics": [{"domain": "sanitation", "issue": "закрийте люк, бо туда хтось упаде ноччю, кришки нема вообще!", "object": "", "requested_action": "", "attributes": {}}]}`
 
 **smoke-11** [Messy & Sarcastic] expected=water_leak
 - schema_valid=True notes=['sarcasm input']
@@ -129,39 +129,39 @@ The smoke cases use a *richer* free-form domain vocabulary (`lighting`, `water_l
 
 **smoke-12** [Messy & Rambling] expected=playgrounds
 - schema_valid=True notes=–
-- raw: `{"topics": [{"domain": "sanitation", "issue": "міськрада, звертаюся до вас вже втретє. минулого року писали за дитячий майданчик на вул. Академіка Корольова 3, де зламані гойдалки. відремонтувати до літа, але вже осінь, а гойдалки так і висять на одній цепі. відремонтувати або демонтувати аварійні елементи.", "object": "вул. Академіка Корольова", "requested_action": "", "attributes": {"street": "в`
+- raw: `{"topics": [{"domain": "sanitation", "issue": "звертаюся до вас вже втретє. минулого року писали за дитячий майданчик на вул. Академіка Корольова 3, де зламані гойдалки. Обіцяли відремонтувати до літа, але вже осінь, а гойдалки так і висять на одній цепі. відремонтувати або демонтувати аварійні елементи.", "object": "вул. Академіка Корольова", "requested_action": "", "attributes": {"street": "вул.`
 
 **smoke-13** [Multi-Topic] expected=lighting,roads
 - schema_valid=True notes=–
-- raw: `{"topics": [{"domain": "electricity", "issue": "від будинку 1 до 15 не працює жоден вуличний ліхтар, а також на всій цій ділянці глибокі ями на дорозі. відновити освітлення та відремонтувати дорогу.", "object": "вулиці Незалежності від будинку 1 до 15 не працює жоден вуличний ліхтар, а також на всій цій ділянці глибокі ями на дорозі.", "requested_action": "", "attributes": {"street": "вулиці Незал`
+- raw: `{"topics": [{"domain": "electricity", "issue": "вулиці Незалежності від будинку 1 до 15 не працює жоден вуличний ліхтар", "object": "", "requested_action": "", "attributes": {}}, {"domain": "roads", "issue": "на всій цій ділянці глибокі ями на дорозі", "object": "", "requested_action": "", "attributes": {}}]}`
 
 **smoke-14** [Multi-Topic] expected=waste_management,animals
 - schema_valid=True notes=–
-- raw: `{"topics": [{"domain": "sanitation", "issue": "за адресою вул. Паркова 12 переповнені контейнери для сміття, через що там розплодилася зграя безпритульних собак, які кидаються на людей. вивезти сміття та викликати службу вилову собак.", "object": "вул. Паркова", "requested_action": "", "attributes": {"street": "вул. Паркова"}}]}`
+- raw: `{"topics": [{"domain": "sanitation", "issue": "вивезти сміття та викликати службу вилову собак", "object": "вул. Паркова", "requested_action": "", "attributes": {"street": "вул. Паркова"}}]}`
 
 **smoke-15** [Multi-Topic] expected=elevators,sewage_basement
 - schema_valid=True notes=–
-- raw: `{"topics": [{"domain": "housing", "issue": "Київська 40, під'їзд 1: зламався пасажирський ліфт (не їде вище 2 поверху), а в підвалі прорвало каналізацію і стоїть жахливий сморід. відремонтувати ліфт та відкачати воду з підвалу.", "object": "Вул. Київська 40", "requested_action": "", "attributes": {"street": "Вул. Київська 40", "building": "1"}}]}`
+- raw: `{"topics": [{"domain": "housing", "issue": "40, під'їзд 1: зламався пасажирський ліфт (не їде вище 2 поверху), а в підвалі прорвало каналізацію і стоїть жахливий сморід. відремонтувати ліфт та відкачати воду з підвалу.", "object": "Вул. Київська", "requested_action": "", "attributes": {"street": "Вул. Київська"}}]}`
 
 **smoke-16** [Multi-Topic] expected=landscaping,traffic_signs
 - schema_valid=True notes=–
-- raw: `{"topics": [{"domain": "sanitation", "issue": "перехрестя вул. Гоголя та гілки дерев повністю закрили дорожній знак ' дорогу', а сам знак похилився після вітру. обрізати гілки та вирівняти знак.", "object": "вул. Гоголя та", "requested_action": "", "attributes": {"street": "вул. Гоголя та"}}]}`
+- raw: `{"topics": [{"domain": "roads", "issue": "перехрестя вул. Гоголя та Лесі Українки гілки дерев повністю закрили дорожній знак 'Уступи дорогу', а сам знак похилився після вітру. обрізати гілки та вирівняти знак.", "object": "вул. Гоголя та Лесі Українки гілки дерев повністю закрили дорожній знак", "requested_action": "", "attributes": {"street": "вул. Гоголя та Лесі Українки гілки дерев повністю зак`
 
 **smoke-17** [Edge Case - Implicit Action] expected=hot_water_leak
 - schema_valid=True notes=['implicit-action input']
-- raw: `{"topics": [{"domain": "water", "issue": "прорвало трубу гарячого водопостачання біля на вул. Яновського. всю дорогу затопило окропом.", "object": "вул. Яновського", "requested_action": "", "attributes": {"street": "вул. Яновського"}}]}`
+- raw: `{"topics": [{"domain": "water", "issue": "прорвало трубу гарячого водопостачання біля Дендропарку на вул. Яновського. всю дорогу затопило окропом.", "object": "вул. Яновського", "requested_action": "", "attributes": {"street": "вул. Яновського"}}]}`
 
 **smoke-18** [Edge Case - Vague Location] expected=traffic_lights
 - schema_valid=True notes=['vague-location input']
-- raw: `{"topics": [{"domain": "electricity", "issue": "центрі міста біля зупинки не працює світлофор і утворюються затори.", "object": "", "requested_action": "", "attributes": {}}]}`
+- raw: `{"topics": [{"domain": "roads", "issue": "центрі міста біля зупинки не працює світлофор і утворюються затори.", "object": "", "requested_action": "", "attributes": {}}]}`
 
 **smoke-19** [Edge Case - Non-Municipal / Private] expected=housing_dispute_or_other
 - schema_valid=True notes=['out-of-scope/private input']
-- raw: `{"topics": [{"domain": "housing", "issue": "з квартири 12 на вул. Миру 5 гучно слухає музику щоночі і заливає мою стелю у ванній. з ним щось!", "object": "вул. Миру", "requested_action": "", "attributes": {"street": "вул. Миру"}}]}`
+- raw: `{"topics": [{"domain": "housing", "issue": "зробіть з ним щось!", "object": "вул. Миру", "requested_action": "", "attributes": {"street": "вул. Миру"}}]}`
 
 **smoke-20** [Edge Case - Transport & Schedule] expected=public_transport
 - schema_valid=True notes=–
-- raw: `{"topics": [{"domain": "transport", "issue": "курсує з порушенням інтервалу: замість 10 хвилин чекаємо по 40 хвилин на зупинці 'Автовокзал', а водії грубіянять пасажирам. кількість машин на маршруті №114 та проведіть бесіду з перевізником.", "object": "", "requested_action": "", "attributes": {}}]}`
+- raw: `{"topics": [{"domain": "transport", "issue": "№114 курсує з порушенням інтервалу: замість 10 хвилин чекаємо по 40 хвилин на зупинці 'Автовокзал', а водії грубіянять пасажирам. Збільшій кількість машин на маршруті №114 та проведіть бесіду з перевізником.", "object": "", "requested_action": "", "attributes": {}}]}`
 
 ### base
 

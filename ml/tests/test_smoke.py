@@ -116,24 +116,30 @@ def test_all_fields_evaluated_for_each_case():
 
 
 def test_multitopic_cases_fail_when_single_topic():
-    """Every multi-topic smoke case collapses to exactly one topic for both systems."""
+    """Baseline collapse: base model collapses every multi-topic smoke case.
+
+    The v2 fine-tune fixes at least one (smoke-13), so the "both systems
+    collapse" invariant only holds for base.
+    """
     ev = evaluate_all()
-    for tag in ("finetuned", "base"):
-        for cid in MULTI_TOPIC_CASES:
-            assert len(ev[tag][cid]["pred_domains"]) == 1
-            assert not ev[tag][cid]["multi_ok"], f"{tag} {cid}"
+    for cid in MULTI_TOPIC_CASES:
+        assert len(ev["base"][cid]["pred_domains"]) == 1
+        assert not ev["base"][cid]["multi_ok"], f"base {cid}"
+    # v2 must have improved at least one multi case vs base.
+    assert any(ev["finetuned"][cid]["multi_ok"] for cid in MULTI_TOPIC_CASES)
 
 
 def test_summary_counts_match_report():
     from ml.tune.eval_smoke import summarize
 
     ev = evaluate_all()
-    for tag, expected_passed in (("finetuned", 16), ("base", 8)):
+    for tag, expected_passed, expected_multi in (
+            ("finetuned", 17, 1), ("base", 8, 0)):
         s = summarize(tag, ev[tag])
         assert s["n"] == 20
         assert s["passed"] == expected_passed, (tag, s)
         assert s["schema_valid"] == 20
-        assert s["multi_topic_passed"] == 0
+        assert s["multi_topic_passed"] == expected_multi
 
 
 def test_evaluate_case_handles_missing_parsed():

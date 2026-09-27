@@ -1,7 +1,7 @@
 # Serving / packaging the fine-tuned model
 
 Native format: **MLX** (not GGUF). A fused HuggingFace-style directory:
-`ml/data/tune/adapters/qwen3-8b-lora-fused/` with `config.json`,
+`ml/data/tune/adapters/qwen3-8b-lora-v2-fused/` with `config.json`,
 `model.safetensors` + `model.safetensors.index.json`, tokenizer files and
 `chat_template.jinja` (library_name `mlx`, apache-2.0 license).
 
@@ -9,7 +9,7 @@ Native format: **MLX** (not GGUF). A fused HuggingFace-style directory:
 
 ```bash
 .venv-mlx/bin/python -m ml.tune.run_smoke \
-  --model ml/data/tune/adapters/qwen3-8b-lora-fused --tag finetuned
+  --model ml/data/tune/adapters/qwen3-8b-lora-v2-fused --tag finetuned
 ```
 
 `run_smoke.py` calls `mlx_lm.load(model, adapter_path=None)` (thin on `generate
@@ -24,7 +24,7 @@ by symlinking it under the models folder and restarting the server; the model
 then indexes and loads as `qwen3-8b-municipal-finetune`:
 
 ```bash
-ln -s "$PWD/ml/data/tune/adapters/qwen3-8b-lora-fused" \
+ln -s "$PWD/ml/data/tune/adapters/qwen3-8b-lora-v2-fused" \
   "$HOME/.lmstudio/models/mlx-community/qwen3-8b-municipal-finetune"
 lms server stop && lms server start   # re-scan (lms import only takes single files)
 lms load qwen3-8b-municipal-finetune
@@ -36,8 +36,13 @@ curl -s http://localhost:1234/v1/chat/completions \
        "temperature":0}'
 ```
 
-Verified on this machine: the model returned valid JSON for a smoke case through
-the `/v1/chat/completions` endpoint.
+Verified on this machine with the v2 fused model: the endpoint returned valid
+JSON with two topics for the two-issue smoke case at temperature 0, identical to
+native MLX inference.
+
+Note: this repo serves a **directory of per-file symlinks** into the fused model
+under the LM Studio models folder; replace the target dir to point the same
+model name at a new fused release.
 
 ## Ollama
 
