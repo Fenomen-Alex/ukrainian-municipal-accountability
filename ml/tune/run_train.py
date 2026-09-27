@@ -1,9 +1,17 @@
 """QLoRA training driver for the municipal-complaint JSON task.
 
-Wraps the mlx-lm LoRA pipeline with one consistent change: the tokenizer's
-chat template is forced to ``enable_thinking=False`` so that training targets
-match the inference format produced by :mod:`ml.tune.run_eval` (Qwen3's
-reasoning prefix is never part of the learned format).
+Wraps the mlx-lm LoRA pipeline with two changes:
+
+1. The tokenizer's chat template is forced to ``enable_thinking=False`` so that
+   training targets match the inference format produced by
+   :mod:`ml.tune.run_eval` (Qwen3's reasoning prefix is never part of the learned
+   format).
+2. The batch order is seeded. mlx-lm's ``train_model`` already calls
+   ``mx.random.seed(args.seed)``, which covers LoRA initialisation, but
+   ``tuner.trainer.train`` never forwards a seed to ``iterate_batches``, so the
+   NumPy permutation that orders the batches is drawn from an unseeded global RNG.
+   Two runs with the same ``--seed`` therefore see different batches. See
+   ``ml/reports/reproducibility_audit.md``.
 
 Run from the repo root with the MLX venv::
 
@@ -14,7 +22,52 @@ Run from the repo root with the MLX venv::
 from __future__ import annotations
 
 import argparse
+import json
 import types
+from pathlib import Path
+
+import numpy as np
+
+
+def make_seeded_batch_iterator(base, seed: int):
+    """Wrap an mlx-lm ``iterate_batches`` so batch order is reproducible.
+
+    mlx-lm's ``iterate_batches`` does accept a ``seed``, but guards it with
+    ``if seed:`` (so ``seed=0`` is silently ignored) and ``tuner.trainer.train``
+    never passes one at all -- it is bound as a default argument at ``def`` time,
+    so rebinding the module attribute would have no effect. Injecting a wrapper
+    through ``train(iterate_batches=...)`` is the only seam that works.
+
+    Seeding NumPy here as well as passing ``seed`` through is deliberate: it makes
+    ``seed=0`` behave like any other seed, which the library's own guard does not.
+    """
+
+    def iterate(*args, **kwargs):
+        np.random.seed(seed)
+        kwargs["seed"] = seed
+        return base(*args, **kwargs)
+
+    return iterate
+
+
+def install_seeded_batch_order(lora_module, trainer_module, seed: int) -> None:
+    """Make ``lora.train_model`` batch order deterministic for ``seed``.
+
+    Patches ``lora.train`` -- the name ``train_model`` actually calls -- rather
+    than ``trainer.iterate_batches``, whose default argument is already bound.
+    """
+    if getattr(lora_module, "_ukraine_seeded_batch_order", None) == seed:
+        return
+    original_train = lora_module.train
+    seeded = make_seeded_batch_iterator(trainer_module.iterate_batches, seed)
+
+    def train_with_seeded_batches(*args, **kwargs):
+        kwargs.setdefault("iterate_batches", seeded)
+        return original_train(*args, **kwargs)
+
+    lora_module.train = train_with_seeded_batches
+    lora_module._ukraine_seeded_batch_order = seed
+    lora_module._ukraine_original_train = original_train
 
 
 class _NoThinkingTokenizer:
@@ -63,10 +116,12 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main() -> None:
     args = build_parser().parse_args()
-    from pathlib import Path
 
     import mlx_lm.lora as lora
     from mlx_lm import load
+    from mlx_lm.tuner import trainer
+
+    install_seeded_batch_order(lora, trainer, args.seed)
 
     print("Loading pretrained model")
     model, tokenizer = load(args.model, tokenizer_config={"trust_remote_code": True})
@@ -99,6 +154,14 @@ def main() -> None:
     ns.adapter_path = str(adapter_dir)
 
     train_set, valid_set, test_set = lora.load_dataset(ns, tokenizer)
+
+    # Recorded next to the adapter so a run can be reproduced from its own output
+    # rather than from shell history.
+    (adapter_dir / "run_config.json").write_text(
+        json.dumps({k: v for k, v in sorted(vars(ns).items())}, indent=2, default=str),
+        encoding="utf-8",
+    )
+
     lora.train_model(ns, model, train_set, valid_set)
     print(f"Adapters saved to {adapter_dir / 'adapters.safetensors'}")
 

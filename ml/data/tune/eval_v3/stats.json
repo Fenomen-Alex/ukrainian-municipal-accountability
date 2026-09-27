@@ -1,0 +1,65 @@
+{
+  "built_by": "ml/tune/build_eval_v3.py",
+  "reference_labeler": "contract labeler (build_dataset) with _ADMIN_CLAUSE gap closed by BOILER_SENT; see module docstring",
+  "n_cases": 146,
+  "by_category": {
+    "A": 10,
+    "B": 8,
+    "C": 8,
+    "D": 8,
+    "E": 6,
+    "F": 8,
+    "G": 6,
+    "H": 12,
+    "I": 8,
+    "J": 6,
+    "K": 8,
+    "L": 6,
+    "M": 4,
+    "N": 5,
+    "O": 6,
+    "P": 3,
+    "Q": 6,
+    "R": 6,
+    "S": 7,
+    "T": 5,
+    "U": 6,
+    "V": 4
+  },
+  "by_provenance": {
+    "composed": 52,
+    "condensed": 10,
+    "real": 84
+  },
+  "by_split": {
+    "test": 30,
+    "validation": 116
+  },
+  "cases_spanning_splits": [],
+  "expected_topic_count_dist": {
+    "1": 94,
+    "2": 52
+  },
+  "expected_domain_counts": {
+    "sanitation": 64,
+    "roads": 24,
+    "housing": 22,
+    "water": 16,
+    "electricity": 14,
+    "transport": 14,
+    "payments": 11,
+    "government": 10,
+    "heating": 10,
+    "construction": 8,
+    "commerce": 5
+  },
+  "text_length": {
+    "min": 65,
+    "median": 369,
+    "max": 779,
+    "p25": 241,
+    "p75": 470
+  },
+  "comparability": "NOT directly comparable with ml/data/tune/eval (frozen 329) or multitopic/eval (85): those score against the v1 weak label, which retains administrative boilerplate in 53-64% of issue fields, while this suite scores against the cleaned reference label.",
+  "training_exclusion": "No case text is drawn from the train split. 'real' cases are verbatim validation/test records. 'condensed' and 'composed' cases are derived from those same held-out records. All texts are checked against every training text (train split, multitopic/train.jsonl, v2/train.jsonl) by ml/tests/test_eval_v3_suite.py::test_no_case_text_leaks_into_training."
+}

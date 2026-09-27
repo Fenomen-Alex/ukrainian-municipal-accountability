@@ -1,0 +1,232 @@
+{
+  "version": "v3-plan",
+  "built_by": "hand-authored; executed by ml/tune/run_train.py (no run performed)",
+  "status": "planned, not executed",
+  "objective": "Fix the four failure modes the v2 audit isolated -- administrative boilerplate copied into `issue`, `requested_action` redundancy, terse-note under-extraction, and coarse-ontology domain confusion -- without regressing the v2 single-topic and multi-topic benchmarks.",
+
+  "baseline": {
+    "model": "ml/data/tune/adapters/qwen3-8b-lora-v2-attempt10-fused",
+    "frozen_eval": {
+      "path": "ml/data/tune/eval",
+      "n": 329,
+      "json_parse": 1.0,
+      "schema_valid": 0.997,
+      "domain_accuracy": 0.8389,
+      "domain_macro_f1": 0.7596,
+      "issue_rouge_l": 0.9234,
+      "object_exact_match": 0.9422,
+      "object_token_overlap": 0.9574,
+      "requested_action_presence_match": 0.9909,
+      "hallucination_rate": 0.0152,
+      "multi_topic_rate": 0.0365
+    },
+    "multitopic_eval": {
+      "path": "ml/data/tune/multitopic/eval.jsonl",
+      "n": 85,
+      "json_parse": 0.9882,
+      "schema_valid": 0.9882,
+      "topic_count_accuracy": 0.8588,
+      "multi_topic_recall": 0.8941,
+      "domain_set_exact": 0.6824,
+      "issue_rouge_l": 0.7988
+    },
+    "smoke": {
+      "path": "ml/data/tune/smoke",
+      "n": 20,
+      "overall_pass": 17,
+      "domain_coverage": 18,
+      "multi_topic": 1,
+      "multi_topic_expected": 4,
+      "note": "tag 'finetuned' in eval_smoke.py; the stale 'finetuned-v2' artifact gave a misleading 0/4"
+    }
+  },
+
+  "benchmarks": {
+    "regression": [
+      {
+        "id": "frozen",
+        "path": "ml/data/tune/eval",
+        "role": "regression only -- scores against the uncleaned v1 weak label, so a model that learns to strip boilerplate will look worse here",
+        "primary_metrics": ["domain_accuracy", "issue_rouge_l", "object_exact_match", "schema_valid"]
+      },
+      {
+        "id": "multitopic",
+        "path": "ml/data/tune/multitopic/eval.jsonl",
+        "role": "regression only -- multi-topic recall and topic_count_accuracy",
+        "primary_metrics": ["topic_count_accuracy", "multi_topic_recall", "domain_set_exact", "issue_rouge_l"]
+      }
+    ],
+    "target": [
+      {
+        "id": "eval_v3",
+        "path": "ml/data/tune/eval_v3/cases.jsonl",
+        "n": 146,
+        "role": "primary -- scored against the cleaned reference label, the only benchmark that measures the behaviour v3 is being trained for",
+        "primary_metrics": ["domain_set_exact", "topic_count_accuracy", "issue_rouge_l", "boilerplate_leak_rate", "action_redundancy_rate"]
+      },
+      {
+        "id": "smoke",
+        "path": "ml/data/tune/smoke/smoke_cases.json",
+        "n": 20,
+        "role": "guardrail -- human-curated, terse, 4 two-topic cases"
+      }
+    ]
+  },
+
+  "arms": {
+    "control": {
+      "id": "control",
+      "dataset": "ml/data/tune/v2/train.jsonl",
+      "n": 8519,
+      "description": "v2 attempt-10 training data, unchanged. Reproduces the baseline."
+    },
+    "treatment": {
+      "id": "treatment",
+      "dataset": "ml/data/tune/v3/train.jsonl",
+      "n": null,
+      "description": "v1 single-topic + multitopic, with the four changes below."
+    },
+    "arm_order": ["control", "treatment"],
+    "why_both": "Every change below targets a mechanism the audit measured, but boilerplate stripping and terse-note upsampling both trade against the v1 issue ROUGE baseline. A single treatment run cannot attribute a regression. Run control first to confirm the harness reproduces the baseline under the seeded pipeline, then treatment."
+  },
+
+  "changes": [
+    {
+      "id": "C1",
+      "name": "boilerplate cleaning",
+      "targets": "Administrative boilerplate copied into `issue` (61.9% of v2 training examples carry it; the model reproduces it in 217/329 frozen predictions).",
+      "action": "Run the same sentence-level filter the eval_v3 reference labeler uses (BOILER_SENT + _DANGLING) over the `issue` field of every single-topic training target. Close the `надає згоду` / `згоду надає` word-order gap that `_ADMIN_CLAUSE` misses.",
+      "cost": "issue ROUGE-L against the frozen v1 label will drop; that is the intended effect, and eval_v3 is the benchmark that rewards it.",
+      "measurable_by": "eval_v3 boilerplate_leak_rate"
+    },
+    {
+      "id": "C2",
+      "name": "requested_action decoupled",
+      "targets": "`requested_action` is redundant with `issue` in 93.9% of v1 training examples (2,124 substring + 333 exact of 2,616), so the field carries almost no information the model can learn to generalise.",
+      "action": "Populate `requested_action` only when an explicit request verb is present in the source text, and otherwise emit the empty string. The eval_v3 `H` category (12 cases) asserts exactly this.",
+      "cost": "requested_action_presence_match on the frozen benchmark will fall, because the frozen target contains actions where the text has no verb. Report both.",
+      "measurable_by": "eval_v3 action_redundancy_rate, category H topic_count"
+    },
+    {
+      "id": "C3",
+      "name": "terse-note upsampling",
+      "targets": "Terse complaints (<150 chars) are 57.6% of the 2023 slice and essentially absent from validation and test, so the model is evaluated outside the register it must handle. 1210/2099 of 2023, 1/1691 of 2024, 1/1594 of 2025, 0/1453 of 2026.",
+      "action": "Upsample the 178 train kernels that survive the note filter and are >= 25 characters, 8-12x, targeting roughly 1200-1500 terse examples. Prefer records that condense well (boilerplate removed, wrapper words deleted) so the target stays faithful.",
+      "cost": "None expected on the frozen benchmark, which contains no terse records; this is new capability, not a trade.",
+      "measurable_by": "eval_v3 category A, smoke"
+    },
+    {
+      "id": "C4",
+      "name": "multi-topic share restored",
+      "targets": "`meta.json` reports multitopic_share 0.3448 against a stated 0.368, an unresolved bookkeeping discrepancy; the real-vs-synthetic mix is 264 real copies vs 2871 synthetic (8.4% real).",
+      "action": "Rebuild the multitopic stream so the reported share is computed from the emitted file rather than declared, and raise the real fraction by decomposing more held-in train records instead of leaning on synthetic combinations.",
+      "cost": "More train records; ~2x current synthetic count is not affordable, so prefer additional real decompositions.",
+      "measurable_by": "meta.json self-consistency, multitopic_eval domain_set_exact"
+    }
+  ],
+
+  "success_gates": {
+    "schema_validity": {
+      "metric": "eval_v3 schema_valid",
+      "target": 1.0,
+      "baseline": 1.0,
+      "blocking": true,
+      "note": "The v2 baseline already reaches this on eval_v3; a drop means the output format regressed."
+    },
+    "boilerplate_leak": {
+      "metric": "eval_v3 boilerplate_leak_rate (share of predicted `issue` fields containing response-delivery boilerplate)",
+      "target": 0.02,
+      "baseline": 0.659,
+      "blocking": true,
+      "note": "baseline = 217/329 frozen predictions. Target is stated against eval_v3 where the reference is clean by construction, so the achievable floor is near zero rather than exactly zero."
+    },
+    "terse_single_topic": {
+      "metric": "eval_v3 category A domain accuracy",
+      "target": 0.7,
+      "baseline": null,
+      "blocking": false,
+      "note": "No v2 baseline exists -- the frozen benchmark contains no records under 150 characters. Measured for the first time by this suite; report the number rather than gating on it in the first run."
+    },
+    "multi_topic_count": {
+      "metric": "eval_v3 topic_count_accuracy",
+      "target": 0.9,
+      "baseline": 0.824,
+      "blocking": true,
+      "note": "v2 reached 0.8588 on the multitopic suite. eval_v3 is harder by construction (no case states its connective explicitly)."
+    },
+    "multi_topic_recall_no_regression": {
+      "metric": "multitopic_eval multi_topic_recall",
+      "target": 0.8941,
+      "baseline": 0.8941,
+      "blocking": true,
+      "note": "Floor, not a goal: C1-C3 must not cost two-topic recall."
+    },
+    "frozen_domain_no_regression": {
+      "metric": "frozen_eval domain_accuracy",
+      "target": 0.82,
+      "baseline": 0.8389,
+      "blocking": true,
+      "note": "Floor with ~2 points of headroom for the ontology noise the audit documented (traffic lights labelled sanitation). v1 scored 0.845, so anything below 0.82 means a real regression."
+    },
+    "frozen_issue_rouge_expected_drop": {
+      "metric": "frozen_eval issue_rouge_l",
+      "target": 0.80,
+      "baseline": 0.9234,
+      "blocking": false,
+      "note": "A drop here is EXPECTED and desired: the frozen target contains the boilerplate C1 removes. Gating on it would punish the fix. Recorded so the drop is not mistaken for a regression."
+    },
+    "smoke_multi_topic": {
+      "metric": "smoke multi_topic",
+      "target": 4,
+      "baseline": 1,
+      "blocking": true,
+      "note": "All 4 two-topic smoke cases must fire. This is the smallest human-curated set and the most direct read on whether multi-topic extraction actually works."
+    },
+    "action_empty_when_absent": {
+      "metric": "eval_v3 category H share of cases with a non-empty predicted requested_action",
+      "target": 0.0,
+      "baseline": null,
+      "blocking": false,
+      "note": "Measures C2 directly. 12 cases, all with no request verb in the text."
+    }
+  },
+
+  "budget": {
+    "train_examples_target": 10500,
+    "train_examples_range": [9000, 12500],
+    "max_iterations": 800,
+    "batch_size": 2,
+    "grad_accum": 2,
+    "lora_rank": 8,
+    "lora_alpha": 20,
+    "lora_dropout": 0.0,
+    "target_modules": 16,
+    "learning_rate": 1e-4,
+    "optimizer": "adamw",
+    "seed": 42,
+    "estimate": "2 arms x 800 iterations; roughly 2x the v2 attempt-10 wall time. No training was run to produce this plan."
+  },
+
+  "preconditions": [
+    "Control arm must be run first under the seeded pipeline and must land within 1 point of the recorded baseline on every frozen metric, or the harness itself is not trustworthy and the treatment result is uninterpretable.",
+    "ml/tune/run_train.py must seed the data-shuffle iterator (see ml/reports/reproducibility_audit.md) -- otherwise control and treatment differ by batch order as well as by dataset.",
+    "The multitopic_share discrepancy in ml/data/tune/v2/meta.json must be resolved in the rebuilt v3 meta, not carried forward."
+  ],
+
+  "leakage_policy": {
+    "rule": "No v3 training example text may appear in any benchmark.",
+    "enforced_by": [
+      "ml/tests/test_eval_v3_suite.py::test_no_case_text_leaks_into_training",
+      "ml/tune/build_eval_v3.py::train_content_keys"
+    ],
+    "identity_rule": "Deduplicate and detect leakage by normalised text, never by `uid` -- the portal reuses case numbers across years. 130 uids span splits with unrelated text.",
+    "held_out_rule": "Augmentation may only be derived from train-split content. Held-out records may only be used to build eval_v3."
+  },
+
+  "explicitly_out_of_scope": [
+    "Changing ml/data/gold/annotation_schema.json. The 12-label / 13-enum mismatch is documented, not fixed here; changing it would invalidate every recorded number.",
+    "Populating the `benefits` and `other` domains, which have zero training support.",
+    "Any model artifact, adapter, or fused-model change.",
+    "Re-splitting the frozen date-based train/validation/test boundaries."
+  ]
+}

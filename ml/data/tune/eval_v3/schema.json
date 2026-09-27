@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "ukrainian-municipal-accountability/eval-v3-case",
+  "title": "One case of the v3 adversarial evaluation suite",
+  "type": "object",
+  "required": [
+    "id",
+    "category",
+    "category_name",
+    "provenance",
+    "text",
+    "expected_topics",
+    "expected_topic_count",
+    "expected_domains"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^ev3-\\d{3}$"
+    },
+    "category": {
+      "type": "string",
+      "pattern": "^[A-V]$"
+    },
+    "category_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expected_topic_count": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "kind",
+        "sources",
+        "splits",
+        "note"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "real",
+            "condensed",
+            "composed"
+          ]
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "splits": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": [
+              "validation",
+              "test"
+            ]
+          }
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "text": {
+      "type": "string",
+      "minLength": 5
+    },
+    "expected_topics": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "domain",
+          "issue",
+          "object",
+          "requested_action",
+          "attributes"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "domain": {
+            "type": "string",
+            "minLength": 1
+          },
+          "issue": {
+            "type": "string",
+            "minLength": 1
+          },
+          "object": {
+            "type": "string"
+          },
+          "requested_action": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "expected_domains": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}
