@@ -386,3 +386,95 @@ def test_fused_arm_is_served_identically_to_v2(arm):
         assert a == b, f"{name} differs between {arm} and v2"
     assert (fused / "model.safetensors").exists() or (fused / "model.safetensors.index.json").exists()
     assert json.loads((fused / "fuse_manifest.json").read_text())["fused_modules"] > 0
+
+
+# ------------------------------------------------------------------ comparison
+def test_mcnemar_is_one_when_the_arms_agree_everywhere():
+    from ml.tune.compare_arms import mcnemar
+    v = [True, False, True, False]
+    r = mcnemar(v, list(v))
+    assert r["a_only"] == 0 and r["b_only"] == 0 and r["p"] == 1.0
+
+
+def test_mcnemar_uses_only_the_discordant_pairs():
+    """N agreements must not dilute the test: 100 shared successes say nothing
+    about a difference concentrated in 10 cases."""
+    from ml.tune.compare_arms import mcnemar
+    a = [True] * 10 + [True] * 100
+    b = [True] * 10 + [False] * 100
+    r = mcnemar(a, b)
+    assert (r["a_only"], r["b_only"]) == (100, 0)
+    assert r["p"] < 0.01, r
+
+
+def test_mcnemar_reports_no_difference_as_uncertain():
+    from ml.tune.compare_arms import mcnemar
+    a = [True] * 6 + [False] * 94
+    b = [True] * 5 + [False] * 95
+    assert mcnemar(a, b)["p"] > 0.05
+
+
+def test_bootstrap_ci_brackets_the_observed_delta():
+    from ml.tune.compare_arms import paired_bootstrap
+    a = [1.0] * 50 + [0.0] * 50
+    b = [0.0] * 50 + [0.0] * 50
+    r = paired_bootstrap(a, b, iters=2000)
+    assert r["delta"] == 0.5
+    lo, hi = r["ci95"]
+    assert lo <= 0.5 <= hi
+
+
+def test_taxonomy_attributes_each_failure_once():
+    """First match wins, so a case that is not valid JSON is not also counted as
+    a domain error -- otherwise one broken case inflates several categories."""
+    from ml.tune.compare_arms import classify
+    case = {"json_ok": False, "schema_ok": False, "topic_count_ok": False,
+            "domain_set_exact": False, "domain_set_recall": 0.0,
+            "domain_set_precision": 0.0, "boilerplate_leak": True,
+            "action_redundant": True, "out_of_enum_domain": True,
+            "duplicate_domain": True}
+    assert classify(case) == "not_json"
+
+
+def test_taxonomy_counts_every_case_exactly_once():
+    """no_error + failures == n, so no case is dropped or double-counted."""
+    from ml.tune.compare_arms import classify
+    for tag in ("v2", "floor_reference"):
+        p = ROOT / "ml/data/tune/eval_v3/results" / f"{tag}.json"
+        if not p.exists():
+            pytest.skip(f"{tag} results not present")
+        result = json.loads(p.read_text())
+        labels = [classify(c) for c in result["per_case"]]
+        assert len(labels) == result["metrics"]["n"]
+        assert sum(1 for x in labels if x is None) + sum(
+            1 for x in labels if x is not None) == len(labels)
+
+
+def test_reference_floor_reproduces_its_own_references():
+    """If the floor cannot score 1.0 against labels built from itself, the scorer
+    is wrong and every model number measured with it is wrong too."""
+    p = ROOT / "ml/data/tune/eval_v3/results/floor_reference.json"
+    if not p.exists():
+        pytest.skip("floor results not present")
+    m = json.loads(p.read_text())["metrics"]
+    assert m["issue_rouge_l_best"] == 1.0, m
+    assert m["domain_set_precision"] == 1.0, m
+    assert m["domain_set_recall"] == 1.0, m
+    assert m["topic_count_accuracy"] == 1.0, m
+
+
+def test_compare_refuses_two_different_case_suites():
+    """A per-case diff silently drops unshared cases; the number it prints would
+    then describe a subset neither arm was measured on."""
+    from ml.tune import compare_arms
+    orig = compare_arms.load
+    try:
+        def fake(tag):
+            r = orig(tag)
+            r["per_case"] = r["per_case"][:-1] if tag == "floor_reference" else r["per_case"]
+            return r
+        compare_arms.load = fake
+        with pytest.raises(SystemExit, match="same cases"):
+            compare_arms.compare("v2", "floor_reference")
+    finally:
+        compare_arms.load = orig
