@@ -352,11 +352,23 @@ def test_fuse_inherits_the_serving_contract_rather_than_re_deriving_it():
 
 
 def test_fuse_refuses_to_run_without_the_verified_template():
-    """Silently producing an arm with a different template is worse than failing."""
+    """Silently producing an arm with a different template is worse than failing.
+
+    A real adapter directory is passed on purpose: the point is to reach the
+    template check, not the "is this an adapter" check in front of it.
+    """
     from ml.tune import fuse_v3
+    adapter = DATA_DIR / "tune" / "adapters" / "qwen3-8b-lora-v2"
+    assert (adapter / "adapter_config.json").exists(), "need a real adapter to test with"
     with pytest.raises(SystemExit, match="serving contract"):
-        fuse_v3.fuse(fuse_v3.DATA, fuse_v3.DATA / "out",
-                     template_from=ROOT / "ml/tune/does-not-exist")
+        fuse_v3.fuse(adapter, adapter.parent / "unused-out",
+                     template_from=ROOT / "ml/tune" / "does-not-exist")
+
+
+def test_fuse_rejects_a_directory_that_is_not_an_adapter():
+    from ml.tune import fuse_v3
+    with pytest.raises(SystemExit, match="not a LoRA adapter"):
+        fuse_v3.fuse(fuse_v3.V2_FUSED, fuse_v3.DATA / "unused-out")
 
 
 @pytest.mark.parametrize("arm", ["v3-control", "v3-treatment"])
