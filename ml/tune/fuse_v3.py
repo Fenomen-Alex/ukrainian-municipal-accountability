@@ -70,6 +70,16 @@ def _git(*args: str) -> str | None:
         return None
 
 
+def _rel(adapter: Path) -> str:
+    """The adapter may be given relative (as the driver does) while ROOT is
+    absolute; ``Path.relative_to`` then raises rather than computing a relative
+    path. Normalise both sides first."""
+    ap, root = adapter.resolve(), ROOT.resolve()
+    if ap == root:
+        return "."
+    return str(ap.relative_to(root))
+
+
 def fuse(adapter: Path, out: Path, *, base: str = BASE_MODEL,
          template_from: Path = V2_FUSED) -> dict:
     """Fuse ``adapter`` into ``out`` and return the provenance manifest."""
@@ -111,11 +121,11 @@ def fuse(adapter: Path, out: Path, *, base: str = BASE_MODEL,
 
     manifest = {
         "base_model": base,
-        "adapter_path": str(adapter.relative_to(ROOT)),
+        "adapter_path": _rel(adapter),
         "adapter_sha256": {
             p.name: sha256(p) for p in sorted(adapter.glob("*.safetensors"))},
-        "fused_path": str(out.relative_to(ROOT)),
-        "inherited_from": str(template_from.relative_to(ROOT)),
+        "fused_path": _rel(out),
+        "inherited_from": _rel(template_from),
         "inherited_sha256": {name: sha256(out / name) for name in INHERITED},
         "fused_modules": len(fused),
         "dequantize": False,
