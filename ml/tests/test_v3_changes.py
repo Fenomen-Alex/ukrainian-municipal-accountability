@@ -540,3 +540,70 @@ def test_empty_action_gate_counts_invented_actions_in_category_h():
     assert len(h) == 12, len(h)
     expected = sum(1 for c in h if any((a or "").strip() for a in c["predicted_actions"]))
     assert _empty_action_invention(ev3) == expected
+
+
+# ------------------------------------------------------------- training completion
+def _fake_adapters(tmp_path: Path, iters_done: int, save_every: int = 100,
+                   final_marker: bool = True) -> tuple[Path, Path]:
+    d = tmp_path / "adapters"
+    d.mkdir()
+    for it in range(save_every, iters_done + 1, save_every):
+        (d / f"{it:07d}_adapters.safetensors").write_bytes(b"x")
+    # the file mlx_lm rewrites at every checkpoint
+    (d / "adapters.safetensors").write_bytes(b"x")
+    log = tmp_path / "train.log"
+    log.write_text("Iter 100: Saved adapter weights\n"
+                   + ("Saved final weights to adapters.safetensors.\n"
+                      if final_marker else ""))
+    return d, log
+
+
+def test_presence_of_adapters_safetensors_is_not_completion(tmp_path):
+    """The exact trap. mlx_lm writes adapters.safetensors at *every* checkpoint,
+    so a pipeline waiting on that file fuses a 100-iteration adapter and reports
+    it as the finished arm -- same size, same shape, silently wrong."""
+    from ml.tune.training_state import is_complete
+    d, log = _fake_adapters(tmp_path, iters_done=100, final_marker=False)
+    assert (d / "adapters.safetensors").exists()
+    assert not is_complete(d, 800, 100, log), "an unfinished run reported complete"
+
+
+def test_complete_requires_every_checkpoint_and_the_final_marker(tmp_path):
+    from ml.tune.training_state import is_complete
+    d, log = _fake_adapters(tmp_path, iters_done=800, final_marker=True)
+    assert is_complete(d, 800, 100, log)
+
+
+def test_missing_final_marker_is_not_complete(tmp_path):
+    """All eight checkpoints on disk but the loop never finished: a crash between
+    the last periodic save and the end of training."""
+    from ml.tune.training_state import is_complete
+    d, log = _fake_adapters(tmp_path, iters_done=800, final_marker=False)
+    assert not is_complete(d, 800, 100, log)
+
+
+def test_a_gap_in_the_checkpoint_sequence_is_not_complete(tmp_path):
+    from ml.tune.training_state import is_complete
+    d, log = _fake_adapters(tmp_path, iters_done=800, final_marker=True)
+    (d / "0000400_adapters.safetensors").unlink()
+    assert not is_complete(d, 800, 100, log)
+
+
+def test_describe_reports_what_is_still_missing(tmp_path):
+    from ml.tune.training_state import describe
+    d, _ = _fake_adapters(tmp_path, iters_done=300)
+    info = describe(d, 800, 100)
+    assert info["checkpoints"] == [100, 200, 300]
+    assert info["missing"] == [400, 500, 600, 700, 800]
+    assert info["n_checkpoints"] == 3
+
+
+def test_the_live_control_run_is_reported_incomplete():
+    """Guards the run in flight: if this ever passes while the job is still
+    going, the driver is about to fuse a partial adapter."""
+    from ml.tune.training_state import describe
+    d = DATA_DIR / "tune" / "adapters" / "qwen3-8b-lora-v3-control"
+    if not d.exists():
+        pytest.skip("control run not started")
+    info = describe(d, 800, 100)
+    assert not info["final_checkpoint_present"] or info["n_checkpoints"] == 8

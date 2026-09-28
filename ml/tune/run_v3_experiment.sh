@@ -30,6 +30,11 @@ TREAT_ADAPTER="$ADAPTERS/qwen3-8b-lora-v3-treatment"
 TREAT_FUSED="$ADAPTERS/qwen3-8b-lora-v3-treatment-fused"
 TREAT_DATA="ml/data/tune/v3/treatment"
 
+# The control was launched before this driver existed, so its log lives where it
+# was started. training_state needs it: checkpoints alone cannot tell a finished
+# run from a crash between the last periodic save and the end of training.
+CONTROL_LOG="${CONTROL_LOG:-/var/folders/bc/8s_rgxsx0xx6hnv5xt2p_0cc0000gn/T/opencode/control_train.log}"
+
 mkdir -p "$LOGS"
 
 step() { printf '\n=== [%s] %s ===\n' "$(date +%H:%M:%S)" "$*" >&2; }
@@ -49,16 +54,22 @@ run() {
   fi
 }
 
-# Training writes 0000100_adapters.safetensors every save_every iterations and a
-# plain adapters.safetensors at the end, so the last file is the completion
-# signal. The timeout is generous because the run is unattended: a too-short
-# timeout would abort a healthy job, whereas a too-long one only wastes a poll.
+# mlx_lm rewrites adapters.safetensors at *every* checkpoint, so its presence does
+# not mean the run finished -- waiting on it would fuse a 100-iteration adapter and
+# call it the finished arm. ml.tune.training_state checks the numbered checkpoint
+# sequence and the "Saved final weights to" line the trainer only prints after its
+# loop; see that module for why both are required. The timeout is generous because
+# the run is unattended: a short timeout would abort a healthy job, a long one only
+# wastes a poll.
 wait_for_training() {
-  local dir="$1" limit="${2:-43200}" elapsed=0
+  local dir="$1" log="$2" limit="${3:-43200}" elapsed=0
   step "waiting for training: $dir (limit ${limit}s)"
-  while [ ! -f "$dir/adapters.safetensors" ]; do
+  while ! "$PY" -m ml.tune.training_state --dir "$dir" --iters 800 \
+                 --save-every 100 --log "$log"; do
     if [ "$elapsed" -ge "$limit" ]; then
       printf '  timed out after %ss waiting for %s\n' "$limit" "$dir" >&2
+      "$PY" -m ml.tune.training_state --dir "$dir" --iters 800 \
+        --save-every 100 --log "$log" --describe >&2 || true
       return 1
     fi
     sleep 60; elapsed=$((elapsed + 60))
@@ -67,6 +78,8 @@ wait_for_training() {
     fi
   done
   printf '  training complete after %ss\n' "$elapsed" >&2
+  "$PY" -m ml.tune.training_state --dir "$dir" --iters 800 \
+    --save-every 100 --log "$log" --describe >&2
 }
 
 # Every arm is scored by the same four runners under the same settings, and each
@@ -80,7 +93,7 @@ score_arm() {
 }
 
 # ---- 1. control -------------------------------------------------------------
-wait_for_training "$CONTROL_ADAPTER"
+wait_for_training "$CONTROL_ADAPTER" "$CONTROL_LOG"
 run control-fuse $MLX -m ml.tune.fuse_v3 --adapter "$CONTROL_ADAPTER" --out "$CONTROL_FUSED"
 score_arm "$CONTROL_FUSED" v3-control
 
