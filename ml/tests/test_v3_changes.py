@@ -478,3 +478,65 @@ def test_compare_refuses_two_different_case_suites():
             compare_arms.compare("v2", "floor_reference")
     finally:
         compare_arms.load = orig
+
+
+# ----------------------------------------------------------------------- gates
+def test_gates_are_not_vacuous_v2_must_fail_them():
+    """A gate that every existing artifact passes is not a gate. v2 is the
+    reference for every number, so if v2 passes, the target is set wrong."""
+    from ml.tune.gates_v3 import evaluate
+    rep = evaluate("v2")
+    assert rep.verdict() == "FAIL", [g.name for g in rep.blocking_failed]
+    failed = {g.name for g in rep.blocking_failed}
+    assert {"schema", "boilerplate", "topic_count", "smoke_two_topic"} <= failed
+
+
+def test_all_nine_gates_are_evaluated():
+    from ml.tune.gates_v3 import evaluate
+    rep = evaluate("v2")
+    assert len(rep.gates) == 9, [g.name for g in rep.gates]
+    names = [g.name for g in rep.gates]
+    assert len(set(names)) == 9, names
+    assert {g.name for g in rep.gates if g.blocking} == {
+        "schema", "boilerplate", "topic_count", "two_topic_recall",
+        "frozen_domain", "smoke_two_topic"}
+
+
+def test_every_gate_states_the_suite_it_was_measured_on():
+    """The 329 and 85 suites score against v1 weak labels that still contain the
+    boilerplate C1 removes, so a gate that does not name its suite cannot be read."""
+    from ml.tune.gates_v3 import evaluate
+    for g in evaluate("v2").gates:
+        assert g.suite and g.target and g.baseline
+
+
+def test_gate_observed_values_match_the_frozen_record():
+    """The evaluator must read the recorded numbers, not re-derive or hardcode."""
+    from ml.tune.gates_v3 import evaluate
+    by_name = {g.name: g for g in evaluate("v2").gates}
+    ev3 = json.loads((ROOT / "ml/data/tune/eval_v3/results/v2.json").read_text())["metrics"]
+    assert by_name["boilerplate"].observed == ev3["boilerplate_leak_rate"]
+    assert by_name["topic_count"].observed == ev3["topic_count_accuracy"]
+    frozen = json.loads((ROOT / "ml/data/tune/eval/lora.json").read_text())["metrics"]
+    assert by_name["frozen_domain"].observed == frozen["domain_accuracy"]
+    mt = json.loads((ROOT / "ml/data/tune/multitopic/results/lora.json").read_text())["metrics"]
+    assert by_name["two_topic_recall"].observed == mt["multi_topic_recall"]
+
+
+def test_smoke_two_topic_gate_counts_only_multitopic_cases():
+    from ml.tune.gates_v3 import _smoke_two_topic, _smoke
+    rows, path = _smoke("v2")
+    assert rows, path
+    ok, total = _smoke_two_topic(rows)
+    mt = [r for r in rows if r["category"] == "Multi-Topic"]
+    assert total == len(mt) == 4, total
+    assert 0 <= ok <= total
+
+
+def test_empty_action_gate_counts_invented_actions_in_category_h():
+    from ml.tune.gates_v3 import _empty_action_invention, _eval_v3
+    ev3 = _eval_v3("v2")
+    h = [c for c in ev3["per_case"] if c["category"] == "H"]
+    assert len(h) == 12, len(h)
+    expected = sum(1 for c in h if any((a or "").strip() for a in c["predicted_actions"]))
+    assert _empty_action_invention(ev3) == expected
