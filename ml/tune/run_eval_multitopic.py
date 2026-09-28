@@ -174,6 +174,14 @@ def main() -> None:
     ap.add_argument("--adapter-path", default=None)
     ap.add_argument("--max-tokens", type=int, default=1024)
     ap.add_argument("--temperature", type=float, default=0.0)
+    ap.add_argument(
+        "--tag", default=None,
+        help=(
+            "name for the result file; defaults to --mode. See the note in "
+            "ml/tune/run_eval.py -- the multitopic suite is shared by every arm, "
+            "so overwriting it destroys the comparison"
+        ),
+    )
     args = ap.parse_args()
 
     suite = _load_suite()
@@ -192,9 +200,10 @@ def main() -> None:
     validator = load_validator()
     metrics = eval_multitopic(preds, targets, validator)
 
+    tag = args.tag or args.mode
     out_dir = MT_DIR / "results"
     out_dir.mkdir(parents=True, exist_ok=True)
-    export_run(out_dir / f"{args.mode}.json", args.mode, preds, metrics)
+    export_run(out_dir / f"{tag}.json", tag, preds, metrics)
     print(json.dumps(metrics, ensure_ascii=False, indent=2))
 
 

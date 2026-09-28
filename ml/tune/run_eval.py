@@ -90,6 +90,15 @@ def main() -> None:
     ap.add_argument("--adapter-path", default=None)
     ap.add_argument("--max-tokens", type=int, default=1024)
     ap.add_argument("--temperature", type=float, default=0.0)
+    ap.add_argument(
+        "--tag", default=None,
+        help=(
+            "name for the result file. Defaults to --mode, which is correct only "
+            "while a single LoRA arm exists: the file is written as {tag}.json, so "
+            "evaluating a second arm under the default would overwrite the first "
+            "arm's scores and the v2 baseline in the same directory"
+        ),
+    )
     args = ap.parse_args()
 
     targets = []
@@ -124,10 +133,11 @@ def main() -> None:
     validator = load_validator()
     metrics = eval_predictions(preds, targets, validator)
 
+    tag = args.tag or args.mode
     out_dir = OUT_DIR / "eval"
     out_dir.mkdir(parents=True, exist_ok=True)
-    export_run(out_dir / f"{args.mode}.json", args.mode, preds, metrics)
-    Path(out_dir / f"{args.mode}_targets.jsonl").write_text(
+    export_run(out_dir / f"{tag}.json", tag, preds, metrics)
+    Path(out_dir / f"{tag}_targets.jsonl").write_text(
         "\n".join(json.dumps(t, ensure_ascii=False) for t in targets)
     )
     print(json.dumps(metrics, ensure_ascii=False, indent=2))
