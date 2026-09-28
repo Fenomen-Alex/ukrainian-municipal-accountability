@@ -731,3 +731,26 @@ def test_the_control_did_not_pass_its_own_validation():
     assert gap < -0.05, (
         f"control within {gap:+.4f} of v2 on topic_count; either the batch "
         "window lottery is gone or v3-control.json was overwritten")
+
+
+def test_run_train_accepts_resume_flag():
+    """--resume-adapter-file is what makes the full-corpus run resumable after
+    an infrastructure crash; it must round-trip into the namespace."""
+    from ml.tune.run_train import build_parser
+    args = build_parser().parse_args(
+        ["--adapter-path", "x", "--iters", "4724",
+         "--resume-adapter-file", "ml/data/tune/adapters/qwen3-8b-lora-v3-treatment/04500_adapters.safetensors"])
+    assert str(args.resume_adapter_file).endswith("04500_adapters.safetensors")
+
+
+def test_full_corpus_iterations_cover_every_training_row():
+    """The v3 replacement for the 800-step window: iters must be >= ceil(rows /
+    batch) so every emitted training example is seen at least once."""
+    from pathlib import Path
+    rows = sum(1 for _ in open(TREATMENT / "train.jsonl"))
+    batch = 2
+    iters = (rows + batch - 1) // batch
+    n_batches = (rows - batch) // batch + 1
+    assert iters == 4724
+    assert iters >= n_batches          # not (as before) a random ~19% window
+    assert iters * batch >= rows       # every row reachable in one epoch

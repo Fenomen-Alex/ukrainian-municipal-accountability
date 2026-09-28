@@ -110,6 +110,11 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--steps-per-report", type=int, default=10)
     ap.add_argument("--steps-per-eval", type=int, default=50)
     ap.add_argument("--save-every", type=int, default=100)
+    ap.add_argument("--resume-adapter-file", type=Path, default=None,
+                    help="resume training from a numbered checkpoint "
+                         "(_adapters.safetensors); the seeded batch order makes "
+                         "the replayed prefix from step 1 identical, so the tail "
+                         "of a deterministic run is safe to continue")
     ap.add_argument("--seed", type=int, default=42)
     return ap
 
@@ -143,7 +148,7 @@ def main() -> None:
         "sgd": {},
         "adafactor": {},
     }
-    ns.resume_adapter_file = None
+    ns.resume_adapter_file = args.resume_adapter_file
     ns.lr_schedule = None
     ns.test_batches = 500
     ns.clear_cache_threshold = 0
