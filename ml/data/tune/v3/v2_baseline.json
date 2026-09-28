@@ -1,0 +1,1735 @@
+{
+  "purpose": "Frozen v2 baseline for the v3 seeded-control experiment. Every number here is read from an on-disk artifact by ml/tune/freeze_v2_baseline.py. Do not hand-edit.",
+  "frozen": true,
+  "model": {
+    "artifact": "ml/data/tune/adapters/qwen3-8b-lora-v2-attempt10-fused",
+    "hf_repo": "Fenomen-Alex/ukrainian-municipal-accountability-qwen3-8b",
+    "hf_revision": "6a831b155aa4891b2a96206df0e665c7355f04bb",
+    "adapter_config": {
+      "adapter_path": "ml/data/tune/adapters/qwen3-8b-lora-v2",
+      "batch_size": 2,
+      "clear_cache_threshold": 0,
+      "config": null,
+      "data": "ml/data/tune/v2",
+      "fine_tune_type": "lora",
+      "grad_accumulation_steps": 2,
+      "grad_checkpoint": false,
+      "hf_dataset": false,
+      "iters": 800,
+      "learning_rate": 0.0001,
+      "lora_parameters": {
+        "rank": 8,
+        "dropout": 0.0,
+        "scale": 20.0
+      },
+      "lr_schedule": null,
+      "mask_prompt": true,
+      "max_seq_length": 2048,
+      "model": "mlx-community/Qwen3-8B-4bit",
+      "num_layers": 16,
+      "optimizer": "adamw",
+      "optimizer_config": {
+        "adam": {},
+        "adamw": {},
+        "muon": {},
+        "sgd": {},
+        "adafactor": {}
+      },
+      "project_name": null,
+      "report_to": null,
+      "resume_adapter_file": null,
+      "save_every": 100,
+      "seed": 42,
+      "steps_per_eval": 50,
+      "steps_per_report": 10,
+      "test": false,
+      "test_batches": 500,
+      "train": true,
+      "val_batches": 10
+    }
+  },
+  "dataset": {
+    "train": {
+      "path": "ml/data/tune/v2/train.jsonl",
+      "n": 8519,
+      "sha256": "a93a6af427b4056c4c07d6691b4ac2563f3d1b1f77e3accad586dc8aede6702b"
+    },
+    "validation": {
+      "path": "ml/data/tune/v2/validation.jsonl",
+      "n": 1124,
+      "sha256": "c7cea07ec00f60e881d2cef08e476676ba3d676e6d1798fee77721987ac7ff0e"
+    },
+    "test": {
+      "path": "ml/data/tune/v2/test.jsonl",
+      "n": 329,
+      "sha256": "49a7c35185586849f4c5e130e9ef7734478c7ef830e93f97af04058b1b6cc043"
+    }
+  },
+  "suites": {
+    "frozen_329": {
+      "path": "ml/data/tune/eval/lora.json",
+      "reference": "v1 weak label, uncleaned",
+      "metrics": {
+        "n": 329,
+        "json_parse_rate": 1.0,
+        "schema_validity_rate": 0.997,
+        "domain_accuracy": 0.8389,
+        "domain_macro_f1": 0.7596,
+        "issue_rouge_l": 0.9234,
+        "object_exact": 0.9422,
+        "object_token_overlap": 0.9574,
+        "object_mismatch_discriminator": 0.0334,
+        "action_presence_target": 0.5015,
+        "action_presence_pred": 0.4985,
+        "action_presence_match": 0.9909,
+        "hallucination_rate": 0.0152,
+        "multi_topic_rate": 0.0365
+      }
+    },
+    "multitopic_85": {
+      "path": "ml/data/tune/multitopic/results/lora.json",
+      "reference": "v1 weak label, uncleaned",
+      "metrics": {
+        "n": 85,
+        "json_parse_rate": 0.9882,
+        "schema_validity_rate": 0.9882,
+        "topic_count_accuracy": 0.8588,
+        "multi_topic_recall": 0.8941,
+        "domain_set_exact": 0.6824,
+        "domain_set_precision": 0.8961,
+        "domain_set_recall": 0.8353,
+        "issue_rouge_l_best": 0.7988,
+        "per_example": [
+          {
+            "uid": "MT-REAL-Ч-2181",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "pred_n": 1,
+            "pred_domains": [
+              "roads"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-REAL-Б-2606",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "pred_n": 1,
+            "pred_domains": [
+              "roads"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-Ш-2860-Ю-1915",
+            "target_n": 2,
+            "target_domains": [
+              "construction",
+              "transport"
+            ],
+            "pred_n": 1,
+            "pred_domains": [
+              "transport"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-О-3061-К-1027",
+            "target_n": 2,
+            "target_domains": [
+              "construction",
+              "heating"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "heating",
+              "sanitation"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-П-3172-С-1107",
+            "target_n": 2,
+            "target_domains": [
+              "construction",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "construction",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-Г-3409-Є-2950",
+            "target_n": 2,
+            "target_domains": [
+              "payments",
+              "transport"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "payments",
+              "transport"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-П-3140-К-1422",
+            "target_n": 2,
+            "target_domains": [
+              "heating",
+              "housing"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "heating",
+              "housing"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-Ш-2860-П-3580",
+            "target_n": 2,
+            "target_domains": [
+              "sanitation",
+              "transport"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "sanitation",
+              "transport"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-К-215-Ф-2824",
+            "target_n": 2,
+            "target_domains": [
+              "heating",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "heating",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-С-3537-Ш-1585",
+            "target_n": 2,
+            "target_domains": [
+              "electricity",
+              "heating"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "electricity",
+              "heating"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-Г-3407-З-69",
+            "target_n": 2,
+            "target_domains": [
+              "heating",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "heating",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-Ч-2288-Д-803",
+            "target_n": 2,
+            "target_domains": [
+              "commerce",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "commerce",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-М-2497-М-1698",
+            "target_n": 2,
+            "target_domains": [
+              "sanitation",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "sanitation",
+              "water"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-К-3720-Ш-3497",
+            "target_n": 2,
+            "target_domains": [
+              "electricity",
+              "heating"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "electricity",
+              "heating"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-Р-2204-С-2902",
+            "target_n": 2,
+            "target_domains": [
+              "heating",
+              "housing"
+            ],
+            "pred_n": 1,
+            "pred_domains": [
+              "water"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-М-1190-С-1017",
+            "target_n": 2,
+            "target_domains": [
+              "housing",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "housing",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-В-2051-П-1890",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-М-3199-М-1353",
+            "target_n": 2,
+            "target_domains": [
+              "electricity",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "electricity",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-Б-342-Г-3024",
+            "target_n": 2,
+            "target_domains": [
+              "heating",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "heating",
+              "water"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-Л-951-В-2859",
+            "target_n": 2,
+            "target_domains": [
+              "housing",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "housing",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-П-2745-Р-13",
+            "target_n": 2,
+            "target_domains": [
+              "housing",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "housing",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-К-434-Г-1532",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "pred_n": 0,
+            "pred_domains": [],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-С-1366-Я-1952",
+            "target_n": 2,
+            "target_domains": [
+              "housing",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "housing",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-К-2726-К-884",
+            "target_n": 2,
+            "target_domains": [
+              "sanitation",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "sanitation",
+              "water"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-Д-1069-К-3070",
+            "target_n": 2,
+            "target_domains": [
+              "heating",
+              "housing"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "heating",
+              "housing"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-С-2031-В-675",
+            "target_n": 2,
+            "target_domains": [
+              "heating",
+              "payments"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "heating",
+              "payments"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-К-1027-К-2135",
+            "target_n": 2,
+            "target_domains": [
+              "construction",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "sanitation",
+              "water"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-М-1216-Д-607",
+            "target_n": 2,
+            "target_domains": [
+              "housing",
+              "payments"
+            ],
+            "pred_n": 3,
+            "pred_domains": [
+              "housing",
+              "payments",
+              "sanitation"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-К-1071-Ч-2814",
+            "target_n": 2,
+            "target_domains": [
+              "housing",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "housing",
+              "water"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-С-2165-Є-3554",
+            "target_n": 2,
+            "target_domains": [
+              "electricity",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "electricity",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-Ш-1439-Р-3261",
+            "target_n": 2,
+            "target_domains": [
+              "heating",
+              "payments"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "heating",
+              "payments"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-Б-2505-Т-142",
+            "target_n": 2,
+            "target_domains": [
+              "sanitation",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "sanitation",
+              "water"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-Д-1680-Г-3180",
+            "target_n": 2,
+            "target_domains": [
+              "housing",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "housing",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-Ж-891-*-3239",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "transport"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "roads",
+              "transport"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-Д-3389-Ш-435",
+            "target_n": 2,
+            "target_domains": [
+              "heating",
+              "roads"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "heating",
+              "roads"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-Ю-1583-Ж-3176",
+            "target_n": 2,
+            "target_domains": [
+              "heating",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "heating",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-С-1230-Х-3388",
+            "target_n": 2,
+            "target_domains": [
+              "heating",
+              "transport"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "heating",
+              "transport"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-К-2700-П-1336",
+            "target_n": 2,
+            "target_domains": [
+              "sanitation",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "government",
+              "sanitation"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-SS-Ш-998-С-1446",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-SS-Г-3198-П-3172",
+            "target_n": 2,
+            "target_domains": [
+              "construction",
+              "roads"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "construction",
+              "roads"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-SS-К-2438-Т-3845",
+            "target_n": 2,
+            "target_domains": [
+              "electricity",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "electricity",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-SS-Д-803-Ц-1436",
+            "target_n": 2,
+            "target_domains": [
+              "commerce",
+              "roads"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-SS-Г-2973-Д-448",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-SS-Д-3359-Т-1410",
+            "target_n": 2,
+            "target_domains": [
+              "housing",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "housing",
+              "water"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-SS-О-919-О-2652",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "pred_n": 1,
+            "pred_domains": [
+              "roads"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-SS-І-589-Б-2922",
+            "target_n": 2,
+            "target_domains": [
+              "electricity",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "electricity",
+              "water"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-SS-Д-2579-І-442",
+            "target_n": 2,
+            "target_domains": [
+              "construction",
+              "sanitation"
+            ],
+            "pred_n": 4,
+            "pred_domains": [
+              "sanitation"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-SS-Г-1907-Л-2726",
+            "target_n": 2,
+            "target_domains": [
+              "construction",
+              "roads"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "construction",
+              "roads"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-SS-М-3177-М-709",
+            "target_n": 2,
+            "target_domains": [
+              "electricity",
+              "roads"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "electricity",
+              "roads"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-SS-М-3355-Л-2372",
+            "target_n": 2,
+            "target_domains": [
+              "sanitation",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "sanitation"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-SS-С-840-Н-2721",
+            "target_n": 2,
+            "target_domains": [
+              "construction",
+              "roads"
+            ],
+            "pred_n": 3,
+            "pred_domains": [
+              "construction",
+              "roads"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-SS-К-1047-М-3730",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-SS-К-869-С-1058",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-CS-С-1446-Ш-998",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-CS-Х-534-П-2377",
+            "target_n": 2,
+            "target_domains": [
+              "transport",
+              "water"
+            ],
+            "pred_n": 1,
+            "pred_domains": [
+              "water"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-CS-Ю-2066-К-2239",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-CS-П-2594-П-1573",
+            "target_n": 2,
+            "target_domains": [
+              "construction",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-CS-Н-582-П-1005",
+            "target_n": 2,
+            "target_domains": [
+              "housing",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "housing",
+              "water"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-CS-Г-3228-А-3359",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-CS-А-198-Ч-3429",
+            "target_n": 2,
+            "target_domains": [
+              "heating",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "heating",
+              "water"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-CS-В-640-Б-671",
+            "target_n": 2,
+            "target_domains": [
+              "housing",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "housing",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-CS-К-873-К-3550",
+            "target_n": 2,
+            "target_domains": [
+              "sanitation",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "sanitation",
+              "water"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-CS-Б-1117-М-223",
+            "target_n": 2,
+            "target_domains": [
+              "construction",
+              "transport"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "sanitation",
+              "transport"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-CS-Ч-861-Ч-1136",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "roads",
+              "water"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-CS-Ю-1915-К-3321",
+            "target_n": 2,
+            "target_domains": [
+              "construction",
+              "heating"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "construction",
+              "heating"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-CS-К-773-М-1464",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "roads"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-RS-А-1973-С-1912",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-RS-С-3120-С-3325",
+            "target_n": 2,
+            "target_domains": [
+              "electricity",
+              "housing"
+            ],
+            "pred_n": 1,
+            "pred_domains": [
+              "housing"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-RS-К-2463-Д-3531",
+            "target_n": 2,
+            "target_domains": [
+              "housing",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "housing",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-RS-Д-3789-Д-580",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "roads",
+              "water"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-RS-Б-2399-Л-3434",
+            "target_n": 2,
+            "target_domains": [
+              "heating",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "housing",
+              "sanitation"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-RS-О-132-Т-1295",
+            "target_n": 2,
+            "target_domains": [
+              "sanitation",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "sanitation",
+              "water"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-RS-Т-1770-Б-481",
+            "target_n": 2,
+            "target_domains": [
+              "housing",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "housing",
+              "roads"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-RS-М-3572-К-3543",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-RS-Я-212-П-1931",
+            "target_n": 2,
+            "target_domains": [
+              "housing",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "housing",
+              "roads"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-RS-В-1834-Б-3523",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-RS-Т-2523-Ш-946",
+            "target_n": 2,
+            "target_domains": [
+              "electricity",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "electricity",
+              "water"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-RS-М-3853-Ш-578",
+            "target_n": 2,
+            "target_domains": [
+              "heating",
+              "housing"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "heating",
+              "housing"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-SC-Ч-1731-Т-2980",
+            "target_n": 2,
+            "target_domains": [
+              "sanitation",
+              "water"
+            ],
+            "pred_n": 1,
+            "pred_domains": [
+              "sanitation"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-SC-Д-2966-Л-887",
+            "target_n": 2,
+            "target_domains": [
+              "sanitation",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "sanitation",
+              "water"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-SC-М-709-Р-897",
+            "target_n": 2,
+            "target_domains": [
+              "roads",
+              "sanitation"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "sanitation"
+            ],
+            "domain_set_exact": false
+          },
+          {
+            "uid": "MT-SYN-SC-Д-2981-К-2956",
+            "target_n": 2,
+            "target_domains": [
+              "housing",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "housing",
+              "water"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-SC-С-3006-Н-162",
+            "target_n": 2,
+            "target_domains": [
+              "heating",
+              "housing"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "heating",
+              "housing"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-SC-Я-2889-К-278",
+            "target_n": 2,
+            "target_domains": [
+              "electricity",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "electricity",
+              "water"
+            ],
+            "domain_set_exact": true
+          },
+          {
+            "uid": "MT-SYN-SC-Д-358-В-2656",
+            "target_n": 2,
+            "target_domains": [
+              "housing",
+              "water"
+            ],
+            "pred_n": 2,
+            "pred_domains": [
+              "housing",
+              "water"
+            ],
+            "domain_set_exact": true
+          }
+        ]
+      }
+    },
+    "smoke_20_v2": {
+      "path": "ml/data/tune/smoke/results/finetuned-v2/smoke_results.jsonl",
+      "n": 20,
+      "sha256": "fb553d57a4ee0df09f51ee2d4f1b7778a41d7c6085ff3311beaec33f2786e6f6",
+      "schema_valid": 20,
+      "domain_coverage": 0,
+      "overall_pass": 20,
+      "multi_topic_correct": 0,
+      "multi_topic_expected": 4,
+      "note": "identical bytes to the finetuned dir; both are v2 output"
+    },
+    "smoke_20_v1": {
+      "path": "ml/data/tune/smoke/results/v1_finetuned_stash/smoke_results.jsonl",
+      "n": 20,
+      "sha256": "a1da7768cd219049829997a2509f3bbd5c4f15ff7ef8e7aaff9a0e0e5e984cd9",
+      "schema_valid": 20,
+      "domain_coverage": 0,
+      "overall_pass": 20,
+      "multi_topic_correct": 0,
+      "multi_topic_expected": 4,
+      "note": "the real v1 comparison, only present in the stash"
+    },
+    "adversarial_146": {
+      "path": "ml/data/tune/eval_v3/results/v2.json",
+      "reference": "eval_v3 reference label, BOILER_SENT cleaned",
+      "note": "First ever measurement. No scorer existed before ml/tune/run_eval_v3.py, so the plan.json eval_v3 baselines were unverified.",
+      "metrics": {
+        "n": 146,
+        "json_parse_rate": 0.9932,
+        "schema_validity_rate": 0.9863,
+        "topic_count_accuracy": 0.7808,
+        "domain_set_exact": 0.6301,
+        "domain_set_precision": 0.8356,
+        "domain_set_recall": 0.7637,
+        "issue_rouge_l_best": 0.6719,
+        "boilerplate_leak_rate": 0.3699,
+        "action_redundancy_rate": 0.2055,
+        "out_of_enum_rate": 0.0068,
+        "duplicate_domain_rate": 0.0137,
+        "mean_predicted_topics": 1.2123,
+        "mean_expected_topics": 1.3562
+      },
+      "by_category": {
+        "A": {
+          "n": 10,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 1.0,
+          "domain_set_exact": 0.8,
+          "domain_set_precision": 0.8,
+          "domain_set_recall": 0.8,
+          "issue_rouge_l_best": 0.7206,
+          "boilerplate_leak_rate": 0.0,
+          "action_redundancy_rate": 0.0,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "B": {
+          "n": 8,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 0.375,
+          "domain_set_exact": 0.25,
+          "domain_set_precision": 0.9375,
+          "domain_set_recall": 0.625,
+          "issue_rouge_l_best": 0.6119,
+          "boilerplate_leak_rate": 0.0,
+          "action_redundancy_rate": 0.0,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "C": {
+          "n": 8,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 0.875,
+          "domain_set_exact": 0.625,
+          "domain_set_precision": 0.875,
+          "domain_set_recall": 0.8125,
+          "issue_rouge_l_best": 0.7103,
+          "boilerplate_leak_rate": 0.0,
+          "action_redundancy_rate": 0.0,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "D": {
+          "n": 8,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 0.375,
+          "domain_set_exact": 0.25,
+          "domain_set_precision": 0.9375,
+          "domain_set_recall": 0.625,
+          "issue_rouge_l_best": 0.7161,
+          "boilerplate_leak_rate": 0.125,
+          "action_redundancy_rate": 0.125,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "E": {
+          "n": 6,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 0.5,
+          "domain_set_exact": 0.5,
+          "domain_set_precision": 1.0,
+          "domain_set_recall": 0.75,
+          "issue_rouge_l_best": 0.6627,
+          "boilerplate_leak_rate": 0.0,
+          "action_redundancy_rate": 0.0,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "F": {
+          "n": 8,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 0.375,
+          "domain_set_exact": 0.375,
+          "domain_set_precision": 0.875,
+          "domain_set_recall": 0.625,
+          "issue_rouge_l_best": 0.5591,
+          "boilerplate_leak_rate": 0.125,
+          "action_redundancy_rate": 0.0,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "G": {
+          "n": 6,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 0.0,
+          "domain_set_exact": 0.0,
+          "domain_set_precision": 0.8333,
+          "domain_set_recall": 0.4167,
+          "issue_rouge_l_best": 0.5215,
+          "boilerplate_leak_rate": 0.0,
+          "action_redundancy_rate": 0.0,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "H": {
+          "n": 12,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 0.9167,
+          "domain_set_exact": 0.75,
+          "domain_set_precision": 0.7917,
+          "domain_set_recall": 0.8333,
+          "issue_rouge_l_best": 0.6614,
+          "boilerplate_leak_rate": 0.9167,
+          "action_redundancy_rate": 0.0,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "I": {
+          "n": 8,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 0.875,
+          "domain_set_exact": 0.5,
+          "domain_set_precision": 0.5,
+          "domain_set_recall": 0.5,
+          "issue_rouge_l_best": 0.6583,
+          "boilerplate_leak_rate": 0.5,
+          "action_redundancy_rate": 0.5,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "J": {
+          "n": 6,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 1.0,
+          "domain_set_exact": 0.8333,
+          "domain_set_precision": 0.8333,
+          "domain_set_recall": 0.8333,
+          "issue_rouge_l_best": 0.7262,
+          "boilerplate_leak_rate": 0.5,
+          "action_redundancy_rate": 0.5,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "K": {
+          "n": 8,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 0.875,
+          "domain_set_exact": 0.5,
+          "domain_set_precision": 0.875,
+          "domain_set_recall": 0.75,
+          "issue_rouge_l_best": 0.739,
+          "boilerplate_leak_rate": 0.0,
+          "action_redundancy_rate": 0.0,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.125
+        },
+        "L": {
+          "n": 6,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 1.0,
+          "domain_set_exact": 1.0,
+          "domain_set_precision": 1.0,
+          "domain_set_recall": 1.0,
+          "issue_rouge_l_best": 0.6393,
+          "boilerplate_leak_rate": 0.8333,
+          "action_redundancy_rate": 0.1667,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "M": {
+          "n": 4,
+          "schema_valid": 0.75,
+          "topic_count_accuracy": 1.0,
+          "domain_set_exact": 0.5,
+          "domain_set_precision": 0.5,
+          "domain_set_recall": 0.5,
+          "issue_rouge_l_best": 0.7017,
+          "boilerplate_leak_rate": 0.5,
+          "action_redundancy_rate": 0.5,
+          "out_of_enum_rate": 0.25,
+          "duplicate_domain_rate": 0.0
+        },
+        "N": {
+          "n": 5,
+          "schema_valid": 0.8,
+          "topic_count_accuracy": 0.8,
+          "domain_set_exact": 0.6,
+          "domain_set_precision": 0.6,
+          "domain_set_recall": 0.6,
+          "issue_rouge_l_best": 0.6742,
+          "boilerplate_leak_rate": 0.4,
+          "action_redundancy_rate": 0.2,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "O": {
+          "n": 6,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 1.0,
+          "domain_set_exact": 0.8333,
+          "domain_set_precision": 0.8333,
+          "domain_set_recall": 0.8333,
+          "issue_rouge_l_best": 0.6109,
+          "boilerplate_leak_rate": 0.6667,
+          "action_redundancy_rate": 0.3333,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "P": {
+          "n": 3,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 0.6667,
+          "domain_set_exact": 0.6667,
+          "domain_set_precision": 0.8333,
+          "domain_set_recall": 1.0,
+          "issue_rouge_l_best": 0.777,
+          "boilerplate_leak_rate": 0.0,
+          "action_redundancy_rate": 0.6667,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.3333
+        },
+        "Q": {
+          "n": 6,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 1.0,
+          "domain_set_exact": 1.0,
+          "domain_set_precision": 1.0,
+          "domain_set_recall": 1.0,
+          "issue_rouge_l_best": 0.8067,
+          "boilerplate_leak_rate": 0.6667,
+          "action_redundancy_rate": 0.3333,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "R": {
+          "n": 6,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 1.0,
+          "domain_set_exact": 1.0,
+          "domain_set_precision": 1.0,
+          "domain_set_recall": 1.0,
+          "issue_rouge_l_best": 0.7755,
+          "boilerplate_leak_rate": 0.8333,
+          "action_redundancy_rate": 0.0,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "S": {
+          "n": 7,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 0.8571,
+          "domain_set_exact": 0.7143,
+          "domain_set_precision": 0.7857,
+          "domain_set_recall": 0.8571,
+          "issue_rouge_l_best": 0.6124,
+          "boilerplate_leak_rate": 0.2857,
+          "action_redundancy_rate": 0.5714,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "T": {
+          "n": 5,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 0.8,
+          "domain_set_exact": 0.8,
+          "domain_set_precision": 0.9,
+          "domain_set_recall": 1.0,
+          "issue_rouge_l_best": 0.7544,
+          "boilerplate_leak_rate": 1.0,
+          "action_redundancy_rate": 0.6,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "U": {
+          "n": 6,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 1.0,
+          "domain_set_exact": 0.6667,
+          "domain_set_precision": 0.6667,
+          "domain_set_recall": 0.6667,
+          "issue_rouge_l_best": 0.464,
+          "boilerplate_leak_rate": 0.5,
+          "action_redundancy_rate": 0.5,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "V": {
+          "n": 4,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 1.0,
+          "domain_set_exact": 1.0,
+          "domain_set_precision": 1.0,
+          "domain_set_recall": 1.0,
+          "issue_rouge_l_best": 0.7961,
+          "boilerplate_leak_rate": 0.5,
+          "action_redundancy_rate": 0.5,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        }
+      },
+      "subsets": {
+        "terse_categories_ABC": {
+          "n": 26,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 0.7692,
+          "domain_set_exact": 0.5769,
+          "domain_set_precision": 0.8654,
+          "domain_set_recall": 0.75,
+          "issue_rouge_l_best": 0.684,
+          "boilerplate_leak_rate": 0.0,
+          "action_redundancy_rate": 0.0,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "terse_text_under_150": {
+          "n": 14,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 0.7857,
+          "domain_set_exact": 0.6429,
+          "domain_set_precision": 0.8571,
+          "domain_set_recall": 0.75,
+          "issue_rouge_l_best": 0.7133,
+          "boilerplate_leak_rate": 0.0,
+          "action_redundancy_rate": 0.0,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "multi_topic_categories": {
+          "n": 44,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 0.4318,
+          "domain_set_exact": 0.3409,
+          "domain_set_precision": 0.9091,
+          "domain_set_recall": 0.6477,
+          "issue_rouge_l_best": 0.6337,
+          "boilerplate_leak_rate": 0.0455,
+          "action_redundancy_rate": 0.0227,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0
+        },
+        "empty_action_category_H": {
+          "n": 12,
+          "schema_valid": 1.0,
+          "topic_count_accuracy": 0.9167,
+          "domain_set_exact": 0.75,
+          "domain_set_precision": 0.7917,
+          "domain_set_recall": 0.8333,
+          "issue_rouge_l_best": 0.6614,
+          "boilerplate_leak_rate": 0.9167,
+          "action_redundancy_rate": 0.0,
+          "out_of_enum_rate": 0.0,
+          "duplicate_domain_rate": 0.0,
+          "cases_with_nonempty_predicted_action": 0,
+          "share_nonempty_predicted_action": 0.0
+        }
+      }
+    }
+  },
+  "comparability_warning": "frozen_329 / multitopic_85 score against uncleaned v1 weak labels; adversarial_146 scores against eval_v3 references that are BOILER_SENT cleaned. A model that correctly strips boilerplate therefore scores WORSE on 329/85 than on eval_v3. Never pool these; report per suite.",
+  "suite_validity": {
+    "distinct_normalized_texts": 146,
+    "distinct_texts_of_146": 146,
+    "distinct_source_uids": 122,
+    "source_references": 198,
+    "composed_cases": 52,
+    "composed_distinct_source_uids": 39,
+    "warning": "The 146 cases are text-distinct, but they are not independent: 198 source references resolve to 122 uids, and the 52 composed cases are recombinations of only 39. A per-category result on B/D/F/G therefore rests on a handful of underlying complaints, so e.g. category G scoring 0.000 is 6 cases from a few sources -- suggestive, not decisive. uid reuse across cases is expected: the portal reuses case numbers across years (contract_audit section 5). Quote n with every category figure."
+  },
+  "metric_caveat_action_redundancy": "eval_v3 references are themselves 45.21% action-redundant (floor_reference.json), so eval_v3 action_redundancy_rate partly measures the reference rather than the model. The audit's 98.1% (154/157) is a different denominator: v2's non-empty actions on the frozen 329. Do not compare the two. Judge C2 on the training data instead.",
+  "plan_baseline_discrepancies": [
+    {
+      "gate": "success_gates.schema_validity.baseline",
+      "claimed": 1.0,
+      "claimed_source": "plan.json, no provenance",
+      "measured": 0.9863,
+      "measured_source": "eval_v3/results/v2.json metrics.schema_validity_rate",
+      "resolution": "use measured eval_v3 value; the frozen 329 schema is 0.997"
+    },
+    {
+      "gate": "success_gates.boilerplate_leak.baseline",
+      "claimed": 0.659,
+      "claimed_source": "plan.json",
+      "measured": 0.3699,
+      "measured_source": "eval_v3/results/v2.json metrics.boilerplate_leak_rate",
+      "resolution": "0.659 is the frozen-329 figure (217/329 target labels, contract_audit section 4), mis-attributed to eval_v3. eval_v3 measures 0.3699. The two corpora disagree because 329 references are uncleaned weak labels and eval_v3 references go through BOILER_SENT."
+    },
+    {
+      "gate": "success_gates.multi_topic_count.baseline",
+      "claimed": 0.824,
+      "claimed_source": "plan.json",
+      "measured": 0.7808,
+      "measured_source": "eval_v3/results/v2.json metrics.topic_count_accuracy",
+      "resolution": "0.824 matches neither suite: multitopic eval is 0.8588 and measured eval_v3 is 0.7808. Use the measured eval_v3 value for eval_v3 gates."
+    },
+    {
+      "gate": "success_gates.terse_single_topic.baseline",
+      "claimed": null,
+      "claimed_source": "plan.json, explicitly unset",
+      "measured": {
+        "topic_count_accuracy": 0.7857,
+        "domain_set_exact": 0.6429,
+        "n": 14
+      },
+      "measured_source": "eval_v3/results/v2.json subsets.terse_text_under_150",
+      "resolution": "now measured, but on only 14 cases; report the n alongside it"
+    },
+    {
+      "gate": "success_gates.action_empty_when_absent.baseline",
+      "claimed": null,
+      "claimed_source": "plan.json, explicitly unset",
+      "measured": {
+        "cases_inventing_an_action": 0,
+        "n": 12
+      },
+      "measured_source": "eval_v3/results/v2.json subsets.empty_action_category_H",
+      "resolution": "v2 already invents no action on category H. This gate has no headroom on eval_v3 category H, so the C2 claim must be evidenced on the training data and on terse cases, not on H."
+    }
+  ],
+  "git": {
+    "commit": "da25a78da7ec27ca3433cd1e4da2b8610dd29715",
+    "branch": "master",
+    "dirty": true
+  }
+}

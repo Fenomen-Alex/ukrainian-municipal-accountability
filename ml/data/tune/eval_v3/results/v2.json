@@ -1,0 +1,5356 @@
+{
+  "metrics": {
+    "n": 146,
+    "json_parse_rate": 0.9932,
+    "schema_validity_rate": 0.9863,
+    "topic_count_accuracy": 0.7808,
+    "domain_set_exact": 0.6301,
+    "domain_set_precision": 0.8356,
+    "domain_set_recall": 0.7637,
+    "issue_rouge_l_best": 0.6719,
+    "boilerplate_leak_rate": 0.3699,
+    "action_redundancy_rate": 0.2055,
+    "out_of_enum_rate": 0.0068,
+    "duplicate_domain_rate": 0.0137,
+    "mean_predicted_topics": 1.2123,
+    "mean_expected_topics": 1.3562
+  },
+  "by_category": {
+    "A": {
+      "n": 10,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 1.0,
+      "domain_set_exact": 0.8,
+      "domain_set_precision": 0.8,
+      "domain_set_recall": 0.8,
+      "issue_rouge_l_best": 0.7206,
+      "boilerplate_leak_rate": 0.0,
+      "action_redundancy_rate": 0.0,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "B": {
+      "n": 8,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 0.375,
+      "domain_set_exact": 0.25,
+      "domain_set_precision": 0.9375,
+      "domain_set_recall": 0.625,
+      "issue_rouge_l_best": 0.6119,
+      "boilerplate_leak_rate": 0.0,
+      "action_redundancy_rate": 0.0,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "C": {
+      "n": 8,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 0.875,
+      "domain_set_exact": 0.625,
+      "domain_set_precision": 0.875,
+      "domain_set_recall": 0.8125,
+      "issue_rouge_l_best": 0.7103,
+      "boilerplate_leak_rate": 0.0,
+      "action_redundancy_rate": 0.0,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "D": {
+      "n": 8,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 0.375,
+      "domain_set_exact": 0.25,
+      "domain_set_precision": 0.9375,
+      "domain_set_recall": 0.625,
+      "issue_rouge_l_best": 0.7161,
+      "boilerplate_leak_rate": 0.125,
+      "action_redundancy_rate": 0.125,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "E": {
+      "n": 6,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 0.5,
+      "domain_set_exact": 0.5,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.75,
+      "issue_rouge_l_best": 0.6627,
+      "boilerplate_leak_rate": 0.0,
+      "action_redundancy_rate": 0.0,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "F": {
+      "n": 8,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 0.375,
+      "domain_set_exact": 0.375,
+      "domain_set_precision": 0.875,
+      "domain_set_recall": 0.625,
+      "issue_rouge_l_best": 0.5591,
+      "boilerplate_leak_rate": 0.125,
+      "action_redundancy_rate": 0.0,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "G": {
+      "n": 6,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 0.0,
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.8333,
+      "domain_set_recall": 0.4167,
+      "issue_rouge_l_best": 0.5215,
+      "boilerplate_leak_rate": 0.0,
+      "action_redundancy_rate": 0.0,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "H": {
+      "n": 12,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 0.9167,
+      "domain_set_exact": 0.75,
+      "domain_set_precision": 0.7917,
+      "domain_set_recall": 0.8333,
+      "issue_rouge_l_best": 0.6614,
+      "boilerplate_leak_rate": 0.9167,
+      "action_redundancy_rate": 0.0,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "I": {
+      "n": 8,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 0.875,
+      "domain_set_exact": 0.5,
+      "domain_set_precision": 0.5,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.6583,
+      "boilerplate_leak_rate": 0.5,
+      "action_redundancy_rate": 0.5,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "J": {
+      "n": 6,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 1.0,
+      "domain_set_exact": 0.8333,
+      "domain_set_precision": 0.8333,
+      "domain_set_recall": 0.8333,
+      "issue_rouge_l_best": 0.7262,
+      "boilerplate_leak_rate": 0.5,
+      "action_redundancy_rate": 0.5,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "K": {
+      "n": 8,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 0.875,
+      "domain_set_exact": 0.5,
+      "domain_set_precision": 0.875,
+      "domain_set_recall": 0.75,
+      "issue_rouge_l_best": 0.739,
+      "boilerplate_leak_rate": 0.0,
+      "action_redundancy_rate": 0.0,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.125
+    },
+    "L": {
+      "n": 6,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 1.0,
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.6393,
+      "boilerplate_leak_rate": 0.8333,
+      "action_redundancy_rate": 0.1667,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "M": {
+      "n": 4,
+      "schema_valid": 0.75,
+      "topic_count_accuracy": 1.0,
+      "domain_set_exact": 0.5,
+      "domain_set_precision": 0.5,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.7017,
+      "boilerplate_leak_rate": 0.5,
+      "action_redundancy_rate": 0.5,
+      "out_of_enum_rate": 0.25,
+      "duplicate_domain_rate": 0.0
+    },
+    "N": {
+      "n": 5,
+      "schema_valid": 0.8,
+      "topic_count_accuracy": 0.8,
+      "domain_set_exact": 0.6,
+      "domain_set_precision": 0.6,
+      "domain_set_recall": 0.6,
+      "issue_rouge_l_best": 0.6742,
+      "boilerplate_leak_rate": 0.4,
+      "action_redundancy_rate": 0.2,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "O": {
+      "n": 6,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 1.0,
+      "domain_set_exact": 0.8333,
+      "domain_set_precision": 0.8333,
+      "domain_set_recall": 0.8333,
+      "issue_rouge_l_best": 0.6109,
+      "boilerplate_leak_rate": 0.6667,
+      "action_redundancy_rate": 0.3333,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "P": {
+      "n": 3,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 0.6667,
+      "domain_set_exact": 0.6667,
+      "domain_set_precision": 0.8333,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.777,
+      "boilerplate_leak_rate": 0.0,
+      "action_redundancy_rate": 0.6667,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.3333
+    },
+    "Q": {
+      "n": 6,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 1.0,
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.8067,
+      "boilerplate_leak_rate": 0.6667,
+      "action_redundancy_rate": 0.3333,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "R": {
+      "n": 6,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 1.0,
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7755,
+      "boilerplate_leak_rate": 0.8333,
+      "action_redundancy_rate": 0.0,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "S": {
+      "n": 7,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 0.8571,
+      "domain_set_exact": 0.7143,
+      "domain_set_precision": 0.7857,
+      "domain_set_recall": 0.8571,
+      "issue_rouge_l_best": 0.6124,
+      "boilerplate_leak_rate": 0.2857,
+      "action_redundancy_rate": 0.5714,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "T": {
+      "n": 5,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 0.8,
+      "domain_set_exact": 0.8,
+      "domain_set_precision": 0.9,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7544,
+      "boilerplate_leak_rate": 1.0,
+      "action_redundancy_rate": 0.6,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "U": {
+      "n": 6,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 1.0,
+      "domain_set_exact": 0.6667,
+      "domain_set_precision": 0.6667,
+      "domain_set_recall": 0.6667,
+      "issue_rouge_l_best": 0.464,
+      "boilerplate_leak_rate": 0.5,
+      "action_redundancy_rate": 0.5,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "V": {
+      "n": 4,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 1.0,
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7961,
+      "boilerplate_leak_rate": 0.5,
+      "action_redundancy_rate": 0.5,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    }
+  },
+  "subsets": {
+    "terse_categories_ABC": {
+      "n": 26,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 0.7692,
+      "domain_set_exact": 0.5769,
+      "domain_set_precision": 0.8654,
+      "domain_set_recall": 0.75,
+      "issue_rouge_l_best": 0.684,
+      "boilerplate_leak_rate": 0.0,
+      "action_redundancy_rate": 0.0,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "terse_text_under_150": {
+      "n": 14,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 0.7857,
+      "domain_set_exact": 0.6429,
+      "domain_set_precision": 0.8571,
+      "domain_set_recall": 0.75,
+      "issue_rouge_l_best": 0.7133,
+      "boilerplate_leak_rate": 0.0,
+      "action_redundancy_rate": 0.0,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "multi_topic_categories": {
+      "n": 44,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 0.4318,
+      "domain_set_exact": 0.3409,
+      "domain_set_precision": 0.9091,
+      "domain_set_recall": 0.6477,
+      "issue_rouge_l_best": 0.6337,
+      "boilerplate_leak_rate": 0.0455,
+      "action_redundancy_rate": 0.0227,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0
+    },
+    "empty_action_category_H": {
+      "n": 12,
+      "schema_valid": 1.0,
+      "topic_count_accuracy": 0.9167,
+      "domain_set_exact": 0.75,
+      "domain_set_precision": 0.7917,
+      "domain_set_recall": 0.8333,
+      "issue_rouge_l_best": 0.6614,
+      "boilerplate_leak_rate": 0.9167,
+      "action_redundancy_rate": 0.0,
+      "out_of_enum_rate": 0.0,
+      "duplicate_domain_rate": 0.0,
+      "cases_with_nonempty_predicted_action": 0,
+      "share_nonempty_predicted_action": 0.0
+    }
+  },
+  "per_case": [
+    {
+      "id": "ev3-001",
+      "category": "A",
+      "category_name": "terse_single",
+      "provenance": "condensed",
+      "text_len": 85,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "roads"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.0,
+      "domain_set_recall": 0.0,
+      "issue_rouge_l_best": 0.4255319148936171,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-002",
+      "category": "A",
+      "category_name": "terse_single",
+      "provenance": "condensed",
+      "text_len": 96,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 1.0,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "покосити бур’ян, який зростає на пустирі між будинками № 28, корп"
+      ]
+    },
+    {
+      "id": "ev3-003",
+      "category": "A",
+      "category_name": "terse_single",
+      "provenance": "condensed",
+      "text_len": 147,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 1.0,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-004",
+      "category": "A",
+      "category_name": "terse_single",
+      "provenance": "condensed",
+      "text_len": 137,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 1.0,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-005",
+      "category": "A",
+      "category_name": "terse_single",
+      "provenance": "condensed",
+      "text_len": 111,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.4347826086956522,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "встановити контейнер для збору непобутових відходів в точці збору сміття на перехресті пров"
+      ]
+    },
+    {
+      "id": "ev3-006",
+      "category": "A",
+      "category_name": "terse_single",
+      "provenance": "condensed",
+      "text_len": 94,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "construction"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.0,
+      "domain_set_recall": 0.0,
+      "issue_rouge_l_best": 0.631578947368421,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул"
+      ]
+    },
+    {
+      "id": "ev3-007",
+      "category": "A",
+      "category_name": "terse_single",
+      "provenance": "condensed",
+      "text_len": 90,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "housing"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.43999999999999995,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-008",
+      "category": "A",
+      "category_name": "terse_single",
+      "provenance": "condensed",
+      "text_len": 109,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "roads"
+      ],
+      "predicted_domains": [
+        "roads"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 1.0,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-009",
+      "category": "A",
+      "category_name": "terse_single",
+      "provenance": "condensed",
+      "text_len": 65,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "roads"
+      ],
+      "predicted_domains": [
+        "roads"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.4999999999999999,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-010",
+      "category": "A",
+      "category_name": "terse_single",
+      "provenance": "condensed",
+      "text_len": 92,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7741935483870968,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-011",
+      "category": "B",
+      "category_name": "terse_two_topic_i",
+      "provenance": "composed",
+      "text_len": 256,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "commerce",
+        "construction"
+      ],
+      "predicted_domains": [
+        "construction"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.5534274193548387,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "вжити необхідні заходи реагування",
+        "перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул"
+      ]
+    },
+    {
+      "id": "ev3-012",
+      "category": "B",
+      "category_name": "terse_two_topic_i",
+      "provenance": "composed",
+      "text_len": 182,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "electricity",
+        "government"
+      ],
+      "predicted_domains": [
+        "electricity"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.34987188446307943,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "записати на особистий прийом, відповідно до графіка, до секретаря міської ради"
+      ]
+    },
+    {
+      "id": "ev3-013",
+      "category": "B",
+      "category_name": "terse_two_topic_i",
+      "provenance": "composed",
+      "text_len": 247,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "government",
+        "heating"
+      ],
+      "predicted_domains": [
+        "housing",
+        "heating"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.5,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 1.0,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "направити спеціалістів для визначення та усунення причини низької температури повітря в помешканні заявниці"
+      ]
+    },
+    {
+      "id": "ev3-014",
+      "category": "B",
+      "category_name": "terse_two_topic_i",
+      "provenance": "composed",
+      "text_len": 179,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "heating",
+        "housing"
+      ],
+      "predicted_domains": [
+        "heating",
+        "housing"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7708333333333334,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "ev3-015",
+      "category": "B",
+      "category_name": "terse_two_topic_i",
+      "provenance": "composed",
+      "text_len": 123,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "housing",
+        "payments"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.5974358974358975,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "ev3-016",
+      "category": "B",
+      "category_name": "terse_two_topic_i",
+      "provenance": "composed",
+      "text_len": 275,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "payments",
+        "roads"
+      ],
+      "predicted_domains": [
+        "payments"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.54073756432247,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "вирівняти грейдером дорожнє покриття по вул"
+      ]
+    },
+    {
+      "id": "ev3-017",
+      "category": "B",
+      "category_name": "terse_two_topic_i",
+      "provenance": "composed",
+      "text_len": 222,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "roads"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.471264367816092,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "надати"
+      ]
+    },
+    {
+      "id": "ev3-018",
+      "category": "B",
+      "category_name": "terse_two_topic_i",
+      "provenance": "composed",
+      "text_len": 241,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation",
+        "transport"
+      ],
+      "predicted_domains": [
+        "sanitation",
+        "transport"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.6115871073031416,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "вжити відповідні заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-019",
+      "category": "C",
+      "category_name": "terse_two_topic_also",
+      "provenance": "composed",
+      "text_len": 262,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "commerce",
+        "construction"
+      ],
+      "predicted_domains": [
+        "construction",
+        "sanitation"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.5,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.7557894736842106,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "вжити необхідні заходи реагування",
+        "перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул"
+      ]
+    },
+    {
+      "id": "ev3-020",
+      "category": "C",
+      "category_name": "terse_two_topic_also",
+      "provenance": "composed",
+      "text_len": 188,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "electricity",
+        "government"
+      ],
+      "predicted_domains": [
+        "electricity",
+        "government"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.4300573888091822,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "записати на особистий прийом, відповідно до графіка, до секретаря міської ради"
+      ]
+    },
+    {
+      "id": "ev3-021",
+      "category": "C",
+      "category_name": "terse_two_topic_also",
+      "provenance": "composed",
+      "text_len": 253,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "government",
+        "heating"
+      ],
+      "predicted_domains": [
+        "housing",
+        "heating"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.5,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 1.0,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "направити спеціалістів для визначення та усунення причини низької температури повітря в помешканні заявниці"
+      ]
+    },
+    {
+      "id": "ev3-022",
+      "category": "C",
+      "category_name": "terse_two_topic_also",
+      "provenance": "composed",
+      "text_len": 185,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "heating",
+        "housing"
+      ],
+      "predicted_domains": [
+        "heating",
+        "housing"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7708333333333334,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "ev3-023",
+      "category": "C",
+      "category_name": "terse_two_topic_also",
+      "provenance": "composed",
+      "text_len": 129,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "housing",
+        "payments"
+      ],
+      "predicted_domains": [
+        "housing",
+        "payments"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 1.0,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "ev3-024",
+      "category": "C",
+      "category_name": "terse_two_topic_also",
+      "provenance": "composed",
+      "text_len": 281,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "payments",
+        "roads"
+      ],
+      "predicted_domains": [
+        "payments"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.5296296296296297,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "вирівняти грейдером дорожнє покриття по вул"
+      ]
+    },
+    {
+      "id": "ev3-025",
+      "category": "C",
+      "category_name": "terse_two_topic_also",
+      "provenance": "composed",
+      "text_len": 228,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.5846153846153845,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "надати"
+      ]
+    },
+    {
+      "id": "ev3-026",
+      "category": "C",
+      "category_name": "terse_two_topic_also",
+      "provenance": "composed",
+      "text_len": 247,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation",
+        "transport"
+      ],
+      "predicted_domains": [
+        "sanitation",
+        "transport"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.6115871073031416,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "вжити відповідні заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-027",
+      "category": "D",
+      "category_name": "two_sentences",
+      "provenance": "composed",
+      "text_len": 381,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "commerce",
+        "construction"
+      ],
+      "predicted_domains": [
+        "construction"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.6404734506000329,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "вжити необхідні заходи реагування",
+        "перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул"
+      ]
+    },
+    {
+      "id": "ev3-028",
+      "category": "D",
+      "category_name": "two_sentences",
+      "provenance": "composed",
+      "text_len": 634,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "electricity",
+        "government"
+      ],
+      "predicted_domains": [
+        "electricity"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.6399802322708179,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " терміново вжити необхідні заходи реагування та налагодити постійне електропостачання записати на особистий прийом, відповідно до графіка, до секретаря міської ради   . : щодо відсутності багатьох інформацій відповідно до вимог чинного законодавства на офіційному сайті  міської ради у розділі ’ інформація’."
+      ],
+      "expected_actions": [
+        "",
+        "записати на особистий прийом, відповідно до графіка, до секретаря міської ради"
+      ]
+    },
+    {
+      "id": "ev3-029",
+      "category": "D",
+      "category_name": "two_sentences",
+      "provenance": "composed",
+      "text_len": 244,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "government",
+        "heating"
+      ],
+      "predicted_domains": [
+        "housing",
+        "heating"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.5,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.9285714285714286,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "направити спеціалістів для визначення та усунення причини низької температури повітря в помешканні заявниці"
+      ]
+    },
+    {
+      "id": "ev3-030",
+      "category": "D",
+      "category_name": "two_sentences",
+      "provenance": "composed",
+      "text_len": 317,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "heating",
+        "housing"
+      ],
+      "predicted_domains": [
+        "heating"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.5910732714138287,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "ev3-031",
+      "category": "D",
+      "category_name": "two_sentences",
+      "provenance": "composed",
+      "text_len": 120,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "housing",
+        "payments"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.6248275862068966,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "ev3-032",
+      "category": "D",
+      "category_name": "two_sentences",
+      "provenance": "composed",
+      "text_len": 272,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "payments",
+        "roads"
+      ],
+      "predicted_domains": [
+        "payments"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.5715563506261181,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "вирівняти грейдером дорожнє покриття по вул"
+      ]
+    },
+    {
+      "id": "ev3-033",
+      "category": "D",
+      "category_name": "two_sentences",
+      "provenance": "composed",
+      "text_len": 539,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.8526738533079687,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "надати"
+      ]
+    },
+    {
+      "id": "ev3-034",
+      "category": "D",
+      "category_name": "two_sentences",
+      "provenance": "composed",
+      "text_len": 495,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation",
+        "transport"
+      ],
+      "predicted_domains": [
+        "sanitation",
+        "transport"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.879746835443038,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "вжити відповідні заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-035",
+      "category": "E",
+      "category_name": "same_object_two_problems",
+      "provenance": "composed",
+      "text_len": 152,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation",
+        "roads"
+      ],
+      "predicted_domains": [
+        "sanitation",
+        "roads"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 1.0,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "прибрати суху деревину, яке звалило після буревію, біля корп",
+        ""
+      ]
+    },
+    {
+      "id": "ev3-036",
+      "category": "E",
+      "category_name": "same_object_two_problems",
+      "provenance": "composed",
+      "text_len": 193,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation",
+        "roads"
+      ],
+      "predicted_domains": [
+        "sanitation",
+        "roads"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7258064516129032,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "а саме прохання після прибирання узбіччя не залишати частину залишків сміття на тротуарній/пішохідній частині дороги",
+        ""
+      ]
+    },
+    {
+      "id": "ev3-037",
+      "category": "E",
+      "category_name": "same_object_two_problems",
+      "provenance": "composed",
+      "text_len": 171,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "roads"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.4258064516129032,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "зобов’язати працівників ТОВ ’ прибрати сміття, яке вони залишили на дорозі, не забрали і поїхали"
+      ]
+    },
+    {
+      "id": "ev3-038",
+      "category": "E",
+      "category_name": "same_object_two_problems",
+      "provenance": "composed",
+      "text_len": 275,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "water",
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.5197059424137227,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "направити комісію з метою обстеження території та вжиття заходів по благоустрою території, а саме ліквідації причини витоку та наявності ’озера’",
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-039",
+      "category": "E",
+      "category_name": "same_object_two_problems",
+      "provenance": "composed",
+      "text_len": 246,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "sanitation",
+        "roads"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.5518037518037517,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "вжити відповідні заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-040",
+      "category": "E",
+      "category_name": "same_object_two_problems",
+      "provenance": "composed",
+      "text_len": 252,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7528619528619528,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "покосити траву, яка росте за будинком на площадці по вул"
+      ]
+    },
+    {
+      "id": "ev3-041",
+      "category": "F",
+      "category_name": "different_objects_two_problems",
+      "provenance": "composed",
+      "text_len": 254,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "commerce",
+        "construction"
+      ],
+      "predicted_domains": [
+        "construction"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.5709677419354838,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "вжити необхідні заходи реагування",
+        "перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул"
+      ]
+    },
+    {
+      "id": "ev3-042",
+      "category": "F",
+      "category_name": "different_objects_two_problems",
+      "provenance": "composed",
+      "text_len": 180,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "electricity",
+        "government"
+      ],
+      "predicted_domains": [
+        "electricity"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.3296103251427153,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "записати на особистий прийом, відповідно до графіка, до секретаря міської ради"
+      ]
+    },
+    {
+      "id": "ev3-043",
+      "category": "F",
+      "category_name": "different_objects_two_problems",
+      "provenance": "composed",
+      "text_len": 245,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "government",
+        "heating"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.0,
+      "domain_set_recall": 0.0,
+      "issue_rouge_l_best": 0.604040404040404,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "направити спеціалістів для визначення та усунення причини низької температури повітря в помешканні заявниці"
+      ]
+    },
+    {
+      "id": "ev3-044",
+      "category": "F",
+      "category_name": "different_objects_two_problems",
+      "provenance": "composed",
+      "text_len": 177,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "heating",
+        "housing"
+      ],
+      "predicted_domains": [
+        "heating",
+        "housing"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.706766917293233,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "ev3-045",
+      "category": "F",
+      "category_name": "different_objects_two_problems",
+      "provenance": "composed",
+      "text_len": 121,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "housing",
+        "payments"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.5571658615136875,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "ev3-046",
+      "category": "F",
+      "category_name": "different_objects_two_problems",
+      "provenance": "composed",
+      "text_len": 273,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "payments",
+        "roads"
+      ],
+      "predicted_domains": [
+        "payments",
+        "roads"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7816091954022989,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "вирівняти грейдером дорожнє покриття по вул"
+      ]
+    },
+    {
+      "id": "ev3-047",
+      "category": "F",
+      "category_name": "different_objects_two_problems",
+      "provenance": "composed",
+      "text_len": 220,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "roads"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.48274568642160537,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "надати"
+      ]
+    },
+    {
+      "id": "ev3-048",
+      "category": "F",
+      "category_name": "different_objects_two_problems",
+      "provenance": "composed",
+      "text_len": 239,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation",
+        "transport"
+      ],
+      "predicted_domains": [
+        "sanitation",
+        "transport"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.4397321428571428,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "вжити відповідні заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-049",
+      "category": "G",
+      "category_name": "explicit_and_implicit_action",
+      "provenance": "composed",
+      "text_len": 248,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "commerce",
+        "construction"
+      ],
+      "predicted_domains": [
+        "construction"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.6110917335193582,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "вжити необхідні заходи реагування",
+        "перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул"
+      ]
+    },
+    {
+      "id": "ev3-050",
+      "category": "G",
+      "category_name": "explicit_and_implicit_action",
+      "provenance": "composed",
+      "text_len": 186,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "electricity",
+        "government"
+      ],
+      "predicted_domains": [
+        "electricity"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.505656108597285,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "записати на особистий прийом, відповідно до графіка, до секретаря міської ради"
+      ]
+    },
+    {
+      "id": "ev3-051",
+      "category": "G",
+      "category_name": "explicit_and_implicit_action",
+      "provenance": "composed",
+      "text_len": 260,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "government",
+        "heating"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.0,
+      "domain_set_recall": 0.0,
+      "issue_rouge_l_best": 0.6237402015677491,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "направити спеціалістів для визначення та усунення причини низької температури повітря в помешканні заявниці"
+      ]
+    },
+    {
+      "id": "ev3-052",
+      "category": "G",
+      "category_name": "explicit_and_implicit_action",
+      "provenance": "composed",
+      "text_len": 221,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "payments",
+        "roads"
+      ],
+      "predicted_domains": [
+        "payments"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.46688311688311684,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "вирівняти грейдером дорожнє покриття по вул"
+      ]
+    },
+    {
+      "id": "ev3-053",
+      "category": "G",
+      "category_name": "explicit_and_implicit_action",
+      "provenance": "composed",
+      "text_len": 192,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "sanitation",
+        "transport"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.44680851063829785,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "вжити відповідні заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-054",
+      "category": "G",
+      "category_name": "explicit_and_implicit_action",
+      "provenance": "composed",
+      "text_len": 197,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "construction",
+        "electricity"
+      ],
+      "predicted_domains": [
+        "construction"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.475,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "вжити заходи реагування",
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-055",
+      "category": "H",
+      "category_name": "no_explicit_action",
+      "provenance": "real",
+      "text_len": 347,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "water"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.0,
+      "domain_set_recall": 0.0,
+      "issue_rouge_l_best": 0.6268656716417911,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-056",
+      "category": "H",
+      "category_name": "no_explicit_action",
+      "provenance": "real",
+      "text_len": 428,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.6896551724137931,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-057",
+      "category": "H",
+      "category_name": "no_explicit_action",
+      "provenance": "real",
+      "text_len": 352,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.6060606060606061,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-058",
+      "category": "H",
+      "category_name": "no_explicit_action",
+      "provenance": "real",
+      "text_len": 467,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.74,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-059",
+      "category": "H",
+      "category_name": "no_explicit_action",
+      "provenance": "real",
+      "text_len": 331,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "housing"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.5666666666666667,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-060",
+      "category": "H",
+      "category_name": "no_explicit_action",
+      "provenance": "real",
+      "text_len": 282,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "roads"
+      ],
+      "predicted_domains": [
+        "roads"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.52,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-061",
+      "category": "H",
+      "category_name": "no_explicit_action",
+      "provenance": "real",
+      "text_len": 298,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.5599999999999999,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-062",
+      "category": "H",
+      "category_name": "no_explicit_action",
+      "provenance": "real",
+      "text_len": 509,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7863247863247863,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-063",
+      "category": "H",
+      "category_name": "no_explicit_action",
+      "provenance": "real",
+      "text_len": 339,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "housing"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.6060606060606061,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-064",
+      "category": "H",
+      "category_name": "no_explicit_action",
+      "provenance": "real",
+      "text_len": 470,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "roads"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.0,
+      "domain_set_recall": 0.0,
+      "issue_rouge_l_best": 0.7547169811320755,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-065",
+      "category": "H",
+      "category_name": "no_explicit_action",
+      "provenance": "real",
+      "text_len": 434,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.6976744186046512,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-066",
+      "category": "H",
+      "category_name": "no_explicit_action",
+      "provenance": "real",
+      "text_len": 452,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 2,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation",
+        "roads"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.5,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7826086956521738,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-067",
+      "category": "I",
+      "category_name": "long_rambling",
+      "provenance": "real",
+      "text_len": 694,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "transport"
+      ],
+      "predicted_domains": [
+        "transport"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7612903225806452,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-068",
+      "category": "I",
+      "category_name": "long_rambling",
+      "provenance": "real",
+      "text_len": 606,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "water"
+      ],
+      "predicted_domains": [
+        "water"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.9454545454545454,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи реагування, а саме: відновити водопостачання, відремонтувати/замінити трубу, відкачати воду з підвалу."
+      ],
+      "expected_actions": [
+        "вжити заходи реагування, а саме: відновити водопостачання, відремонтувати/замінити трубу, відкачати воду з підвалу"
+      ]
+    },
+    {
+      "id": "ev3-069",
+      "category": "I",
+      "category_name": "long_rambling",
+      "provenance": "real",
+      "text_len": 645,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "housing"
+      ],
+      "predicted_domains": [
+        "electricity"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.0,
+      "domain_set_recall": 0.0,
+      "issue_rouge_l_best": 0.49411764705882344,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи реагування."
+      ],
+      "expected_actions": [
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-070",
+      "category": "I",
+      "category_name": "long_rambling",
+      "provenance": "real",
+      "text_len": 779,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 2,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "water"
+      ],
+      "predicted_domains": [
+        "housing",
+        "sanitation"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.0,
+      "domain_set_recall": 0.0,
+      "issue_rouge_l_best": 0.9433962264150944,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-071",
+      "category": "I",
+      "category_name": "long_rambling",
+      "provenance": "real",
+      "text_len": 657,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "transport"
+      ],
+      "predicted_domains": [
+        "transport"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7552447552447552,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "приблизно о 09:50 год., вимагала оплату за порожній інвалідний візок, який транспортувався до соціального захисту"
+      ]
+    },
+    {
+      "id": "ev3-072",
+      "category": "I",
+      "category_name": "long_rambling",
+      "provenance": "real",
+      "text_len": 685,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "transport"
+      ],
+      "predicted_domains": [
+        "transport"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.6015037593984962,
+      "boilerplate_leak": true,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити відповідні заходи реагування стосовно спілкування та врегулювання ситуації з транспорту за маршрутом № 118."
+      ],
+      "expected_actions": [
+        "вжити відповідні заходи реагування стосовно спілкування та врегулювання ситуації з транспорту за маршрутом № 118"
+      ]
+    },
+    {
+      "id": "ev3-073",
+      "category": "I",
+      "category_name": "long_rambling",
+      "provenance": "real",
+      "text_len": 601,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "roads"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.0,
+      "domain_set_recall": 0.0,
+      "issue_rouge_l_best": 0.0,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи реагування."
+      ],
+      "expected_actions": [
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-074",
+      "category": "I",
+      "category_name": "long_rambling",
+      "provenance": "real",
+      "text_len": 694,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "electricity"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.0,
+      "domain_set_recall": 0.0,
+      "issue_rouge_l_best": 0.7651006711409395,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-075",
+      "category": "J",
+      "category_name": "irrelevant_prose",
+      "provenance": "real",
+      "text_len": 597,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "water"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.0,
+      "domain_set_recall": 0.0,
+      "issue_rouge_l_best": 0.8672566371681415,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи реагування."
+      ],
+      "expected_actions": [
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-076",
+      "category": "J",
+      "category_name": "irrelevant_prose",
+      "provenance": "real",
+      "text_len": 298,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "water"
+      ],
+      "predicted_domains": [
+        "water"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.5,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-077",
+      "category": "J",
+      "category_name": "irrelevant_prose",
+      "provenance": "real",
+      "text_len": 471,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "housing"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7567567567567568,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-078",
+      "category": "J",
+      "category_name": "irrelevant_prose",
+      "provenance": "real",
+      "text_len": 412,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.9577464788732395,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи реагування."
+      ],
+      "expected_actions": [
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-079",
+      "category": "J",
+      "category_name": "irrelevant_prose",
+      "provenance": "real",
+      "text_len": 494,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "water"
+      ],
+      "predicted_domains": [
+        "water"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7042253521126761,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи реагування щодо вирішення питання водопостачання."
+      ],
+      "expected_actions": [
+        "вжити заходи реагування щодо вирішення питання водопостачання"
+      ]
+    },
+    {
+      "id": "ev3-080",
+      "category": "J",
+      "category_name": "irrelevant_prose",
+      "provenance": "real",
+      "text_len": 343,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "electricity"
+      ],
+      "predicted_domains": [
+        "electricity"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.5714285714285715,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-081",
+      "category": "K",
+      "category_name": "ontology_ambiguity",
+      "provenance": "composed",
+      "text_len": 264,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 1,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.5586854460093896,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        "вжити заходи реагування",
+        ""
+      ]
+    },
+    {
+      "id": "ev3-082",
+      "category": "K",
+      "category_name": "ontology_ambiguity",
+      "provenance": "composed",
+      "text_len": 303,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "water",
+        "housing"
+      ],
+      "predicted_domains": [
+        "housing",
+        "housing"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.4962406015037593,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": true,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "вжити заходи реагування",
+        ""
+      ]
+    },
+    {
+      "id": "ev3-083",
+      "category": "K",
+      "category_name": "ontology_ambiguity",
+      "provenance": "composed",
+      "text_len": 230,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "electricity",
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "electricity",
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.6692307692307693,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "зобов’язати працівників КП ЖЕО №1 КМР налагодити подачу електропостачання по стояку однокімнатних квартир у під’їзді № 6 за вказаною адресою",
+        "надати"
+      ]
+    },
+    {
+      "id": "ev3-084",
+      "category": "K",
+      "category_name": "ontology_ambiguity",
+      "provenance": "composed",
+      "text_len": 268,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "water",
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "housing",
+        "sanitation"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.5,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.9782608695652174,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "",
+        "покосити бур’ян, який зростає на пустирі між будинками № 28, корп"
+      ]
+    },
+    {
+      "id": "ev3-085",
+      "category": "K",
+      "category_name": "ontology_ambiguity",
+      "provenance": "composed",
+      "text_len": 218,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "housing",
+        "payments"
+      ],
+      "predicted_domains": [
+        "housing",
+        "payments"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.8235294117647058,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "ev3-086",
+      "category": "K",
+      "category_name": "ontology_ambiguity",
+      "provenance": "composed",
+      "text_len": 176,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "heating",
+        "payments"
+      ],
+      "predicted_domains": [
+        "heating",
+        "payments"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 1.0,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "направити спеціалістів для визначення та усунення причини низької температури повітря в помешканні заявниці",
+        ""
+      ]
+    },
+    {
+      "id": "ev3-087",
+      "category": "K",
+      "category_name": "ontology_ambiguity",
+      "provenance": "composed",
+      "text_len": 206,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "roads",
+        "construction"
+      ],
+      "predicted_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.5,
+      "domain_set_recall": 0.5,
+      "issue_rouge_l_best": 0.7903811252268602,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "вирівняти грейдером дорожнє покриття по вул",
+        "перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул"
+      ]
+    },
+    {
+      "id": "ev3-088",
+      "category": "K",
+      "category_name": "ontology_ambiguity",
+      "provenance": "composed",
+      "text_len": 245,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 2,
+      "predicted_topic_count": 2,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "transport",
+        "roads"
+      ],
+      "predicted_domains": [
+        "transport",
+        "roads"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.5957561106634435,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "ev3-089",
+      "category": "L",
+      "category_name": "lighting",
+      "provenance": "real",
+      "text_len": 300,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "electricity"
+      ],
+      "predicted_domains": [
+        "electricity"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.888888888888889,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи реагування."
+      ],
+      "expected_actions": [
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-090",
+      "category": "L",
+      "category_name": "lighting",
+      "provenance": "real",
+      "text_len": 406,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "electricity"
+      ],
+      "predicted_domains": [
+        "electricity"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7045454545454546,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-091",
+      "category": "L",
+      "category_name": "lighting",
+      "provenance": "real",
+      "text_len": 235,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "electricity"
+      ],
+      "predicted_domains": [
+        "electricity"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.3783783783783784,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-092",
+      "category": "L",
+      "category_name": "lighting",
+      "provenance": "real",
+      "text_len": 275,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "electricity"
+      ],
+      "predicted_domains": [
+        "electricity"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.5306122448979592,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-093",
+      "category": "L",
+      "category_name": "lighting",
+      "provenance": "real",
+      "text_len": 430,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "roads"
+      ],
+      "predicted_domains": [
+        "roads"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.6666666666666667,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-094",
+      "category": "L",
+      "category_name": "lighting",
+      "provenance": "real",
+      "text_len": 374,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "housing"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.6666666666666666,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-095",
+      "category": "M",
+      "category_name": "traffic_lights",
+      "provenance": "real",
+      "text_len": 434,
+      "json_ok": true,
+      "schema_ok": false,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sound"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.0,
+      "domain_set_recall": 0.0,
+      "issue_rouge_l_best": 0.7291666666666666,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": true,
+      "out_of_enum_values": [
+        "sound"
+      ],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-096",
+      "category": "M",
+      "category_name": "traffic_lights",
+      "provenance": "real",
+      "text_len": 421,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "electricity"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.0,
+      "domain_set_recall": 0.0,
+      "issue_rouge_l_best": 0.9473684210526316,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " відремонтувати світлофор, який розташований на перехресті вул."
+      ],
+      "expected_actions": [
+        "відремонтувати світлофор, який розташований на перехресті вул"
+      ]
+    },
+    {
+      "id": "ev3-097",
+      "category": "M",
+      "category_name": "traffic_lights",
+      "provenance": "real",
+      "text_len": 411,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.417910447761194,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-098",
+      "category": "M",
+      "category_name": "traffic_lights",
+      "provenance": "real",
+      "text_len": 493,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7123287671232876,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " прибрати гілку з пішохідної доріжки, обстежити сухі дерева та вжити заходи реагування."
+      ],
+      "expected_actions": [
+        "прибрати гілку з пішохідної доріжки, обстежити сухі дерева та вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-099",
+      "category": "N",
+      "category_name": "playgrounds",
+      "provenance": "real",
+      "text_len": 629,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7883211678832116,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-100",
+      "category": "N",
+      "category_name": "playgrounds",
+      "provenance": "real",
+      "text_len": 379,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.9666666666666667,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-101",
+      "category": "N",
+      "category_name": "playgrounds",
+      "provenance": "real",
+      "text_len": 358,
+      "json_ok": false,
+      "schema_ok": false,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 0,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.0,
+      "domain_set_recall": 0.0,
+      "issue_rouge_l_best": 0.0,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-102",
+      "category": "N",
+      "category_name": "playgrounds",
+      "provenance": "real",
+      "text_len": 435,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.9113924050632912,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи реагування."
+      ],
+      "expected_actions": [
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-103",
+      "category": "N",
+      "category_name": "playgrounds",
+      "provenance": "real",
+      "text_len": 433,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "roads"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.0,
+      "domain_set_recall": 0.0,
+      "issue_rouge_l_best": 0.7045454545454546,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-104",
+      "category": "O",
+      "category_name": "trees",
+      "provenance": "real",
+      "text_len": 355,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "electricity"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.0,
+      "domain_set_recall": 0.0,
+      "issue_rouge_l_best": 0.5084745762711864,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-105",
+      "category": "O",
+      "category_name": "trees",
+      "provenance": "real",
+      "text_len": 623,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.935251798561151,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи щодо благоустрою території, а саме: покосити бур’ян (2 м), який росте на пустирі у центрі чотирьох будинків розташованих по вул."
+      ],
+      "expected_actions": [
+        "вжити заходи щодо благоустрою території, а саме: покосити бур’ян (2 м), який росте на пустирі у центрі чотирьох будинків розташованих по вул"
+      ]
+    },
+    {
+      "id": "ev3-106",
+      "category": "O",
+      "category_name": "trees",
+      "provenance": "real",
+      "text_len": 245,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.4651162790697674,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-107",
+      "category": "O",
+      "category_name": "trees",
+      "provenance": "real",
+      "text_len": 422,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.8571428571428571,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи реагування."
+      ],
+      "expected_actions": [
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-108",
+      "category": "O",
+      "category_name": "trees",
+      "provenance": "real",
+      "text_len": 404,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.13333333333333333,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-109",
+      "category": "O",
+      "category_name": "trees",
+      "provenance": "real",
+      "text_len": 474,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.766355140186916,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-110",
+      "category": "P",
+      "category_name": "stray_animals",
+      "provenance": "real",
+      "text_len": 494,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.9655172413793104,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити дієві заходи реагування."
+      ],
+      "expected_actions": [
+        "вжити дієві заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-111",
+      "category": "P",
+      "category_name": "stray_animals",
+      "provenance": "real",
+      "text_len": 562,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.9306930693069307,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи реагування."
+      ],
+      "expected_actions": [
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-112",
+      "category": "P",
+      "category_name": "stray_animals",
+      "provenance": "real",
+      "text_len": 559,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 3,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation",
+        "housing",
+        "sanitation"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.5,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.4347826086956522,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": true,
+      "predicted_actions": [
+        "",
+        "",
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-113",
+      "category": "Q",
+      "category_name": "waste",
+      "provenance": "real",
+      "text_len": 579,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "water"
+      ],
+      "predicted_domains": [
+        "water"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7889908256880733,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-114",
+      "category": "Q",
+      "category_name": "waste",
+      "provenance": "real",
+      "text_len": 439,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7083333333333334,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-115",
+      "category": "Q",
+      "category_name": "waste",
+      "provenance": "real",
+      "text_len": 512,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7843137254901961,
+      "boilerplate_leak": true,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи реагування."
+      ],
+      "expected_actions": [
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-116",
+      "category": "Q",
+      "category_name": "waste",
+      "provenance": "real",
+      "text_len": 442,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.9629629629629629,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-117",
+      "category": "Q",
+      "category_name": "waste",
+      "provenance": "real",
+      "text_len": 369,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.8979591836734695,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " після прибирання узбіччя не залишати частину залишків сміття на тротуарній/пішохідній частині дороги."
+      ],
+      "expected_actions": [
+        "а саме прохання після прибирання узбіччя не залишати частину залишків сміття на тротуарній/пішохідній частині дороги"
+      ]
+    },
+    {
+      "id": "ev3-118",
+      "category": "Q",
+      "category_name": "waste",
+      "provenance": "real",
+      "text_len": 424,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.6976744186046512,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-119",
+      "category": "R",
+      "category_name": "water_sewerage",
+      "provenance": "real",
+      "text_len": 528,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "water"
+      ],
+      "predicted_domains": [
+        "water"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7818181818181817,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-120",
+      "category": "R",
+      "category_name": "water_sewerage",
+      "provenance": "real",
+      "text_len": 369,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "housing"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.6944444444444445,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-121",
+      "category": "R",
+      "category_name": "water_sewerage",
+      "provenance": "real",
+      "text_len": 421,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "water"
+      ],
+      "predicted_domains": [
+        "water"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.96875,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-122",
+      "category": "R",
+      "category_name": "water_sewerage",
+      "provenance": "real",
+      "text_len": 524,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "water"
+      ],
+      "predicted_domains": [
+        "water"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7592592592592593,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-123",
+      "category": "R",
+      "category_name": "water_sewerage",
+      "provenance": "real",
+      "text_len": 621,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "water"
+      ],
+      "predicted_domains": [
+        "water"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.791044776119403,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-124",
+      "category": "R",
+      "category_name": "water_sewerage",
+      "provenance": "real",
+      "text_len": 417,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "water"
+      ],
+      "predicted_domains": [
+        "water"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.6578947368421052,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-125",
+      "category": "S",
+      "category_name": "roads_sidewalks",
+      "provenance": "real",
+      "text_len": 417,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "roads"
+      ],
+      "predicted_domains": [
+        "roads"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7037037037037037,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи реагування."
+      ],
+      "expected_actions": [
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-126",
+      "category": "S",
+      "category_name": "roads_sidewalks",
+      "provenance": "real",
+      "text_len": 421,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "roads"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.0,
+      "domain_set_recall": 0.0,
+      "issue_rouge_l_best": 0.6666666666666667,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-127",
+      "category": "S",
+      "category_name": "roads_sidewalks",
+      "provenance": "real",
+      "text_len": 505,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "roads"
+      ],
+      "predicted_domains": [
+        "roads"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.9545454545454545,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи реагування."
+      ],
+      "expected_actions": [
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-128",
+      "category": "S",
+      "category_name": "roads_sidewalks",
+      "provenance": "real",
+      "text_len": 375,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 2,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation",
+        "transport"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.5,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.6666666666666667,
+      "boilerplate_leak": false,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        "",
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-129",
+      "category": "S",
+      "category_name": "roads_sidewalks",
+      "provenance": "real",
+      "text_len": 501,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.44067796610169485,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи реагування, а саме: прибрати сміття та здійснити ремонт дорожнього покриття."
+      ],
+      "expected_actions": [
+        "вжити заходи реагування, а саме: прибрати сміття та здійснити ремонт дорожнього покриття"
+      ]
+    },
+    {
+      "id": "ev3-130",
+      "category": "S",
+      "category_name": "roads_sidewalks",
+      "provenance": "real",
+      "text_len": 273,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "roads"
+      ],
+      "predicted_domains": [
+        "roads"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.5,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-131",
+      "category": "S",
+      "category_name": "roads_sidewalks",
+      "provenance": "real",
+      "text_len": 511,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.3548387096774193,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи реагування, а саме: сухе дерево видалити, інше прибрати."
+      ],
+      "expected_actions": [
+        "вжити заходи реагування, а саме: сухе дерево видалити, інше прибрати"
+      ]
+    },
+    {
+      "id": "ev3-132",
+      "category": "T",
+      "category_name": "public_transport",
+      "provenance": "real",
+      "text_len": 380,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "transport"
+      ],
+      "predicted_domains": [
+        "transport"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.6829268292682926,
+      "boilerplate_leak": true,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити відповідні заходи реагування."
+      ],
+      "expected_actions": [
+        "вжити відповідні заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-133",
+      "category": "T",
+      "category_name": "public_transport",
+      "provenance": "real",
+      "text_len": 543,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7936507936507936,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-134",
+      "category": "T",
+      "category_name": "public_transport",
+      "provenance": "real",
+      "text_len": 515,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "transport"
+      ],
+      "predicted_domains": [
+        "transport"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.5833333333333334,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-135",
+      "category": "T",
+      "category_name": "public_transport",
+      "provenance": "real",
+      "text_len": 463,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "transport"
+      ],
+      "predicted_domains": [
+        "transport"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.9166666666666667,
+      "boilerplate_leak": true,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " надати"
+      ],
+      "expected_actions": [
+        "надати"
+      ]
+    },
+    {
+      "id": "ev3-136",
+      "category": "T",
+      "category_name": "public_transport",
+      "provenance": "real",
+      "text_len": 502,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 2,
+      "topic_count_ok": false,
+      "expected_domains": [
+        "transport"
+      ],
+      "predicted_domains": [
+        "transport",
+        "sanitation"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.5,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7951807228915663,
+      "boilerplate_leak": true,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " запустити тролейбус за маршрутом № 9 зранку (о 07:20 год по вул.Державності) з автономним живленням, щоб діти мали змогу доїхати до школи, так як тролейбуси під час відключень світла їздять не за встановленими маршрутами",
+        " обрізати кущі по алеї, що по вул. Незежності, від школи № 35 до РАЦСу."
+      ],
+      "expected_actions": [
+        "запустити тролейбус за маршрутом № 9 зранку (о 07:20 год по вул.Державності) з автономним живленням, щоб діти мали змогу доїхати до школи, так як тролейбуси під час відключень світла їздять не за вст"
+      ]
+    },
+    {
+      "id": "ev3-137",
+      "category": "U",
+      "category_name": "housing_heating",
+      "provenance": "real",
+      "text_len": 517,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7899159663865546,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-138",
+      "category": "U",
+      "category_name": "housing_heating",
+      "provenance": "real",
+      "text_len": 371,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "housing"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.9285714285714286,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи реагування."
+      ],
+      "expected_actions": [
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-139",
+      "category": "U",
+      "category_name": "housing_heating",
+      "provenance": "real",
+      "text_len": 406,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "housing"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7294117647058823,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-140",
+      "category": "U",
+      "category_name": "housing_heating",
+      "provenance": "real",
+      "text_len": 507,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "sanitation"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.0,
+      "domain_set_recall": 0.0,
+      "issue_rouge_l_best": 0.1111111111111111,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи."
+      ],
+      "expected_actions": [
+        "), який на прохання покосити бур’ян не реагує"
+      ]
+    },
+    {
+      "id": "ev3-141",
+      "category": "U",
+      "category_name": "housing_heating",
+      "provenance": "real",
+      "text_len": 424,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "water"
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "domain_set_exact": 0.0,
+      "domain_set_precision": 0.0,
+      "domain_set_recall": 0.0,
+      "issue_rouge_l_best": 0.10526315789473684,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи реагування."
+      ],
+      "expected_actions": [
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-142",
+      "category": "U",
+      "category_name": "housing_heating",
+      "provenance": "real",
+      "text_len": 377,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "housing"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.12,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-143",
+      "category": "V",
+      "category_name": "elevators",
+      "provenance": "real",
+      "text_len": 470,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "housing"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.7450980392156863,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-144",
+      "category": "V",
+      "category_name": "elevators",
+      "provenance": "real",
+      "text_len": 432,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "electricity"
+      ],
+      "predicted_domains": [
+        "electricity"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.5135135135135135,
+      "boilerplate_leak": true,
+      "action_redundant": false,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        ""
+      ],
+      "expected_actions": [
+        ""
+      ]
+    },
+    {
+      "id": "ev3-145",
+      "category": "V",
+      "category_name": "elevators",
+      "provenance": "real",
+      "text_len": 405,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "housing"
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.9538461538461539,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи реагування."
+      ],
+      "expected_actions": [
+        "вжити заходи реагування"
+      ]
+    },
+    {
+      "id": "ev3-146",
+      "category": "V",
+      "category_name": "elevators",
+      "provenance": "real",
+      "text_len": 538,
+      "json_ok": true,
+      "schema_ok": true,
+      "expected_topic_count": 1,
+      "predicted_topic_count": 1,
+      "topic_count_ok": true,
+      "expected_domains": [
+        "transport"
+      ],
+      "predicted_domains": [
+        "transport"
+      ],
+      "domain_set_exact": 1.0,
+      "domain_set_precision": 1.0,
+      "domain_set_recall": 1.0,
+      "issue_rouge_l_best": 0.9719626168224299,
+      "boilerplate_leak": false,
+      "action_redundant": true,
+      "out_of_enum_domain": false,
+      "out_of_enum_values": [],
+      "duplicate_domain": false,
+      "predicted_actions": [
+        " вжити заходи реагування."
+      ],
+      "expected_actions": [
+        "особа з інвалідністю ІІІ групи, пересувається за допомогою ходунків звернулася з проханням щоб громадський транспорт (тролейбуси, автобуси) зупинялися як можливо ближче до бордюрів (10-20 см), а тако"
+      ]
+    }
+  ],
+  "model": "ml/data/tune/adapters/qwen3-8b-lora-v2-attempt10-fused",
+  "tag": "v2",
+  "generation": {
+    "max_tokens": 800,
+    "temperature": 0.0,
+    "enable_thinking": false,
+    "system_prompt_sha256": "db983edd70b4ba2005cb2e0428f88eec76725e741cdaff7e8d23205ecc2905eb"
+  }
+}
