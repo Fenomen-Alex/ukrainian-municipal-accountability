@@ -607,3 +607,82 @@ def test_the_live_control_run_is_reported_incomplete():
         pytest.skip("control run not started")
     info = describe(d, 800, 100)
     assert not info["final_checkpoint_present"] or info["n_checkpoints"] == 8
+
+
+# ------------------------------------------------- C1/C2 on the multitopic slice
+def _topics_of(chat: dict) -> list[dict]:
+    return json.loads(next(m["content"] for m in chat["messages"]
+                           if m["role"] == "assistant"))["topics"]
+
+
+def _multitopic_chat(issues: list[str]) -> dict:
+    return {
+        "uid": "MT-TEST-1",
+        "messages": [
+            {"role": "system", "content": "s"},
+            {"role": "user", "content": " ".join(issues) + " Відповідь надати поштою."},
+            {"role": "assistant", "content": json.dumps(
+                {"topics": [{"domain": "roads", "issue": i, "object": "",
+                             "requested_action": "", "attributes": {}}
+                            for i in issues]}, ensure_ascii=False)},
+        ],
+    }
+
+
+def test_multitopic_relabel_keeps_topics_distinct():
+    """The regression this guards. _relabel derives every topic from the single
+    merged user text, so reusing it here would give every topic the same merged
+    issue and erase the per-topic distinction the multitopic suite exists for."""
+    from ml.tune.build_v3 import _relabel_multitopic
+    chat = _multitopic_chat(["яма на дорозі по вул. Шевченка",
+                             "сміття не вивозять"])
+    out, _ = _relabel_multitopic(chat)
+    issues = [t["issue"] for t in _topics_of(out)]
+    assert len(set(issues)) == 2, issues
+    assert "Шевченка" in issues[0] and "сміття" in issues[1]
+
+
+def test_multitopic_relabel_cleans_each_topic_independently():
+    from ml.tune.build_v3 import _relabel_multitopic
+    chat = _multitopic_chat([
+        "ситуація по вул. Жадова 19. Заявник надає згоду на обробку персональних даних",
+        "не вивозять сміття",
+    ])
+    out, before = _relabel_multitopic(chat)
+    issues = [t["issue"] for t in _topics_of(out)]
+    assert not any("персональних даних" in i for i in issues), issues
+    assert "Жадова" in issues[0]
+    assert "сміття" in issues[1], "the clean topic must not be touched"
+    assert before["boilerplate_issue"] == 1
+
+
+def test_every_training_slice_is_clean_of_boilerplate():
+    """C1 has to reach all three slices. It originally reached one, which would
+    have trained the model to emit consent text on 26% of the rows."""
+    boiler = re.compile("|".join(BOILER_SENT), re.IGNORECASE)
+    slices = {
+        "single": lambda c: not str(c.get("uid", "")).startswith(("V3-TERSE", "MT-")),
+        "terse": lambda c: str(c.get("uid", "")).startswith("V3-TERSE"),
+        "multitopic": lambda c: str(c.get("uid", "")).startswith("MT-"),
+    }
+    rows = _load(TREATMENT / "train.jsonl")
+    for name, pred in slices.items():
+        topics = [t for c in rows if pred(c) for t in _issues(c)]
+        rate = sum(1 for t in topics if boiler.search(t.get("issue", ""))) / len(topics)
+        assert rate < 0.10, f"{name} slice still {rate:.1%} boilerplate"
+
+
+def test_no_multitopic_chat_lost_a_topic():
+    """Dropping a boilerplate-only topic would silently turn a two-topic example
+    into a one-topic one and corrupt the suite C3/C4 are measured on."""
+    for chat in _load(TREATMENT / "train.jsonl"):
+        if str(chat.get("uid", "")).startswith("MT-"):
+            assert len(_issues(chat)) == 2, f"{chat['uid']} has {len(_issues(chat))} topics"
+
+
+def test_the_drop_counts_are_recorded():
+    """A silent data loss reads as a bug later; the number has to be in meta."""
+    meta = json.loads((TREATMENT / "meta.json").read_text())
+    dropped = meta["slices"]["dropped_empty_issue"]
+    assert dropped["n_single"] > 0 and dropped["n_multitopic"] > 0, dropped
+    assert "empty issue" in dropped["reason"]

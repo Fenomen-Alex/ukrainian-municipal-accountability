@@ -236,12 +236,27 @@ describe C4 as though it did.
 
 ### Composition and other deviations
 
-- Treatment is **9468** rows: 5154 single + 1872 terse + 2442 multitopic (terse
-  19.8 %, multitopic 25.8 %), against the plan's ~10500.
-- **Multitopic rows are reweighted but not passed through C1/C2.** C1 and C2 are
-  applied to the single-topic and terse streams only. If the intent was C1–C4 on all
-  training topics, this is a gap, and it is the one place where the built dataset does
-  not match the plan's title.
+- Treatment is **9448** rows: 5154 single + 1872 terse + 2422 multitopic (terse
+  19.8 %, multitopic 25.6 %), against the plan's ~10500. 240 examples are dropped for
+  having no issue left after C1 (230 single, 10 multitopic); the counts are in
+  `meta.json` so the loss is visible rather than silent.
+- **C1 and C2 now reach the multitopic slice too**, per topic. They originally did
+  not, and it mattered more than tidiness: 45.7 % of multitopic topics still carried
+  the consent block, so leaving them alone would have trained the model to emit
+  exactly the boilerplate C1 exists to remove, on 26 % of the training rows, and given
+  the primary gate (leak ≤ 0.02) a real chance of failing for the wrong reason.
+
+  The obvious implementation is wrong. `_relabel` derives every topic from the chat's
+  single user text, which is right for one complaint and destructive for several: the
+  user message is the *merged* text, so every topic would be relabelled from the same
+  merged complaint and each topic's `issue` would become the same merged string,
+  destroying the distinction the multitopic suite exists to test. `_relabel_multitopic`
+  therefore cleans each topic from its own `issue` clause. Measured: multitopic
+  boilerplate 45.7 % → 7.1 %, with 0 of 2442 topic pairs sharing an issue.
+
+  Ten multitopic chats were dropped because every topic was boilerplate. The whole
+  chat goes rather than the one topic, because dropping a topic would silently turn a
+  two-topic example into a one-topic one and corrupt the suite C3/C4 are measured on.
 - The control was launched with `--steps-per-report 25` against v2's recorded 10.
   This changes logging cadence, not the trained weights, but it is a visible
   difference from the frozen v2 recipe and is recorded in the control's

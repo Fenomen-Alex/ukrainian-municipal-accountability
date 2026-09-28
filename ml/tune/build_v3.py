@@ -115,6 +115,47 @@ def _relabel(chat: dict) -> tuple[dict, dict]:
     return new, before
 
 
+def _relabel_multitopic(chat: dict) -> tuple[dict, dict]:
+    """Apply C1 and C2 to a multi-topic example, one topic at a time.
+
+    ``_relabel`` cannot be reused here. It derives every topic from the chat's
+    single user text, which is correct for a single-topic complaint and actively
+    destructive for a multi-topic one: the user message is the *merged* text of
+    several complaints, so every topic would be relabelled from the same merged
+    complaint and each topic's ``issue`` would become the same merged string.
+    That destroys the per-topic distinction the multitopic suite exists to test.
+
+    Here each topic is cleaned from its own ``issue`` clause, which is the text
+    that was already derived from its own complaint by the multitopic builder.
+
+    This matters for the primary gate, not just for tidiness: 29% of multitopic
+    topics still carried the consent block, so leaving them alone would train the
+    model to emit exactly the boilerplate C1 exists to remove, on 26% of the
+    training rows.
+    """
+    topics = _topics_of(chat)
+    before = {"boilerplate_issue": 0, "action_whole_sentence": 0,
+              "action_empty": 0, "action_nonempty": 0}
+    out_topics = []
+    for t in topics:
+        nt = dict(t)
+        new_issue = clean_issue_c1(t.get("issue", ""))
+        if new_issue != t.get("issue", ""):
+            before["boilerplate_issue"] += 1
+        nt["issue"] = new_issue
+        new_action = extract_action_c2(new_issue) if new_issue else ""
+        before["action_nonempty" if new_action else "action_empty"] += 1
+        nt["requested_action"] = new_action
+        out_topics.append(nt)
+    out = dict(chat)
+    out["messages"] = list(chat["messages"])
+    out["messages"][_ASSISTANT] = {
+        "role": "assistant",
+        "content": json.dumps({"topics": out_topics}, ensure_ascii=False),
+    }
+    return out, before
+
+
 def _terse_examples(records: list[dict]) -> list[dict]:
     """C3: one chat example per terse record, kernel as the visible text.
 
@@ -228,7 +269,24 @@ def build() -> dict:
 
     # --- C4 multitopic reweighting ---------------------------------------- #
     mt_base = _load(MT_DIR / "train.jsonl")
-    mt = [c for ex in mt_base for c in _upsample(ex)]
+    # C1 + C2 on the multitopic slice too, per topic -- see _relabel_multitopic
+    # for why _relabel cannot be reused and why 26% of the rows need it.
+    mt, mt_c12, mt_dropped = [], {"boilerplate_issue": 0, "action_whole_sentence": 0,
+                                  "action_empty": 0, "action_nonempty": 0}, 0
+    for ex in mt_base:
+        relabelled, before = _relabel_multitopic(ex)
+        # Same policy as the single stream: a topic left with no issue is a target
+        # that teaches the model to emit nothing. The whole chat goes rather than
+        # the single topic, because dropping one topic would silently turn a
+        # two-topic example into a one-topic one and corrupt the multitopic
+        # suite the C3/C4 gates are measured on.
+        if not all(t["issue"].strip() for t in _topics_of(relabelled)):
+            mt_dropped += 1
+            continue
+        for c in _upsample(relabelled):
+            mt.append(c)
+        for k in mt_c12:
+            mt_c12[k] += before[k]
 
     examples = single + terse + mt
     (OUT / "train.jsonl").write_text(
@@ -256,14 +314,6 @@ def build() -> dict:
             "criterion": "train record < 150 chars and note kernel >= 25 chars",
         },
         "c1_c2_counters": c12,
-        "dropped_empty_issue": {
-            "n": dropped_empty,
-            "reason": (
-                "record was only boilerplate (consent/response template, no "
-                "complaint), so C1 leaves no issue to learn from; kept would teach "
-                "the model to emit an empty issue"
-            ),
-        },
         "composition": {
             "single_topic_v1": len(single),
             "terse_augmented": len(terse),
@@ -275,7 +325,15 @@ def build() -> dict:
         "slices": {
             "single": _measure(single, "v1 train, C1+C2 relabelled"),
             "terse": _measure(terse, "C3 terse augmentation"),
-            "multitopic": _measure(mt, "C4 reweighted multitopic"),
+            "multitopic": _measure(mt, "C4 reweighted multitopic, C1+C2 per topic"),
+            "multitopic_c1_c2_counters": mt_c12,
+            "dropped_empty_issue": {
+                "n_single": dropped_empty, "n_multitopic": mt_dropped,
+                "reason": (
+                    "every topic was boilerplate, so C1 leaves no issue to learn "
+                    "from; kept would teach the model to emit an empty issue"
+                ),
+            },
         },
         "validation": "frozen copy of v2 validation.jsonl",
         "test": "frozen copy of v2 test.jsonl",

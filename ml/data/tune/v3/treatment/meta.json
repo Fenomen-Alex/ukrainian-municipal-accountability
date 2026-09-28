@@ -23,17 +23,13 @@
     "action_empty": 4237,
     "action_nonempty": 917
   },
-  "dropped_empty_issue": {
-    "n": 230,
-    "reason": "record was only boilerplate (consent/response template, no complaint), so C1 leaves no issue to learn from; kept would teach the model to emit an empty issue"
-  },
   "composition": {
     "single_topic_v1": 5154,
     "terse_augmented": 1872,
-    "multitopic_augmented": 2442,
-    "total": 9468,
-    "terse_share": 0.1977,
-    "multitopic_share": 0.2579
+    "multitopic_augmented": 2422,
+    "total": 9448,
+    "terse_share": 0.1981,
+    "multitopic_share": 0.2564
   },
   "slices": {
     "single": {
@@ -61,16 +57,27 @@
       "action_whole_sentence_share": 1.0
     },
     "multitopic": {
-      "source": "C4 reweighted multitopic",
-      "n_examples": 2442,
-      "n_topics": 4884,
-      "n_multi_topic_examples": 2442,
+      "source": "C4 reweighted multitopic, C1+C2 per topic",
+      "n_examples": 2422,
+      "n_topics": 4844,
+      "n_multi_topic_examples": 2422,
       "n_real_multitopic_rows": 528,
-      "real_row_share": 0.2162,
-      "n_nonempty_action": 1100,
-      "nonempty_action_share": 0.2252,
-      "action_is_whole_sentence": 28,
-      "action_whole_sentence_share": 0.0255
+      "real_row_share": 0.218,
+      "n_nonempty_action": 1058,
+      "nonempty_action_share": 0.2184,
+      "action_is_whole_sentence": 0,
+      "action_whole_sentence_share": 0.0
+    },
+    "multitopic_c1_c2_counters": {
+      "boilerplate_issue": 1863,
+      "action_whole_sentence": 0,
+      "action_empty": 1563,
+      "action_nonempty": 375
+    },
+    "dropped_empty_issue": {
+      "n_single": 230,
+      "n_multitopic": 10,
+      "reason": "every topic was boilerplate, so C1 leaves no issue to learn from; kept would teach the model to emit an empty issue"
     }
   },
   "validation": "frozen copy of v2 validation.jsonl",
