@@ -337,3 +337,40 @@ def test_control_recipe_covers_every_hyperparameter_that_matters():
                 "max_seq_length", "num_layers", "lora_parameters", "seed",
                 "grad_checkpoint", "mask_prompt", "optimizer", "model"):
         assert key in v2, f"v2 recipe is missing {key}; the parity check cannot see it"
+
+
+# ------------------------------------------------------------------ fusion arms
+def test_fuse_inherits_the_serving_contract_rather_than_re_deriving_it():
+    """The failure this guards: mlx_lm.fuse copies the chat template from the
+    base HF repo, which is how v2 ended up needing a hand-patched template that
+    honours enable_thinking. Every fused arm must inherit v2's verified files."""
+    from ml.tune.fuse_v3 import INHERITED, V2_FUSED
+    assert "chat_template.jinja" in INHERITED
+    assert (V2_FUSED / "chat_template.jinja").exists()
+    tpl = (V2_FUSED / "chat_template.jinja").read_text()
+    assert "enable_thinking" in tpl, "v2 template does not honour enable_thinking"
+
+
+def test_fuse_refuses_to_run_without_the_verified_template():
+    """Silently producing an arm with a different template is worse than failing."""
+    from ml.tune import fuse_v3
+    with pytest.raises(SystemExit, match="serving contract"):
+        fuse_v3.fuse(fuse_v3.DATA, fuse_v3.DATA / "out",
+                     template_from=ROOT / "ml/tune/does-not-exist")
+
+
+@pytest.mark.parametrize("arm", ["v3-control", "v3-treatment"])
+def test_fused_arm_is_served_identically_to_v2(arm):
+    """Skipped until the arm is trained; when it runs, a v3 arm must differ
+    from the v2 baseline in weights and in nothing else."""
+    from ml.tune.fuse_v3 import INHERITED, V2_FUSED
+    import hashlib
+    fused = DATA_DIR / "tune" / "adapters" / f"qwen3-8b-lora-{arm}-fused"
+    if not (fused / "fuse_manifest.json").exists():
+        pytest.skip(f"{arm} not fused yet")
+    for name in INHERITED:
+        a = hashlib.sha256((fused / name).read_bytes()).hexdigest()
+        b = hashlib.sha256((V2_FUSED / name).read_bytes()).hexdigest()
+        assert a == b, f"{name} differs between {arm} and v2"
+    assert (fused / "model.safetensors").exists() or (fused / "model.safetensors.index.json").exists()
+    assert json.loads((fused / "fuse_manifest.json").read_text())["fused_modules"] > 0
