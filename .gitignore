@@ -14,3 +14,10 @@ ml/data/tune/train.jsonl
 ml/data/tune/validation.jsonl
 ml/data/tune/valid.jsonl
 ml/data/tune/test.jsonl
+
+# v3 control data is a byte-identical copy of the already-tracked
+# ml/data/tune/v2/*.jsonl. Committing it would add 26M of zero information to the
+# repository. build_control.py regenerates it deterministically and
+# ml/data/tune/v3/control/meta.json records the sha256 that the test suite
+# compares against ml/tune/build_control.py's output.
+ml/data/tune/v3/control/*.jsonl

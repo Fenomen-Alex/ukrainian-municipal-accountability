@@ -1,0 +1,28 @@
+{
+  "built_by": "ml/tune/build_control.py",
+  "arm": "control",
+  "purpose": "v2 data, deterministic pipeline, no C1-C4. The only difference from v2 is that batch order is drawn from an explicit seed instead of whatever state the process happened to be in.",
+  "applies_c1_c4": false,
+  "train": {
+    "n": 8519,
+    "sha256": "a93a6af427b4056c4c07d6691b4ac2563f3d1b1f77e3accad586dc8aede6702b",
+    "v2_sha256": "a93a6af427b4056c4c07d6691b4ac2563f3d1b1f77e3accad586dc8aede6702b",
+    "byte_identical_to_v2": true
+  },
+  "splits": {
+    "validation": {
+      "sha256": "c7cea07ec00f60e881d2cef08e476676ba3d676e6d1798fee77721987ac7ff0e",
+      "identical_to_v2": true
+    },
+    "test": {
+      "sha256": "49a7c35185586849f4c5e130e9ef7734478c7ef830e93f97af04058b1b6cc043",
+      "identical_to_v2": true
+    }
+  },
+  "composition": {
+    "v1_single_topic": 5384,
+    "multitopic_augmentation": 3135,
+    "multitopic_upsample": 3,
+    "multitopic_real_upsample": 12
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "built_by": "ml/tune/build_v3.py",
+  "arm": "treatment",
+  "changes_applied": [
+    "C1 boilerplate clean",
+    "C2 requested_action",
+    "C3 terse upsampling",
+    "C4 multitopic real-share"
+  ],
+  "upsample_factors": {
+    "terse": 8,
+    "mt_real": "3/12 -> 2/24"
+  },
+  "terse_pool": {
+    "n_records": 246,
+    "n_units": 234,
+    "n_rows_after_upsample": 1872,
+    "criterion": "train record < 150 chars and note kernel >= 25 chars"
+  },
+  "c1_c2_counters": {
+    "boilerplate_issue": 5154,
+    "action_whole_sentence": 0,
+    "action_empty": 4237,
+    "action_nonempty": 917
+  },
+  "dropped_empty_issue": {
+    "n": 230,
+    "reason": "record was only boilerplate (consent/response template, no complaint), so C1 leaves no issue to learn from; kept would teach the model to emit an empty issue"
+  },
+  "composition": {
+    "single_topic_v1": 5154,
+    "terse_augmented": 1872,
+    "multitopic_augmented": 2442,
+    "total": 9468,
+    "terse_share": 0.1977,
+    "multitopic_share": 0.2579
+  },
+  "slices": {
+    "single": {
+      "source": "v1 train, C1+C2 relabelled",
+      "n_examples": 5154,
+      "n_topics": 5154,
+      "n_multi_topic_examples": 0,
+      "n_real_multitopic_rows": 0,
+      "real_row_share": 0.0,
+      "n_nonempty_action": 917,
+      "nonempty_action_share": 0.1779,
+      "action_is_whole_sentence": 0,
+      "action_whole_sentence_share": 0.0
+    },
+    "terse": {
+      "source": "C3 terse augmentation",
+      "n_examples": 1872,
+      "n_topics": 1872,
+      "n_multi_topic_examples": 0,
+      "n_real_multitopic_rows": 0,
+      "real_row_share": 0.0,
+      "n_nonempty_action": 32,
+      "nonempty_action_share": 0.0171,
+      "action_is_whole_sentence": 32,
+      "action_whole_sentence_share": 1.0
+    },
+    "multitopic": {
+      "source": "C4 reweighted multitopic",
+      "n_examples": 2442,
+      "n_topics": 4884,
+      "n_multi_topic_examples": 2442,
+      "n_real_multitopic_rows": 528,
+      "real_row_share": 0.2162,
+      "n_nonempty_action": 1100,
+      "nonempty_action_share": 0.2252,
+      "action_is_whole_sentence": 28,
+      "action_whole_sentence_share": 0.0255
+    }
+  },
+  "validation": "frozen copy of v2 validation.jsonl",
+  "test": "frozen copy of v2 test.jsonl",
+  "leakage": "every augmentation source is a train-split record; the terse pool and the multi-topic set are disjoint by construction and neither appears in the frozen validation/test copies, which are byte-identical to v2."
+}
