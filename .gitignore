@@ -21,3 +21,6 @@ ml/data/tune/test.jsonl
 # ml/data/tune/v3/control/meta.json records the sha256 that the test suite
 # compares against ml/tune/build_control.py's output.
 ml/data/tune/v3/control/*.jsonl
+
+# per-step logs from run_v3_experiment.sh; regenerated on every run
+ml/data/tune/v3/logs/
