@@ -686,3 +686,48 @@ def test_the_drop_counts_are_recorded():
     dropped = meta["slices"]["dropped_empty_issue"]
     assert dropped["n_single"] > 0 and dropped["n_multitopic"] > 0, dropped
     assert "empty issue" in dropped["reason"]
+
+
+def test_fuse_rel_handles_relative_and_absolute_paths():
+    """Path.relative_to raises on a relative argument against an absolute root;
+    fusion records provenance in the manifest, so this surfaced as a crash at
+    the fuse step of the driver."""
+    from ml.tune.fuse_v3 import _rel
+    import os
+    rel = "ml/data/tune/adapters/qwen3-8b-lora-v3-control"
+    assert _rel(Path(rel)) == rel
+    assert _rel(Path(rel).resolve()) == rel
+    assert _rel(Path(rel)) == _rel(Path(rel).resolve())
+    assert _rel(Path(os.getcwd())) == "."
+
+
+def test_training_budget_covers_only_a_window_of_the_corpus():
+    """The control arm failed its own validation for a mechanical reason: an
+    800-step run at batch 2 consumes a random 18.8% of the 8519-example corpus,
+    and evaluation lands on the ~81% of content the model never saw. This test
+    pins the budget to a sub-epoch window so a future change to iters/batch that
+    silently reintroduces (or fixes) the lottery is noticed. The driver refused
+    to train the treatment because of this; do not raise iters/batch without
+    re-reading ml/reports/v3_experiment_design.md §11 and re-validating the
+    control."""
+    n_examples = 8519
+    budget_examples = 800 * 2        # args.iters x args.batch_size in the v2 recipe
+    n_batches = (n_examples - 2) // 2 + 1
+    coverage = budget_examples / n_examples
+    assert n_batches > 800            # not even one epoch exists in 800 steps
+    assert 0.15 < coverage < 0.25      # window lottery holds; update if protocol changes
+    assert budget_examples < n_examples  # a run never sees the whole corpus
+
+
+def test_the_control_did_not_pass_its_own_validation():
+    """Freeze the negative result that stopped the experiment. The control is
+    byte-identical otherwise to v2, and the head-to-head gap is the measured
+    evidence that n=1 gating against v2's baselines is untrustworthy. If this
+    ever needs to flip, the protocol's precondition must be re-derived first."""
+    import json as _json
+    v2 = _json.load(open(ROOT / "ml/data/tune/eval_v3/results/v2.json"))["metrics"]
+    ctl = _json.load(open(ROOT / "ml/data/tune/eval_v3/results/v3-control.json"))["metrics"]
+    gap = ctl["topic_count_accuracy"] - v2["topic_count_accuracy"]
+    assert gap < -0.05, (
+        f"control within {gap:+.4f} of v2 on topic_count; either the batch "
+        "window lottery is gone or v3-control.json was overwritten")

@@ -268,3 +268,73 @@ describe C4 as though it did.
   artifact rather than from the base repo, because `mlx_lm.fuse` copies the template
   from the base repo — which is how v2's fused directory ended up needing a
   hand-patched template that honours `enable_thinking`.
+
+## 11 Outcome: the control failed its own validation, so no v3 model was published
+
+The protocol's precondition, restated: *run the control arm first and require it to
+land within 1 point of every recorded baseline. If it does not, the harness is
+untrustworthy and the treatment number means nothing.*
+
+The control did not land within 1 point of anything on the primary suite. Score on
+the byte-identical training data, identical recipe, only the batch-visit order
+differing (seeded at 42 vs. the OS-entropy stream v2 actually ran with):
+
+| suite | metric | v2 | v3-control | delta | test |
+|---|---|---|---|---|---|
+| eval_v3 (146) | schema_validity | 0.9863 | 0.9658 | -0.0205 | McNemar n.s. |
+| eval_v3 (146) | topic_count_accuracy | 0.7808 | 0.6644 | -0.1164 | **p=0.0023** |
+| eval_v3 (146) | domain_set_exact | 0.6301 | 0.5479 | -0.0822 | **p=0.0428** |
+| eval_v3 (146) | domain_set_recall | 0.7637 | 0.6849 | -0.0788 | **sig.** |
+| eval_v3 (146) | issue_rouge_l_best | 0.6719 | 0.6418 | -0.0301 | n.s. |
+| eval_v3 (146) | boilerplate_leak | 0.3699 | 0.3973 | +0.027 | n.s. |
+| frozen 329 | domain_accuracy | 0.8389 | 0.8511 | +0.012 | — |
+| frozen 329 | domain_macro_f1 | 0.7596 | 0.6765 | -0.083 | — |
+| frozen 329 | multi_topic_rate | 0.0365 | 0.0061 | -0.030 | — |
+| multitopic 85 | topic_count_accuracy | 0.8588 | 0.6824 | -0.176 | — |
+| multitopic 85 | multi_topic_recall | 0.8941 | 0.6824 | -0.212 | — |
+| smoke 20 | two-topic recall | 1/4 | 0/4 | -1 | — |
+
+The control is simultaneously a little better at single-topic domain attribution
+(frozen domain_accuracy +0.012) and much worse at everything that needs the
+multi-topic skill the multitopic suites exist to measure.
+
+### Root cause: an 800-step budget never covers the corpus
+
+`mlx_lm`'s `train` zips `range(1, args.iters + 1)` against `iterate_batches(loop=True)`,
+with batches formed by grouping the length-sorted indices in chunks of `batch_size`.
+With 800 iterations at batch 2 over 8519 examples there are 4259 batches and the run
+consumes only the first 800 of them — a uniformly random **18.8 %** of the corpus
+(1600 examples), and *not* the longest 18.8 %: the permutation ignores length, so the
+window is a random subset.
+
+The seed makes the subset reproducible; it does not make it representative. v2 drew
+its window from an unseeded RNG stream, the control from seed 42, and the windows
+barely overlap (~18 % of the seen set). Both models were therefore evaluated on ~81 %
+of the corpus content they never trained on, and their behaviour there tracks which
+subset they happened to see. The observed spread — up to 21 points on multitopic
+recall — is the batch-window lottery, not a real difference. This is why v2's
+recorded baselines were, in the same sense, one lucky draw.
+
+### Consequence
+
+No treatment arm was trained, by design: the precondition failed first, and the
+treatment's single-run score would have been an indistinguishable mixture of a
+C1–C4 effect and a fresh window draw. The gates cannot separate the two at n=1 per
+arm with this budget, so a v3 model was **not** fused-and-published. The C1–C4
+dataset build itself is verified (307 tests: leakage, composition, per-topic
+distinctness, drop accounting) and is a standalone deliverable: a cleaner 9448-row
+training corpus. What is unproven is that training on it beats training on v2's
+data, because the experiment one run at a time cannot be trusted to a point.
+
+### What a sound redo needs (not executed)
+
+1. **Full coverage.** Make a run see every example: iters ≥ number of batches at
+   batch 2 (4259 control / 4724 treatment ≈ 24–30 h each), or raise batch size so
+   the corpus fits in 800 steps (memory permitting at max-seq 2048). Either choice
+   changes the frozen v2 recipe, so the v2-relative gates and baselines stop being
+   comparable and would have to be recomputed on the new protocol — the current
+   gates cannot be transferred.
+2. **Multi-seed.** Report distributions (≥3 seeds per arm) and an effect size with
+   variance, not one pair of point scores.
+3. Only then can a post-hoc gate resembling the protocol's be evaluated with a
+   defensible p-value, and only then is a publishable claim possible.

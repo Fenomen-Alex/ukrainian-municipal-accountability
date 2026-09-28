@@ -1,0 +1,3224 @@
+{
+  "system": "v3-control",
+  "metrics": {
+    "n": 85,
+    "json_parse_rate": 1.0,
+    "schema_validity_rate": 1.0,
+    "topic_count_accuracy": 0.6824,
+    "multi_topic_recall": 0.6824,
+    "domain_set_exact": 0.5059,
+    "domain_set_precision": 0.9235,
+    "domain_set_recall": 0.7471,
+    "issue_rouge_l_best": 0.7362,
+    "per_example": [
+      {
+        "uid": "MT-REAL-Ч-2181",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "roads"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-REAL-Б-2606",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "roads"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-Ш-2860-Ю-1915",
+        "target_n": 2,
+        "target_domains": [
+          "construction",
+          "transport"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "transport"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-О-3061-К-1027",
+        "target_n": 2,
+        "target_domains": [
+          "construction",
+          "heating"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "heating",
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-П-3172-С-1107",
+        "target_n": 2,
+        "target_domains": [
+          "construction",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "construction",
+          "sanitation"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-Г-3409-Є-2950",
+        "target_n": 2,
+        "target_domains": [
+          "payments",
+          "transport"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "payments",
+          "transport"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-П-3140-К-1422",
+        "target_n": 2,
+        "target_domains": [
+          "heating",
+          "housing"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "heating"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-Ш-2860-П-3580",
+        "target_n": 2,
+        "target_domains": [
+          "sanitation",
+          "transport"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "sanitation",
+          "transport"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-К-215-Ф-2824",
+        "target_n": 2,
+        "target_domains": [
+          "heating",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "heating",
+          "sanitation"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-С-3537-Ш-1585",
+        "target_n": 2,
+        "target_domains": [
+          "electricity",
+          "heating"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "electricity",
+          "heating"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-Г-3407-З-69",
+        "target_n": 2,
+        "target_domains": [
+          "heating",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "heating",
+          "sanitation"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-Ч-2288-Д-803",
+        "target_n": 2,
+        "target_domains": [
+          "commerce",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "commerce",
+          "sanitation"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-М-2497-М-1698",
+        "target_n": 2,
+        "target_domains": [
+          "sanitation",
+          "water"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "water"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-К-3720-Ш-3497",
+        "target_n": 2,
+        "target_domains": [
+          "electricity",
+          "heating"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "electricity",
+          "heating"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-Р-2204-С-2902",
+        "target_n": 2,
+        "target_domains": [
+          "heating",
+          "housing"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-М-1190-С-1017",
+        "target_n": 2,
+        "target_domains": [
+          "housing",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "housing",
+          "sanitation"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-В-2051-П-1890",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "water"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-М-3199-М-1353",
+        "target_n": 2,
+        "target_domains": [
+          "electricity",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "electricity",
+          "sanitation"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-Б-342-Г-3024",
+        "target_n": 2,
+        "target_domains": [
+          "heating",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "heating",
+          "sanitation"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-Л-951-В-2859",
+        "target_n": 2,
+        "target_domains": [
+          "housing",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "housing",
+          "sanitation"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-П-2745-Р-13",
+        "target_n": 2,
+        "target_domains": [
+          "housing",
+          "sanitation"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-К-434-Г-1532",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-С-1366-Я-1952",
+        "target_n": 2,
+        "target_domains": [
+          "housing",
+          "sanitation"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "housing"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-К-2726-К-884",
+        "target_n": 2,
+        "target_domains": [
+          "sanitation",
+          "water"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "water"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-Д-1069-К-3070",
+        "target_n": 2,
+        "target_domains": [
+          "heating",
+          "housing"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "heating",
+          "housing"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-С-2031-В-675",
+        "target_n": 2,
+        "target_domains": [
+          "heating",
+          "payments"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "payments"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-К-1027-К-2135",
+        "target_n": 2,
+        "target_domains": [
+          "construction",
+          "sanitation"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-М-1216-Д-607",
+        "target_n": 2,
+        "target_domains": [
+          "housing",
+          "payments"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "payments",
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-К-1071-Ч-2814",
+        "target_n": 2,
+        "target_domains": [
+          "housing",
+          "water"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "housing",
+          "water"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-С-2165-Є-3554",
+        "target_n": 2,
+        "target_domains": [
+          "electricity",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "electricity",
+          "sanitation"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-Ш-1439-Р-3261",
+        "target_n": 2,
+        "target_domains": [
+          "heating",
+          "payments"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "heating",
+          "payments"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-Б-2505-Т-142",
+        "target_n": 2,
+        "target_domains": [
+          "sanitation",
+          "water"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "sanitation",
+          "water"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-Д-1680-Г-3180",
+        "target_n": 2,
+        "target_domains": [
+          "housing",
+          "sanitation"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "housing"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-Ж-891-*-3239",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "transport"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "transport"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-Д-3389-Ш-435",
+        "target_n": 2,
+        "target_domains": [
+          "heating",
+          "roads"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "heating",
+          "roads"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-Ю-1583-Ж-3176",
+        "target_n": 2,
+        "target_domains": [
+          "heating",
+          "sanitation"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-С-1230-Х-3388",
+        "target_n": 2,
+        "target_domains": [
+          "heating",
+          "transport"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "heating",
+          "transport"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-К-2700-П-1336",
+        "target_n": 2,
+        "target_domains": [
+          "sanitation",
+          "water"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-SS-Ш-998-С-1446",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-SS-Г-3198-П-3172",
+        "target_n": 2,
+        "target_domains": [
+          "construction",
+          "roads"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "construction",
+          "roads"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-SS-К-2438-Т-3845",
+        "target_n": 2,
+        "target_domains": [
+          "electricity",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "electricity",
+          "sanitation"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-SS-Д-803-Ц-1436",
+        "target_n": 2,
+        "target_domains": [
+          "commerce",
+          "roads"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-SS-Г-2973-Д-448",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-SS-Д-3359-Т-1410",
+        "target_n": 2,
+        "target_domains": [
+          "housing",
+          "sanitation"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "housing"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-SS-О-919-О-2652",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "roads"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-SS-І-589-Б-2922",
+        "target_n": 2,
+        "target_domains": [
+          "electricity",
+          "water"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "electricity",
+          "water"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-SS-Д-2579-І-442",
+        "target_n": 2,
+        "target_domains": [
+          "construction",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-SS-Г-1907-Л-2726",
+        "target_n": 2,
+        "target_domains": [
+          "construction",
+          "roads"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "construction"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-SS-М-3177-М-709",
+        "target_n": 2,
+        "target_domains": [
+          "electricity",
+          "roads"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "electricity"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-SS-М-3355-Л-2372",
+        "target_n": 2,
+        "target_domains": [
+          "sanitation",
+          "water"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-SS-С-840-Н-2721",
+        "target_n": 2,
+        "target_domains": [
+          "construction",
+          "roads"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "roads"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-SS-К-1047-М-3730",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-SS-К-869-С-1058",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "roads"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-CS-С-1446-Ш-998",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-CS-Х-534-П-2377",
+        "target_n": 2,
+        "target_domains": [
+          "transport",
+          "water"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "water"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-CS-Ю-2066-К-2239",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-CS-П-2594-П-1573",
+        "target_n": 2,
+        "target_domains": [
+          "construction",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-CS-Н-582-П-1005",
+        "target_n": 2,
+        "target_domains": [
+          "housing",
+          "water"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "housing",
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-CS-Г-3228-А-3359",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-CS-А-198-Ч-3429",
+        "target_n": 2,
+        "target_domains": [
+          "heating",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "government",
+          "heating"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-CS-В-640-Б-671",
+        "target_n": 2,
+        "target_domains": [
+          "housing",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "housing",
+          "sanitation"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-CS-К-873-К-3550",
+        "target_n": 2,
+        "target_domains": [
+          "sanitation",
+          "water"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "sanitation",
+          "water"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-CS-Б-1117-М-223",
+        "target_n": 2,
+        "target_domains": [
+          "construction",
+          "transport"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "sanitation",
+          "transport"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-CS-Ч-861-Ч-1136",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "water"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "roads",
+          "water"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-CS-Ю-1915-К-3321",
+        "target_n": 2,
+        "target_domains": [
+          "construction",
+          "heating"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "construction",
+          "heating"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-CS-К-773-М-1464",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-RS-А-1973-С-1912",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-RS-С-3120-С-3325",
+        "target_n": 2,
+        "target_domains": [
+          "electricity",
+          "housing"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "housing"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-RS-К-2463-Д-3531",
+        "target_n": 2,
+        "target_domains": [
+          "housing",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "housing",
+          "roads"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-RS-Д-3789-Д-580",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "water"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "roads",
+          "water"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-RS-Б-2399-Л-3434",
+        "target_n": 2,
+        "target_domains": [
+          "heating",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "housing",
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-RS-О-132-Т-1295",
+        "target_n": 2,
+        "target_domains": [
+          "sanitation",
+          "water"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-RS-Т-1770-Б-481",
+        "target_n": 2,
+        "target_domains": [
+          "housing",
+          "water"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "housing",
+          "water"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-RS-М-3572-К-3543",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-RS-Я-212-П-1931",
+        "target_n": 2,
+        "target_domains": [
+          "housing",
+          "water"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "housing",
+          "water"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-RS-В-1834-Б-3523",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-RS-Т-2523-Ш-946",
+        "target_n": 2,
+        "target_domains": [
+          "electricity",
+          "water"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "electricity",
+          "water"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-RS-М-3853-Ш-578",
+        "target_n": 2,
+        "target_domains": [
+          "heating",
+          "housing"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "heating",
+          "housing"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-SC-Ч-1731-Т-2980",
+        "target_n": 2,
+        "target_domains": [
+          "sanitation",
+          "water"
+        ],
+        "pred_n": 1,
+        "pred_domains": [
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-SC-Д-2966-Л-887",
+        "target_n": 2,
+        "target_domains": [
+          "sanitation",
+          "water"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "sanitation",
+          "water"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-SC-М-709-Р-897",
+        "target_n": 2,
+        "target_domains": [
+          "roads",
+          "sanitation"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "sanitation"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-SC-Д-2981-К-2956",
+        "target_n": 2,
+        "target_domains": [
+          "housing",
+          "water"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "housing",
+          "water"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-SC-С-3006-Н-162",
+        "target_n": 2,
+        "target_domains": [
+          "heating",
+          "housing"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "heating",
+          "water"
+        ],
+        "domain_set_exact": false
+      },
+      {
+        "uid": "MT-SYN-SC-Я-2889-К-278",
+        "target_n": 2,
+        "target_domains": [
+          "electricity",
+          "water"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "electricity",
+          "water"
+        ],
+        "domain_set_exact": true
+      },
+      {
+        "uid": "MT-SYN-SC-Д-358-В-2656",
+        "target_n": 2,
+        "target_domains": [
+          "housing",
+          "water"
+        ],
+        "pred_n": 2,
+        "pred_domains": [
+          "housing",
+          "water"
+        ],
+        "domain_set_exact": true
+      }
+    ]
+  },
+  "predictions": [
+    {
+      "idx": 0,
+      "uid": "MT-REAL-Ч-2181",
+      "raw": "{\"topics\": [{\"domain\": \"roads\", \"issue\": \"засипати асфальтним сколом частину дорожнього покриття по вул. Габдрахманова перехід на пров. , по вул. Сухумської та видалити/обрізати кущі від вул. Софії Русанової, 6 до вул. Сухумської, 30/2. заявник бажає отримати у телефонному режимі.\", \"object\": \"вул. Габдрахманова перехід на пров\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Габдрахманова перехід на пров\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "roads",
+            "issue": "засипати асфальтним сколом частину дорожнього покриття по вул. Габдрахманова перехід на пров. , по вул. Сухумської та видалити/обрізати кущі від вул. Софії Русанової, 6 до вул. Сухумської, 30/2. заявник бажає отримати у телефонному режимі.",
+            "object": "вул. Габдрахманова перехід на пров",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Габдрахманова перехід на пров"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 1,
+      "uid": "MT-REAL-Б-2606",
+      "raw": "{\"topics\": [{\"domain\": \"roads\", \"issue\": \"прибирання бетонних уламків на розі вулиць та , а також проведення ямкового ремонту дорожнього покриття біля будинку за зазначеною адресою. вжити відповідні заходи реагування. заявнику. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних\", \"object\": \"\", \"requested_action\": \" вжити відповідні заходи реагування.\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "roads",
+            "issue": "прибирання бетонних уламків на розі вулиць та , а також проведення ямкового ремонту дорожнього покриття біля будинку за зазначеною адресою. вжити відповідні заходи реагування. заявнику. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних",
+            "object": "",
+            "requested_action": " вжити відповідні заходи реагування.",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 2,
+      "uid": "MT-SYN-Ш-2860-Ю-1915",
+      "raw": "{\"topics\": [{\"domain\": \"transport\", \"issue\": \"змінити графік руху тролейбуса №8 таким чином, щоб він виїжджав о 07.00 год від зупинки ’. надає згоду на обробку персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \" змінити графік руху тролейбуса №8 таким чином, щоб він виїжджав о 07.00 год від зупинки ’.\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "transport",
+            "issue": "змінити графік руху тролейбуса №8 таким чином, щоб він виїжджав о 07.00 год від зупинки ’. надає згоду на обробку персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": " змінити графік руху тролейбуса №8 таким чином, щоб він виїжджав о 07.00 год від зупинки ’.",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 3,
+      "uid": "MT-SYN-О-3061-К-1027",
+      "raw": "{\"topics\": [{\"domain\": \"heating\", \"issue\": \"забезпечити теплопостачання. забезпечити теплопостачання. заявниці.\", \"object\": \"\", \"requested_action\": \" забезпечити теплопостачання.\", \"attributes\": {}}, {\"domain\": \"sanitation\", \"issue\": \"дітей встановити огорожу та зменшити територію дитячого майданчику, який будується біля будинків по вул. Каштановій, 11-Г та вул. Металургів, 16. заявниці.\", \"object\": \"вул. Каштановій\", \"requested_action\": \" для безпеки дітей встановити огорожу та зменшити територію дитячого майданчику, який будується біля будинків по вул.\", \"attributes\": {\"street\": \"вул. Каштановій\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "heating",
+            "issue": "забезпечити теплопостачання. забезпечити теплопостачання. заявниці.",
+            "object": "",
+            "requested_action": " забезпечити теплопостачання.",
+            "attributes": {}
+          },
+          {
+            "domain": "sanitation",
+            "issue": "дітей встановити огорожу та зменшити територію дитячого майданчику, який будується біля будинків по вул. Каштановій, 11-Г та вул. Металургів, 16. заявниці.",
+            "object": "вул. Каштановій",
+            "requested_action": " для безпеки дітей встановити огорожу та зменшити територію дитячого майданчику, який будується біля будинків по вул.",
+            "attributes": {
+              "street": "вул. Каштановій"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 4,
+      "uid": "MT-SYN-П-3172-С-1107",
+      "raw": "{\"topics\": [{\"domain\": \"construction\", \"issue\": \"забудовників, які незаконно будують гаражі у дворі будинку за адресою: вул. Шевченка, 48. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Шевченка\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Шевченка\"}}, {\"domain\": \"sanitation\", \"issue\": \"обрізки гілок на старому дереві (тополя) та прибирання розпиленого дерева, яке було повалене під час негоди (15.04.2024) на прибудинковій території будинку за адресою проживання заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "construction",
+            "issue": "забудовників, які незаконно будують гаражі у дворі будинку за адресою: вул. Шевченка, 48. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Шевченка",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Шевченка"
+            }
+          },
+          {
+            "domain": "sanitation",
+            "issue": "обрізки гілок на старому дереві (тополя) та прибирання розпиленого дерева, яке було повалене під час негоди (15.04.2024) на прибудинковій території будинку за адресою проживання заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 5,
+      "uid": "MT-SYN-Г-3409-Є-2950",
+      "raw": "{\"topics\": [{\"domain\": \"transport\", \"issue\": \"водіїв маршрутного таксі № 15 за недотримання графіку та інтервалу руху. Зі слів заявника, 21.11.2023 з 17:00 до 18:00 на зупинці громадського транспорту ’ №13’ не було жодної машини. надати відомо\", \"object\": \"\", \"requested_action\": \" на зупинці громадського транспорту ’ №13’ не було жодної машини.\", \"attributes\": {}}, {\"domain\": \"payments\", \"issue\": \"надати відомо\", \"object\": \"\", \"requested_action\": \" надати відомо\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "transport",
+            "issue": "водіїв маршрутного таксі № 15 за недотримання графіку та інтервалу руху. Зі слів заявника, 21.11.2023 з 17:00 до 18:00 на зупинці громадського транспорту ’ №13’ не було жодної машини. надати відомо",
+            "object": "",
+            "requested_action": " на зупинці громадського транспорту ’ №13’ не було жодної машини.",
+            "attributes": {}
+          },
+          {
+            "domain": "payments",
+            "issue": "надати відомо",
+            "object": "",
+            "requested_action": " надати відомо",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 6,
+      "uid": "MT-SYN-П-3140-К-1422",
+      "raw": "{\"topics\": [{\"domain\": \"heating\", \"issue\": \"з’ясування та усунення причини відсутності протягом чотирьох днів централізованого опалення у квартирі за адресою проживання заявниці. до працівників ЖЕО № 4 безрезультатні. вжити відповідні заходи. заявниці.У. ’ захист персональних даних”\", \"object\": \"\", \"requested_action\": \" вжити відповідні заходи.\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "heating",
+            "issue": "з’ясування та усунення причини відсутності протягом чотирьох днів централізованого опалення у квартирі за адресою проживання заявниці. до працівників ЖЕО № 4 безрезультатні. вжити відповідні заходи. заявниці.У. ’ захист персональних даних”",
+            "object": "",
+            "requested_action": " вжити відповідні заходи.",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 7,
+      "uid": "MT-SYN-Ш-2860-П-3580",
+      "raw": "{\"topics\": [{\"domain\": \"transport\", \"issue\": \"змінити графік руху тролейбуса №8 таким чином, щоб він виїжджав о 07.00 год від зупинки ’. надає згоду на обробку персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \" змінити графік руху тролейбуса №8 таким чином, щоб він виїжджав о 07.00 год від зупинки ’.\", \"attributes\": {}}, {\"domain\": \"sanitation\", \"issue\": \"прочистити дворові колодязі за вказаною адресою, біля під’їздів № 1, 2, 3. надає згоду на обробку персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \" прочистити дворові колодязі за вказаною адресою, біля під’їздів № 1, 2, 3.\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "transport",
+            "issue": "змінити графік руху тролейбуса №8 таким чином, щоб він виїжджав о 07.00 год від зупинки ’. надає згоду на обробку персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": " змінити графік руху тролейбуса №8 таким чином, щоб він виїжджав о 07.00 год від зупинки ’.",
+            "attributes": {}
+          },
+          {
+            "domain": "sanitation",
+            "issue": "прочистити дворові колодязі за вказаною адресою, біля під’їздів № 1, 2, 3. надає згоду на обробку персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": " прочистити дворові колодязі за вказаною адресою, біля під’їздів № 1, 2, 3.",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 8,
+      "uid": "MT-SYN-К-215-Ф-2824",
+      "raw": "{\"topics\": [{\"domain\": \"heating\", \"issue\": \"усунення причини відсутності з 19.01.2024 р.централізованого опалення у квартирі заявниці. заявниці. надати роз’яснення,чому ЖЕО №4 не співпрацює з теплопостачальним підприємством. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"sanitation\", \"issue\": \"відсутність кришки на люку, що біля школи № 35. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"школи № 35\", \"requested_action\": \"\", \"attributes\": {\"street\": \"школи № 35\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "heating",
+            "issue": "усунення причини відсутності з 19.01.2024 р.централізованого опалення у квартирі заявниці. заявниці. надати роз’яснення,чому ЖЕО №4 не співпрацює з теплопостачальним підприємством. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          },
+          {
+            "domain": "sanitation",
+            "issue": "відсутність кришки на люку, що біля школи № 35. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "школи № 35",
+            "requested_action": "",
+            "attributes": {
+              "street": "школи № 35"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 9,
+      "uid": "MT-SYN-С-3537-Ш-1585",
+      "raw": "{\"topics\": [{\"domain\": \"heating\", \"issue\": \"налагодити теплопостачання у квартирі заявника за адресою: вул.Академіка Тамма, 5. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Академіка Тамма\", \"requested_action\": \" налагодити теплопостачання у квартирі заявника за адресою: вул.Академіка Тамма, 5.\", \"attributes\": {\"street\": \"вул. Академіка Тамма\"}}, {\"domain\": \"electricity\", \"issue\": \"з’ясування та усунення причини відключення від електропостачання підвального приміщення у під’їзді №4 вищезазначеного будинку. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "heating",
+            "issue": "налагодити теплопостачання у квартирі заявника за адресою: вул.Академіка Тамма, 5. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Академіка Тамма",
+            "requested_action": " налагодити теплопостачання у квартирі заявника за адресою: вул.Академіка Тамма, 5.",
+            "attributes": {
+              "street": "вул. Академіка Тамма"
+            }
+          },
+          {
+            "domain": "electricity",
+            "issue": "з’ясування та усунення причини відключення від електропостачання підвального приміщення у під’їзді №4 вищезазначеного будинку. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 10,
+      "uid": "MT-SYN-Г-3407-З-69",
+      "raw": "{\"topics\": [{\"domain\": \"heating\", \"issue\": \"неодноразово звертається щодо відсутності опалення у будинку за вказаною адресою та просить вжити відповідні заходи. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"sanitation\", \"issue\": \"накриття кришкою каналізаційного колодязя за адресою просп. Університетський,25 навпроти відділення ’Укрпошти’\", \"object\": \"просп. Університетський\", \"requested_action\": \"\", \"attributes\": {\"street\": \"просп. Університетський\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "heating",
+            "issue": "неодноразово звертається щодо відсутності опалення у будинку за вказаною адресою та просить вжити відповідні заходи. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          },
+          {
+            "domain": "sanitation",
+            "issue": "накриття кришкою каналізаційного колодязя за адресою просп. Університетський,25 навпроти відділення ’Укрпошти’",
+            "object": "просп. Університетський",
+            "requested_action": "",
+            "attributes": {
+              "street": "просп. Університетський"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 11,
+      "uid": "MT-SYN-Ч-2288-Д-803",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"надання роз’яснення чи був надано дозвіл ОСББ на обрізку гілок на дереві (клен ясинолистий), яке зростає по вул. Вокзальній, 22 (ОСББ ’ люкс’) біля гаражів та сміттєвого майданчика. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Вокзальній\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Вокзальній\"}}, {\"domain\": \"commerce\", \"issue\": \"продявця ТК ’’Мілленіум’’, що розташований за адресою вул. Космонавта Попова, 7-Б, яка обслуговуючи заявницю випадково травмувала їй око ( пакуючи джинси). надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Космонавта Попова\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Космонавта Попова\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "надання роз’яснення чи був надано дозвіл ОСББ на обрізку гілок на дереві (клен ясинолистий), яке зростає по вул. Вокзальній, 22 (ОСББ ’ люкс’) біля гаражів та сміттєвого майданчика. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Вокзальній",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Вокзальній"
+            }
+          },
+          {
+            "domain": "commerce",
+            "issue": "продявця ТК ’’Мілленіум’’, що розташований за адресою вул. Космонавта Попова, 7-Б, яка обслуговуючи заявницю випадково травмувала їй око ( пакуючи джинси). надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Космонавта Попова",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Космонавта Попова"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 12,
+      "uid": "MT-SYN-М-2497-М-1698",
+      "raw": "{\"topics\": [{\"domain\": \"water\", \"issue\": \"усунути порив мережі водопостачання на проїжджій частині по вул. В. на виїзді до площі . зобов’язати ТОВ ’ вивезти зі сміттєвого майданчику старі меблі, а також вивезти 2 сваї, так як безхатченки облаштувались на старих меблях та сваях за зазначеною адресою.\", \"object\": \"вул. В\", \"requested_action\": \" усунути порив мережі водопостачання на проїжджій частині по вул.\", \"attributes\": {\"street\": \"вул. В\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "water",
+            "issue": "усунути порив мережі водопостачання на проїжджій частині по вул. В. на виїзді до площі . зобов’язати ТОВ ’ вивезти зі сміттєвого майданчику старі меблі, а також вивезти 2 сваї, так як безхатченки облаштувались на старих меблях та сваях за зазначеною адресою.",
+            "object": "вул. В",
+            "requested_action": " усунути порив мережі водопостачання на проїжджій частині по вул.",
+            "attributes": {
+              "street": "вул. В"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 13,
+      "uid": "MT-SYN-К-3720-Ш-3497",
+      "raw": "{\"topics\": [{\"domain\": \"heating\", \"issue\": \"розповітрити систему теплопостачання у зазначеній квартирі. відсутнє централізоване опалення у кімнатах квартирі, за вказаною адресою. заявниці.\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"electricity\", \"issue\": \"відновлення вуличного освітлення від вул. Житомирській, 64 по дорозі до гаражів. вжити відповідні заходи. заявниці.\", \"object\": \"вул. Житомирській\", \"requested_action\": \" вжити відповідні заходи. заявниці.\", \"attributes\": {\"street\": \"вул. Житомирській\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "heating",
+            "issue": "розповітрити систему теплопостачання у зазначеній квартирі. відсутнє централізоване опалення у кімнатах квартирі, за вказаною адресою. заявниці.",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          },
+          {
+            "domain": "electricity",
+            "issue": "відновлення вуличного освітлення від вул. Житомирській, 64 по дорозі до гаражів. вжити відповідні заходи. заявниці.",
+            "object": "вул. Житомирській",
+            "requested_action": " вжити відповідні заходи. заявниці.",
+            "attributes": {
+              "street": "вул. Житомирській"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 14,
+      "uid": "MT-SYN-Р-2204-С-2902",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"надання роз’яснення стосовно подальших дій мешканців будинку за вказаною адресою проживання, які зібрали підписи на відключення від ЦО, а ЖЕО №1 не приймає документи, повідомляючи, що вже пізно. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "надання роз’яснення стосовно подальших дій мешканців будинку за вказаною адресою проживання, які зібрали підписи на відключення від ЦО, а ЖЕО №1 не приймає документи, повідомляючи, що вже пізно. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 15,
+      "uid": "MT-SYN-М-1190-С-1017",
+      "raw": "{\"topics\": [{\"domain\": \"housing\", \"issue\": \"ремонту стелі у квартирі заявниці за адресою проживання. Зі слів заявниці у стелі щілина,з якої по всій квартирі сипеться пісок. вжити заходи реагування.Зі слів заявниці звернення до працівників КП ’ЖЕО №2’ безрезультатні. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \" вжити заходи реагування.Зі слів заявниці у стелі щілина,з якої по всій квартирі сипеться пісок. вжити заходи реагування.Зі слів заявниці звернення до працівників КП ’ЖЕО №2’ безрезультатні. заявниці.\", \"attributes\": {}}, {\"domain\": \"sanitation\", \"issue\": \"обрізати гілки дерева породи горіх біля під’їзду №1 у дворі житлового будинку по вул.Шатила, 5, корп.1. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Шатила\", \"requested_action\": \" обрізати гілки дерева породи горіх біля під’їзду №1 у дворі житлового будинку по вул.Шатила, 5, корп.1. заявниці.\", \"attributes\": {\"street\": \"вул. Шатила\", \"building\": \"1\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "housing",
+            "issue": "ремонту стелі у квартирі заявниці за адресою проживання. Зі слів заявниці у стелі щілина,з якої по всій квартирі сипеться пісок. вжити заходи реагування.Зі слів заявниці звернення до працівників КП ’ЖЕО №2’ безрезультатні. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": " вжити заходи реагування.Зі слів заявниці у стелі щілина,з якої по всій квартирі сипеться пісок. вжити заходи реагування.Зі слів заявниці звернення до працівників КП ’ЖЕО №2’ безрезультатні. заявниці.",
+            "attributes": {}
+          },
+          {
+            "domain": "sanitation",
+            "issue": "обрізати гілки дерева породи горіх біля під’їзду №1 у дворі житлового будинку по вул.Шатила, 5, корп.1. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Шатила",
+            "requested_action": " обрізати гілки дерева породи горіх біля під’їзду №1 у дворі житлового будинку по вул.Шатила, 5, корп.1. заявниці.",
+            "attributes": {
+              "street": "вул. Шатила",
+              "building": "1"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 16,
+      "uid": "MT-SYN-В-2051-П-1890",
+      "raw": "{\"topics\": [{\"domain\": \"roads\", \"issue\": \"ремонту ямкового покриття що знаходиться за вищевказаною адресоюю навпроти під’їзду № 1. заявнику. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"sanitation\", \"issue\": \"звертається від жителів вул.Тобілевича щодо закриття каналізаційного люку, який знаходиться на дорозі, на розі вулиць та . У мікрорайоні кілька тижнів стоїть сморід каналізації, просить вжити відповідні невідкладні заходи. заявнику. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Тобілевича щодо закриття каналізаційного люку\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Тобілевича щодо закриття каналізаційного люку\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "roads",
+            "issue": "ремонту ямкового покриття що знаходиться за вищевказаною адресоюю навпроти під’їзду № 1. заявнику. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          },
+          {
+            "domain": "sanitation",
+            "issue": "звертається від жителів вул.Тобілевича щодо закриття каналізаційного люку, який знаходиться на дорозі, на розі вулиць та . У мікрорайоні кілька тижнів стоїть сморід каналізації, просить вжити відповідні невідкладні заходи. заявнику. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Тобілевича щодо закриття каналізаційного люку",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Тобілевича щодо закриття каналізаційного люку"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 17,
+      "uid": "MT-SYN-М-3199-М-1353",
+      "raw": "{\"topics\": [{\"domain\": \"electricity\", \"issue\": \"вжиття заходів для відключення зовнішнього освітлення вздовж вул. Яновського, яке горить вдень, натомість мешканці будинків сидять без світла. не потребує.\", \"object\": \"вул. Яновського\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Яновського\"}}, {\"domain\": \"sanitation\", \"issue\": \"обрізки гілок на старих деревах, а саме: породи клен, шовковиця, акація, груша, липа, які ростуть вздовж тротуару, за адресою проживання заявниці. не потребує.\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "electricity",
+            "issue": "вжиття заходів для відключення зовнішнього освітлення вздовж вул. Яновського, яке горить вдень, натомість мешканці будинків сидять без світла. не потребує.",
+            "object": "вул. Яновського",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Яновського"
+            }
+          },
+          {
+            "domain": "sanitation",
+            "issue": "обрізки гілок на старих деревах, а саме: породи клен, шовковиця, акація, груша, липа, які ростуть вздовж тротуару, за адресою проживання заявниці. не потребує.",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 18,
+      "uid": "MT-SYN-Б-342-Г-3024",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"з’ясування та усунення причини неприємного запаху, який надходить з підвального приміщення у під’їзді № 2 по вул. Соборній, 24-а. Зі слів заявниці у під’їзді та квартирах мешканців нестерпний сморід, є випадки втрати свідомості, неодноразові звернення до працівників КП ’ЖЕО № 3’ та ОКВП ’ безрезультатні. не вирішується на протязі шести років. вжити заходи. заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Соборній\", \"requested_action\": \" вжити заходи.\", \"attributes\": {\"street\": \"вул. Соборній\"}}, {\"domain\": \"heating\", \"issue\": \"відсутності теплопостачання за вищезазначеною адресою. забезпечити теплопостачанням. заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \" забезпечити теплопостачанням.\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "з’ясування та усунення причини неприємного запаху, який надходить з підвального приміщення у під’їзді № 2 по вул. Соборній, 24-а. Зі слів заявниці у під’їзді та квартирах мешканців нестерпний сморід, є випадки втрати свідомості, неодноразові звернення до працівників КП ’ЖЕО № 3’ та ОКВП ’ безрезультатні. не вирішується на протязі шести років. вжити заходи. заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Соборній",
+            "requested_action": " вжити заходи.",
+            "attributes": {
+              "street": "вул. Соборній"
+            }
+          },
+          {
+            "domain": "heating",
+            "issue": "відсутності теплопостачання за вищезазначеною адресою. забезпечити теплопостачанням. заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": " забезпечити теплопостачанням.",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 19,
+      "uid": "MT-SYN-Л-951-В-2859",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"працівників комунального підприємства за неналежне прибирання проїжджої частини по вул.Кропивницького та прохання прибрати дорожнє покриття від пилу та піску. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Кропивницького та прохання прибрати дорожнє покриття від пилу та піску\", \"requested_action\": \" на працівників комунального підприємства за неналежне прибирання проїжджої частини по вул.Кропивницького та прохання прибрати дорожнє покриття від пилу та піску.\", \"attributes\": {\"street\": \"вул. Кропивницького та прохання прибрати дорожнє покриття від пилу та піску\"}}, {\"domain\": \"housing\", \"issue\": \"заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "працівників комунального підприємства за неналежне прибирання проїжджої частини по вул.Кропивницького та прохання прибрати дорожнє покриття від пилу та піску. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Кропивницького та прохання прибрати дорожнє покриття від пилу та піску",
+            "requested_action": " на працівників комунального підприємства за неналежне прибирання проїжджої частини по вул.Кропивницького та прохання прибрати дорожнє покриття від пилу та піску.",
+            "attributes": {
+              "street": "вул. Кропивницького та прохання прибрати дорожнє покриття від пилу та піску"
+            }
+          },
+          {
+            "domain": "housing",
+            "issue": "заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 20,
+      "uid": "MT-SYN-П-2745-Р-13",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"просить засипати яму, яка залишилась після ремонтних робіт за адресою: бульвар , навпроти буд. 12. заявнику. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "просить засипати яму, яка залишилась після ремонтних робіт за адресою: бульвар , навпроти буд. 12. заявнику. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 21,
+      "uid": "MT-SYN-К-434-Г-1532",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"працівників КП ЖЕО №1 КМР, щодо нереагування на звернення мешканців будинку, а саме стоки каналізації, які течуть між під’їздами № 3, 4 і цим самим затоплюють підвальне приміщення, яке слугує укриттям. наголошує, що стоїть неймовірний сморід та антисанітарія, в будинку важко дихати. вжити заходи реагування. заявниці.\", \"object\": \"вул. Є\", \"requested_action\": \" вжити заходи реагування.\", \"attributes\": {\"street\": \"вул. Є\"}}, {\"domain\": \"roads\", \"issue\": \"ямкового ремонту дорожнього покриття при в’їзді на територію автовокзалу по вул.Є..\", \"object\": \"вул. Є\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Є\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "працівників КП ЖЕО №1 КМР, щодо нереагування на звернення мешканців будинку, а саме стоки каналізації, які течуть між під’їздами № 3, 4 і цим самим затоплюють підвальне приміщення, яке слугує укриттям. наголошує, що стоїть неймовірний сморід та антисанітарія, в будинку важко дихати. вжити заходи реагування. заявниці.",
+            "object": "вул. Є",
+            "requested_action": " вжити заходи реагування.",
+            "attributes": {
+              "street": "вул. Є"
+            }
+          },
+          {
+            "domain": "roads",
+            "issue": "ямкового ремонту дорожнього покриття при в’їзді на територію автовокзалу по вул.Є..",
+            "object": "вул. Є",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Є"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 22,
+      "uid": "MT-SYN-С-1366-Я-1952",
+      "raw": "{\"topics\": [{\"domain\": \"housing\", \"issue\": \"працівників КП ’’ЖЕО №2’’ та ПВК ’’Геркон’’, які вчасно не ремонтують ліфт у під’їзді №5 будинку за адресою проживання заявника. відновити роботу ліфта за вказаною адресою. заявнику.\", \"object\": \"вул. Преображенська\", \"requested_action\": \" відновити роботу ліфта за вказаною адресою.\", \"attributes\": {\"street\": \"вул. Преображенська\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "housing",
+            "issue": "працівників КП ’’ЖЕО №2’’ та ПВК ’’Геркон’’, які вчасно не ремонтують ліфт у під’їзді №5 будинку за адресою проживання заявника. відновити роботу ліфта за вказаною адресою. заявнику.",
+            "object": "вул. Преображенська",
+            "requested_action": " відновити роботу ліфта за вказаною адресою.",
+            "attributes": {
+              "street": "вул. Преображенська"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 23,
+      "uid": "MT-SYN-К-2726-К-884",
+      "raw": "{\"topics\": [{\"domain\": \"water\", \"issue\": \"ліквідувати порив мережі водопостачання по вул. Ю. , 2Д. вжити заходи до водія сміттєвоза ТОВ “ЕКОСТАЙЛ”, який відмовився вивозити сміття за адресою вул. Берегова,16, мотивуючи свої дії зміною майданчиків для збору сміття, про що жителі вулиці не були вчасно повідомлені.\", \"object\": \"вул. Ю\", \"requested_action\": \" ліквідувати порив мережі водопостачання по вул.\", \"attributes\": {\"street\": \"вул. Ю\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "water",
+            "issue": "ліквідувати порив мережі водопостачання по вул. Ю. , 2Д. вжити заходи до водія сміттєвоза ТОВ “ЕКОСТАЙЛ”, який відмовився вивозити сміття за адресою вул. Берегова,16, мотивуючи свої дії зміною майданчиків для збору сміття, про що жителі вулиці не були вчасно повідомлені.",
+            "object": "вул. Ю",
+            "requested_action": " ліквідувати порив мережі водопостачання по вул.",
+            "attributes": {
+              "street": "вул. Ю"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 24,
+      "uid": "MT-SYN-Д-1069-К-3070",
+      "raw": "{\"topics\": [{\"domain\": \"housing\", \"issue\": \"прохає прискорити ремонті роботи ліфта у під’їзді № 1 житлового дев’ятиповерхового будинку по вул. Вокзальній, 33. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Вокзальній\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Вокзальній\"}}, {\"domain\": \"heating\", \"issue\": \"щодо бездіяльності працівників ЖЕО №3 стосовно розповітрення мережі опалення в квартирі за вказаною адресою проживання. терміново налагодити теплопостачання, адже в квартирі перебуває людина з інвалідністю, отриманою на війні. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "housing",
+            "issue": "прохає прискорити ремонті роботи ліфта у під’їзді № 1 житлового дев’ятиповерхового будинку по вул. Вокзальній, 33. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Вокзальній",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Вокзальній"
+            }
+          },
+          {
+            "domain": "heating",
+            "issue": "щодо бездіяльності працівників ЖЕО №3 стосовно розповітрення мережі опалення в квартирі за вказаною адресою проживання. терміново налагодити теплопостачання, адже в квартирі перебуває людина з інвалідністю, отриманою на війні. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 25,
+      "uid": "MT-SYN-С-2031-В-675",
+      "raw": "{\"topics\": [{\"domain\": \"payments\", \"issue\": \"скаржиться на неправомірні дії КП ’ЖЕО №2’, стосовно підвищення у військовий час квартплати на 59% . отримати письмове роз’яснення по суті звернення. зменшення температури теплоносія. вжити заходи реагування.\", \"object\": \"\", \"requested_action\": \" вжити заходи реагування.\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "payments",
+            "issue": "скаржиться на неправомірні дії КП ’ЖЕО №2’, стосовно підвищення у військовий час квартплати на 59% . отримати письмове роз’яснення по суті звернення. зменшення температури теплоносія. вжити заходи реагування.",
+            "object": "",
+            "requested_action": " вжити заходи реагування.",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 26,
+      "uid": "MT-SYN-К-1027-К-2135",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"для безпеки дітей встановити огорожу та зменшити територію дитячого майданчику, який будується біля будинків по вул. Каштановій, 11-Г та вул. Металургів, 16. прочистити дворову каналізацію навпроти під’їзду №2 будинку за адресою вул. Героїв України,28, к.1. заявнику.\", \"object\": \"вул. Каштановій\", \"requested_action\": \" для безпеки дітей встановити огорожу та зменшити територію дитячого майданчику, який будується біля будинків по вул.\", \"attributes\": {\"street\": \"вул. Каштановій\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "для безпеки дітей встановити огорожу та зменшити територію дитячого майданчику, який будується біля будинків по вул. Каштановій, 11-Г та вул. Металургів, 16. прочистити дворову каналізацію навпроти під’їзду №2 будинку за адресою вул. Героїв України,28, к.1. заявнику.",
+            "object": "вул. Каштановій",
+            "requested_action": " для безпеки дітей встановити огорожу та зменшити територію дитячого майданчику, який будується біля будинків по вул.",
+            "attributes": {
+              "street": "вул. Каштановій"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 27,
+      "uid": "MT-SYN-М-1216-Д-607",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"звертається від імені сина ( з інвалідністю І групи) з проханням встановити пандус на вході у під’їзд №3 будинку за адресою вул Полтавська, 28, к. 1. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Полтавська\", \"requested_action\": \" звертається від імені сина ( з інвалідністю І групи) з проханням встановити пандус на вході у під’їзд №3 будинку за адресою вул Полтавська, 28, к. 1.\", \"attributes\": {\"street\": \"вул. Полтавська\"}}, {\"domain\": \"payments\", \"issue\": \"звертається з проханням зробити перерахунок за період простою ліфта ( з 07.03.2023року по 04.04.2023 року) за адресою проживання заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \" звертається з проханням зробити перерахунок за період простою ліфта ( з 07.03.2023року по 04.04.2023 року) за адресою проживання заявниці.\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "звертається від імені сина ( з інвалідністю І групи) з проханням встановити пандус на вході у під’їзд №3 будинку за адресою вул Полтавська, 28, к. 1. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Полтавська",
+            "requested_action": " звертається від імені сина ( з інвалідністю І групи) з проханням встановити пандус на вході у під’їзд №3 будинку за адресою вул Полтавська, 28, к. 1.",
+            "attributes": {
+              "street": "вул. Полтавська"
+            }
+          },
+          {
+            "domain": "payments",
+            "issue": "звертається з проханням зробити перерахунок за період простою ліфта ( з 07.03.2023року по 04.04.2023 року) за адресою проживання заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": " звертається з проханням зробити перерахунок за період простою ліфта ( з 07.03.2023року по 04.04.2023 року) за адресою проживання заявниці.",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 28,
+      "uid": "MT-SYN-К-1071-Ч-2814",
+      "raw": "{\"topics\": [{\"domain\": \"water\", \"issue\": \"усунення причини витоку води та заміни частини труби водовідведення у підвальному приміщенні вищезазначеної адреси у під’їзді № 2 . О усні звернення мешканців будинку щодо вирішення проблеми ЖЕО не реагують. заявниці.\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"housing\", \"issue\": \"здійснення ремонту даху вищезазначеного будинку. повідомляє, що після опадів все стікає до квартири заявниці. заявниці.\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "water",
+            "issue": "усунення причини витоку води та заміни частини труби водовідведення у підвальному приміщенні вищезазначеної адреси у під’їзді № 2 . О усні звернення мешканців будинку щодо вирішення проблеми ЖЕО не реагують. заявниці.",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          },
+          {
+            "domain": "housing",
+            "issue": "здійснення ремонту даху вищезазначеного будинку. повідомляє, що після опадів все стікає до квартири заявниці. заявниці.",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 29,
+      "uid": "MT-SYN-С-2165-Є-3554",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"налагодити постійне прибирання території зупинки громадського транспорту ’вул. Кишинівська’ розташованої по вул. Генерала Кульчицького (сміття, територія не прибирається більше місяця). заявнику. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Кишинівська’ розташованої по вул\", \"requested_action\": \" налагодити постійне прибирання території зупинки громадського транспорту ’вул.\", \"attributes\": {\"street\": \"вул. Кишинівська’ розташованої по вул\"}}, {\"domain\": \"electricity\", \"issue\": \"відновити зовнішнє освітлення у дворі житлових будинків за адресами вул.Жадова, 28, корп.1, корп.3 та корп.5. заявнику. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул.Жадова\", \"requested_action\": \" відновити зовнішнє освітлення у дворі житлових будинків за адресами вул.Жадова, 28, корп.1, корп.3 та корп.5. заявнику. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"attributes\": {\"street\": \"вул.Жадова\", \"building\": \"1\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "налагодити постійне прибирання території зупинки громадського транспорту ’вул. Кишинівська’ розташованої по вул. Генерала Кульчицького (сміття, територія не прибирається більше місяця). заявнику. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Кишинівська’ розташованої по вул",
+            "requested_action": " налагодити постійне прибирання території зупинки громадського транспорту ’вул.",
+            "attributes": {
+              "street": "вул. Кишинівська’ розташованої по вул"
+            }
+          },
+          {
+            "domain": "electricity",
+            "issue": "відновити зовнішнє освітлення у дворі житлових будинків за адресами вул.Жадова, 28, корп.1, корп.3 та корп.5. заявнику. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул.Жадова",
+            "requested_action": " відновити зовнішнє освітлення у дворі житлових будинків за адресами вул.Жадова, 28, корп.1, корп.3 та корп.5. заявнику. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "attributes": {
+              "street": "вул.Жадова",
+              "building": "1"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 30,
+      "uid": "MT-SYN-Ш-1439-Р-3261",
+      "raw": "{\"topics\": [{\"domain\": \"payments\", \"issue\": \"надання05.2024 у будинку, за вищевказаною адресою. бажає отримати вихідний номер та дату реєстрації відповідного рішення щодо підвищення тарифів. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"heating\", \"issue\": \"відсутності тепла в квартирі за вказаною адресою проживання заявниці. бажає отримати вихідний номер та дату реєстрації відповідного рішення щодо підвищення тарифів. налагодити постійну подачу теплоносія. заявниці.\", \"object\": \"\", \"requested_action\": \" налагодити постійну подачу теплоносія. заявниці.\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "payments",
+            "issue": "надання05.2024 у будинку, за вищевказаною адресою. бажає отримати вихідний номер та дату реєстрації відповідного рішення щодо підвищення тарифів. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          },
+          {
+            "domain": "heating",
+            "issue": "відсутності тепла в квартирі за вказаною адресою проживання заявниці. бажає отримати вихідний номер та дату реєстрації відповідного рішення щодо підвищення тарифів. налагодити постійну подачу теплоносія. заявниці.",
+            "object": "",
+            "requested_action": " налагодити постійну подачу теплоносія. заявниці.",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 31,
+      "uid": "MT-SYN-Б-2505-Т-142",
+      "raw": "{\"topics\": [{\"domain\": \"water\", \"issue\": \"відновити водопостачання у під’їзді №1 (збоку 2-кімнатних квартир) будинку за адресою проживання заявника. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \" відновити водопостачання у під’їзді №1 (збоку 2-кімнатних квартир) будинку за адресою проживання заявника.\", \"attributes\": {}}, {\"domain\": \"sanitation\", \"issue\": \"прибирання ’стихійного’ сміттєзвалища (гілки, побутові матеріали. б/у телевізори тощо), яке утворилося біля майданчику (3 контейнери) для збору побутових відході по вул. Цибулівській, 6. Зі слів заявниці влітку була пожежа, на 16.01.2024 р. сміття розкидане по доріжці від її будинку до майданчику, звернення до працівників ТОВ ’ безрезультатні. вжити заходи реагування. заявниці в телефонному режимі. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Цибулівській\", \"requested_action\": \" вжити заходи реагування.\", \"attributes\": {\"street\": \"вул. Цибулівській\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "water",
+            "issue": "відновити водопостачання у під’їзді №1 (збоку 2-кімнатних квартир) будинку за адресою проживання заявника. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": " відновити водопостачання у під’їзді №1 (збоку 2-кімнатних квартир) будинку за адресою проживання заявника.",
+            "attributes": {}
+          },
+          {
+            "domain": "sanitation",
+            "issue": "прибирання ’стихійного’ сміттєзвалища (гілки, побутові матеріали. б/у телевізори тощо), яке утворилося біля майданчику (3 контейнери) для збору побутових відході по вул. Цибулівській, 6. Зі слів заявниці влітку була пожежа, на 16.01.2024 р. сміття розкидане по доріжці від її будинку до майданчику, звернення до працівників ТОВ ’ безрезультатні. вжити заходи реагування. заявниці в телефонному режимі. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Цибулівській",
+            "requested_action": " вжити заходи реагування.",
+            "attributes": {
+              "street": "вул. Цибулівській"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 32,
+      "uid": "MT-SYN-Д-1680-Г-3180",
+      "raw": "{\"topics\": [{\"domain\": \"housing\", \"issue\": \"ремонту ліфта, який не працює з 12.06.2024 за адресою: вул. Кропивницького, 6, під’їзд № 4. до КП ”ЖЕО № 2” КМР”, відповідні заходи не вжиті. з’ясування та усунення причини смороду, який з літку надходить з підвального приміщення у під’їзді № 3 у квартири мешканців будинку за адресою проживання заявниці. Зі слів заявниці у осінній період посилився цей запах, неодноразові звернення до працівників КП ’ЖЕО № 4’ безрезультатні. заявниці.У. ’ захист персональних даних”\", \"object\": \"вул. Кропивницького\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Кропивницького\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "housing",
+            "issue": "ремонту ліфта, який не працює з 12.06.2024 за адресою: вул. Кропивницького, 6, під’їзд № 4. до КП ”ЖЕО № 2” КМР”, відповідні заходи не вжиті. з’ясування та усунення причини смороду, який з літку надходить з підвального приміщення у під’їзді № 3 у квартири мешканців будинку за адресою проживання заявниці. Зі слів заявниці у осінній період посилився цей запах, неодноразові звернення до працівників КП ’ЖЕО № 4’ безрезультатні. заявниці.У. ’ захист персональних даних”",
+            "object": "вул. Кропивницького",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Кропивницького"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 33,
+      "uid": "MT-SYN-Ж-891-*-3239",
+      "raw": "{\"topics\": [{\"domain\": \"transport\", \"issue\": \"04.25 о 17.25 год. не дотримався затвердженого маршруту та звернув з нього. надати телефоном.\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "transport",
+            "issue": "04.25 о 17.25 год. не дотримався затвердженого маршруту та звернув з нього. надати телефоном.",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 34,
+      "uid": "MT-SYN-Д-3389-Ш-435",
+      "raw": "{\"topics\": [{\"domain\": \"heating\", \"issue\": \"налагодити теплопостачання у квартирі заявниці за адресою : вул.Чигиринська, 2. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до З.У. ’ захист персональних даних”\", \"object\": \"вул. Чигиринська\", \"requested_action\": \" налагодити теплопостачання у квартирі заявниці за адресою : вул.Чигиринська, 2.\", \"attributes\": {\"street\": \"вул. Чигиринська\"}}, {\"domain\": \"roads\", \"issue\": \"грейдерування дороги (ями) по вул.Полтавській за будівлею готелю ’. заявнику.У. ’ захист персональних даних”\", \"object\": \"вул. Полтавській за будівлею готелю\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Полтавській за будівлею готелю\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "heating",
+            "issue": "налагодити теплопостачання у квартирі заявниці за адресою : вул.Чигиринська, 2. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до З.У. ’ захист персональних даних”",
+            "object": "вул. Чигиринська",
+            "requested_action": " налагодити теплопостачання у квартирі заявниці за адресою : вул.Чигиринська, 2.",
+            "attributes": {
+              "street": "вул. Чигиринська"
+            }
+          },
+          {
+            "domain": "roads",
+            "issue": "грейдерування дороги (ями) по вул.Полтавській за будівлею готелю ’. заявнику.У. ’ захист персональних даних”",
+            "object": "вул. Полтавській за будівлею готелю",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Полтавській за будівлею готелю"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 35,
+      "uid": "MT-SYN-Ю-1583-Ж-3176",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"покосу трави по вул. Героїв рятувальників до вул. . заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних’\", \"object\": \"вул. Героїв рятувальників до вул\", \"requested_action\": \" вжити заходи реагування.\", \"attributes\": {\"street\": \"вул. Героїв рятувальників до вул\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "покосу трави по вул. Героїв рятувальників до вул. . заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних’",
+            "object": "вул. Героїв рятувальників до вул",
+            "requested_action": " вжити заходи реагування.",
+            "attributes": {
+              "street": "вул. Героїв рятувальників до вул"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 36,
+      "uid": "MT-SYN-С-1230-Х-3388",
+      "raw": "{\"topics\": [{\"domain\": \"transport\", \"issue\": \"водія маршрутного таксі № 44 (ВА1865), який, зі слів заявниці, о 08.45 20.05.2025 р. з кінцевої зупинки з с. курив цигарки в салоні транспортного засобу та наголошує, що такі випадки вже є частими. вжити відповідні заходи реагування. заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"с. \", \"requested_action\": \" вжити відповідні заходи реагування.\", \"attributes\": {\"street\": \"с. \"}}, {\"domain\": \"heating\", \"issue\": \"відсутності тепла в квартирі за вказаною адресою проживання заявниці. звернення в ЖЕО №3 залишаються безрезультатними. вжити необхідні заходи для налагодження теплопостачання. заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \" вжити необхідні заходи для налагодження теплопостачання.\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "transport",
+            "issue": "водія маршрутного таксі № 44 (ВА1865), який, зі слів заявниці, о 08.45 20.05.2025 р. з кінцевої зупинки з с. курив цигарки в салоні транспортного засобу та наголошує, що такі випадки вже є частими. вжити відповідні заходи реагування. заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "с. ",
+            "requested_action": " вжити відповідні заходи реагування.",
+            "attributes": {
+              "street": "с. "
+            }
+          },
+          {
+            "domain": "heating",
+            "issue": "відсутності тепла в квартирі за вказаною адресою проживання заявниці. звернення в ЖЕО №3 залишаються безрезультатними. вжити необхідні заходи для налагодження теплопостачання. заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": " вжити необхідні заходи для налагодження теплопостачання.",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 37,
+      "uid": "MT-SYN-К-2700-П-1336",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"обурений, що його звернення на ГЛ міського голови від 23.09.2024 р. № К-2635 (від 23.09.2024 р. № К-8819) не розглядається, не вживаються заходи реагування. заявнику.У. ’ захист персональних даних”\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"sanitation\", \"issue\": \"покосити траву у сквері біля спортшколи за адресою , 1. заявнику. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до З.У. ’ захист персональних даних”\", \"object\": \"\", \"requested_action\": \" покосити траву у сквері біля спортшколи за адресою , 1.\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "обурений, що його звернення на ГЛ міського голови від 23.09.2024 р. № К-2635 (від 23.09.2024 р. № К-8819) не розглядається, не вживаються заходи реагування. заявнику.У. ’ захист персональних даних”",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          },
+          {
+            "domain": "sanitation",
+            "issue": "покосити траву у сквері біля спортшколи за адресою , 1. заявнику. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до З.У. ’ захист персональних даних”",
+            "object": "",
+            "requested_action": " покосити траву у сквері біля спортшколи за адресою , 1.",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 38,
+      "uid": "MT-SYN-SS-Ш-998-С-1446",
+      "raw": "{\"topics\": [{\"domain\": \"roads\", \"issue\": \"ремонту дорожнього покриття прибудинкової території за адресою: вул.Нижня П’ятихатська,25 та ремонту дорожнього покриття вулиць, а саме: 40 років Перемоги, 5-та лінія на с. . бажає отримати відповідь на потову скриньку № 12 (25019). заявниці.\", \"object\": \"вул. Нижня П’ятихатська\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Нижня П’ятихатська\"}}, {\"domain\": \"sanitation\", \"issue\": \"покосити траву на дитячому майданчику за адресою вул. Нижня П’ятихатська, 18, а також обабіч дороги по вул. Нижня П’ятихатська. заявниці.\", \"object\": \"вул. Нижня П’ятихатська\", \"requested_action\": \" покосити траву на дитячому майданчику за адресою вул.\", \"attributes\": {\"street\": \"вул. Нижня П’ятихатська\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "roads",
+            "issue": "ремонту дорожнього покриття прибудинкової території за адресою: вул.Нижня П’ятихатська,25 та ремонту дорожнього покриття вулиць, а саме: 40 років Перемоги, 5-та лінія на с. . бажає отримати відповідь на потову скриньку № 12 (25019). заявниці.",
+            "object": "вул. Нижня П’ятихатська",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Нижня П’ятихатська"
+            }
+          },
+          {
+            "domain": "sanitation",
+            "issue": "покосити траву на дитячому майданчику за адресою вул. Нижня П’ятихатська, 18, а також обабіч дороги по вул. Нижня П’ятихатська. заявниці.",
+            "object": "вул. Нижня П’ятихатська",
+            "requested_action": " покосити траву на дитячому майданчику за адресою вул.",
+            "attributes": {
+              "street": "вул. Нижня П’ятихатська"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 39,
+      "uid": "MT-SYN-SS-Г-3198-П-3172",
+      "raw": "{\"topics\": [{\"domain\": \"roads\", \"issue\": \"обурена тим, що проводиться ремонт дорожнього покриття з обох сторін вул. Шевченка, пішоходам доводиться виходити на проїжджу частину. вжити заходи реагування. заявниці.\", \"object\": \"вул. Шевченка\", \"requested_action\": \" вжити заходи реагування. заявниці.\", \"attributes\": {\"street\": \"вул. Шевченка\"}}, {\"domain\": \"construction\", \"issue\": \"забудовників, які незаконно будують гаражі у дворі будинку за адресою: вул. Шевченка, 48. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Шевченка\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Шевченка\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "roads",
+            "issue": "обурена тим, що проводиться ремонт дорожнього покриття з обох сторін вул. Шевченка, пішоходам доводиться виходити на проїжджу частину. вжити заходи реагування. заявниці.",
+            "object": "вул. Шевченка",
+            "requested_action": " вжити заходи реагування. заявниці.",
+            "attributes": {
+              "street": "вул. Шевченка"
+            }
+          },
+          {
+            "domain": "construction",
+            "issue": "забудовників, які незаконно будують гаражі у дворі будинку за адресою: вул. Шевченка, 48. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Шевченка",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Шевченка"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 40,
+      "uid": "MT-SYN-SS-К-2438-Т-3845",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"повідомляє, що на перехресті пров. та вул. Андріївської, за магазином ’, на місці колишнього сміттєвого майданчика, знаходиться стихійне сміттєзвалище, сміття з якого під час буревіїв розлітається по мікрорайону. вжити відповідні заходи щодо огородження вищезазначеної території для подальшого унеможливлення викиду сміття. заявниці.\", \"object\": \"вул. Андріївської\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Андріївської\"}}, {\"domain\": \"electricity\", \"issue\": \"вимкнення зовнішнього освітлення вдень від спортивної школи ’ до вул. Андріївської. вжити відповідні заходи щодо огородження вищезазначеної території для подальшого унеможливлення викиду сміття. заявниці.\", \"object\": \"вул. Андріївської\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Андріївської\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "повідомляє, що на перехресті пров. та вул. Андріївської, за магазином ’, на місці колишнього сміттєвого майданчика, знаходиться стихійне сміттєзвалище, сміття з якого під час буревіїв розлітається по мікрорайону. вжити відповідні заходи щодо огородження вищезазначеної території для подальшого унеможливлення викиду сміття. заявниці.",
+            "object": "вул. Андріївської",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Андріївської"
+            }
+          },
+          {
+            "domain": "electricity",
+            "issue": "вимкнення зовнішнього освітлення вдень від спортивної школи ’ до вул. Андріївської. вжити відповідні заходи щодо огородження вищезазначеної території для подальшого унеможливлення викиду сміття. заявниці.",
+            "object": "вул. Андріївської",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Андріївської"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 41,
+      "uid": "MT-SYN-SS-Д-803-Ц-1436",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"продявця ТК ’’Мілленіум’’, що розташований за адресою вул. Космонавта Попова, 7-Б, яка обслуговуючи заявницю випадково травмувала їй око ( пакуючи джинси). заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Космонавта Попова\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Космонавта Попова\"}}, {\"domain\": \"roads\", \"issue\": \"засипати та заасфальтувати ями на в’їзді у двір житлового будинку (з вул. Космонавта Попова) за адресою проживання заявника. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Космонавта Попова\", \"requested_action\": \" засипати та заасфальтувати ями на в’їзді у двір житлового будинку (з вул.\", \"attributes\": {\"street\": \"вул. Космонавта Попова\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "продявця ТК ’’Мілленіум’’, що розташований за адресою вул. Космонавта Попова, 7-Б, яка обслуговуючи заявницю випадково травмувала їй око ( пакуючи джинси). заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Космонавта Попова",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Космонавта Попова"
+            }
+          },
+          {
+            "domain": "roads",
+            "issue": "засипати та заасфальтувати ями на в’їзді у двір житлового будинку (з вул. Космонавта Попова) за адресою проживання заявника. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Космонавта Попова",
+            "requested_action": " засипати та заасфальтувати ями на в’їзді у двір житлового будинку (з вул.",
+            "attributes": {
+              "street": "вул. Космонавта Попова"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 42,
+      "uid": "MT-SYN-SS-Г-2973-Д-448",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"обрізати гілки дерева (горіх) біля будинку за адресою: вул. П. , 1. а також грейдерування дорожнього покриття від парку ім. (вул.П.,38) до заводу ’ (вул. Братиславська). заявникуУ. ’ захист персональних даних”\", \"object\": \"вул. П\", \"requested_action\": \" обрізати гілки дерева (горіх) біля будинку за адресою: вул.\", \"attributes\": {\"street\": \"вул. П\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "обрізати гілки дерева (горіх) біля будинку за адресою: вул. П. , 1. а також грейдерування дорожнього покриття від парку ім. (вул.П.,38) до заводу ’ (вул. Братиславська). заявникуУ. ’ захист персональних даних”",
+            "object": "вул. П",
+            "requested_action": " обрізати гілки дерева (горіх) біля будинку за адресою: вул.",
+            "attributes": {
+              "street": "вул. П"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 43,
+      "uid": "MT-SYN-SS-Д-3359-Т-1410",
+      "raw": "{\"topics\": [{\"domain\": \"housing\", \"issue\": \"керівника та працівників КП ’ЖЕО №1’ за те,що вони неякісно виконали ремонт в під’їзді №4, не реагують на звернення мешканців з проханням замінити вікна на 2, 3 та 4 поверхах та прочистити ливневу систему водовідведення на будинку за адресою: вул. Варшавська, 2-А. а також усунення причини пориву каналізаційної мережі по вул. Варшавська, 2-Б, біля маг. ’. заявниці.\", \"object\": \"вул. Варшавська\", \"requested_action\": \" на звернення мешканців з проханням замінити вікна на 2, 3 та 4 поверхах та прочистити ливневу систему водовідведення на будинку за адресою: вул. Варшавська, 2-А.\", \"attributes\": {\"street\": \"вул. Варшавська\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "housing",
+            "issue": "керівника та працівників КП ’ЖЕО №1’ за те,що вони неякісно виконали ремонт в під’їзді №4, не реагують на звернення мешканців з проханням замінити вікна на 2, 3 та 4 поверхах та прочистити ливневу систему водовідведення на будинку за адресою: вул. Варшавська, 2-А. а також усунення причини пориву каналізаційної мережі по вул. Варшавська, 2-Б, біля маг. ’. заявниці.",
+            "object": "вул. Варшавська",
+            "requested_action": " на звернення мешканців з проханням замінити вікна на 2, 3 та 4 поверхах та прочистити ливневу систему водовідведення на будинку за адресою: вул. Варшавська, 2-А.",
+            "attributes": {
+              "street": "вул. Варшавська"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 44,
+      "uid": "MT-SYN-SS-О-919-О-2652",
+      "raw": "{\"topics\": [{\"domain\": \"roads\", \"issue\": \"проведення ямкового ремонту вул.Межевий Бульвар (перехрестя вул.Святослава Хороброго) до вул.Наталії Бракер. а також зробити дорожні розмітки на перехресті вул.Святослава Хороброго та вул.Межевий Бульвару, на перехресті вул.Барболина та вул. та біля магазину ’ маркет’ по вул.Межевий Бульвар. бажає отримати письмову відповідь.\", \"object\": \"вул. Межевий Бульвар\", \"requested_action\": \" зробити дорожні розмітки на перехресті вул.Святослава Хороброго та вул.Межевий Бульвару, на перехресті вул.Барболина та вул. та біля магазину ’ маркет’ по вул.Межевий Бульвар.\", \"attributes\": {\"street\": \"вул. Межевий Бульвар\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "roads",
+            "issue": "проведення ямкового ремонту вул.Межевий Бульвар (перехрестя вул.Святослава Хороброго) до вул.Наталії Бракер. а також зробити дорожні розмітки на перехресті вул.Святослава Хороброго та вул.Межевий Бульвару, на перехресті вул.Барболина та вул. та біля магазину ’ маркет’ по вул.Межевий Бульвар. бажає отримати письмову відповідь.",
+            "object": "вул. Межевий Бульвар",
+            "requested_action": " зробити дорожні розмітки на перехресті вул.Святослава Хороброго та вул.Межевий Бульвару, на перехресті вул.Барболина та вул. та біля магазину ’ маркет’ по вул.Межевий Бульвар.",
+            "attributes": {
+              "street": "вул. Межевий Бульвар"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 45,
+      "uid": "MT-SYN-SS-І-589-Б-2922",
+      "raw": "{\"topics\": [{\"domain\": \"water\", \"issue\": \"водопостачання по стояку квартири №19 житлового будинку по вул.Острівській,2. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Острівській\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Острівській\"}}, {\"domain\": \"electricity\", \"issue\": \"відсутність світла впродовж двох діб в будинку. зникло після пожежі 17.10 2023 року, будинок електричний та аварійний. хамовито спілкуються з мешканцями та не поспішають відновлювати електроенергію в будинку. звертається терміново відновити електропостачання у будинку по вул.Острівській, 2. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Острівській\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Острівській\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "water",
+            "issue": "водопостачання по стояку квартири №19 житлового будинку по вул.Острівській,2. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Острівській",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Острівській"
+            }
+          },
+          {
+            "domain": "electricity",
+            "issue": "відсутність світла впродовж двох діб в будинку. зникло після пожежі 17.10 2023 року, будинок електричний та аварійний. хамовито спілкуються з мешканцями та не поспішають відновлювати електроенергію в будинку. звертається терміново відновити електропостачання у будинку по вул.Острівській, 2. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Острівській",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Острівській"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 46,
+      "uid": "MT-SYN-SS-Д-2579-І-442",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"сусідку, яка мешкає по вул.Херсонській, 21, за те що вона незаконно встановила паркан на території загального користування та захаращує її. заявнику в телефонному режимі. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Херсонській\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Херсонській\"}}, {\"domain\": \"sanitation\", \"issue\": \"обрізки гілок трьох дерев породи тополя по вул.Херсонській, 15. звертається з проханням видалити аварійне дерево по вул.Херсонській, 2. звертається з проханням зобов’язати працівників будівельного підприємства ’СУ 411’ за адресою вул.Покровська, 48 прибрати від сміття прилеглу територію. заявнику в телефонному режимі. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Херсонській\", \"requested_action\": \"звертається з проханням видалити аварійне дерево по вул.Херсонській, 2.\", \"attributes\": {\"street\": \"вул. Херсонській\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "сусідку, яка мешкає по вул.Херсонській, 21, за те що вона незаконно встановила паркан на території загального користування та захаращує її. заявнику в телефонному режимі. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Херсонській",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Херсонській"
+            }
+          },
+          {
+            "domain": "sanitation",
+            "issue": "обрізки гілок трьох дерев породи тополя по вул.Херсонській, 15. звертається з проханням видалити аварійне дерево по вул.Херсонській, 2. звертається з проханням зобов’язати працівників будівельного підприємства ’СУ 411’ за адресою вул.Покровська, 48 прибрати від сміття прилеглу територію. заявнику в телефонному режимі. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Херсонській",
+            "requested_action": "звертається з проханням видалити аварійне дерево по вул.Херсонській, 2.",
+            "attributes": {
+              "street": "вул. Херсонській"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 47,
+      "uid": "MT-SYN-SS-Г-1907-Л-2726",
+      "raw": "{\"topics\": [{\"domain\": \"construction\", \"issue\": \"надати зробити зливи на дорожньому покритті проїжджої частини по вул. Глінки.\", \"object\": \"вул. Глінки\", \"requested_action\": \" надати зробити зливи на дорожньому покритті проїжджої частини по вул.\", \"attributes\": {\"street\": \"вул. Глінки\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "construction",
+            "issue": "надати зробити зливи на дорожньому покритті проїжджої частини по вул. Глінки.",
+            "object": "вул. Глінки",
+            "requested_action": " надати зробити зливи на дорожньому покритті проїжджої частини по вул.",
+            "attributes": {
+              "street": "вул. Глінки"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 48,
+      "uid": "MT-SYN-SS-М-3177-М-709",
+      "raw": "{\"topics\": [{\"domain\": \"electricity\", \"issue\": \"відновлення зовнішнього освітлення по вул. Валентина Глушка. вжити заходи реагування. заявниця просить провести відповідні роботи у другій половині дня у зв’язку з великою кількістю автомобілів на парковці біля госпіталя Ветеранів Війни.\", \"object\": \"вул. Валентина Глушка\", \"requested_action\": \" вжити заходи реагування.\", \"attributes\": {\"street\": \"вул. Валентина Глушка\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "electricity",
+            "issue": "відновлення зовнішнього освітлення по вул. Валентина Глушка. вжити заходи реагування. заявниця просить провести відповідні роботи у другій половині дня у зв’язку з великою кількістю автомобілів на парковці біля госпіталя Ветеранів Війни.",
+            "object": "вул. Валентина Глушка",
+            "requested_action": " вжити заходи реагування.",
+            "attributes": {
+              "street": "вул. Валентина Глушка"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 49,
+      "uid": "MT-SYN-SS-М-3355-Л-2372",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"прочистити дворову каналізацію біля під’їздів № 3, 4, 5 та 6 по вул.Героїв України, 14. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Героїв України\", \"requested_action\": \" прочистити дворову каналізацію біля під’їздів № 3, 4, 5 та 6 по вул.Героїв України, 14.\", \"attributes\": {\"street\": \"вул. Героїв України\"}}, {\"domain\": \"sanitation\", \"issue\": \"проведення дератизації, а саме: біля буд. № 8 по вул. Героїв України, знаходиться перукарня (без назви), працівники якої покажуть люк звідки вилазить щур з виводком. вжити відповідні заходи. заявнику надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Героїв України\", \"requested_action\": \" вжити відповідні заходи.\", \"attributes\": {\"street\": \"вул. Героїв України\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "прочистити дворову каналізацію біля під’їздів № 3, 4, 5 та 6 по вул.Героїв України, 14. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Героїв України",
+            "requested_action": " прочистити дворову каналізацію біля під’їздів № 3, 4, 5 та 6 по вул.Героїв України, 14.",
+            "attributes": {
+              "street": "вул. Героїв України"
+            }
+          },
+          {
+            "domain": "sanitation",
+            "issue": "проведення дератизації, а саме: біля буд. № 8 по вул. Героїв України, знаходиться перукарня (без назви), працівники якої покажуть люк звідки вилазить щур з виводком. вжити відповідні заходи. заявнику надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Героїв України",
+            "requested_action": " вжити відповідні заходи.",
+            "attributes": {
+              "street": "вул. Героїв України"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 50,
+      "uid": "MT-SYN-SS-С-840-Н-2721",
+      "raw": "{\"topics\": [{\"domain\": \"roads\", \"issue\": \"ремонту дорожнього покриття прибудинкової території за адресою: вул.Степана Чобану, 26, ремонту дорожнього покриття на розі вул. Короленка, буд. №42 та №40 на повороті біля магазину ’ та ремонту дорожнього покриття вул. Леваневського. а також на сусідів, які ведуть будівництво порушуючи межі ( не відступають від паркану) по вул. Леваневського.\", \"object\": \"вул. Степана Чобану\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Степана Чобану\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "roads",
+            "issue": "ремонту дорожнього покриття прибудинкової території за адресою: вул.Степана Чобану, 26, ремонту дорожнього покриття на розі вул. Короленка, буд. №42 та №40 на повороті біля магазину ’ та ремонту дорожнього покриття вул. Леваневського. а також на сусідів, які ведуть будівництво порушуючи межі ( не відступають від паркану) по вул. Леваневського.",
+            "object": "вул. Степана Чобану",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Степана Чобану"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 51,
+      "uid": "MT-SYN-SS-К-1047-М-3730",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"покосити траву на прибудинковій території біля житлового будинку по вул.В’ячеслава Чорновола, 1-в.\", \"object\": \"вул. В’ячеслава Чорновола\", \"requested_action\": \" покосити траву на прибудинковій території біля житлового будинку по вул.В’ячеслава Чорновола, 1-в.\", \"attributes\": {\"street\": \"вул. В’ячеслава Чорновола\"}}, {\"domain\": \"roads\", \"issue\": \"проведення ремонту дорожнього покриття:від вул.Великої Перспективної,84 до перехрестя вул.Верхної Биковської (не закінчений ремонт дороги);вул.Героїв Маріуполя,місток до перехрестя вул.Охтирської (ями);вул.В’ячеслава Чорновола (ями);пров. (ями). заявнику. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Великої Перспективної\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Великої Перспективної\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "покосити траву на прибудинковій території біля житлового будинку по вул.В’ячеслава Чорновола, 1-в.",
+            "object": "вул. В’ячеслава Чорновола",
+            "requested_action": " покосити траву на прибудинковій території біля житлового будинку по вул.В’ячеслава Чорновола, 1-в.",
+            "attributes": {
+              "street": "вул. В’ячеслава Чорновола"
+            }
+          },
+          {
+            "domain": "roads",
+            "issue": "проведення ремонту дорожнього покриття:від вул.Великої Перспективної,84 до перехрестя вул.Верхної Биковської (не закінчений ремонт дороги);вул.Героїв Маріуполя,місток до перехрестя вул.Охтирської (ями);вул.В’ячеслава Чорновола (ями);пров. (ями). заявнику. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Великої Перспективної",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Великої Перспективної"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 52,
+      "uid": "MT-SYN-SS-К-869-С-1058",
+      "raw": "{\"topics\": [{\"domain\": \"roads\", \"issue\": \"грейдерування дорожнього покриття частини вул.Гранітної від вул. до вул. . 30.03.2024 року грейдер проїхав по вул. Гранітній, але не прогрейдерував. заявниці по даній вулиці лише 4 сміттєвих баки і між ними дуже велика відстань. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Гранітної від вул\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Гранітної від вул\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "roads",
+            "issue": "грейдерування дорожнього покриття частини вул.Гранітної від вул. до вул. . 30.03.2024 року грейдер проїхав по вул. Гранітній, але не прогрейдерував. заявниці по даній вулиці лише 4 сміттєвих баки і між ними дуже велика відстань. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Гранітної від вул",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Гранітної від вул"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 53,
+      "uid": "MT-SYN-CS-С-1446-Ш-998",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"покосити траву на дитячому майданчику за адресою вул. Нижня П’ятихатська, 18, а також обабіч дороги по вул. Нижня П’ятихатська. надати телефоном\", \"object\": \"вул. Нижня П’ятихатська\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Нижня П’ятихатська\"}}, {\"domain\": \"roads\", \"issue\": \"ремонту дорожнього покриття прибудинкової території за адресою: вул.Нижня П’ятихатська,25 та ремонту дорожнього покриття вулиць, а саме: 40 років , 5-та лінія на с. . бажає отримати відповідь на потову скриньку № 12 (25019).\", \"object\": \"вул. Нижня П’ятихатська\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Нижня П’ятихатська\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "покосити траву на дитячому майданчику за адресою вул. Нижня П’ятихатська, 18, а також обабіч дороги по вул. Нижня П’ятихатська. надати телефоном",
+            "object": "вул. Нижня П’ятихатська",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Нижня П’ятихатська"
+            }
+          },
+          {
+            "domain": "roads",
+            "issue": "ремонту дорожнього покриття прибудинкової території за адресою: вул.Нижня П’ятихатська,25 та ремонту дорожнього покриття вулиць, а саме: 40 років , 5-та лінія на с. . бажає отримати відповідь на потову скриньку № 12 (25019).",
+            "object": "вул. Нижня П’ятихатська",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Нижня П’ятихатська"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 54,
+      "uid": "MT-SYN-CS-Х-534-П-2377",
+      "raw": "{\"topics\": [{\"domain\": \"water\", \"issue\": \"хмельницького: . надати телефоном, а також прочистити колодязь, який розташований між будинками № 288 та № 290 по вул. Богдана Хмельницького (вода не придатна для пиття). заявниці.\", \"object\": \"вул. Богдана Хмельницького\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Богдана Хмельницького\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "water",
+            "issue": "хмельницького: . надати телефоном, а також прочистити колодязь, який розташований між будинками № 288 та № 290 по вул. Богдана Хмельницького (вода не придатна для пиття). заявниці.",
+            "object": "вул. Богдана Хмельницького",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Богдана Хмельницького"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 55,
+      "uid": "MT-SYN-CS-Ю-2066-К-2239",
+      "raw": "{\"topics\": [{\"domain\": \"roads\", \"issue\": \"проведення ямкового ремонту частини дороги на повороті від с. у напрямку вул. Державності (). заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Державності\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Державності\"}}, {\"domain\": \"sanitation\", \"issue\": \"видалення аварійних дерев (породи тополя), які зростають за адресами: вул. Державності, 27, корп. 3 (за будинком) та вул. Героїв-рятувальників, 28, корп. 1 (з торця будинку, біля під’їзду № 1); покосу трави і підстригання кущів у сквері ім. , за адресою: вул. Героїв України, 32 та підстригання кущів за адресою: вул. Героїв України, 28, корп. 2. заявнику.\", \"object\": \"вул. Державності\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Державності\", \"building\": \"27\", \"corporation\": \"3\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "roads",
+            "issue": "проведення ямкового ремонту частини дороги на повороті від с. у напрямку вул. Державності (). заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Державності",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Державності"
+            }
+          },
+          {
+            "domain": "sanitation",
+            "issue": "видалення аварійних дерев (породи тополя), які зростають за адресами: вул. Державності, 27, корп. 3 (за будинком) та вул. Героїв-рятувальників, 28, корп. 1 (з торця будинку, біля під’їзду № 1); покосу трави і підстригання кущів у сквері ім. , за адресою: вул. Героїв України, 32 та підстригання кущів за адресою: вул. Героїв України, 28, корп. 2. заявнику.",
+            "object": "вул. Державності",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Державності",
+              "building": "27",
+              "corporation": "3"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 56,
+      "uid": "MT-SYN-CS-П-2594-П-1573",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"обрізати гілки дерев (7 шт) перед будинком по вул.Михайлівській, 6.\", \"object\": \"вул. Михайлівській\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Михайлівській\"}}, {\"domain\": \"roads\", \"issue\": \"відсутності тротуару для мешканців мікрорайону по вул.Михайлівській,29.Зі слів заявника на тротуарній частині розміщена недобудова. вжити заходи реагування. заявнику.У. ’ захист персональних даних”\", \"object\": \"вул. Михайлівській\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Михайлівській\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "обрізати гілки дерев (7 шт) перед будинком по вул.Михайлівській, 6.",
+            "object": "вул. Михайлівській",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Михайлівській"
+            }
+          },
+          {
+            "domain": "roads",
+            "issue": "відсутності тротуару для мешканців мікрорайону по вул.Михайлівській,29.Зі слів заявника на тротуарній частині розміщена недобудова. вжити заходи реагування. заявнику.У. ’ захист персональних даних”",
+            "object": "вул. Михайлівській",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Михайлівській"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 57,
+      "uid": "MT-SYN-CS-Н-582-П-1005",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"усунення причини витоку каналізаційних стоків у підвальному приміщенні у під’їзді №2 будинку по вул.Героїв рятувальників, 9, корп. 1.Зі слів заявниці сморід у під’їзді, неодноразові звернення до КП ’ЖЕО № 4 безрезультатні. заявниці.У. ’ захист персональних даних”\", \"object\": \"вул. Героїв рятувальників\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Героїв рятувальників\", \"building\": \"1\"}}, {\"domain\": \"housing\", \"issue\": \"косметичного ремонту приміщення під’їзду будинку за адресою: вул.Героїв рятувальників,28, корп.2, під’їзд №8. заявнику.\", \"object\": \"вул. Героїв рятувальників\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Героїв рятувальників\", \"building\": \"2\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "усунення причини витоку каналізаційних стоків у підвальному приміщенні у під’їзді №2 будинку по вул.Героїв рятувальників, 9, корп. 1.Зі слів заявниці сморід у під’їзді, неодноразові звернення до КП ’ЖЕО № 4 безрезультатні. заявниці.У. ’ захист персональних даних”",
+            "object": "вул. Героїв рятувальників",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Героїв рятувальників",
+              "building": "1"
+            }
+          },
+          {
+            "domain": "housing",
+            "issue": "косметичного ремонту приміщення під’їзду будинку за адресою: вул.Героїв рятувальників,28, корп.2, під’їзд №8. заявнику.",
+            "object": "вул. Героїв рятувальників",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Героїв рятувальників",
+              "building": "2"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 58,
+      "uid": "MT-SYN-CS-Г-3228-А-3359",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"11.2024 р. працівниками ТОВ ’ не були забрані побутові відходи мешканців вул. Макеєвської, залишилося 35 пакетів відходів, які в подальшому поступово розносять безхатні тварини. прискорити збір та вивіз відходів, сміття тому що під час спілкування з працівниками ТОВ ’ по телефону ті відповили, що приїдуть тільки у наступну середу. занепокоєний антисанітарним станом на вулиці. заявнику.\", \"object\": \"вул. Макеєвської\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Макеєвської\"}}, {\"domain\": \"roads\", \"issue\": \"грейдерування та засипанням щебеневою сумішшю дорожнього покриття від пров. до вул. Макеєвської, 15. вжити відповідні заходи. заявниці.\", \"object\": \"вул. Макеєвської\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Макеєвської\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "11.2024 р. працівниками ТОВ ’ не були забрані побутові відходи мешканців вул. Макеєвської, залишилося 35 пакетів відходів, які в подальшому поступово розносять безхатні тварини. прискорити збір та вивіз відходів, сміття тому що під час спілкування з працівниками ТОВ ’ по телефону ті відповили, що приїдуть тільки у наступну середу. занепокоєний антисанітарним станом на вулиці. заявнику.",
+            "object": "вул. Макеєвської",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Макеєвської"
+            }
+          },
+          {
+            "domain": "roads",
+            "issue": "грейдерування та засипанням щебеневою сумішшю дорожнього покриття від пров. до вул. Макеєвської, 15. вжити відповідні заходи. заявниці.",
+            "object": "вул. Макеєвської",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Макеєвської"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 59,
+      "uid": "MT-SYN-CS-А-198-Ч-3429",
+      "raw": "{\"topics\": [{\"domain\": \"heating\", \"issue\": \"дерева по вул.Куроп’ятникова, 50.\", \"object\": \"вул. Куроп’ятникова\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Куроп’ятникова\"}}, {\"domain\": \"government\", \"issue\": \"працівників КП ’ЖЕО №2’ за те, що вони не реагують на прохання заявника не зменшувати температуру теплоносія, що подається в будинок у вечірні години за адресою: вул. Куроп’ятникова, 25. надає згоду на обробку персональних даних та передачу їх третім особам відповідно до вимог ЗУ “ захист персональних даних”\", \"object\": \"вул. Куроп’ятникова\", \"requested_action\": \"працівників КП ’ЖЕО №2’ за те, що вони не реагують на прохання заявника не зменшувати температуру теплоносія, що подається в будинок у вечірні години за адресою: вул. Куроп’ятникова, 25.\", \"attributes\": {\"street\": \"вул. Куроп’ятникова\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "heating",
+            "issue": "дерева по вул.Куроп’ятникова, 50.",
+            "object": "вул. Куроп’ятникова",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Куроп’ятникова"
+            }
+          },
+          {
+            "domain": "government",
+            "issue": "працівників КП ’ЖЕО №2’ за те, що вони не реагують на прохання заявника не зменшувати температуру теплоносія, що подається в будинок у вечірні години за адресою: вул. Куроп’ятникова, 25. надає згоду на обробку персональних даних та передачу їх третім особам відповідно до вимог ЗУ “ захист персональних даних”",
+            "object": "вул. Куроп’ятникова",
+            "requested_action": "працівників КП ’ЖЕО №2’ за те, що вони не реагують на прохання заявника не зменшувати температуру теплоносія, що подається в будинок у вечірні години за адресою: вул. Куроп’ятникова, 25.",
+            "attributes": {
+              "street": "вул. Куроп’ятникова"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 60,
+      "uid": "MT-SYN-CS-В-640-Б-671",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"обстежити та обрізати дерева (липа, абрикоса) та видалити дерева (клен та дерево біля нього) біля будинку за адресою вул.Бєляєва, 29, корп.1. надати телефоном\", \"object\": \"вул. Бєляєва\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Бєляєва\"}}, {\"domain\": \"housing\", \"issue\": \"покрівлю житлового будинку над квартирою № 79 за адресою по вул.Бєляєва, 12. забере особисто.\", \"object\": \"вул. Бєляєва\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Бєляєва\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "обстежити та обрізати дерева (липа, абрикоса) та видалити дерева (клен та дерево біля нього) біля будинку за адресою вул.Бєляєва, 29, корп.1. надати телефоном",
+            "object": "вул. Бєляєва",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Бєляєва"
+            }
+          },
+          {
+            "domain": "housing",
+            "issue": "покрівлю житлового будинку над квартирою № 79 за адресою по вул.Бєляєва, 12. забере особисто.",
+            "object": "вул. Бєляєва",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Бєляєва"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 61,
+      "uid": "MT-SYN-CS-К-873-К-3550",
+      "raw": "{\"topics\": [{\"domain\": \"water\", \"issue\": \"усунення витоку води на проїжджій частині дороги, вода тече під будинок, який починає руйнуватися за адресою: вул.Миколи Садовського,87. заявниці.\", \"object\": \"вул. Миколи Садовського\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Миколи Садовського\"}}, {\"domain\": \"sanitation\", \"issue\": \"просить обрізати гілки на деревах, які ростуть: 1-ше - напроти будинку № 51/1 по вул. Миколи Садовського (через дорогу біля балки) та 2-ге (породи тополя) - біля двору зазначеного будинку. заявнику.\", \"object\": \"вул. Миколи Садовського\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Миколи Садовського\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "water",
+            "issue": "усунення витоку води на проїжджій частині дороги, вода тече під будинок, який починає руйнуватися за адресою: вул.Миколи Садовського,87. заявниці.",
+            "object": "вул. Миколи Садовського",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Миколи Садовського"
+            }
+          },
+          {
+            "domain": "sanitation",
+            "issue": "просить обрізати гілки на деревах, які ростуть: 1-ше - напроти будинку № 51/1 по вул. Миколи Садовського (через дорогу біля балки) та 2-ге (породи тополя) - біля двору зазначеного будинку. заявнику.",
+            "object": "вул. Миколи Садовського",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Миколи Садовського"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 62,
+      "uid": "MT-SYN-CS-Б-1117-М-223",
+      "raw": "{\"topics\": [{\"domain\": \"transport\", \"issue\": \"надати , 67 впритул до паркану заявниці. надати телефоном\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"sanitation\", \"issue\": \"просить залишити пільговий проїзд для пенсіонерів у громадському транспорті на цілий день. просить повернути конструкцію зупинки ’пров. по вул. Кримська (в сторону міста), разом з лавочкою. заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Кримська\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Кримська\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "transport",
+            "issue": "надати , 67 впритул до паркану заявниці. надати телефоном",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          },
+          {
+            "domain": "sanitation",
+            "issue": "просить залишити пільговий проїзд для пенсіонерів у громадському транспорті на цілий день. просить повернути конструкцію зупинки ’пров. по вул. Кримська (в сторону міста), разом з лавочкою. заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Кримська",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Кримська"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 63,
+      "uid": "MT-SYN-CS-Ч-861-Ч-1136",
+      "raw": "{\"topics\": [{\"domain\": \"roads\", \"issue\": \"прогрейдерувати дорожнє покриття по вул.Східній.\", \"object\": \"вул. Східній\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Східній\"}}, {\"domain\": \"water\", \"issue\": \"ліквідувати порив мережі водопостачання по вул.Східній.\", \"object\": \"вул. Східній\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Східній\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "roads",
+            "issue": "прогрейдерувати дорожнє покриття по вул.Східній.",
+            "object": "вул. Східній",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Східній"
+            }
+          },
+          {
+            "domain": "water",
+            "issue": "ліквідувати порив мережі водопостачання по вул.Східній.",
+            "object": "вул. Східній",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Східній"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 64,
+      "uid": "MT-SYN-CS-Ю-1915-К-3321",
+      "raw": "{\"topics\": [{\"domain\": \"construction\", \"issue\": \"заборонити незаконне будівництво та знищення дерев у дворі житлових будинків по вул.Олефіренка, 18/21 та , 19.\", \"object\": \"вул. Олефіренка\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Олефіренка\"}}, {\"domain\": \"heating\", \"issue\": \"з’ясувати та усунути причину відсутності теплопостачання в квартирі №4 за адресою вул.Олефіренка, 5/9. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ « захист персональних даних»\", \"object\": \"вул. Олефіренка\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Олефіренка\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "construction",
+            "issue": "заборонити незаконне будівництво та знищення дерев у дворі житлових будинків по вул.Олефіренка, 18/21 та , 19.",
+            "object": "вул. Олефіренка",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Олефіренка"
+            }
+          },
+          {
+            "domain": "heating",
+            "issue": "з’ясувати та усунути причину відсутності теплопостачання в квартирі №4 за адресою вул.Олефіренка, 5/9. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ « захист персональних даних»",
+            "object": "вул. Олефіренка",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Олефіренка"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 65,
+      "uid": "MT-SYN-CS-К-773-М-1464",
+      "raw": "{\"topics\": [{\"domain\": \"roads\", \"issue\": \"заасфальтувати ями біля будинку по вул. Героїв України, 32 (біля скверу ) та між під’їздам № 2 і № 3 будинку по вул. Генерала Жадова,30.\", \"object\": \"вул. Героїв України\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Героїв України\"}}, {\"domain\": \"sanitation\", \"issue\": \"засипати та заасфальтувати яму навпроти під’їзду №3 у дворі будинку за адресою вул. Генерала Жадова, 30. надати телефоном\", \"object\": \"вул. Генерала Жадова\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Генерала Жадова\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "roads",
+            "issue": "заасфальтувати ями біля будинку по вул. Героїв України, 32 (біля скверу ) та між під’їздам № 2 і № 3 будинку по вул. Генерала Жадова,30.",
+            "object": "вул. Героїв України",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Героїв України"
+            }
+          },
+          {
+            "domain": "sanitation",
+            "issue": "засипати та заасфальтувати яму навпроти під’їзду №3 у дворі будинку за адресою вул. Генерала Жадова, 30. надати телефоном",
+            "object": "вул. Генерала Жадова",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Генерала Жадова"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 66,
+      "uid": "MT-SYN-RS-А-1973-С-1912",
+      "raw": "{\"topics\": [{\"domain\": \"roads\", \"issue\": \"М. (пров. ,55) зайнято частину проїжджої частини дороги (встановлені електричні стовпи-опори),що заважають проїзду автотранспорту по пров. . вжити заходи реагування,розширити проїжджу частину дороги. відділу по роботі зі зверненнями громадян КМР.. не надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"sanitation\", \"issue\": \"обрізати зламану гілку дерева по вул.Набережній, 13.\", \"object\": \"вул. Набережній\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Набережній\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "roads",
+            "issue": "М. (пров. ,55) зайнято частину проїжджої частини дороги (встановлені електричні стовпи-опори),що заважають проїзду автотранспорту по пров. . вжити заходи реагування,розширити проїжджу частину дороги. відділу по роботі зі зверненнями громадян КМР.. не надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          },
+          {
+            "domain": "sanitation",
+            "issue": "обрізати зламану гілку дерева по вул.Набережній, 13.",
+            "object": "вул. Набережній",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Набережній"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 67,
+      "uid": "MT-SYN-RS-С-3120-С-3325",
+      "raw": "{\"topics\": [{\"domain\": \"housing\", \"issue\": \"ремонту/заміни частково пошкодженої ливнівки, яка розташована на краю будинку по вул. Шевченка, 26. Зі слів заявника у його квартирі сирість, неприємний запах, на стіні будинку цвіль. протягом двох тижнів до працівників ЖЕО № 1 безрезультатні. вжити відповідні заходи. заявнику. надає згоду на обробку персональних даних та передачу їх третім особам відповідно до вимог ЗУ “ захист персональних даних”\", \"object\": \"вул. Шевченка\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Шевченка\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "housing",
+            "issue": "ремонту/заміни частково пошкодженої ливнівки, яка розташована на краю будинку по вул. Шевченка, 26. Зі слів заявника у його квартирі сирість, неприємний запах, на стіні будинку цвіль. протягом двох тижнів до працівників ЖЕО № 1 безрезультатні. вжити відповідні заходи. заявнику. надає згоду на обробку персональних даних та передачу їх третім особам відповідно до вимог ЗУ “ захист персональних даних”",
+            "object": "вул. Шевченка",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Шевченка"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 68,
+      "uid": "MT-SYN-RS-К-2463-Д-3531",
+      "raw": "{\"topics\": [{\"domain\": \"housing\", \"issue\": \"просить комісійно обстежити технічний стан будинку, який у аварійному стані по пров. ,6, а саме: дах - злив води (піліна), вентиляційні шахти зверху, які не покриті,тріщини у стінах будинку, а також мешканці будинку безконтрольно свердлять стіни зі сторони вулиці, а працівники КП ’ЖЕО № 1’ не контролюють поведінку мешканців, які пошкоджують будинок. заявнику.У. ’ захист персональних даних”\", \"object\": \"\", \"requested_action\": \" просить комісійно обстежити технічний стан будинку, який у аварійному стані по пров. ,6, а саме: дах - злив води (піліна), вентиляційні шахти зверху, які не покриті,тріщини у стінах будинку, а також мешканці будинку безконтрольно свердлять стіни зі сторони вулиці, а працівники КП ’ЖЕО № 1’ не контролюють поведінку мешканців, які пошкоджують будинок. заявнику.У. ’ захист персональних даних”\", \"attributes\": {}}, {\"domain\": \"roads\", \"issue\": \"очищення дорожнього покриття від снігу,льоду по вул.Автолюбителів. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до ЗУ ’ захист персональних даних’\", \"object\": \"вул. Автолюбителів\", \"requested_action\": \" очищення дорожнього покриття від снігу,льоду по вул.Автолюбителів. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до ЗУ ’ захист персональних даних’\", \"attributes\": {\"street\": \"вул. Автолюбителів\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "housing",
+            "issue": "просить комісійно обстежити технічний стан будинку, який у аварійному стані по пров. ,6, а саме: дах - злив води (піліна), вентиляційні шахти зверху, які не покриті,тріщини у стінах будинку, а також мешканці будинку безконтрольно свердлять стіни зі сторони вулиці, а працівники КП ’ЖЕО № 1’ не контролюють поведінку мешканців, які пошкоджують будинок. заявнику.У. ’ захист персональних даних”",
+            "object": "",
+            "requested_action": " просить комісійно обстежити технічний стан будинку, який у аварійному стані по пров. ,6, а саме: дах - злив води (піліна), вентиляційні шахти зверху, які не покриті,тріщини у стінах будинку, а також мешканці будинку безконтрольно свердлять стіни зі сторони вулиці, а працівники КП ’ЖЕО № 1’ не контролюють поведінку мешканців, які пошкоджують будинок. заявнику.У. ’ захист персональних даних”",
+            "attributes": {}
+          },
+          {
+            "domain": "roads",
+            "issue": "очищення дорожнього покриття від снігу,льоду по вул.Автолюбителів. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до ЗУ ’ захист персональних даних’",
+            "object": "вул. Автолюбителів",
+            "requested_action": " очищення дорожнього покриття від снігу,льоду по вул.Автолюбителів. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до ЗУ ’ захист персональних даних’",
+            "attributes": {
+              "street": "вул. Автолюбителів"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 69,
+      "uid": "MT-SYN-RS-Д-3789-Д-580",
+      "raw": "{\"topics\": [{\"domain\": \"water\", \"issue\": \"та усунути причину витоку каналізаційних стоків у квартирі заявниці,за адресою проживання. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"roads\", \"issue\": \"прогрейдерувати дорожнє покриття по вулиці Марії Садовської-Барілотті. надати поштою\", \"object\": \"вулиці Марії Садовської-Барілотті\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вулиці Марії Садовської-Барілотті\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "water",
+            "issue": "та усунути причину витоку каналізаційних стоків у квартирі заявниці,за адресою проживання. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          },
+          {
+            "domain": "roads",
+            "issue": "прогрейдерувати дорожнє покриття по вулиці Марії Садовської-Барілотті. надати поштою",
+            "object": "вулиці Марії Садовської-Барілотті",
+            "requested_action": "",
+            "attributes": {
+              "street": "вулиці Марії Садовської-Барілотті"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 70,
+      "uid": "MT-SYN-RS-Б-2399-Л-3434",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"покосу амброзії по вул. Ялтинській. вжити відповідні заходи. заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Ялтинській\", \"requested_action\": \" покосу амброзії по вул.\", \"attributes\": {\"street\": \"вул. Ялтинській\"}}, {\"domain\": \"housing\", \"issue\": \"майстра ОЖБК, яка не відповідає на телефонні дзвінки та не реагує на прохання заявника розповітрити труби системи теплопостачання у квартирі № 55 за адресою: вул. Ю. , 5, к.2. надає згоду на обробку персональних даних та передачу їх третім особам відповідно до вимог ЗУ “ захист персональних даних”\", \"object\": \"вул. Ю\", \"requested_action\": \" майстра ОЖБК, яка не відповідає на телефонні дзвінки та не реагує на прохання заявника розповітрити труби системи теплопостачання у квартирі № 55 за адресою: вул.\", \"attributes\": {\"street\": \"вул. Ю\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "покосу амброзії по вул. Ялтинській. вжити відповідні заходи. заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Ялтинській",
+            "requested_action": " покосу амброзії по вул.",
+            "attributes": {
+              "street": "вул. Ялтинській"
+            }
+          },
+          {
+            "domain": "housing",
+            "issue": "майстра ОЖБК, яка не відповідає на телефонні дзвінки та не реагує на прохання заявника розповітрити труби системи теплопостачання у квартирі № 55 за адресою: вул. Ю. , 5, к.2. надає згоду на обробку персональних даних та передачу їх третім особам відповідно до вимог ЗУ “ захист персональних даних”",
+            "object": "вул. Ю",
+            "requested_action": " майстра ОЖБК, яка не відповідає на телефонні дзвінки та не реагує на прохання заявника розповітрити труби системи теплопостачання у квартирі № 55 за адресою: вул.",
+            "attributes": {
+              "street": "вул. Ю"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 71,
+      "uid": "MT-SYN-RS-О-132-Т-1295",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"зняти з розгляду звернення О-128, як позитивно вирішене, водопостачання відновлено. та прочистити дворову каналізацію по вул. Андрія Матвієнка, 2-в, біля гуртожитку будівельного фахового коледжу.\", \"object\": \"вул. Андрія Матвієнка\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Андрія Матвієнка\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "зняти з розгляду звернення О-128, як позитивно вирішене, водопостачання відновлено. та прочистити дворову каналізацію по вул. Андрія Матвієнка, 2-в, біля гуртожитку будівельного фахового коледжу.",
+            "object": "вул. Андрія Матвієнка",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Андрія Матвієнка"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 72,
+      "uid": "MT-SYN-RS-Т-1770-Б-481",
+      "raw": "{\"topics\": [{\"domain\": \"housing\", \"issue\": \"відремонтувати дах над квартирою за вищезазначеною адресою. звернення до ЖЕО безрезультатні. заявниця бажає отримати у телефонному режимі.\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"water\", \"issue\": \"усунення пориву на перехресті вул.Євгена Коновальця та вул.. заявниці.У. ’ захист персональних даних”\", \"object\": \"вул. Євгена Коновальця та вул\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Євгена Коновальця та вул\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "housing",
+            "issue": "відремонтувати дах над квартирою за вищезазначеною адресою. звернення до ЖЕО безрезультатні. заявниця бажає отримати у телефонному режимі.",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          },
+          {
+            "domain": "water",
+            "issue": "усунення пориву на перехресті вул.Євгена Коновальця та вул.. заявниці.У. ’ захист персональних даних”",
+            "object": "вул. Євгена Коновальця та вул",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Євгена Коновальця та вул"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 73,
+      "uid": "MT-SYN-RS-М-3572-К-3543",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"12.2025 працівники ТОВ ’ не забрали на точках збору побутові відходи по пров. , вул. Коцюбинського, пров. . вул. Лахмана Петра. на підприємство, отримала відповідь, що причиною є - нерозчищені дороги, неможливість проїхати великогабаритному транспортному засобу. зобов’язати працівників ТОВ ’ забирати сміття та відповідні комунальні служби розчистити дороги по місту. заявниці в телефонному режимі. , а також прогрейдерувати дорожнє покриття по вул. Тетяни Яблонської. надає згоду на обробку персональних даних та передачу їх третім особам відповідно до вимог ЗУ “ захист персональних даних”\", \"object\": \"вул. Коцюбинського\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Коцюбинського\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "12.2025 працівники ТОВ ’ не забрали на точках збору побутові відходи по пров. , вул. Коцюбинського, пров. . вул. Лахмана Петра. на підприємство, отримала відповідь, що причиною є - нерозчищені дороги, неможливість проїхати великогабаритному транспортному засобу. зобов’язати працівників ТОВ ’ забирати сміття та відповідні комунальні служби розчистити дороги по місту. заявниці в телефонному режимі. , а також прогрейдерувати дорожнє покриття по вул. Тетяни Яблонської. надає згоду на обробку персональних даних та передачу їх третім особам відповідно до вимог ЗУ “ захист персональних даних”",
+            "object": "вул. Коцюбинського",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Коцюбинського"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 74,
+      "uid": "MT-SYN-RS-Я-212-П-1931",
+      "raw": "{\"topics\": [{\"domain\": \"housing\", \"issue\": \"капітального ремонту даху будинку за адресою: вул. Металургів, 17 (під’їзд №1). заявнику. надає згоду на обробку персональних даних та передачу їх третім особам відповідно до вимог ЗУ “ захист персональних даних”\", \"object\": \"вул. Металургів\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Металургів\"}}, {\"domain\": \"water\", \"issue\": \"усунути порив ріг вул. Віктора Френчка, як переїзжаємо дамбу (тече вода).\", \"object\": \"вул. Віктора Френчка\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Віктора Френчка\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "housing",
+            "issue": "капітального ремонту даху будинку за адресою: вул. Металургів, 17 (під’їзд №1). заявнику. надає згоду на обробку персональних даних та передачу їх третім особам відповідно до вимог ЗУ “ захист персональних даних”",
+            "object": "вул. Металургів",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Металургів"
+            }
+          },
+          {
+            "domain": "water",
+            "issue": "усунути порив ріг вул. Віктора Френчка, як переїзжаємо дамбу (тече вода).",
+            "object": "вул. Віктора Френчка",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Віктора Френчка"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 75,
+      "uid": "MT-SYN-RS-В-1834-Б-3523",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"зняття з розгляду звернення на ГЛ міського голови від 28.06.2024 р. № В-1755 (№6260) з питання покосу бур’янів та амброзії, які зростають на земельній ділянці біля будинку по вул. Михайлівська,64, як позитивно вирішене. заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"вул. Михайлівська\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Михайлівська\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "зняття з розгляду звернення на ГЛ міського голови від 28.06.2024 р. № В-1755 (№6260) з питання покосу бур’янів та амброзії, які зростають на земельній ділянці біля будинку по вул. Михайлівська,64, як позитивно вирішене. заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "вул. Михайлівська",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Михайлівська"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 76,
+      "uid": "MT-SYN-RS-Т-2523-Ш-946",
+      "raw": "{\"topics\": [{\"domain\": \"water\", \"issue\": \"прочистити каналізацію та усунути причини витоку води у підвальному приміщенні під’їзду №2,за адресою проживання заявниці. надат телефоном.\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"electricity\", \"issue\": \"просить підключити зовнішнє освітлення між будинком № 36 по вул. Лінія 7-ма та дитячою музикальною школою № 4 (вул. Ліная 1-ша, буд. № 3-А). в телефонному режимі.\", \"object\": \"вул. Лінія 7-ма та дитячою музикальною школою\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Лінія 7-ма та дитячою музикальною школою\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "water",
+            "issue": "прочистити каналізацію та усунути причини витоку води у підвальному приміщенні під’їзду №2,за адресою проживання заявниці. надат телефоном.",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          },
+          {
+            "domain": "electricity",
+            "issue": "просить підключити зовнішнє освітлення між будинком № 36 по вул. Лінія 7-ма та дитячою музикальною школою № 4 (вул. Ліная 1-ша, буд. № 3-А). в телефонному режимі.",
+            "object": "вул. Лінія 7-ма та дитячою музикальною школою",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Лінія 7-ма та дитячою музикальною школою"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 77,
+      "uid": "MT-SYN-RS-М-3853-Ш-578",
+      "raw": "{\"topics\": [{\"domain\": \"housing\", \"issue\": \"ремонту вхідних металевих дверей (відірвалася нижня петля) у під’їзді №3,за адресою проживання заявниці. тижні тому мешканці звертаються до КП ’ЖЕО №3’ безрезультатно. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"heating\", \"issue\": \"з’ясування та усунення причини відсутності централізованого теплопостачання (10 днів) у квартирі заявниці за адресою проживання. заявниці.У. ’ захист персональних даних”\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "housing",
+            "issue": "ремонту вхідних металевих дверей (відірвалася нижня петля) у під’їзді №3,за адресою проживання заявниці. тижні тому мешканці звертаються до КП ’ЖЕО №3’ безрезультатно. заявниці. надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          },
+          {
+            "domain": "heating",
+            "issue": "з’ясування та усунення причини відсутності централізованого теплопостачання (10 днів) у квартирі заявниці за адресою проживання. заявниці.У. ’ захист персональних даних”",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 78,
+      "uid": "MT-SYN-SC-Ч-1731-Т-2980",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"працівників комунальної служби, які виконували роботи з прибирання дороги по вул. Героїв України вночі під час повітряної тривоги. надати телефоном\", \"object\": \"вул. Героїв України вночі під час повітряної тривоги\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Героїв України вночі під час повітряної тривоги\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "працівників комунальної служби, які виконували роботи з прибирання дороги по вул. Героїв України вночі під час повітряної тривоги. надати телефоном",
+            "object": "вул. Героїв України вночі під час повітряної тривоги",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Героїв України вночі під час повітряної тривоги"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 79,
+      "uid": "MT-SYN-SC-Д-2966-Л-887",
+      "raw": "{\"topics\": [{\"domain\": \"water\", \"issue\": \"усунути порив мережі водопостачання на проїжджій частині по вул.Зінченка.\", \"object\": \"вул. Зінченка\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Зінченка\"}}, {\"domain\": \"sanitation\", \"issue\": \"обрізати суху аварійну гілку дерева породи верба, яка нависає над лініями електропередач та над дитячим майданчиком, знаходиться у дворі за зазначеною адресою. заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "water",
+            "issue": "усунути порив мережі водопостачання на проїжджій частині по вул.Зінченка.",
+            "object": "вул. Зінченка",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Зінченка"
+            }
+          },
+          {
+            "domain": "sanitation",
+            "issue": "обрізати суху аварійну гілку дерева породи верба, яка нависає над лініями електропередач та над дитячим майданчиком, знаходиться у дворі за зазначеною адресою. заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних’",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 80,
+      "uid": "MT-SYN-SC-М-709-Р-897",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"грейдерування вул.Валентина Глушка. просить провести відповідні роботи у другій половині дня у зв’язку з великою кількістю автомобілів на парковці біля госпіталя . заявниці.\", \"object\": \"вул. Валентина Глушка\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Валентина Глушка\"}}, {\"domain\": \"sanitation\", \"issue\": \"звертається повторно з проханням висадити два дерева біля будинку по вул. Пашутінській. В минулому році отримав відповідь від КМР про те, що висадка дерев планується на весну 025 року. пришвидшити висадку дерев. заявнику. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних\", \"object\": \"вул. Пашутінській\", \"requested_action\": \"звертається повторно з проханням висадити два дерева біля будинку по вул. Пашутінській. В минулому році отримав відповідь від КМР про те, що висадка дерев планується на весну 025 року. пришвидшити висадку дерев. заявнику.\", \"attributes\": {\"street\": \"вул. Пашутінській\"}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "sanitation",
+            "issue": "грейдерування вул.Валентина Глушка. просить провести відповідні роботи у другій половині дня у зв’язку з великою кількістю автомобілів на парковці біля госпіталя . заявниці.",
+            "object": "вул. Валентина Глушка",
+            "requested_action": "",
+            "attributes": {
+              "street": "вул. Валентина Глушка"
+            }
+          },
+          {
+            "domain": "sanitation",
+            "issue": "звертається повторно з проханням висадити два дерева біля будинку по вул. Пашутінській. В минулому році отримав відповідь від КМР про те, що висадка дерев планується на весну 025 року. пришвидшити висадку дерев. заявнику. надає згоду на оброблення своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ ’ захист персональних даних",
+            "object": "вул. Пашутінській",
+            "requested_action": "звертається повторно з проханням висадити два дерева біля будинку по вул. Пашутінській. В минулому році отримав відповідь від КМР про те, що висадка дерев планується на весну 025 року. пришвидшити висадку дерев. заявнику.",
+            "attributes": {
+              "street": "вул. Пашутінській"
+            }
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 81,
+      "uid": "MT-SYN-SC-Д-2981-К-2956",
+      "raw": "{\"topics\": [{\"domain\": \"water\", \"issue\": \"усунути порив каналізаційної мережі біля будинку на перехресті вулиць та Ю.. надати телефоном\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"housing\", \"issue\": \"усунути щільність між димветканалом та покрівлею над під’їздом № 8 будинку за адресою проживання заявника. З його слів під час дощу вода затікає до 4 поверху. ’ЖЕО № 3’ на звернення від 14.10.2024 р. надали інформацію о неможливості проведенні будівельних робіт на даний час. бажає отримати відповідь по телефону.У. ’ захист персональних даних”\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "water",
+            "issue": "усунути порив каналізаційної мережі біля будинку на перехресті вулиць та Ю.. надати телефоном",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          },
+          {
+            "domain": "housing",
+            "issue": "усунути щільність між димветканалом та покрівлею над під’їздом № 8 будинку за адресою проживання заявника. З його слів під час дощу вода затікає до 4 поверху. ’ЖЕО № 3’ на звернення від 14.10.2024 р. надали інформацію о неможливості проведенні будівельних робіт на даний час. бажає отримати відповідь по телефону.У. ’ захист персональних даних”",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 82,
+      "uid": "MT-SYN-SC-С-3006-Н-162",
+      "raw": "{\"topics\": [{\"domain\": \"water\", \"issue\": \"час непогоди вода потрапляє у квартиру. до працівників ЖЕО № 3 безрезультатні. вжити відповідні заходи. заявниці.\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"heating\", \"issue\": \"налагодження теплопостачання у ванній кімнаті квартири за адресою проживання заявника. заявнику надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ « захист персональних даних»\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "water",
+            "issue": "час непогоди вода потрапляє у квартиру. до працівників ЖЕО № 3 безрезультатні. вжити відповідні заходи. заявниці.",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          },
+          {
+            "domain": "heating",
+            "issue": "налагодження теплопостачання у ванній кімнаті квартири за адресою проживання заявника. заявнику надає згоду на обробку своїх персональних даних та передачу їх третім особам відповідно до вимог ЗУ « захист персональних даних»",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 83,
+      "uid": "MT-SYN-SC-Я-2889-К-278",
+      "raw": "{\"topics\": [{\"domain\": \"water\", \"issue\": \"усунути причину витоку каналізаційних стоків біля під’їзду №6 будинку,за адресою проживання заявника.\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"electricity\", \"issue\": \"зі слів заявниці, її сусід, який проживає у квартирі № 1 незаконно підключається до загальної електрощитової і на даний час вона залишається відкритою. будинку неодноразово звертались до КП ’ЖЕО № 3’ КМР з проханням закрити до неї доступ, натомість вони відключили у під’їзді світло. вжити заходи реагування. заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам в\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "water",
+            "issue": "усунути причину витоку каналізаційних стоків біля під’їзду №6 будинку,за адресою проживання заявника.",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          },
+          {
+            "domain": "electricity",
+            "issue": "зі слів заявниці, її сусід, який проживає у квартирі № 1 незаконно підключається до загальної електрощитової і на даний час вона залишається відкритою. будинку неодноразово звертались до КП ’ЖЕО № 3’ КМР з проханням закрити до неї доступ, натомість вони відключили у під’їзді світло. вжити заходи реагування. заявниці. надає згоду на оброблення своїх персональних даних та передачу їх третім особам в",
+            "object": "",
+            "requested_action": "",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    },
+    {
+      "idx": 84,
+      "uid": "MT-SYN-SC-Д-358-В-2656",
+      "raw": "{\"topics\": [{\"domain\": \"water\", \"issue\": \"02.2025 року відсутнє водопостачання у під’їзді № 2, за вищезазначеною адресою, у зв’язку з ремонтними роботами у квартирі на 2-му поверсі, підвіз води не здійснюється. до КП ”ЖЕО № 3” КМР”, безрезультатні. терміново вжити відповідні заходи. заявниці.\", \"object\": \"просп. Університетський\", \"requested_action\": \"до КП ”ЖЕО № 3” КМР”, безрезультатні. терміново вжити відповідні заходи. заявниці.\", \"attributes\": {\"street\": \"просп. Університетський\"}}, {\"domain\": \"housing\", \"issue\": \"мешканців до ЖЕО безрезультатні. заявниці.\", \"object\": \"\", \"requested_action\": \"мешканців до ЖЕО безрезультатні. заявниці.\", \"attributes\": {}}]}",
+      "parsed": {
+        "topics": [
+          {
+            "domain": "water",
+            "issue": "02.2025 року відсутнє водопостачання у під’їзді № 2, за вищезазначеною адресою, у зв’язку з ремонтними роботами у квартирі на 2-му поверсі, підвіз води не здійснюється. до КП ”ЖЕО № 3” КМР”, безрезультатні. терміново вжити відповідні заходи. заявниці.",
+            "object": "просп. Університетський",
+            "requested_action": "до КП ”ЖЕО № 3” КМР”, безрезультатні. терміново вжити відповідні заходи. заявниці.",
+            "attributes": {
+              "street": "просп. Університетський"
+            }
+          },
+          {
+            "domain": "housing",
+            "issue": "мешканців до ЖЕО безрезультатні. заявниці.",
+            "object": "",
+            "requested_action": "мешканців до ЖЕО безрезультатні. заявниці.",
+            "attributes": {}
+          }
+        ]
+      },
+      "schema_error": ""
+    }
+  ]
+}
