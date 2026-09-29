@@ -18,29 +18,29 @@
     "criterion": "train record < 150 chars and note kernel >= 25 chars"
   },
   "c1_c2_counters": {
-    "boilerplate_issue": 5154,
+    "boilerplate_issue": 5157,
     "action_whole_sentence": 0,
-    "action_empty": 4237,
-    "action_nonempty": 917
+    "action_empty": 4161,
+    "action_nonempty": 996
   },
   "composition": {
-    "single_topic_v1": 5154,
+    "single_topic_v1": 5157,
     "terse_augmented": 1872,
-    "multitopic_augmented": 2422,
-    "total": 9448,
-    "terse_share": 0.1981,
-    "multitopic_share": 0.2564
+    "multitopic_augmented": 2418,
+    "total": 9447,
+    "terse_share": 0.1982,
+    "multitopic_share": 0.256
   },
   "slices": {
     "single": {
       "source": "v1 train, C1+C2 relabelled",
-      "n_examples": 5154,
-      "n_topics": 5154,
+      "n_examples": 5157,
+      "n_topics": 5157,
       "n_multi_topic_examples": 0,
       "n_real_multitopic_rows": 0,
       "real_row_share": 0.0,
-      "n_nonempty_action": 917,
-      "nonempty_action_share": 0.1779,
+      "n_nonempty_action": 996,
+      "nonempty_action_share": 0.1931,
       "action_is_whole_sentence": 0,
       "action_whole_sentence_share": 0.0
     },
@@ -58,25 +58,25 @@
     },
     "multitopic": {
       "source": "C4 reweighted multitopic, C1+C2 per topic",
-      "n_examples": 2422,
-      "n_topics": 4844,
-      "n_multi_topic_examples": 2422,
+      "n_examples": 2418,
+      "n_topics": 4836,
+      "n_multi_topic_examples": 2418,
       "n_real_multitopic_rows": 528,
-      "real_row_share": 0.218,
-      "n_nonempty_action": 1058,
-      "nonempty_action_share": 0.2184,
+      "real_row_share": 0.2184,
+      "n_nonempty_action": 1062,
+      "nonempty_action_share": 0.2196,
       "action_is_whole_sentence": 0,
       "action_whole_sentence_share": 0.0
     },
     "multitopic_c1_c2_counters": {
-      "boilerplate_issue": 1863,
+      "boilerplate_issue": 1861,
       "action_whole_sentence": 0,
-      "action_empty": 1563,
-      "action_nonempty": 375
+      "action_empty": 1557,
+      "action_nonempty": 377
     },
     "dropped_empty_issue": {
-      "n_single": 230,
-      "n_multitopic": 10,
+      "n_single": 227,
+      "n_multitopic": 12,
       "reason": "every topic was boilerplate, so C1 leaves no issue to learn from; kept would teach the model to emit an empty issue"
     }
   },

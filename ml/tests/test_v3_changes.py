@@ -154,6 +154,9 @@ def test_c1_keeps_meaningful_use_of_the_delivery_phrase():
     and content in a complaint about how staff spoke to the citizen."""
     out = clean_issue_c1("Скарга на працівницю, яка некоректно спілкувалася в телефонному режимі.")
     assert "телефонному режимі" in out
+    # the "у" euphony form is the same phrase and must be kept here too
+    out = clean_issue_c1("Скарга на працівницю, яка некоректно спілкувалася у телефонному режимі.")
+    assert "телефонному режимі" in out
 
 
 def test_c1_does_not_strip_real_content():
@@ -195,6 +198,91 @@ def test_c1_is_a_superset_of_the_v1_admin_clause_behaviour():
         for token in ("Заявник повідомляє", "Відповідь надати", "Прохання надати"):
             if token not in v1:
                 assert token not in v3, f"C1 reintroduced {token!r} in {text!r}"
+
+
+# ------------------------------------------------------------------- R2 strand
+def test_r2_removes_the_phone_mode_delivery_strand():
+    """R2: "Відповідь заявниці в телефонному режимі." survived C1's response
+    sentence rule (заявниці intervenes) and its clause rule then stranded the
+    bare tail. A stranded delivery-mode tail names no complaint, so it is
+    removed whole -- including the dative-recipient form the multitopic composer
+    leaves behind ("надати заявниці в телефонному режимі").
+
+    Both euphony forms are covered: the corpus writes "у телефонному режимі"
+    127 times against 584 "в", so a ``в``-only rule silently leaves a fifth of
+    the records behind."""
+    assert clean_issue_c1("Відповідь заявниці в телефонному режимі.") == ""
+    assert clean_issue_c1("Відповідь заявниці у телефонному режимі.") == ""
+    # the dominant surviving shape: the subject sits between "Відповідь" and the
+    # verb, so the response-delivery rule cannot match it
+    assert clean_issue_c1("Відповідь заявниця бажає отримати у телефонному режимі.") == ""
+    assert clean_issue_c1("Відповідь заявник бажає отримати в телефонному режимі.") == ""
+    assert clean_issue_c1("Заявниця бажає отримати відповідь в телефонному режимі.") == ""
+    assert clean_issue_c1("Надати заявниці в телефонному режимі.") == ""
+    assert clean_issue_c1("Яма на дорозі. Надати заявнику в телефонному режимі.") \
+        == "Яма на дорозі"
+    assert clean_issue_c1("Яма на дорозі. Надати заявнику у телефонному режимі.") \
+        == "Яма на дорозі"
+    # a glued period+capital boundary is not split, so the stranded tail is
+    # peeled by the boundary-anchored clause rule instead
+    assert clean_issue_c1("Яма на дорозі.Відповідь заявниці у телефонному режимі.") \
+        == "Яма на дорозі"
+    # the delivery verb + recipient + mode clause, inside a retained sentence
+    assert clean_issue_c1("Прошу надати заявниці в телефонному режимі інформацію про борг.") \
+        == "Прошу інформацію про борг"
+
+
+def test_r2_treatment_targets_carry_no_phone_mode_delivery_strand():
+    """Corpus-level check of the R2 fix. The phone-mode phrase may still appear
+    where it is content ("некоректно спілкувалася ... в телефонному режимі",
+    "місце уточнити із заявницею в телефонному режимі"); what must be gone is
+    the stranded delivery tail: a recipient noun in the dative immediately before
+    it, or a bare "в/у телефонному режимі" left on its own. ``[ву]`` because the
+    phrase is euphony-alternating."""
+    _require(TREATMENT / "train.jsonl", "python -m ml.tune.build_v3")
+    stranded = re.compile(
+        r"(?:заявни(?:ку|ці|кам|цям)\s+)?[ву]\s+у?\s*телефонному\s+режимі",
+        re.IGNORECASE)
+    # Meaningful use: the phone-mode phrase describes *how staff behaved* or
+    # *how a detail is to be clarified*, introduced by an instrumental
+    # "з заявником/із заявницею" (optionally with a comma before the phrase).
+    instrumental = re.compile(
+        r"(?:із|з)\s+заявни(?:цею|ком)\s*,?\s*[ву]\s+у?\s*телефонному\s+режимі",
+        re.IGNORECASE)
+    bad = []
+    for chat in _load(TREATMENT / "train.jsonl"):
+        for t in _issues(chat):
+            issue = t.get("issue", "")
+            if instrumental.search(issue):
+                continue                      # meaningful, kept deliberately
+            if stranded.search(issue):
+                bad.append(issue[:110])
+    assert not bad, f"{len(bad)} phone-mode delivery strands, e.g. {bad[:3]}"
+
+
+# ----------------------------------------------------------------- R3 closer
+def test_r3_generic_closer_is_end_anchored_not_partial():
+    """R3: the closer rule must fire only when the sentence *is* the closer.
+    "…вжити заходи та усунути причину витоку води." carries a concrete object
+    after the generic head and was dropped whole before the end-anchor."""
+    assert clean_issue_c1("Прохання вжити заходи реагування.") == ""
+    assert clean_issue_c1("Двір засмічений. Прохання вжити заходи реагування.") \
+        == "Двір засмічений"
+    assert "усунути причину" in clean_issue_c1(
+        "Прохання вжити заходи та усунути причину витоку води.")
+    assert "для відновлення" in clean_issue_c1(
+        "Прохання вжити заходи для відновлення води.")
+
+
+def test_r3_clause_guard_leaves_the_purpose_after_the_closer():
+    """The clause rule drops the closer only at a clause boundary, so a purpose
+    clause introduced by "для"/"щодо" is never partially eaten."""
+    out = clean_issue_c1("Прохання вжити заходів щодо усунення трупного запаху "
+                         "у квартирі №30.")
+    assert "усунення трупного запаху" in out
+    action = extract_action_c2("Прохання вжити заходи для відновлення води.")
+    assert action == "вжити заходи для відновлення води"
+
 
 
 # --------------------------------------------------------------------------- C2
@@ -282,6 +370,29 @@ def test_terse_examples_are_short_and_show_the_kernel():
     for chat in terse:
         user = next(m["content"] for m in chat["messages"] if m["role"] == "user")
         assert 25 <= len(user) < 150, len(user)
+
+
+def test_r1_terse_domains_are_derived_from_kind_not_stamped_other():
+    """R1: _terse_examples hardcoded domain="other" for every terse row, so the
+    whole C3 augmentation taught the model one label. The pool records carry
+    ``kind``; derive the domain from it like every other stream does. All 234
+    units map to real domains -- none is left as "other"."""
+    from ml.tune.build_multitopic import _note_kernel
+    from ml.tune.build_dataset import _clean_text, KIND_TO_DOMAIN
+
+    pool = terse_pool(_load(DATA_DIR / "train.jsonl"), _note_kernel)
+    domains = [
+        KIND_TO_DOMAIN.get(r.get("kind") or "", "other")
+        for r in pool
+        if clean_issue_c1(_clean_text(_note_kernel(r.get("content") or ""))).strip()
+    ]
+    assert domains, "terse pool produced no usable units"
+    assert "other" not in domains, (
+        f"{sum(d == 'other' for d in domains)} terse units still stamped 'other'")
+    # and the built dataset shows the same real spread
+    seen = {t["domain"] for c in _load(TREATMENT / "train.jsonl")
+            if str(c.get("uid", "")).startswith("V3-TERSE") for t in _issues(c)}
+    assert seen and "other" not in seen, sorted(seen)
 
 
 # --------------------------------------------------------------------------- C4
@@ -751,6 +862,11 @@ def test_full_corpus_iterations_cover_every_training_row():
     batch = 2
     iters = (rows + batch - 1) // batch
     n_batches = (rows - batch) // batch + 1
+    # Pinned recipe value: the run scripts pass --iters 4724 for this dataset.
+    # The row count moved with the corrected R2/R3 (9 delivery-only single rows
+    # removed, 12 closer-bearing rows rescued, 4 delivery-only multitopic rows
+    # dropped), and ceil(9447/2) is 4724.
+    assert rows == 9447
     assert iters == 4724
     assert iters >= n_batches          # not (as before) a random ~19% window
     assert iters * batch >= rows       # every row reachable in one epoch

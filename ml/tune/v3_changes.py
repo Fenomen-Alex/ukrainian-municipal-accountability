@@ -73,6 +73,11 @@ import re
 from ml.tune.build_dataset import _ADMIN_CLAUSE, _clean_text, _redact_pii
 
 # --------------------------------------------------------------------------- C1
+#: The delivery-mode phrase, euphony-aware: the corpus writes both the "в" and the
+#: "у" form (584 vs 127 for "телефонн-"). ``[ву]\s+у?\s*`` matches either without
+#: matching a bare "у" elsewhere. Shared by the R2 sentence and clause rules.
+_R2_MODE = r"[ву]\s+у?\s*(?:телефонном\w*|письмов\w*)\s+режим\w*"
+
 #: Sentences dropped **whole** by C1. A clause-level regex cannot do this safely:
 #: the consent sentence is "Заявник надає згоду на обробку своїх персональних даних
 #: та передачу їх третім особам відповідно до вимог ЗУ ...", and deleting any
@@ -90,9 +95,48 @@ C1_SENTENCE_DROP: tuple[tuple[str, str], ...] = (
     (r"(з\s+повагою|з\s+поважанням|щоб\s+по\s+добр|з\s+вдячністю|"
      r"директор\w*\s+[А-ЯІЇЄҐ][а-яіїєґ]+\s+[А-ЯІЇЄҐ][а-яіїєґ]+)",
      "letter closing"),
+    # R3: the generic closer sentence must be *only* the closer. Without the
+    # end-anchor the pattern matched mid-sentence, so "Прохання вжити заходи та
+    # усунути причину витоку води." was dropped whole (976 -> 852 sentences,
+    # rescuing 124 that carry a concrete object after the generic head).
     (r"^\s*(прохання|просить|просимо|прошу)\s+(терміново|негайно)?\s*вжити\s+"
-     r"(необхідні|відповідні|належні)?\s*заход\w*", "generic 'вжити заходи' closer (1699)"),
+     r"(необхідні|відповідні|належні)?\s*заход\w*\s*(реагування)?\s*[.!]?$",
+     "generic 'вжити заходи' closer, end-anchored (852)"),
     (r"просить\s+надати\s*[.!]?$", "Просить надати. (53)"),
+    # R2: the phone-mode residue. "Відповідь заявниці в телефонному режимі."
+    # survives the response-delivery sentence rule above because 'заявниці'
+    # intervenes; its clause rule then strands 'в телефонному режимі'. A stranded
+    # delivery-mode tail is boilerplate in its entirety, so sentence-level removal
+    # (below) is correct; the retained stand-alone form is covered by
+    # C1_CLAUSE_DROP so meaningful use ("некоректно спілкувалася в телефонному
+    # режимі") is untouched.
+    #
+    # ``[ву]``, not ``в``: Ukrainian euphony alternates the preposition by the
+    # preceding sound, and this corpus writes the "у" form 127 times against 584
+    # "в" (and 3 vs 6 for "письмов-"). A ``в``-only rule silently left every "у"
+    # record behind -- 123 single-stream survivors instead of the handful the
+    # change was supposed to leave.
+    #
+    # A delivery sentence does not always put the mode phrase straight after
+    # "Відповідь": the dominant surviving shape was "Відповідь заявниця бажає
+    # отримати у телефонному режимі." (111 raw records), where the subject sits
+    # between the head and the verb, so the response-delivery rule above (which
+    # requires a verb/mode immediately after "відповідь") never fired, and clause
+    # surgery then stranded a bare "у телефонному режимі". Two shape rules cover
+    # the sentence as a whole instead: any sentence that *opens* with "Відповідь"
+    # and contains the mode phrase, and the subject-first "Заявниця бажає
+    # отримати відповідь … режимі". Together they catch 698 of the 710 raw mode
+    # sentences; the residue is the two meaningful instrumentals (kept) and glued
+    # period+capital boundaries (handled by the headless clause rule below).
+    (r"^\s*відповідь\b[^.!?]*?" + _R2_MODE,
+     "R2: 'Відповідь … в/у телефонному режимі' delivery sentence"),
+    (r"^\s*заявни\w*\s+(?:баж\w+|проси\w+|хоч\w+)\s*отримати\s+"
+     r"(?:відповідь\s+)?" + _R2_MODE,
+     "R2: 'Заявниця бажає отримати відповідь … режимі' sentence"),
+    (r"^\s*" + _R2_MODE + r"\s*[.!]?\s*$", "R2: stand-alone phone-mode strand"),
+    (r"^\s*заявни(?:ку|ці|кам|цям)\s+(?:баж\w+\s+отримати\s+)?" + _R2_MODE +
+     r"\s*[.!]?\s*$",
+     "R2: dative-recipient delivery tail (…заявниці в/у телефонному режимі.)"),
 )
 
 C1_SENTENCE_RE = re.compile(
@@ -102,16 +146,67 @@ C1_SENTENCE_RE = re.compile(
 #: the end of a real complaint. ``_ADMIN_CLAUSE`` is folded in so C1 is a strict
 #: superset of the v1 behaviour.
 C1_CLAUSE_DROP: tuple[tuple[str, str], ...] = (
+    # "Надати відповідь і в телефонному режимі, і письмово" is a *clause*, and a
+    # real issue can precede it in the same un-split segment ("…захват території
+    # 40 см) Надати відповідь і в телефонному режимі, і письмово."), so dropping
+    # the whole sentence loses the complaint. It must also precede the generic
+    # "(надати|…)(відповідь|…)" rule below: at the same start position the first
+    # alternative wins, and the generic one eats only "Надати відповідь", which
+    # strands the conjunction ("…40 см) і").
+    (r"надати\s+відповідь\s*(?:і\s+)?(?:[ву]\s+у?\s*)?"
+     r"(?:телефонном\w*|письмов\w*)\s+режим\w*\s*,?\s*(?:і|та)?\s*письмов\w*",
+     "R2: надати відповідь і в/у телефонному, і письмово (clause)"),
     (r"відповідь\s+заяв\w*", "Відповідь заявниці/заявнику/... (1828)"),
     (r"відповідь\s+надати", "Відповідь надати (687)"),
     (r"(надати|надіслати|передати)\s+(відповідь|телефоном|поштою|письмово|"
      r"електронн\w*\s+пошт\w*)", "надати відповідь телефоном/поштою (687+543)"),
-    (r"бажа[єи]\s+отримати", "бажає отримати (191)"),
+    (r"(бажа[єи]\s+отримати)", "бажає отримати (191)"),
     (r"згоду\s+на\s+оброб\w*[^.!?]*", "згоду на обробку ... (trailing clause)"),
     (r"(заявни\w*|заявники)\s+повідомля\w*", "Заявниця повідомляє, що ... (12+)"),
+    # R3: the generic closer is clause-final now. Without the guard the pattern
+    # partial-eats "Просить вжити заходів" in "...вжити заходів для перенесення
+    # туалету...", stranding the purpose clause the C2 purpose-rescue exists for.
+    # Requiring punctuation/end after "заходи" means the closer drops only when it
+    # names no object of its own.
     (r"(прохання|просить|просимо|прошу)\s+(терміново|негайно)?\s*вжити\s+"
      r"(необхідні|відповідні|належні|необхідних|відповідних|належних)?\s*"
-     r"заход\w*\s*(реагування)?\s*[.!]?", "Прохання вжити заходи реагування (441)"),
+     r"заход\w*\s*(реагування)?\s*(?=[.,!?;]|$)", "generic closer, clause-final"),
+    # R2: delivery-mode clause residue inside a retained sentence. Only the
+    # delivery frame is peeled ("просить надати в телефонному режимі" in a
+    # sentence that also asks for something real); the guarded phone-mode strand
+    # ("...спілкувалася в телефонному режимі", "...уточнити із заявницею в тел.
+    # режимі") has no delivery verb before it and is untouched.
+    (r"(?:відповідь\s+(?:заяв\w*\s*)?|просимо|просить)\s*надати\s+[ву]\s+у?\s*"
+     r"(?:телефонном\w*|письмов\w*)\s+режим\w*",
+     "R2: delivery-frame phone-mode clause"),
+    (r"(?:надати|повідомити|передати)\s+[ву]\s+у?\s*"
+     r"(?:телефонном\w*|письмов\w*)\s+режим\w*",
+     "R2: надати/повідомити в/у телефонному режимі"),
+    (r"листом\s+та\s+[ву]\s+у?\s*(?:телефонном\w*|письмов\w*)\s+режим\w*",
+     "R2: листом та в/у телефонному режимі"),
+    (r"(?:і|та)\s+[ву]\s+письмовом\w*\s*,\s*(?:і|та)\s+[ву]\s+у?\s*"
+     r"(?:телефонном\w*|письмов\w*)\s+режим\w*",
+     "R2: і в письмовому, і в телефонному режимі"),
+    (r"[ву]\s+у?\s*телефонном\w*\s+режим\w*\s*,\s*(?:і|та)\s+письмов\w*",
+     "R2: в телефонному режимі, і письмово"),
+    (r"(?:надати|повідомити|передати)\s+(?:відповідь\s+)?заявни(?:ку|ці|кам|цям)\s+"
+     r"[ву]\s+у?\s*(?:телефонном\w*|письмов\w*)\s+режим\w*",
+     "R2: надати відповідь заявниці в/у телефонному режимі"),
+    # R2: a glued period+capital boundary ("...продуктами.Відповідь заявниці у
+    # телефонному режимі.") is not split by ``_SENT_SPLIT_C1``, so the sentence
+    # rules above never see its delivery head; once that head is clause-deleted the
+    # mode phrase is stranded at a boundary. Peel it only *after* sentence
+    # punctuation, which leaves the meaningful mid-clause instrumental ("із
+    # заявницею в телефонному режимі") untouched.
+    (r"(?:^|(?<=[.;!?]))\s*" + _R2_MODE,
+     "R2: stranded delivery-mode clause after a sentence boundary"),
+    # R2: a phone-contact request ("Заявник просить зв’язатися у телефонному
+    # режимі для надання конкретнішої інформації") is a delivery preference, not
+    # complaint content, so the clause is peeled at a boundary (the purpose tail
+    # goes with it, otherwise it is left dangling).
+    (r"(?:^|(?<=[.;!?]))\s*заявни\w*\s+проси\w*\s+зв['’]?язатися\s+" + _R2_MODE +
+     r"(?:\s+для\s+[^.!?]*)?",
+     "R2: 'просить зв’язатися в/у телефонному режимі' contact request"),
 )
 
 C1_COMBINED = re.compile(

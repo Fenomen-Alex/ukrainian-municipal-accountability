@@ -27,6 +27,7 @@ from pathlib import Path
 
 from ml.tune.build_dataset import (
     DATA_DIR,
+    KIND_TO_DOMAIN,
     SYSTEM_PROMPT,
     _clean_text,
     _derive_attributes,
@@ -170,7 +171,7 @@ def _terse_examples(records: list[dict]) -> list[dict]:
             continue
         if not clean_issue_c1(kernel).strip():
             continue
-        domain = "other"
+        domain = KIND_TO_DOMAIN.get(r.get("kind") or "", "other")
         topics = [{
             "domain": domain,
             "issue": clean_issue_c1(kernel),
