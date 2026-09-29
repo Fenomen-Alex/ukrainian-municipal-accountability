@@ -22,8 +22,9 @@ Two independent signals are used instead, and both must agree:
 
   1. the final numbered checkpoint exists, and the numbered checkpoints run
      continuously from ``save_every`` to ``iters`` with none missing;
-  2. the training log contains ``"Saved final weights to"``, which the trainer
-     only prints after the loop.
+  2. the training log contains the driver's end-of-run marker, which is printed
+     only after the loop (``"Saved final weights to"`` on new runs; older runs
+     print ``"Adapters saved to"``, kept as an accepted alias).
 
 Either alone would be defensible; requiring both means a truncated run, a
 crashed process and a half-written final save are all caught.
@@ -38,6 +39,8 @@ from pathlib import Path
 
 CHECKPOINT_RE = re.compile(r"^(\d+)_adapters\.safetensors$")
 FINAL_MARKER = "Saved final weights to"
+FINAL_MARKER_ALIAS = "Adapters saved to"
+_FINAL_MARKERS = (FINAL_MARKER, FINAL_MARKER_ALIAS)
 
 
 def checkpoints(adapter_dir: Path) -> list[int]:
@@ -74,7 +77,10 @@ def is_complete(adapter_dir: Path, iters: int, save_every: int,
     if not d["final_checkpoint_present"]:
         return False
     if log is not None:
-        if not log.exists() or FINAL_MARKER not in log.read_text(errors="replace"):
+        if not log.exists():
+            return False
+        text = log.read_text(errors="replace")
+        if not any(m in text for m in _FINAL_MARKERS):
             return False
     return True
 
@@ -90,9 +96,8 @@ def main() -> None:
     a = ap.parse_args()
 
     d = describe(a.dir, a.iters, a.save_every)
-    d["log_has_final_marker"] = bool(
-        a.log and a.log.exists()
-        and FINAL_MARKER in a.log.read_text(errors="replace"))
+    log_text = a.log.read_text(errors="replace") if (a.log and a.log.exists()) else ""
+    d["log_has_final_marker"] = any(m in log_text for m in _FINAL_MARKERS)
     d["complete"] = is_complete(a.dir, a.iters, a.save_every, a.log)
     if a.describe:
         print(json.dumps(d, indent=2))

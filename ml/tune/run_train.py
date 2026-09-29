@@ -168,7 +168,7 @@ def main() -> None:
     )
 
     lora.train_model(ns, model, train_set, valid_set)
-    print(f"Adapters saved to {adapter_dir / 'adapters.safetensors'}")
+    print(f"Saved final weights to {adapter_dir / 'adapters.safetensors'}")
 
 
 if __name__ == "__main__":

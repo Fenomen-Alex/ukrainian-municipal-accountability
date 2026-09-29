@@ -754,3 +754,20 @@ def test_full_corpus_iterations_cover_every_training_row():
     assert iters == 4724
     assert iters >= n_batches          # not (as before) a random ~19% window
     assert iters * batch >= rows       # every row reachable in one epoch
+
+
+def test_gates_smoke_reader_accepts_tag_dir(tmp_path, monkeypatch):
+    """run_smoke --tag writes smoke/results/<tag>/; the gate table must read
+    that layout (legacy finetuned-* was only the original v2 run)."""
+    import ml.tune.gates_v3 as g
+    d = tmp_path / "smoke" / "results"
+    (d / "v3-treatment").mkdir(parents=True)
+    (d / "v3-treatment" / "smoke_results.jsonl").write_text(
+        '{"id":"smoke-13","category":"Multi-Topic","parsed":{"topics":[{"domains":[]},{"domains":[]}]}}\n'
+        '{"id":"smoke-16","category":"Multi-Topic","parsed":{"topics":[{"domains":[]}]}}\n',
+        encoding="utf-8")
+    monkeypatch.setattr(g, "SMOKE", d)
+    rows, path = g._smoke("v3-treatment")
+    assert Path(path).name == "smoke_results.jsonl"
+    assert Path(path).parent.name == "v3-treatment"
+    assert g._smoke_two_topic(rows) == (1, 2)

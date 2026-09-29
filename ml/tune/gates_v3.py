@@ -100,11 +100,14 @@ def _suite(arm: str, index: int) -> tuple[dict | None, str]:
 
 
 def _smoke(arm: str) -> tuple[list[dict] | None, str]:
-    sub = FROZEN_SUITES[arm][2] if arm in FROZEN_SUITES else f"finetuned-{arm}"
-    p = SMOKE / sub / "smoke_results.jsonl"
-    if not p.exists():
-        return None, str(p)
-    return [json.loads(l) for l in p.read_text().splitlines() if l.strip()], str(p)
+    # run_smoke writes smoke/results/<tag>/; the finetuned- prefix is a legacy
+    # name that only the original v2 run used. Try both.
+    legacy = f"finetuned-{arm}" if arm not in FROZEN_SUITES else FROZEN_SUITES[arm][2]
+    for sub in (arm, legacy):
+        p = SMOKE / sub / "smoke_results.jsonl"
+        if p.exists():
+            return [json.loads(l) for l in p.read_text().splitlines() if l.strip()], str(p)
+    return None, str(SMOKE / f"{arm}" / "smoke_results.jsonl")
 
 
 def _smoke_two_topic(rows: list[dict]) -> tuple[int, int]:
