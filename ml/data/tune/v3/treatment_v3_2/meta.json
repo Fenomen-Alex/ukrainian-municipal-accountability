@@ -175,8 +175,8 @@
   "verbatim_copy_rate": {
     "single": 0.9094,
     "terse": 0.9444,
-    "multitopic_c4": 0.0,
-    "same_object": 0.0
+    "multitopic_c4": null,
+    "same_object": null
   },
   "integrity": {
     "train_text_overlap_with_validation_or_test": 0,

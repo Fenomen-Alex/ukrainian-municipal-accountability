@@ -333,13 +333,19 @@ def _single_and_terse() -> tuple[list[dict], list[dict], int, dict]:
     return single, terse, dropped_empty, c12
 
 
-def _verbatim_rate(examples: list[dict]) -> float:
-    """Share of target issues that are exact substrings of the complaint."""
-    import re as _re
+def _verbatim_rate(examples: list[dict]) -> float | None:
+    """Share of *single-topic* target issues that are exact substrings of the
+    complaint.
+
+    Returns ``None`` for a slice with no single-topic rows. The metric only means
+    something there: a two-topic row has two issues and no single "the" issue to
+    copy, so a 0.0 would read as a measurement when it is really an absence of
+    one.
+    """
 
     def norm(s: str) -> str:
-        return _re.sub(r"\s+", " ", (s or "").lower()
-                       .replace("’", "'").replace("‘", "'")).strip()
+        return re.sub(r"\s+", " ", (s or "").lower()
+                      .replace("’", "'").replace("‘", "'")).strip()
 
     n = ok = 0
     for ex in examples:
@@ -351,7 +357,7 @@ def _verbatim_rate(examples: list[dict]) -> float:
             continue
         n += 1
         ok += issue in text
-    return round(ok / n, 4) if n else 0.0
+    return round(ok / n, 4) if n else None
 
 
 def _profile(examples: list[dict]) -> dict:
