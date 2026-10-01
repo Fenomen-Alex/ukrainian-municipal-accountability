@@ -1,0 +1,60 @@
+{
+  "model": "mlx-community/Qwen3-8B-4bit",
+  "note": "Target tokens are the assistant message only (prompt is masked). Stream attribution is by uid prefix, matching the file order the MLX pairer sees.",
+  "previous_v3": {
+    "target_tokens": {
+      "mt_real": 112008,
+      "mt_synth": 453264,
+      "single": 647753,
+      "terse": 146032
+    },
+    "target_token_share": {
+      "mt_real": 0.0824,
+      "mt_synth": 0.3335,
+      "single": 0.4766,
+      "terse": 0.1075
+    },
+    "total_target_tokens": 1359057,
+    "multitopic_target_tokens": 565272,
+    "multitopic_target_share": 0.4159,
+    "train_sha256": "ce56c9588fa4c8dd426f9717f8732af7418f5309f80fa97f2b5ccf2176c4add8"
+  },
+  "corrected_v3": {
+    "target_tokens": {
+      "mt_real": 112008,
+      "mt_synth": 450398,
+      "single": 651989,
+      "terse": 146728
+    },
+    "target_token_share": {
+      "mt_real": 0.0823,
+      "mt_synth": 0.3309,
+      "single": 0.479,
+      "terse": 0.1078
+    },
+    "total_target_tokens": 1361123,
+    "multitopic_target_tokens": 562406,
+    "multitopic_target_share": 0.4132,
+    "train_sha256": "22e85d80b7a7abc12d0629ffc41fd125a2b718125e01f62fe9cbcd92815ef9f2"
+  },
+  "v3_2": {
+    "target_tokens": {
+      "mt_real": 112008,
+      "mt_synth": 450398,
+      "same_object": 70612,
+      "single": 651989,
+      "terse": 146728
+    },
+    "target_token_share": {
+      "mt_real": 0.0782,
+      "mt_synth": 0.3146,
+      "same_object": 0.0493,
+      "single": 0.4554,
+      "terse": 0.1025
+    },
+    "total_target_tokens": 1431735,
+    "multitopic_target_tokens": 633018,
+    "multitopic_target_share": 0.4421,
+    "train_sha256": "c304c374af6aa9b9da06a3c47bf47881cd27249ea9b389abd2e1ecdf43ac622e"
+  }
+}

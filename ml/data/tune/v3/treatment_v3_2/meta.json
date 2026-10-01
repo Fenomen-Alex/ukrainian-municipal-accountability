@@ -1,0 +1,216 @@
+{
+  "built_by": "ml/tune/build_v3_2.py",
+  "arm": "treatment_v3_2",
+  "base_arm": "v3-corrected",
+  "intervention": "single change: add a same-object two-topic stream (MT-SYN-SO-*) that teaches the eval_v3 category-E shape -- one continuous sentence, shared frame, ', а також ', identical object on both topics",
+  "unchanged_from_corrected": [
+    "C1 boilerplate clean",
+    "C2 requested_action",
+    "R1 terse domain fix",
+    "R2 issue boilerplate strip",
+    "R3 closer issue",
+    "C3 terse upsampling",
+    "C4 multitopic reweighting",
+    "single-topic stream byte-for-byte",
+    "training recipe",
+    "evaluator",
+    "serving format"
+  ],
+  "same_object_stream": {
+    "uid_prefix": "MT-SYN-SO",
+    "n_base_examples": 261,
+    "n_rows_after_upsample": 261,
+    "target_is_post_c1_row_count": true,
+    "upsample": 1,
+    "max_per_street": 3,
+    "min_clause_chars": 30,
+    "seed": 42,
+    "join_form": "По <street>: <clause A>, а також <clause B>.",
+    "sampling_counters": {
+      "pairs_available": 730,
+      "rejected_same_domain": 303,
+      "rejected_shared_object_mismatch": 0,
+      "rejected_not_independent": 38,
+      "rejected_leakage": 0,
+      "rejected_duplicate_pair": 127,
+      "street_exhausted": 16,
+      "dropped_empty_issue_c1": 1,
+      "c1_c2_counters": {
+        "boilerplate_issue": 243,
+        "action_whole_sentence": 0,
+        "action_empty": 424,
+        "action_nonempty": 98
+      }
+    },
+    "dropped_empty_issue": 1,
+    "c1_c2_counters": {
+      "boilerplate_issue": 243,
+      "action_whole_sentence": 0,
+      "action_empty": 424,
+      "action_nonempty": 98
+    }
+  },
+  "composition": {
+    "single_topic_v1": 5157,
+    "terse_augmented": 1872,
+    "multitopic_c4_base": 2418,
+    "multitopic_real_rows": 528,
+    "multitopic_synthetic_rows": 1890,
+    "same_object_rows": 261,
+    "total": 9708,
+    "batch_size": 2,
+    "n_batches": 4854,
+    "iters_ceil": 4854,
+    "iters_equals_batches": true,
+    "multitopic_share": 0.276,
+    "same_object_share": 0.0269
+  },
+  "file_order_layout": {
+    "runs": [
+      {
+        "stream": "single",
+        "rows": 5157
+      },
+      {
+        "stream": "terse",
+        "rows": 1872
+      },
+      {
+        "stream": "mt_real",
+        "rows": 528
+      },
+      {
+        "stream": "mt_synth",
+        "rows": 1890
+      },
+      {
+        "stream": "same_object",
+        "rows": 261
+      }
+    ],
+    "mixed_stream_batches": 4,
+    "note": "MLX pairs consecutive rows in file order, so stream boundaries at odd offsets produce mixed-stream batches. v3.2 does not pad any C1-C4 stream to fix this (that would be a second change); it only makes the total even so iters == n_batches, which removes the dropped tail row and the wrap into a reshuffled second epoch."
+  },
+  "profiles": {
+    "single": {
+      "rows": 5157,
+      "topic_count_distribution": {
+        "1": 5157
+      },
+      "domain_distribution": {
+        "sanitation": 1633,
+        "roads": 752,
+        "water": 749,
+        "heating": 600,
+        "housing": 587,
+        "transport": 291,
+        "electricity": 262,
+        "payments": 136,
+        "construction": 93,
+        "government": 29,
+        "commerce": 25
+      },
+      "same_object_two_topic_rows": 0
+    },
+    "terse": {
+      "rows": 1872,
+      "topic_count_distribution": {
+        "1": 1872
+      },
+      "domain_distribution": {
+        "sanitation": 560,
+        "housing": 384,
+        "water": 320,
+        "roads": 312,
+        "transport": 112,
+        "electricity": 80,
+        "heating": 56,
+        "construction": 24,
+        "payments": 16,
+        "government": 8
+      },
+      "same_object_two_topic_rows": 0
+    },
+    "multitopic_c4": {
+      "rows": 2418,
+      "topic_count_distribution": {
+        "2": 2418
+      },
+      "domain_distribution": {
+        "sanitation": 1362,
+        "roads": 934,
+        "water": 716,
+        "housing": 460,
+        "heating": 438,
+        "electricity": 414,
+        "transport": 204,
+        "payments": 162,
+        "construction": 90,
+        "government": 36,
+        "commerce": 20
+      },
+      "same_object_two_topic_rows": 386
+    },
+    "same_object": {
+      "rows": 261,
+      "topic_count_distribution": {
+        "2": 261
+      },
+      "domain_distribution": {
+        "sanitation": 163,
+        "roads": 102,
+        "water": 88,
+        "housing": 55,
+        "electricity": 39,
+        "heating": 34,
+        "construction": 18,
+        "payments": 12,
+        "transport": 7,
+        "commerce": 3,
+        "government": 1
+      },
+      "same_object_two_topic_rows": 261
+    }
+  },
+  "verbatim_copy_rate": {
+    "single": 0.9094,
+    "terse": 0.9444,
+    "multitopic_c4": 0.0,
+    "same_object": 0.0
+  },
+  "integrity": {
+    "train_text_overlap_with_validation_or_test": 0,
+    "duplicate_prompts_within_train": 3322,
+    "duplicate_prompts_within_same_object_stream": 0,
+    "same_object_streams_all_two_topics": true,
+    "same_object_streams_all_shared_object": true,
+    "same_object_streams_all_distinct_domain": true,
+    "same_object_streams_all_use_inline_join": true,
+    "same_object_sources_all_train_split": true
+  },
+  "c1_c2_counters": {
+    "single": {
+      "boilerplate_issue": 5157,
+      "action_whole_sentence": 0,
+      "action_empty": 4161,
+      "action_nonempty": 996
+    },
+    "multitopic": {
+      "boilerplate_issue": 1861,
+      "action_whole_sentence": 0,
+      "action_empty": 1557,
+      "action_nonempty": 377
+    }
+  },
+  "dropped_empty_issue": {
+    "n_single": 227,
+    "n_multitopic": 12,
+    "n_same_object": 1
+  },
+  "validation": "frozen copy of v2 validation.jsonl",
+  "test": "frozen copy of v2 test.jsonl",
+  "leakage": "every augmentation source is a train-split record; any train record whose normalised content appears in the frozen validation or test splits is excluded before sampling, and the assembled corpus is re-checked against both splits. eval_v3 category E is composed from test-split records, so those are excluded by the same rule.",
+  "train_sha256": "c304c374af6aa9b9da06a3c47bf47881cd27249ea9b389abd2e1ecdf43ac622e",
+  "validation_sha256": "c7cea07ec00f60e881d2cef08e476676ba3d676e6d1798fee77721987ac7ff0e",
+  "test_sha256": "49a7c35185586849f4c5e130e9ef7734478c7ef830e93f97af04058b1b6cc043"
+}

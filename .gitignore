@@ -22,5 +22,14 @@ ml/data/tune/test.jsonl
 # compares against ml/tune/build_control.py's output.
 ml/data/tune/v3/control/*.jsonl
 
+# v3.2 generated corpora, for the same reason: build_v3_2.py regenerates them
+# deterministically. What is tracked instead is everything needed to audit the
+# corpus without rebuilding it -- meta.json (composition, integrity, sha256),
+# exposure.json (target-token share per stream) and provenance.jsonl (which
+# train-split record produced each new row).
+ml/data/tune/v3/treatment_v3_2/train.jsonl
+ml/data/tune/v3/treatment_v3_2/validation.jsonl
+ml/data/tune/v3/treatment_v3_2/test.jsonl
+
 # per-step logs from run_v3_experiment.sh; regenerated on every run
 ml/data/tune/v3/logs/
