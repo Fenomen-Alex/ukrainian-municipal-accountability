@@ -1,0 +1,1111 @@
+{
+  "summary": {
+    "tag": "v3-2",
+    "model": "ml/data/tune/adapters/qwen3-8b-lora-v3-2-fused",
+    "from_raw": null,
+    "n_two_topic_cases": 52,
+    "n_all_cases": 146,
+    "buckets": {
+      "JSONFAIL": 12,
+      "MERGE": 12,
+      "SPLIT": 20,
+      "STOP": 8
+    },
+    "expected_two_topic_accuracy": 0.3846,
+    "merge_sim_threshold": 0.3,
+    "max_tokens": 800,
+    "temperature": 0.0,
+    "category_E": {
+      "ev3-035": "SPLIT",
+      "ev3-036": "JSONFAIL",
+      "ev3-037": "JSONFAIL",
+      "ev3-038": "MERGE",
+      "ev3-039": "SPLIT",
+      "ev3-040": "SPLIT"
+    },
+    "category_E_splits": 3,
+    "category_E_n": 6
+  },
+  "cases": [
+    {
+      "id": "ev3-011",
+      "category": "B",
+      "category_name": "terse_two_topic_i",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "commerce",
+        "construction"
+      ],
+      "strict_error": null,
+      "raw_chars": 395,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.698,
+        0.426
+      ],
+      "predicted_domains": [
+        "construction"
+      ],
+      "detail": "single topic covers both expected issues",
+      "behaviour": "MERGE",
+      "raw": "{\"topics\": [{\"domain\": \"construction\", \"issue\": \"мешканці будинку не згодні з тим, що планується встановлення генератора до нового магазину ’АТБ’, який будується під вікнами будинку за зазначеною адресою, і перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Пляжна, 71\", \"object\": \"вул. Пляжна\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Пляжна\"}}]}"
+    },
+    {
+      "id": "ev3-012",
+      "category": "B",
+      "category_name": "terse_two_topic_i",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "electricity",
+        "government"
+      ],
+      "strict_error": null,
+      "raw_chars": 207,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.591,
+        0.03
+      ],
+      "predicted_domains": [
+        "electricity"
+      ],
+      "detail": "single topic covers only the first; second problem absent",
+      "behaviour": "STOP",
+      "raw": "{\"topics\": [{\"domain\": \"electricity\", \"issue\": \"щодо постійних збоїв електропостачання за вказаною адресою проживання. Зі слів заявниці ліфт працює\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-013",
+      "category": "B",
+      "category_name": "terse_two_topic_i",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "government",
+        "heating"
+      ],
+      "strict_error": null,
+      "raw_chars": 441,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "sanitation",
+        "heating"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"збільшення кількості посадкових місць біля каб. 102 в ЦНАПі, адже через великі черги люди похилого віку, не маючи де сісти, втрачають свідомість\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"heating\", \"issue\": \"направити спеціалістів для визначення та усунення причини низької температури повітря в помешканні\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-014",
+      "category": "B",
+      "category_name": "terse_two_topic_i",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "heating",
+        "housing"
+      ],
+      "strict_error": null,
+      "raw_chars": 277,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.491,
+        0.545
+      ],
+      "predicted_domains": [
+        "heating"
+      ],
+      "detail": "single topic covers both expected issues",
+      "behaviour": "MERGE",
+      "raw": "{\"topics\": [{\"domain\": \"heating\", \"issue\": \"низького температурного режиму в квартирі за вказаною адресою проживання заявниці, де проживає мала дитина, і вжиття заходів для ремонту ліфта за вказаною адресою проживання\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-015",
+      "category": "B",
+      "category_name": "terse_two_topic_i",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "housing",
+        "payments"
+      ],
+      "strict_error": null,
+      "raw_chars": 315,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "housing",
+        "payments"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"housing\", \"issue\": \"проведення ремонту даху будинку за вказаною адресою\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"payments\", \"issue\": \"не згоден з боргами за комунальні послуги та просить їх переглянути\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-016",
+      "category": "B",
+      "category_name": "terse_two_topic_i",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "payments",
+        "roads"
+      ],
+      "strict_error": "unparseable",
+      "raw_chars": 454,
+      "behaviour": "JSONFAIL",
+      "predicted_topic_count": null,
+      "cover": [
+        null,
+        null
+      ],
+      "detail": "unparseable",
+      "raw": "{\"topics\": [{\"domain\": \"payments\", \"issue\": \"надання Зі слів заявниці, попередній борг вона сплатала. На дзвінки працівники \"\" не відповідають\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"roads\", \"issue\": \"вирівняти грейдером дорожнє покриття по вул. Рівненській від буд. № 3 до новобудови ’\", \"object\": \"вул. Рівненській від буд\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Рівненській від буд\", \"building\": \"3\"}}]}"
+    },
+    {
+      "id": "ev3-017",
+      "category": "B",
+      "category_name": "terse_two_topic_i",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "strict_error": "unparseable",
+      "raw_chars": 1645,
+      "behaviour": "JSONFAIL",
+      "predicted_topic_count": null,
+      "cover": [
+        null,
+        null
+      ],
+      "detail": "unparseable",
+      "raw": "{\"topics\": [{\"domain\": \"roads\", \"issue\": \"просить здійснити ремонт дорожнього покриття, яке не проводилось понад 30 років по вул. Юрія Коваленка, 15 в’їзд до будинку зі сторони вул. і повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’ї"
+    },
+    {
+      "id": "ev3-018",
+      "category": "B",
+      "category_name": "terse_two_topic_i",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "sanitation",
+        "transport"
+      ],
+      "strict_error": null,
+      "raw_chars": 398,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.698,
+        0.293
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "detail": "single topic covers only the first; second problem absent",
+      "behaviour": "STOP",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"бездіяльності працівників ЖЕО №9 стосовно посипання протиожеледною сумішшю тротуарів, доріг, біля під’їздів по вул. Лінія-9а, біля буд. 38,39,40, і скаржиться на неадекватну поведінку водія автобусу за маршрутом № 104 (бортовий № А-23)\", \"object\": \"вул. Лінія-9а\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Лінія-9а\", \"building\": \"38\"}}]}"
+    },
+    {
+      "id": "ev3-019",
+      "category": "C",
+      "category_name": "terse_two_topic_also",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "commerce",
+        "construction"
+      ],
+      "strict_error": null,
+      "raw_chars": 578,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "construction",
+        "sanitation"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"construction\", \"issue\": \"мешканці будинку не згодні з тим, що планується встановлення генератора до нового магазину ’АТБ’, який будується під вікнами будинку за зазначеною адресою. заявниці\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"sanitation\", \"issue\": \"перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Пляжна, 71\", \"object\": \"вул. Пляжна\", \"requested_action\": \"перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул\", \"attributes\": {\"street\": \"вул. Пляжна\"}}]}"
+    },
+    {
+      "id": "ev3-020",
+      "category": "C",
+      "category_name": "terse_two_topic_also",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "electricity",
+        "government"
+      ],
+      "strict_error": null,
+      "raw_chars": 380,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "electricity",
+        "government"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"electricity\", \"issue\": \"щодо постійних збоїв електропостачання за вказаною адресою проживання. Зі слів заявниці ліфт працює\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"government\", \"issue\": \"записати на особистий прийом, відповідно до графіка, до секретаря міської ради\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-021",
+      "category": "C",
+      "category_name": "terse_two_topic_also",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "government",
+        "heating"
+      ],
+      "strict_error": null,
+      "raw_chars": 441,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "sanitation",
+        "heating"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"збільшення кількості посадкових місць біля каб. 102 в ЦНАПі, адже через великі черги люди похилого віку, не маючи де сісти, втрачають свідомість\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"heating\", \"issue\": \"направити спеціалістів для визначення та усунення причини низької температури повітря в помешканні\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-022",
+      "category": "C",
+      "category_name": "terse_two_topic_also",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "heating",
+        "housing"
+      ],
+      "strict_error": null,
+      "raw_chars": 283,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.483,
+        0.529
+      ],
+      "predicted_domains": [
+        "heating"
+      ],
+      "detail": "single topic covers both expected issues",
+      "behaviour": "MERGE",
+      "raw": "{\"topics\": [{\"domain\": \"heating\", \"issue\": \"низького температурного режиму в квартирі за вказаною адресою проживання заявниці, де проживає мала дитина, а також вжиття заходів для ремонту ліфта за вказаною адресою проживання\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-023",
+      "category": "C",
+      "category_name": "terse_two_topic_also",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "housing",
+        "payments"
+      ],
+      "strict_error": null,
+      "raw_chars": 315,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "housing",
+        "payments"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"housing\", \"issue\": \"проведення ремонту даху будинку за вказаною адресою\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"payments\", \"issue\": \"не згоден з боргами за комунальні послуги та просить їх переглянути\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-024",
+      "category": "C",
+      "category_name": "terse_two_topic_also",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "payments",
+        "roads"
+      ],
+      "strict_error": "unparseable",
+      "raw_chars": 454,
+      "behaviour": "JSONFAIL",
+      "predicted_topic_count": null,
+      "cover": [
+        null,
+        null
+      ],
+      "detail": "unparseable",
+      "raw": "{\"topics\": [{\"domain\": \"payments\", \"issue\": \"надання Зі слів заявниці, попередній борг вона сплатала. На дзвінки працівники \"\" не відповідають\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"roads\", \"issue\": \"вирівняти грейдером дорожнє покриття по вул. Рівненській від буд. № 3 до новобудови ’\", \"object\": \"вул. Рівненській від буд\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Рівненській від буд\", \"building\": \"3\"}}]}"
+    },
+    {
+      "id": "ev3-025",
+      "category": "C",
+      "category_name": "terse_two_topic_also",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "strict_error": "unparseable",
+      "raw_chars": 1645,
+      "behaviour": "JSONFAIL",
+      "predicted_topic_count": null,
+      "cover": [
+        null,
+        null
+      ],
+      "detail": "unparseable",
+      "raw": "{\"topics\": [{\"domain\": \"roads\", \"issue\": \"здійснити ремонт дорожнього покриття, яке не проводилось понад 30 років по вул. Юрія Коваленка, 15 в’їзд до будинку зі сторони вул. а також повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд до будинку зі сторони вул. Коваленка, 15 в’їзд"
+    },
+    {
+      "id": "ev3-026",
+      "category": "C",
+      "category_name": "terse_two_topic_also",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "sanitation",
+        "transport"
+      ],
+      "strict_error": null,
+      "raw_chars": 498,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "sanitation",
+        "transport"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"бездіяльності працівників ЖЕО №9 стосовно посипання протиожеледною сумішшю тротуарів, доріг, біля під’їздів по вул. Лінія-9а, біля буд. 38,39,40\", \"object\": \"вул. Лінія-9а\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Лінія-9а\", \"building\": \"38\"}}, {\"domain\": \"transport\", \"issue\": \"скаржиться на неадекватну поведінку водія автобусу за маршрутом № 104 (бортовий № А-23). заявниці\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-027",
+      "category": "D",
+      "category_name": "two_sentences",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "commerce",
+        "construction"
+      ],
+      "strict_error": null,
+      "raw_chars": 153,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.0,
+        0.148
+      ],
+      "predicted_domains": [
+        "construction"
+      ],
+      "detail": "single topic covers only the first; second problem absent",
+      "behaviour": "STOP",
+      "raw": "{\"topics\": [{\"domain\": \"construction\", \"issue\": \"Пляжна, 71\", \"object\": \"вул. Пляжна\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Пляжна\"}}]}"
+    },
+    {
+      "id": "ev3-028",
+      "category": "D",
+      "category_name": "two_sentences",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "electricity",
+        "government"
+      ],
+      "strict_error": "unparseable",
+      "raw_chars": 1221,
+      "behaviour": "JSONFAIL",
+      "predicted_topic_count": null,
+      "cover": [
+        null,
+        null
+      ],
+      "detail": "unparseable",
+      "raw": "{\"topics\": [{\"domain\": \"electricity\", \"issue\": \"щодо постійних збоїв електропостачання за вказаною адресою проживання. Зі слів заявниці ліфт працює, а в квартирах під’їздів №1-4 світло відсутнє. терміново вжити необхідні заходи реагування та налагодити постійне електропостачання записати на особистий прийом, відповідно до графіка, до секретаря міської ради. : щодо відсутності багатьох інформації відповідно до вимог чинного законодавства на офіційному сайті міської ради у розділі ’ інформація’. детальну інформацію заявниця відмовилася зазначити та озвучить її під час прийому. як, заявниця на даний час знаходиться в іншому місті, прохання провести особистий прийом у р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2024 р. 2"
+    },
+    {
+      "id": "ev3-029",
+      "category": "D",
+      "category_name": "two_sentences",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "government",
+        "heating"
+      ],
+      "strict_error": null,
+      "raw_chars": 350,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.786,
+        0.522
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "detail": "single topic covers both expected issues",
+      "behaviour": "MERGE",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"збільшення кількості посадкових місць біля каб. 102 в ЦНАПі, адже через великі черги люди похилого віку, не маючи де сісти, втрачають свідомість направити спеціалістів для визначення та усунення причини низької температури повітря в помешканні\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-030",
+      "category": "D",
+      "category_name": "two_sentences",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "heating",
+        "housing"
+      ],
+      "strict_error": null,
+      "raw_chars": 556,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.865,
+        0.36
+      ],
+      "predicted_domains": [
+        "heating"
+      ],
+      "detail": "single topic covers both expected issues",
+      "behaviour": "MERGE",
+      "raw": "{\"topics\": [{\"domain\": \"heating\", \"issue\": \"низького температурного режиму в квартирі за вказаною адресою проживання заявниці, де проживає мала дитина.  до працівників ЖЕО №1 та КП ’ залишаються безрезультатними.  перевірити систему тепломережі в будинку та налагодити стабільну подачу тепла вжиття заходів для ремонту ліфта за вказаною адресою проживання\", \"object\": \"\", \"requested_action\": \"перевірити систему тепломережі в будинку та налагодити стабільну подачу тепла вжиття заходів для ремонту ліфта за вказаною адресою проживання\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-031",
+      "category": "D",
+      "category_name": "two_sentences",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "housing",
+        "payments"
+      ],
+      "strict_error": null,
+      "raw_chars": 223,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.56,
+        0.759
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "detail": "single topic covers both expected issues",
+      "behaviour": "MERGE",
+      "raw": "{\"topics\": [{\"domain\": \"housing\", \"issue\": \"проведення ремонту даху будинку за вказаною адресою не згоден з боргами за комунальні послуги та просить їх переглянути\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-032",
+      "category": "D",
+      "category_name": "two_sentences",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "payments",
+        "roads"
+      ],
+      "strict_error": "unparseable",
+      "raw_chars": 659,
+      "behaviour": "JSONFAIL",
+      "predicted_topic_count": null,
+      "cover": [
+        null,
+        null
+      ],
+      "detail": "unparseable",
+      "raw": "{\"topics\": [{\"domain\": \"payments\", \"issue\": \"надання Зі слів заявниці, попередній борг вона сплатала. На дзвінки працівники \"\" не відповідають вирівняти грейдером дорожнє покриття по вул. Рівненській від буд. № 3 до новобудови ’Seven Recidence’. заявниці\", \"object\": \"вул. Рівненській від буд\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Рівненській від буд\", \"building\": \"3\"}}, {\"domain\": \"roads\", \"issue\": \"не відповідають вирівняти грейдером дорожнє покриття по вул. Рівненській від буд. № 3 до новобудови ’\", \"object\": \"вул. Рівненській від буд\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Рівненській від буд\", \"building\": \"3\"}}]}"
+    },
+    {
+      "id": "ev3-033",
+      "category": "D",
+      "category_name": "two_sentences",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "strict_error": null,
+      "raw_chars": 691,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"roads\", \"issue\": \"здійснити ремонт дорожнього покриття, яке не проводилось понад 30 років по вул. Юрія Коваленка, 15 в’їзд до будинку зі сторони вул. Незалежності 7/1 та зі сторони вул. Ю повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Шевченка № 66 та № 66А були видалені два дерева (акація), станом на 12.06.2026 нові дерева не посаджені.  надати\", \"object\": \"вул. Юрія Коваленка\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Юрія Коваленка\"}}, {\"domain\": \"sanitation\", \"issue\": \"умов отримання дозволу для мешканців будинку для вирішення питання посадки рослин\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-034",
+      "category": "D",
+      "category_name": "two_sentences",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "sanitation",
+        "transport"
+      ],
+      "strict_error": null,
+      "raw_chars": 767,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "sanitation",
+        "transport"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"бездіяльності працівників ЖЕО №9 стосовно посипання протиожеледною сумішшю тротуарів, доріг, біля під’їздів по вул. Лінія-9а, біля буд. 38,39,40. терміново вжити необхідні заходи реагування\", \"object\": \"вул. Лінія-9а\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Лінія-9а\", \"building\": \"38\"}}, {\"domain\": \"transport\", \"issue\": \"на неадекватну поведінку водія автобусу за маршрутом № 104 (бортовий № А-23), а саме: 12.05.2026 р. о 08:00 год, по вул. Садовій, зайшла до автобусу, передала водієві кошти за проїзд, у відповідь він кинув виток, кричав на людей нецензурними словами. вжити відповідні заходи реагування\", \"object\": \"вул. Садовій\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Садовій\"}}]}"
+    },
+    {
+      "id": "ev3-035",
+      "category": "E",
+      "category_name": "same_object_two_problems",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "strict_error": null,
+      "raw_chars": 452,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "sanitation",
+        "roads"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"прибрати суху деревину, яке звалило після буревію, біля корп. 1, по вул. Є\", \"object\": \"вул. Є\", \"requested_action\": \"прибрати суху деревину, яке звалило після буревію, біля корп\", \"attributes\": {\"street\": \"вул. Є\", \"building\": \"1\"}}, {\"domain\": \"roads\", \"issue\": \"проведення ремонтних робіт дорожнього покриття по вул. Є\", \"object\": \"вул. Є\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Є\"}}]}"
+    },
+    {
+      "id": "ev3-036",
+      "category": "E",
+      "category_name": "same_object_two_problems",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "strict_error": "unparseable",
+      "raw_chars": 1566,
+      "behaviour": "JSONFAIL",
+      "predicted_topic_count": null,
+      "cover": [
+        null,
+        null
+      ],
+      "detail": "unparseable",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"прибирання технікою підбордюрної частини дороги по вул. Автолюбителів\", \"object\": \"вул. Автолюбителів\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Автолюбителів\"}}, {\"domain\": \"roads\", \"issue\": \"здійснення ремонту дорожнього покриття (три великі дуже ями) по вул. Автолюбителів, біля ’. Зі слів заявника, що відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але відповідальна за дорогу, їх не відповідальна, але"
+    },
+    {
+      "id": "ev3-037",
+      "category": "E",
+      "category_name": "same_object_two_problems",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "strict_error": "unparseable",
+      "raw_chars": 1637,
+      "behaviour": "JSONFAIL",
+      "predicted_topic_count": null,
+      "cover": [
+        null,
+        null
+      ],
+      "detail": "unparseable",
+      "raw": "{\"topics\": [{\"domain\": \"roads\", \"issue\": \"здійснення ремонту ямкового покриття по вул. Адама Міцкевича\", \"object\": \"вул. Адама Міцкевича\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Адама Міцкевича\"}}, {\"domain\": \"housing\", \"issue\": \"обурений діями працівників ТОВ ’, які приїхали 03.08.2026 р. о 06:35 по вул. Адама Міцкевича, які відповідальний за виправлення ямкового покриття по вул. Адама Міцкевича, які відповідальний за виправлення ямкового покриття по вул. Адама Міцкевича, які відповідальний за виправлення ямкового покриття по вул. Адама Міцкевича, які відповідальний за виправлення ямкового покриття по вул. Адама Міцкевича, які відповідальний за виправлення ямкового покриття по вул. Адама Міцкевича, які відповідальний за виправлення ямкового покриття по вул. Адама Міцкевича, які відповідальний за виправлення ямкового покриття по вул. Адама Міцкевича, які відповідальний за виправлення ямкового покриття по вул. Адама Міцкевича, які відповідальний за виправлення ямкового покриття по вул. Адама Міцкевича, які відповідальний за виправлення ямкового покриття по вул. Адама Міцкевича, які відповідальний за виправлення ямкового покриття по вул. Адама Міцкевича, які відповідальний за виправлення ямкового покриття по вул. Адама Міцкевича, які відповідальний за виправлення ямкового покриття по вул. Адама Міцкевича, які відповідальний за виправлення ямкового покриття по вул. Адама Міцкевича, які відповідальний за виправлення ямкового покриття по вул. Адама Міцкевича, які відповідальний за виправлення ямкового покриття по вул. Адама Міцкевича, які відповідальний за виправлення ямкового покриття по вул. Адама"
+    },
+    {
+      "id": "ev3-038",
+      "category": "E",
+      "category_name": "same_object_two_problems",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "sanitation",
+        "water"
+      ],
+      "strict_error": null,
+      "raw_chars": 402,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.35,
+        0.679
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "detail": "single topic covers both expected issues",
+      "behaviour": "MERGE",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"повідомляє, що сто метрів від дитячого майданчику у сквері ’ правопорядку’ (вул. а також повідомляє, що протягом трьох місяців по території скверу ’ правопорядку’ (вул. Вокзальна) течуть каналізаційні стоки, нестерпний сморід. до водоканалу безрезультатні\", \"object\": \"вул. Вокзальна\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Вокзальна\"}}]}"
+    },
+    {
+      "id": "ev3-039",
+      "category": "E",
+      "category_name": "same_object_two_problems",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "strict_error": null,
+      "raw_chars": 590,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "sanitation",
+        "roads"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"вжиття заходів для прибирання смітників, які розміщені в парку ’ правопорядку’ по вул. Вокзальній, від АЗС ’ на підйомі до залізничного вокзалу. вжити відповідні заходи реагування\", \"object\": \"вул. Вокзальній\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Вокзальній\"}}, {\"domain\": \"roads\", \"issue\": \"повідомляє про яму біля люку, по вул. Вокзальній, від АЗС ’ на підйомі до залізничного вокзалу. вжити відповідні заходи реагування\", \"object\": \"вул. Вокзальній\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Вокзальній\"}}]}"
+    },
+    {
+      "id": "ev3-040",
+      "category": "E",
+      "category_name": "same_object_two_problems",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "strict_error": null,
+      "raw_chars": 531,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"roads\", \"issue\": \"вжиття заходів для ремонту дорожнього покриття між будинками по вул. Героїв України, 12 корп.1 та вул. Героїв України 14, корп.1\", \"object\": \"вул. Героїв України\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Героїв України\", \"building\": \"1\"}}, {\"domain\": \"sanitation\", \"issue\": \"покосити траву, яка росте за будинком на площадці по вул. Героїв України. 30. по телефону\", \"object\": \"вул. Героїв України\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Героїв України\"}}]}"
+    },
+    {
+      "id": "ev3-041",
+      "category": "F",
+      "category_name": "different_objects_two_problems",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "commerce",
+        "construction"
+      ],
+      "strict_error": null,
+      "raw_chars": 319,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.15,
+        0.684
+      ],
+      "predicted_domains": [
+        "construction"
+      ],
+      "detail": "single topic covers only the first; second problem absent",
+      "behaviour": "STOP",
+      "raw": "{\"topics\": [{\"domain\": \"construction\", \"issue\": \"Перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Пляжна, 71\", \"object\": \"вул. Пляжна\", \"requested_action\": \"Перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул\", \"attributes\": {\"street\": \"вул. Пляжна\"}}]}"
+    },
+    {
+      "id": "ev3-042",
+      "category": "F",
+      "category_name": "different_objects_two_problems",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "electricity",
+        "government"
+      ],
+      "strict_error": null,
+      "raw_chars": 287,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.473,
+        0.282
+      ],
+      "predicted_domains": [
+        "electricity"
+      ],
+      "detail": "single topic covers only the first; second problem absent",
+      "behaviour": "STOP",
+      "raw": "{\"topics\": [{\"domain\": \"electricity\", \"issue\": \"щодо постійних збоїв електропостачання за вказаною адресою проживання. Зі слів заявниці ліфт працює. Записати на особистий прийом, відповідно до графіка, до секретаря міської ради\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-043",
+      "category": "F",
+      "category_name": "different_objects_two_problems",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "government",
+        "heating"
+      ],
+      "strict_error": null,
+      "raw_chars": 451,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "sanitation",
+        "heating"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"збільшення кількості посадкових місць біля каб. 102 в ЦНАПі, адже через великі черги люди похилого віку, не маючи де сісти, втрачають свідомість. заявниці\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"heating\", \"issue\": \"Направити спеціалістів для визначення та усунення причини низької температури повітря в помешканні\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-044",
+      "category": "F",
+      "category_name": "different_objects_two_problems",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "heating",
+        "housing"
+      ],
+      "strict_error": null,
+      "raw_chars": 275,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.5,
+        0.562
+      ],
+      "predicted_domains": [
+        "heating"
+      ],
+      "detail": "single topic covers both expected issues",
+      "behaviour": "MERGE",
+      "raw": "{\"topics\": [{\"domain\": \"heating\", \"issue\": \"низького температурного режиму в квартирі за вказаною адресою проживання заявниці, де проживає мала дитина. Вжиття заходів для ремонту ліфта за вказаною адресою проживання\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-045",
+      "category": "F",
+      "category_name": "different_objects_two_problems",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "housing",
+        "payments"
+      ],
+      "strict_error": null,
+      "raw_chars": 224,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.56,
+        0.759
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "detail": "single topic covers both expected issues",
+      "behaviour": "MERGE",
+      "raw": "{\"topics\": [{\"domain\": \"housing\", \"issue\": \"проведення ремонту даху будинку за вказаною адресою. Не згоден з боргами за комунальні послуги та просить їх переглянути\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-046",
+      "category": "F",
+      "category_name": "different_objects_two_problems",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "payments",
+        "roads"
+      ],
+      "strict_error": "unparseable",
+      "raw_chars": 419,
+      "behaviour": "JSONFAIL",
+      "predicted_topic_count": null,
+      "cover": [
+        null,
+        null
+      ],
+      "detail": "unparseable",
+      "raw": "{\"topics\": [{\"domain\": \"payments\", \"issue\": \"надання Зі слів заявниці, попередній борг вона сплатала. На дзвінки працівники \"\" не відповідають. заявниці\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"roads\", \"issue\": \"Рівненській від буд. № 3 до новобудови ’\", \"object\": \"вул. Рівненській від буд\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Рівненській від буд\", \"building\": \"3\"}}]}"
+    },
+    {
+      "id": "ev3-047",
+      "category": "F",
+      "category_name": "different_objects_two_problems",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "strict_error": "unparseable",
+      "raw_chars": 1482,
+      "behaviour": "JSONFAIL",
+      "predicted_topic_count": null,
+      "cover": [
+        null,
+        null
+      ],
+      "detail": "unparseable",
+      "raw": "{\"topics\": [{\"domain\": \"roads\", \"issue\": \"просить здійснити ремонт дорожнього покриття, яке не проводилось понад 30 років по вул. Юрія Коваленка, 15 в’їзд до будинку зі сторони вул. Повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Пові"
+    },
+    {
+      "id": "ev3-048",
+      "category": "F",
+      "category_name": "different_objects_two_problems",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "sanitation",
+        "transport"
+      ],
+      "strict_error": null,
+      "raw_chars": 484,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "sanitation",
+        "transport"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"бездіяльності працівників ЖЕО №9 стосовно посипання протиожеледною сумішшю тротуарів, доріг, біля під’їздів по вул. Лінія-9а, біля буд. 38,39,40\", \"object\": \"вул. Лінія-9а\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Лінія-9а\", \"building\": \"38\"}}, {\"domain\": \"transport\", \"issue\": \"неадекватну поведінку водія автобусу за маршрутом № 104 (бортовий № А-23). заявнику\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-049",
+      "category": "G",
+      "category_name": "explicit_and_implicit_action",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "commerce",
+        "construction"
+      ],
+      "strict_error": "unparseable",
+      "raw_chars": 1824,
+      "behaviour": "JSONFAIL",
+      "predicted_topic_count": null,
+      "cover": [
+        null,
+        null
+      ],
+      "detail": "unparseable",
+      "raw": "{\"topics\": [{\"domain\": \"construction\", \"issue\": \"Прошу перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Прошу перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Прошу перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Прошу перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Прошу перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Прошу перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Прошу перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Прошу перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Прошу перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Прошу перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Прошу перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Прошу перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Прошу перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Прошу перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Прошу перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Прошу перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Прошу перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Прошу перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Прошу перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Прошу перевірити законність встановлення паркану сусідів у червон"
+    },
+    {
+      "id": "ev3-050",
+      "category": "G",
+      "category_name": "explicit_and_implicit_action",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "electricity",
+        "government"
+      ],
+      "strict_error": null,
+      "raw_chars": 207,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.591,
+        0.0
+      ],
+      "predicted_domains": [
+        "electricity"
+      ],
+      "detail": "single topic covers only the first; second problem absent",
+      "behaviour": "STOP",
+      "raw": "{\"topics\": [{\"domain\": \"electricity\", \"issue\": \"щодо постійних збоїв електропостачання за вказаною адресою проживання. Зі слів заявниці ліфт працює\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-051",
+      "category": "G",
+      "category_name": "explicit_and_implicit_action",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "government",
+        "heating"
+      ],
+      "strict_error": null,
+      "raw_chars": 460,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "sanitation",
+        "heating"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"збільшення кількості посадкових місць біля каб. 102 в ЦНАПі, адже через великі черги люди похилого віку, не маючи де сісти, втрачають свідомість. заявниці\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"heating\", \"issue\": \"направити спеціалістів для визначення та усунення причини низької температури повітря в помешканні заявниці\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-052",
+      "category": "G",
+      "category_name": "explicit_and_implicit_action",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "payments",
+        "roads"
+      ],
+      "strict_error": "unparseable",
+      "raw_chars": 490,
+      "behaviour": "JSONFAIL",
+      "predicted_topic_count": null,
+      "cover": [
+        null,
+        null
+      ],
+      "detail": "unparseable",
+      "raw": "{\"topics\": [{\"domain\": \"payments\", \"issue\": \"надання Зі слів заявниці, попередній борг вона сплатала. На дзвінки працівники \"\" не відповідають. заявниці\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"roads\", \"issue\": \"вирівняти грейдером дорожнє покриття по вул. Зі слів заявниці, попередній борг вона сплатала. На дзвінки працівники \"\" не відповідають\", \"object\": \"вул. Зі слів заявниці\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Зі слів заявниці\"}}]}"
+    },
+    {
+      "id": "ev3-053",
+      "category": "G",
+      "category_name": "explicit_and_implicit_action",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "sanitation",
+        "transport"
+      ],
+      "strict_error": null,
+      "raw_chars": 312,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.902,
+        0.0
+      ],
+      "predicted_domains": [
+        "sanitation"
+      ],
+      "detail": "single topic covers only the first; second problem absent",
+      "behaviour": "STOP",
+      "raw": "{\"topics\": [{\"domain\": \"sanitation\", \"issue\": \"щодо бездіяльності працівників ЖЕО №9 стосовно посипання протиожеледною сумішшю тротуарів, доріг, біля під’їздів по вул. Лінія-9а, біля буд. 38,39,40\", \"object\": \"вул. Лінія-9а\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Лінія-9а\", \"building\": \"38\"}}]}"
+    },
+    {
+      "id": "ev3-054",
+      "category": "G",
+      "category_name": "explicit_and_implicit_action",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "construction",
+        "electricity"
+      ],
+      "strict_error": null,
+      "raw_chars": 273,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.759,
+        0.0
+      ],
+      "predicted_domains": [
+        "construction"
+      ],
+      "detail": "single topic covers only the first; second problem absent",
+      "behaviour": "STOP",
+      "raw": "{\"topics\": [{\"domain\": \"construction\", \"issue\": \"повідомляє, що від магазину ’ будуть розпочати будівельні роботи 50 метрів від будинку, встановили паркан, в наявності техніка ’, кран, відсутність паспорта об’єкта\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-081",
+      "category": "K",
+      "category_name": "ontology_ambiguity",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "roads",
+        "sanitation"
+      ],
+      "strict_error": null,
+      "raw_chars": 451,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.533,
+        0.677
+      ],
+      "predicted_domains": [
+        "electricity"
+      ],
+      "detail": "single topic covers both expected issues",
+      "behaviour": "MERGE",
+      "raw": "{\"topics\": [{\"domain\": \"electricity\", \"issue\": \"звертається від імені матері, яка проживає по вул. Максима Залізняка, 18Б. З її слів вздовж вул. Максима Залізняка, 18Б, а також повідомляє, що на перехресті вулиць та 24/56 впало дерево і висить на лінії електромережі, спричиняючи аварійну ситуацію. вжити відповідних заходів реагування\", \"object\": \"вул. Максима Залізняка\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Максима Залізняка\"}}]}"
+    },
+    {
+      "id": "ev3-082",
+      "category": "K",
+      "category_name": "ontology_ambiguity",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "housing",
+        "water"
+      ],
+      "strict_error": null,
+      "raw_chars": 358,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.416,
+        0.462
+      ],
+      "predicted_domains": [
+        "housing"
+      ],
+      "detail": "single topic covers both expected issues",
+      "behaviour": "MERGE",
+      "raw": "{\"topics\": [{\"domain\": \"housing\", \"issue\": \"05.2026 після прочищення стояків, ’зірвало’ трубу, працівник припинив роботу, вода з п’ятого по перший поверх протикла у, а також вжиття необхідних заходів для усунення причин несправності дверей ліфта в під’їзді №4 будинку за вказаною адресою проживання\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-083",
+      "category": "K",
+      "category_name": "ontology_ambiguity",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "electricity",
+        "sanitation"
+      ],
+      "strict_error": null,
+      "raw_chars": 708,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "electricity",
+        "sanitation"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"electricity\", \"issue\": \"зобов’язати працівників КП ЖЕО №1 КМР налагодити подачу електропостачання по стояку однокімнатних квартир у під’їзді № 6 за вказаною адресою\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"sanitation\", \"issue\": \"повідомляє, що восени 2025 року на прибудинковій території біля будинків по вул. Кримській, 12 та вул. Кримській, 14 буде проводитися розчистка території від ліфта, який розташований на вул. Кримській, 12 та вул. Кримській, 14. з цим, що відповідальності за територію біля будинків по вул. Кримській, 12 та вул. Кримській, 14\", \"object\": \"вул. Кримській\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Кримській\"}}]}"
+    },
+    {
+      "id": "ev3-084",
+      "category": "K",
+      "category_name": "ontology_ambiguity",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "sanitation",
+        "water"
+      ],
+      "strict_error": null,
+      "raw_chars": 515,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "water",
+        "sanitation"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"water\", \"issue\": \"вжиття заходів для усунення причин затоплення стіни між туалетом та ванної в квартирі заявниці за вказаною адресою проживання. в ТОВ ’ залишаються безрезультатні\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"sanitation\", \"issue\": \"покосити бур’ян, який зростає на пустирі між будинками № 28, корп. 5 та № 30 по вул. Державності\", \"object\": \"вул. Державності\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Державності\", \"building\": \"5\"}}]}"
+    },
+    {
+      "id": "ev3-085",
+      "category": "K",
+      "category_name": "ontology_ambiguity",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "housing",
+        "payments"
+      ],
+      "strict_error": null,
+      "raw_chars": 414,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "housing",
+        "payments"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"housing\", \"issue\": \"вжиття заходів для ремонту ліфта за вказаною адресою проживання\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"payments\", \"issue\": \"проблем з оплатою за комунальну послугу ’квартплату’ в ЖЕО №4, які пов’язані з непереукладеним договором з ’ (в іншому банку платіж не проходить. заявнику\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-086",
+      "category": "K",
+      "category_name": "ontology_ambiguity",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "heating",
+        "payments"
+      ],
+      "strict_error": null,
+      "raw_chars": 362,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "heating",
+        "payments"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"heating\", \"issue\": \"направити спеціалістів для визначення та усунення причини низької температури повітря в помешканні\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"payments\", \"issue\": \"не згоден з боргами за комунальні послуги та просить їх переглянути\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}]}"
+    },
+    {
+      "id": "ev3-087",
+      "category": "K",
+      "category_name": "ontology_ambiguity",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "construction",
+        "roads"
+      ],
+      "strict_error": null,
+      "raw_chars": 368,
+      "predicted_topic_count": 1,
+      "cover": [
+        0.585,
+        0.5
+      ],
+      "predicted_domains": [
+        "roads"
+      ],
+      "detail": "single topic covers both expected issues",
+      "behaviour": "MERGE",
+      "raw": "{\"topics\": [{\"domain\": \"roads\", \"issue\": \"вирівняти грейдером дорожнє покриття по вул. Рівненській від буд. № 3 до новобудови ’, а також перевірити законність встановлення паркану сусідів у червоній зоні за адресою: вул. Пляжна, 71\", \"object\": \"вул. Рівненській від буд\", \"requested_action\": \"\", \"attributes\": {\"street\": \"вул. Рівненській від буд\", \"building\": \"3\"}}]}"
+    },
+    {
+      "id": "ev3-088",
+      "category": "K",
+      "category_name": "ontology_ambiguity",
+      "expected_topic_count": 2,
+      "expected_domains": [
+        "roads",
+        "transport"
+      ],
+      "strict_error": null,
+      "raw_chars": 570,
+      "predicted_topic_count": 2,
+      "behaviour": "SPLIT",
+      "predicted_domains": [
+        "transport",
+        "roads"
+      ],
+      "raw": "{\"topics\": [{\"domain\": \"transport\", \"issue\": \"обурена рухом громадського транспорту №123, №126 та №103, що не відповідає встановленому графіку\", \"object\": \"\", \"requested_action\": \"\", \"attributes\": {}}, {\"domain\": \"roads\", \"issue\": \"просить здійснити ремонт дорожнього покриття, яке не проводилось понад 30 років по вул. Юрія Коваленка, 15 в’їзд до будинку зі сторони вул. Космонавта\", \"object\": \"вул. Юрія Коваленка\", \"requested_action\": \"здійснити ремонт дорожнього покриття, яке не проводилось понад 30 років по вул\", \"attributes\": {\"street\": \"вул. Юрія Коваленка\"}}]}"
+    }
+  ]
+}

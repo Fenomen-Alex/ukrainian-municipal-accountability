@@ -312,6 +312,95 @@
     }
   },
   "qwen3-8b-lora-v3-2": {
-    "present": false
+    "present": true,
+    "resolved": "/Users/alex/WebstormProjects/test/ukrainian-municipal-accountability/ml/data/tune/adapters/qwen3-8b-lora-v3-2",
+    "n_files": 12,
+    "tree_sha256": "f823cd0cc92c37dcd60833fea8abf0b27af0dfc80071a28933fc35e62ced2746",
+    "files": {
+      "0000500_adapters.safetensors": {
+        "sha256": "48d2b4fde6bd57e719b9ab792c6beeaab36bb4b6865d066cce060f8b74a4281f",
+        "bytes": 38821546
+      },
+      "0001000_adapters.safetensors": {
+        "sha256": "17011cb6f9e521bd8dbe69dfee37e12a7ad8cf9d93f063451ae569c62df67f9b",
+        "bytes": 38821546
+      },
+      "0001500_adapters.safetensors": {
+        "sha256": "1982a75c20f8f950729e3b0fec79d86a67e5065971c5d1730e3bd2f0edf00e9a",
+        "bytes": 38821546
+      },
+      "0002000_adapters.safetensors": {
+        "sha256": "edcce98dadeefe5bfae84dee2a7ff41bf0e8fb493ccd2303c7bbd0a4e7f37927",
+        "bytes": 38821546
+      },
+      "0002500_adapters.safetensors": {
+        "sha256": "7daa45292a82686376e682aa8fde796c01c03808dc067762d0e76df7338c3576",
+        "bytes": 38821546
+      },
+      "0003000_adapters.safetensors": {
+        "sha256": "18a18f8ca0e7e917f2920ee7c4db9c4523c1b836093d4ef232399c7ae1f3d78d",
+        "bytes": 38821546
+      },
+      "0003500_adapters.safetensors": {
+        "sha256": "ef2778ec7127de6080682279a8a86ca2c198a4915c32bf47b2ce908c93582316",
+        "bytes": 38821546
+      },
+      "0004000_adapters.safetensors": {
+        "sha256": "86fac7788b703839cf336db38a8afe0497a97519566788450a38eb8e7898d9ab",
+        "bytes": 38821546
+      },
+      "0004500_adapters.safetensors": {
+        "sha256": "17f15245d719d37ab8dedf600c5c6276e0a5e47bcbb39769c46bc02f404eae63",
+        "bytes": 38821546
+      },
+      "adapter_config.json": {
+        "sha256": "3de3e823842b951b9692b215d46dcf845ece2e190f3a95480d371e019ab5f771",
+        "bytes": 1154
+      },
+      "adapters.safetensors": {
+        "sha256": "fbc8dbc089cc4d0ae91dbb93b912220e5b6bb1f25412fa4681ef31f4d155c2d5",
+        "bytes": 38821546
+      },
+      "run_config.json": {
+        "sha256": "c5860c17192e0472c23bea209063fbff9eb0c4eb184c28d39a50e4e82e49bc75",
+        "bytes": 1058
+      }
+    }
+  },
+  "qwen3-8b-lora-v3-2-fused": {
+    "present": true,
+    "resolved": "/Users/alex/WebstormProjects/test/ukrainian-municipal-accountability/ml/data/tune/adapters/qwen3-8b-lora-v3-2-fused",
+    "n_files": 7,
+    "tree_sha256": "957968225745cf98e0d2d9c53546cbdfbe6291cd3cca1767621f7e0183d64caf",
+    "files": {
+      "chat_template.jinja": {
+        "sha256": "87a2728cb8dc9fe424d624542f6060ec05a1d285ebbec578bb078900e33396b5",
+        "bytes": 4116
+      },
+      "config.json": {
+        "sha256": "e5485285fd7e289e76e9cffa112f6dc2e3426519082f7db9b69041589f81a218",
+        "bytes": 939
+      },
+      "fuse_manifest.json": {
+        "sha256": "ca7859979e11aae2b5671bd1384ab698e623680538fae606eb9869d99cf4e8c1",
+        "bytes": 1780
+      },
+      "model.safetensors": {
+        "sha256": "c6745eed54b242515d961574bb16892b3f5842940fc46995c48e4e3078fc795b",
+        "bytes": 4607835164
+      },
+      "model.safetensors.index.json": {
+        "sha256": "846476a9b9fa9e801467338e37635ab6557596c289b9ec9eff4d48effe5f5dcf",
+        "bytes": 64105
+      },
+      "tokenizer.json": {
+        "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+        "bytes": 11422650
+      },
+      "tokenizer_config.json": {
+        "sha256": "d93ac1a2c7adb9ad022f354d822f1f0f57e32e62ef2989e902782d6ab896acfe",
+        "bytes": 413
+      }
+    }
   }
 }

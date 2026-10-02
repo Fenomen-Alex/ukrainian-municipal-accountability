@@ -39,6 +39,11 @@ ARMS = (
 
 PINNED = frozenset(ARMS)
 V32_ARM = "qwen3-8b-lora-v3-2"
+#: v3.2's fused model -- the artifact that would actually be served, so it is
+#: recorded alongside the adapter. Like the adapter it belongs to this run and
+#: is therefore not pinned.
+V32_FUSED_ARM = "qwen3-8b-lora-v3-2-fused"
+THIS_RUN = frozenset({V32_ARM, V32_FUSED_ARM})
 
 SKIP_SUFFIXES = (".md",)
 
@@ -77,7 +82,7 @@ def build(arms=ARMS) -> dict:
 
 
 def record() -> dict:
-    data = build(ARMS + (V32_ARM,))
+    data = build(ARMS + tuple(sorted(THIS_RUN)))
     MANIFEST.parent.mkdir(parents=True, exist_ok=True)
     MANIFEST.write_text(json.dumps(data, indent=2), encoding="utf-8")
     print(f"recorded {len(data)} arms -> {MANIFEST}")
@@ -98,7 +103,7 @@ def verify() -> int:
     now = build(tuple(base))
     bad = 0
     for arm, was in base.items():
-        if arm == V32_ARM:
+        if arm in THIS_RUN:
             continue  # this run is expected to change
         got = now.get(arm, {})
         if not was.get("present"):
