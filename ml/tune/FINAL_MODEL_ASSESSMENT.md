@@ -15,6 +15,13 @@ already-committed measurements. No weights were trained, no benchmark case or
 evaluator definition was changed, and no score-hunting decoding configuration is
 proposed.
 
+> **Update (2026-10-03).** The `""` source-text artefact analysed in §5 has since
+> been fixed at the prompt boundary rather than by retraining, as §8 anticipated
+> would be cheapest. The fix, its scope and its real-generation evidence are in
+> **[QUOTE_ARTEFACT.md](QUOTE_ARTEFACT.md)**. The numbers in this document are
+> unchanged and remain historical; where the two overlap, the quotation artefact
+> is now fixed and only v2 remains canonical.
+
 ## How to reproduce every number here
 
 | claim source | command |

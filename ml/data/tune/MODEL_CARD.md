@@ -1,5 +1,10 @@
 # Model card: Qwen3-8B LoRA fine-tune for Ukrainian municipal complaint extraction
 
+> **SUPERSEDED — this is the v1 model card.**
+> The canonical card is [`ml/tune/MODEL_CARD_V2.md`](../../tune/MODEL_CARD_V2.md).
+> Every claim below describes v1, which is not the canonical model. Retained for
+> the record only.
+
 **Status:** research prototype (experimental, hand-verified on a small targeted suite)
 
 This is a hybrid model card: the train/loss numbers below come from the *held-out

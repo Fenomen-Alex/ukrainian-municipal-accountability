@@ -112,6 +112,38 @@ it; import it.
 from ml.tune.build_dataset import SYSTEM_PROMPT
 ```
 
+## Quote normalization (user turn only)
+
+The user complaint is normalized before templating. This is a root-cause fix,
+not cosmetic cleanup — see `ml/tune/QUOTE_ARTEFACT.md` for the full account.
+
+`normalize_quotes()` in `ml/tune/build_dataset.py`:
+
+* **Delimited** ASCII quotes become a typographic pair, alternating `“` / `”`:
+  `Біля маг. "Копілка"` → `Біля маг. “Копілка”`.
+* **Mid-word** ASCII quotes become U+2019: `під"їзду` → `під’їзду`,
+  `роз"яснення` → `роз’яснення`.
+* Idempotent; never deletes text; only quote *glyphs* change, so word content
+  and length are preserved.
+
+```python
+from ml.tune.serve_v2 import build_messages
+build_messages('Біля маг. "Копілка" три тижні тече каналізація.')
+```
+
+Two constraints make this safe to add:
+
+* **User turn only.** The system prompt's own schema quotes (`"issue"`,
+  `"requested_action"`, …) are what teach the output format and are never
+  touched. `SYSTEM_PROMPT` is byte-identical on every request.
+* **Complaints with no ASCII quotes are byte-identical** to the pre-fix path,
+  so existing traffic is unaffected. `test_release_smoke.py` asserts both.
+
+If you are sending requests over HTTP rather than calling `build_messages`,
+apply the same normalization to the user content yourself — the server will not
+do it for you. `--request-only` prints the already-normalized messages, so the
+easiest integration is to take its output verbatim.
+
 ## Why this is load-bearing (measured, not assumed)
 
 All rows are the same model on the same complaint via the LM Studio HTTP server
@@ -141,6 +173,8 @@ Conclusions:
   Use `ml.tune.serve_v2.parse_strict` when you are checking a serving contract.
 
 ## Canonical: native MLX
+
+Pinned serving runtime: `ml/requirements-serve.txt` (Apple Silicon).
 
 ```bash
 .venv-mlx/bin/python -m ml.tune.serve_v2 \
@@ -193,6 +227,23 @@ prompt = tokenizer.apply_chat_template(
 ```
 
 ## LM Studio
+
+### Which name to use
+
+Three different names refer to this model. They are not interchangeable.
+
+| Name | Where it belongs |
+|---|---|
+| `Fenomen-Alex/ukrainian-municipal-accountability-qwen3-8b` | The **Hugging Face repo id** — use this to download from HF. |
+| `qwen3-8b-lora-v2-attempt10-fused` | The **fused artifact directory** on disk (gitignored), the default for `--model`. |
+| `qwen3-8b-municipal-finetune` | A **local LM Studio folder label**, not a model path and not an HF id. It is only the `model` field your LM Studio server echoes back. |
+
+So `qwen3-8b-municipal-finetune` is a naming convention for the folder you load
+into LM Studio; renaming that folder locally is fine, and renaming it in the
+documentation is not, because LM Studio matches the request's `model` field
+against whatever it has loaded. Keep the label consistent between what LM Studio
+has loaded and what you send. `--request-only` defaults to this label; override
+it with `--model-id` to match your own setup.
 
 1. Model Developer / load the fused directory (symlink works, see
    `ml/data/tune/SERVING.md`).

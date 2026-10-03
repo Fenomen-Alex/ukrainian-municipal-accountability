@@ -257,11 +257,24 @@ The **model weights are Apache-2.0**, matching the base model
 was verified before publication. The MLX 4-bit conversion of the base declares
 the same license.
 
-The **training data is not redistributed here and its license is not
-documented** in the source project. The municipal complaint corpus has no
-recorded source URL, license, or redistribution terms. Only the derived weights
-are published. Anyone redistributing or building on this checkpoint should
-confirm the upstream data terms independently.
+The **training data is not redistributed with this checkpoint** on Hugging
+Face. Note the scope carefully, because it differs between the two
+distributions of this project:
+
+* **Hugging Face (this card):** weights only. No corpus files, no evaluation
+  data.
+* **GitHub source repository** (`github.com/Fenomen-Alex/ukrainian-municipal-accountability`,
+  linked below): **does track** the raw and derived corpora, roughly 78 MB of
+  `.jsonl`. The raw municipal complaint text is **not** PII-free — it contains
+  real-world phone numbers and email-like strings.
+
+The municipal complaint corpus has **no recorded source URL, licence, or
+redistribution terms** anywhere in the project. This is an open provenance
+question, not a resolved one; it is recorded as such rather than papered over.
+Anyone redistributing or building on this checkpoint, or cloning and
+redistributing the source repository, should confirm the upstream data terms
+independently. The Apache-2.0 grant above covers **the model weights only** and
+does not extend to the corpus.
 
 ## Citation and provenance
 

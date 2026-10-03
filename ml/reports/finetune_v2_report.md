@@ -1,5 +1,12 @@
 # v2 Fine-tune Report: multi-topic structural fix
 
+> **HISTORICAL — provenance record for the canonical v2 model.**
+> v2 *is* the canonical model (see [`ml/tune/FINAL_STATUS.md`](../tune/FINAL_STATUS.md)),
+> but this report is the record as-of the original run and is **not** a current
+> guide. **Do not re-run the training commands below**: development is frozen and
+> they would not reproduce the published artifact without the pinned corpus SHAs.
+> For the serving contract use [`ml/tune/V2_SERVING.md`](../tune/V2_SERVING.md).
+
 Status: **FINAL** — attempt-10 (attempt-7 recipe reproduced, no note_style
 shape) on `qwen3-8b-lora-v2-fused`.
 

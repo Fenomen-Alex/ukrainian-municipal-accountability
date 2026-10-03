@@ -1,0 +1,26 @@
+# Canonical v2 serving runtime.
+#
+# Pinned to the exact versions the canonical v2 metrics were produced and
+# verified with (Python 3.12.14). Reproducibility over convenience: do not
+# bump these without re-running the verification matrix in
+# ml/tune/FINAL_RELEASE_READINESS.md.
+#
+# PLATFORM: `mlx` is Apple-Silicon-only. On Linux/Windows use a CUDA runtime
+# and expect the documented cross-runtime differences in
+# ml/tune/V2_SERVING.md ("Generation settings") — outputs are not bit-identical
+# across runtimes, and `object` fields in particular may differ.
+
+mlx==0.32.2
+mlx-lm==0.31.3
+transformers==5.17.0
+numpy==2.5.3
+safetensors==0.8.0
+tokenizers==0.23.2
+sentencepiece==0.2.2
+# Transitive via mlx-lm, but pinned because the README quickstart uses
+# `hf download` to fetch the public artifact.
+huggingface_hub==1.32.0
+
+# Dev/test only. The release smoke suite skips the model-gated layer when
+# pytest is absent, so this is not required to serve.
+pytest==9.1.1

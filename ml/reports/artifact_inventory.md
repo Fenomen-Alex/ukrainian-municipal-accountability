@@ -1,5 +1,14 @@
 # Local ML artifact inventory & cleanup record
 
+> **HISTORICAL INVENTORY — NOT A DELETION LIST.**
+> Everything below is still present and intentionally retained, including the
+> non-canonical training arms: they are the evidence behind the release decision
+> in [`ml/tune/FINAL_MODEL_ASSESSMENT.md`](../tune/FINAL_MODEL_ASSESSMENT.md).
+> The canonical model is v2 only
+> (see [`ml/tune/FINAL_STATUS.md`](../tune/FINAL_STATUS.md)). Where an inventory
+> entry conflicts with that status, the status document wins. Adapters are
+> gitignored and are not part of the Git repository regardless of this listing.
+
 Date: after the v3 control-arm negative result and before the full-corpus v3
 treatment run.
 

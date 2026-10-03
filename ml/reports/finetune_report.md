@@ -1,5 +1,12 @@
 # Демонстраційний експеримент: файнтюн Qwen3-8B 4-bit (MLX) для структурування звернень громадян
 
+> **SUPERSEDED — historical v1 training report.**
+> Canonical model: v2. See [`ml/tune/FINAL_STATUS.md`](../tune/FINAL_STATUS.md)
+> and [`ml/tune/MODEL_EXPERIMENTS.md`](../tune/MODEL_EXPERIMENTS.md).
+> **Do not re-run the training commands below.** Model development is frozen, and
+> these commands target superseded corpora, hyperparameters and code paths.
+> Numbers here are historical and describe v1.
+
 **Дата:** 2026-09-24
 **Середовище:** MacBook Pro (M1 Pro, 32 GB unified memory), macOS
 **Стек:** MLX-LM 0.31.3, MLX 0.32.2, mlx-metal 0.32.2, Python 3.12.14 (`.venv-mlx`)

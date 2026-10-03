@@ -1,5 +1,13 @@
 # Serving / packaging the fine-tuned model
 
+> **SUPERSEDED — historical, do not follow for current serving.**
+> The canonical serving contract is [`ml/tune/V2_SERVING.md`](../../tune/V2_SERVING.md),
+> which also documents the model naming used by this file's LM Studio steps.
+> This file is kept only because its LM Studio loading instructions and symlink
+> notes are still the most complete in the repository. Where the two disagree,
+> `V2_SERVING.md` wins. In particular the model label `qwen3-8b-municipal-finetune`
+> used below is a **local LM Studio folder label**, not an HF repo id.
+
 Native format: **MLX** (not GGUF). A fused HuggingFace-style directory:
 `ml/data/tune/adapters/qwen3-8b-lora-v2-fused/` with `config.json`,
 `model.safetensors` + `model.safetensors.index.json`, tokenizer files and
