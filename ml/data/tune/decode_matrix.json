@@ -1,0 +1,3689 @@
+{
+  "grid": {
+    "corrected-v3/budget1200": {
+      "n_cases": 64,
+      "probe": {
+        "n": 64,
+        "strict_ok": 0.9062,
+        "schema_fail": 6,
+        "topic_count_ok": 0.5469,
+        "behaviour": {
+          "SPLIT": 35,
+          "STOP": 6,
+          "JSONFAIL": 6,
+          "MERGE": 17
+        },
+        "jsonfail": 6,
+        "mean_chars": 442.0,
+        "domain_set_exact": 0.4219,
+        "boilerplate_rate": 0.0
+      },
+      "baseline_same_subset": {
+        "n": 64,
+        "strict_ok": 0.9062,
+        "schema_fail": 6,
+        "topic_count_ok": 0.5469,
+        "behaviour": {
+          "SPLIT": 35,
+          "STOP": 6,
+          "JSONFAIL": 6,
+          "MERGE": 17
+        },
+        "jsonfail": 6,
+        "mean_chars": 0.0,
+        "domain_set_exact": null,
+        "boilerplate_rate": null,
+        "behaviour_by_case": {
+          "ev3-001": "SPLIT",
+          "ev3-002": "SPLIT",
+          "ev3-003": "SPLIT",
+          "ev3-011": "SPLIT",
+          "ev3-012": "STOP",
+          "ev3-013": "SPLIT",
+          "ev3-014": "SPLIT",
+          "ev3-015": "SPLIT",
+          "ev3-016": "JSONFAIL",
+          "ev3-017": "STOP",
+          "ev3-018": "SPLIT",
+          "ev3-019": "SPLIT",
+          "ev3-020": "SPLIT",
+          "ev3-021": "SPLIT",
+          "ev3-022": "SPLIT",
+          "ev3-023": "SPLIT",
+          "ev3-024": "JSONFAIL",
+          "ev3-025": "SPLIT",
+          "ev3-026": "SPLIT",
+          "ev3-027": "MERGE",
+          "ev3-028": "SPLIT",
+          "ev3-029": "MERGE",
+          "ev3-030": "MERGE",
+          "ev3-031": "MERGE",
+          "ev3-032": "JSONFAIL",
+          "ev3-033": "SPLIT",
+          "ev3-034": "MERGE",
+          "ev3-035": "MERGE",
+          "ev3-036": "MERGE",
+          "ev3-037": "MERGE",
+          "ev3-038": "MERGE",
+          "ev3-039": "MERGE",
+          "ev3-040": "SPLIT",
+          "ev3-041": "MERGE",
+          "ev3-042": "STOP",
+          "ev3-043": "SPLIT",
+          "ev3-044": "MERGE",
+          "ev3-045": "MERGE",
+          "ev3-046": "JSONFAIL",
+          "ev3-047": "STOP",
+          "ev3-048": "SPLIT",
+          "ev3-049": "MERGE",
+          "ev3-050": "MERGE",
+          "ev3-051": "SPLIT",
+          "ev3-052": "JSONFAIL",
+          "ev3-053": "STOP",
+          "ev3-054": "STOP",
+          "ev3-055": "SPLIT",
+          "ev3-056": "SPLIT",
+          "ev3-057": "SPLIT",
+          "ev3-067": "SPLIT",
+          "ev3-068": "SPLIT",
+          "ev3-081": "MERGE",
+          "ev3-082": "SPLIT",
+          "ev3-083": "JSONFAIL",
+          "ev3-084": "SPLIT",
+          "ev3-085": "SPLIT",
+          "ev3-086": "SPLIT",
+          "ev3-087": "MERGE",
+          "ev3-088": "SPLIT",
+          "ev3-096": "SPLIT",
+          "ev3-125": "SPLIT",
+          "ev3-126": "SPLIT",
+          "ev3-143": "SPLIT"
+        },
+        "behaviour_source": "behaviour_v3 recording where available, else committed json_ok + predicted_topic_count",
+        "recording_used_for": 52,
+        "flag_fallback_for": 12,
+        "setting": "canonical temp=0.0 max_tokens=800 (committed)"
+      },
+      "transitions": {
+        "JSONFAIL -> JSONFAIL": 6,
+        "MERGE -> MERGE": 17,
+        "SPLIT -> SPLIT": 35,
+        "STOP -> STOP": 6
+      }
+    },
+    "corrected-v3/reppen105": {
+      "n_cases": 64,
+      "probe": {
+        "n": 64,
+        "strict_ok": 0.9219,
+        "schema_fail": 5,
+        "topic_count_ok": 0.5781,
+        "behaviour": {
+          "SPLIT": 37,
+          "STOP": 6,
+          "JSONFAIL": 5,
+          "MERGE": 16
+        },
+        "jsonfail": 5,
+        "mean_chars": 408.5,
+        "domain_set_exact": 0.4375,
+        "boilerplate_rate": 0.0
+      },
+      "baseline_same_subset": {
+        "n": 64,
+        "strict_ok": 0.9062,
+        "schema_fail": 6,
+        "topic_count_ok": 0.5469,
+        "behaviour": {
+          "SPLIT": 35,
+          "STOP": 6,
+          "JSONFAIL": 6,
+          "MERGE": 17
+        },
+        "jsonfail": 6,
+        "mean_chars": 0.0,
+        "domain_set_exact": null,
+        "boilerplate_rate": null,
+        "behaviour_by_case": {
+          "ev3-001": "SPLIT",
+          "ev3-002": "SPLIT",
+          "ev3-003": "SPLIT",
+          "ev3-011": "SPLIT",
+          "ev3-012": "STOP",
+          "ev3-013": "SPLIT",
+          "ev3-014": "SPLIT",
+          "ev3-015": "SPLIT",
+          "ev3-016": "JSONFAIL",
+          "ev3-017": "STOP",
+          "ev3-018": "SPLIT",
+          "ev3-019": "SPLIT",
+          "ev3-020": "SPLIT",
+          "ev3-021": "SPLIT",
+          "ev3-022": "SPLIT",
+          "ev3-023": "SPLIT",
+          "ev3-024": "JSONFAIL",
+          "ev3-025": "SPLIT",
+          "ev3-026": "SPLIT",
+          "ev3-027": "MERGE",
+          "ev3-028": "SPLIT",
+          "ev3-029": "MERGE",
+          "ev3-030": "MERGE",
+          "ev3-031": "MERGE",
+          "ev3-032": "JSONFAIL",
+          "ev3-033": "SPLIT",
+          "ev3-034": "MERGE",
+          "ev3-035": "MERGE",
+          "ev3-036": "MERGE",
+          "ev3-037": "MERGE",
+          "ev3-038": "MERGE",
+          "ev3-039": "MERGE",
+          "ev3-040": "SPLIT",
+          "ev3-041": "MERGE",
+          "ev3-042": "STOP",
+          "ev3-043": "SPLIT",
+          "ev3-044": "MERGE",
+          "ev3-045": "MERGE",
+          "ev3-046": "JSONFAIL",
+          "ev3-047": "STOP",
+          "ev3-048": "SPLIT",
+          "ev3-049": "MERGE",
+          "ev3-050": "MERGE",
+          "ev3-051": "SPLIT",
+          "ev3-052": "JSONFAIL",
+          "ev3-053": "STOP",
+          "ev3-054": "STOP",
+          "ev3-055": "SPLIT",
+          "ev3-056": "SPLIT",
+          "ev3-057": "SPLIT",
+          "ev3-067": "SPLIT",
+          "ev3-068": "SPLIT",
+          "ev3-081": "MERGE",
+          "ev3-082": "SPLIT",
+          "ev3-083": "JSONFAIL",
+          "ev3-084": "SPLIT",
+          "ev3-085": "SPLIT",
+          "ev3-086": "SPLIT",
+          "ev3-087": "MERGE",
+          "ev3-088": "SPLIT",
+          "ev3-096": "SPLIT",
+          "ev3-125": "SPLIT",
+          "ev3-126": "SPLIT",
+          "ev3-143": "SPLIT"
+        },
+        "behaviour_source": "behaviour_v3 recording where available, else committed json_ok + predicted_topic_count",
+        "recording_used_for": 52,
+        "flag_fallback_for": 12,
+        "setting": "canonical temp=0.0 max_tokens=800 (committed)"
+      },
+      "transitions": {
+        "JSONFAIL -> JSONFAIL": 5,
+        "JSONFAIL -> SPLIT": 1,
+        "MERGE -> MERGE": 16,
+        "MERGE -> SPLIT": 1,
+        "SPLIT -> SPLIT": 35,
+        "STOP -> STOP": 6
+      }
+    },
+    "corrected-v3/reppen1200": {
+      "n_cases": 64,
+      "probe": {
+        "n": 64,
+        "strict_ok": 0.9219,
+        "schema_fail": 5,
+        "topic_count_ok": 0.5781,
+        "behaviour": {
+          "SPLIT": 37,
+          "STOP": 6,
+          "JSONFAIL": 5,
+          "MERGE": 16
+        },
+        "jsonfail": 5,
+        "mean_chars": 408.5,
+        "domain_set_exact": 0.4375,
+        "boilerplate_rate": 0.0
+      },
+      "baseline_same_subset": {
+        "n": 64,
+        "strict_ok": 0.9062,
+        "schema_fail": 6,
+        "topic_count_ok": 0.5469,
+        "behaviour": {
+          "SPLIT": 35,
+          "STOP": 6,
+          "JSONFAIL": 6,
+          "MERGE": 17
+        },
+        "jsonfail": 6,
+        "mean_chars": 0.0,
+        "domain_set_exact": null,
+        "boilerplate_rate": null,
+        "behaviour_by_case": {
+          "ev3-001": "SPLIT",
+          "ev3-002": "SPLIT",
+          "ev3-003": "SPLIT",
+          "ev3-011": "SPLIT",
+          "ev3-012": "STOP",
+          "ev3-013": "SPLIT",
+          "ev3-014": "SPLIT",
+          "ev3-015": "SPLIT",
+          "ev3-016": "JSONFAIL",
+          "ev3-017": "STOP",
+          "ev3-018": "SPLIT",
+          "ev3-019": "SPLIT",
+          "ev3-020": "SPLIT",
+          "ev3-021": "SPLIT",
+          "ev3-022": "SPLIT",
+          "ev3-023": "SPLIT",
+          "ev3-024": "JSONFAIL",
+          "ev3-025": "SPLIT",
+          "ev3-026": "SPLIT",
+          "ev3-027": "MERGE",
+          "ev3-028": "SPLIT",
+          "ev3-029": "MERGE",
+          "ev3-030": "MERGE",
+          "ev3-031": "MERGE",
+          "ev3-032": "JSONFAIL",
+          "ev3-033": "SPLIT",
+          "ev3-034": "MERGE",
+          "ev3-035": "MERGE",
+          "ev3-036": "MERGE",
+          "ev3-037": "MERGE",
+          "ev3-038": "MERGE",
+          "ev3-039": "MERGE",
+          "ev3-040": "SPLIT",
+          "ev3-041": "MERGE",
+          "ev3-042": "STOP",
+          "ev3-043": "SPLIT",
+          "ev3-044": "MERGE",
+          "ev3-045": "MERGE",
+          "ev3-046": "JSONFAIL",
+          "ev3-047": "STOP",
+          "ev3-048": "SPLIT",
+          "ev3-049": "MERGE",
+          "ev3-050": "MERGE",
+          "ev3-051": "SPLIT",
+          "ev3-052": "JSONFAIL",
+          "ev3-053": "STOP",
+          "ev3-054": "STOP",
+          "ev3-055": "SPLIT",
+          "ev3-056": "SPLIT",
+          "ev3-057": "SPLIT",
+          "ev3-067": "SPLIT",
+          "ev3-068": "SPLIT",
+          "ev3-081": "MERGE",
+          "ev3-082": "SPLIT",
+          "ev3-083": "JSONFAIL",
+          "ev3-084": "SPLIT",
+          "ev3-085": "SPLIT",
+          "ev3-086": "SPLIT",
+          "ev3-087": "MERGE",
+          "ev3-088": "SPLIT",
+          "ev3-096": "SPLIT",
+          "ev3-125": "SPLIT",
+          "ev3-126": "SPLIT",
+          "ev3-143": "SPLIT"
+        },
+        "behaviour_source": "behaviour_v3 recording where available, else committed json_ok + predicted_topic_count",
+        "recording_used_for": 52,
+        "flag_fallback_for": 12,
+        "setting": "canonical temp=0.0 max_tokens=800 (committed)"
+      },
+      "transitions": {
+        "JSONFAIL -> JSONFAIL": 5,
+        "JSONFAIL -> SPLIT": 1,
+        "MERGE -> MERGE": 16,
+        "MERGE -> SPLIT": 1,
+        "SPLIT -> SPLIT": 35,
+        "STOP -> STOP": 6
+      }
+    },
+    "corrected-v3/temp01": {
+      "n_cases": 64,
+      "probe": {
+        "n": 64,
+        "strict_ok": 0.9219,
+        "schema_fail": 5,
+        "topic_count_ok": 0.6094,
+        "behaviour": {
+          "SPLIT": 39,
+          "STOP": 6,
+          "JSONFAIL": 5,
+          "MERGE": 14
+        },
+        "jsonfail": 5,
+        "mean_chars": 412.0,
+        "domain_set_exact": 0.4531,
+        "boilerplate_rate": 0.0
+      },
+      "baseline_same_subset": {
+        "n": 64,
+        "strict_ok": 0.9062,
+        "schema_fail": 6,
+        "topic_count_ok": 0.5469,
+        "behaviour": {
+          "SPLIT": 35,
+          "STOP": 6,
+          "JSONFAIL": 6,
+          "MERGE": 17
+        },
+        "jsonfail": 6,
+        "mean_chars": 0.0,
+        "domain_set_exact": null,
+        "boilerplate_rate": null,
+        "behaviour_by_case": {
+          "ev3-001": "SPLIT",
+          "ev3-002": "SPLIT",
+          "ev3-003": "SPLIT",
+          "ev3-011": "SPLIT",
+          "ev3-012": "STOP",
+          "ev3-013": "SPLIT",
+          "ev3-014": "SPLIT",
+          "ev3-015": "SPLIT",
+          "ev3-016": "JSONFAIL",
+          "ev3-017": "STOP",
+          "ev3-018": "SPLIT",
+          "ev3-019": "SPLIT",
+          "ev3-020": "SPLIT",
+          "ev3-021": "SPLIT",
+          "ev3-022": "SPLIT",
+          "ev3-023": "SPLIT",
+          "ev3-024": "JSONFAIL",
+          "ev3-025": "SPLIT",
+          "ev3-026": "SPLIT",
+          "ev3-027": "MERGE",
+          "ev3-028": "SPLIT",
+          "ev3-029": "MERGE",
+          "ev3-030": "MERGE",
+          "ev3-031": "MERGE",
+          "ev3-032": "JSONFAIL",
+          "ev3-033": "SPLIT",
+          "ev3-034": "MERGE",
+          "ev3-035": "MERGE",
+          "ev3-036": "MERGE",
+          "ev3-037": "MERGE",
+          "ev3-038": "MERGE",
+          "ev3-039": "MERGE",
+          "ev3-040": "SPLIT",
+          "ev3-041": "MERGE",
+          "ev3-042": "STOP",
+          "ev3-043": "SPLIT",
+          "ev3-044": "MERGE",
+          "ev3-045": "MERGE",
+          "ev3-046": "JSONFAIL",
+          "ev3-047": "STOP",
+          "ev3-048": "SPLIT",
+          "ev3-049": "MERGE",
+          "ev3-050": "MERGE",
+          "ev3-051": "SPLIT",
+          "ev3-052": "JSONFAIL",
+          "ev3-053": "STOP",
+          "ev3-054": "STOP",
+          "ev3-055": "SPLIT",
+          "ev3-056": "SPLIT",
+          "ev3-057": "SPLIT",
+          "ev3-067": "SPLIT",
+          "ev3-068": "SPLIT",
+          "ev3-081": "MERGE",
+          "ev3-082": "SPLIT",
+          "ev3-083": "JSONFAIL",
+          "ev3-084": "SPLIT",
+          "ev3-085": "SPLIT",
+          "ev3-086": "SPLIT",
+          "ev3-087": "MERGE",
+          "ev3-088": "SPLIT",
+          "ev3-096": "SPLIT",
+          "ev3-125": "SPLIT",
+          "ev3-126": "SPLIT",
+          "ev3-143": "SPLIT"
+        },
+        "behaviour_source": "behaviour_v3 recording where available, else committed json_ok + predicted_topic_count",
+        "recording_used_for": 52,
+        "flag_fallback_for": 12,
+        "setting": "canonical temp=0.0 max_tokens=800 (committed)"
+      },
+      "transitions": {
+        "JSONFAIL -> JSONFAIL": 5,
+        "JSONFAIL -> SPLIT": 1,
+        "MERGE -> MERGE": 14,
+        "MERGE -> SPLIT": 3,
+        "SPLIT -> SPLIT": 35,
+        "STOP -> STOP": 6
+      }
+    },
+    "corrected-v3/temp01_norep": {
+      "n_cases": 64,
+      "probe": {
+        "n": 64,
+        "strict_ok": 0.9062,
+        "schema_fail": 6,
+        "topic_count_ok": 0.5469,
+        "behaviour": {
+          "SPLIT": 35,
+          "STOP": 6,
+          "JSONFAIL": 6,
+          "MERGE": 17
+        },
+        "jsonfail": 6,
+        "mean_chars": 442.9,
+        "domain_set_exact": 0.4219,
+        "boilerplate_rate": 0.0
+      },
+      "baseline_same_subset": {
+        "n": 64,
+        "strict_ok": 0.9062,
+        "schema_fail": 6,
+        "topic_count_ok": 0.5469,
+        "behaviour": {
+          "SPLIT": 35,
+          "STOP": 6,
+          "JSONFAIL": 6,
+          "MERGE": 17
+        },
+        "jsonfail": 6,
+        "mean_chars": 0.0,
+        "domain_set_exact": null,
+        "boilerplate_rate": null,
+        "behaviour_by_case": {
+          "ev3-001": "SPLIT",
+          "ev3-002": "SPLIT",
+          "ev3-003": "SPLIT",
+          "ev3-011": "SPLIT",
+          "ev3-012": "STOP",
+          "ev3-013": "SPLIT",
+          "ev3-014": "SPLIT",
+          "ev3-015": "SPLIT",
+          "ev3-016": "JSONFAIL",
+          "ev3-017": "STOP",
+          "ev3-018": "SPLIT",
+          "ev3-019": "SPLIT",
+          "ev3-020": "SPLIT",
+          "ev3-021": "SPLIT",
+          "ev3-022": "SPLIT",
+          "ev3-023": "SPLIT",
+          "ev3-024": "JSONFAIL",
+          "ev3-025": "SPLIT",
+          "ev3-026": "SPLIT",
+          "ev3-027": "MERGE",
+          "ev3-028": "SPLIT",
+          "ev3-029": "MERGE",
+          "ev3-030": "MERGE",
+          "ev3-031": "MERGE",
+          "ev3-032": "JSONFAIL",
+          "ev3-033": "SPLIT",
+          "ev3-034": "MERGE",
+          "ev3-035": "MERGE",
+          "ev3-036": "MERGE",
+          "ev3-037": "MERGE",
+          "ev3-038": "MERGE",
+          "ev3-039": "MERGE",
+          "ev3-040": "SPLIT",
+          "ev3-041": "MERGE",
+          "ev3-042": "STOP",
+          "ev3-043": "SPLIT",
+          "ev3-044": "MERGE",
+          "ev3-045": "MERGE",
+          "ev3-046": "JSONFAIL",
+          "ev3-047": "STOP",
+          "ev3-048": "SPLIT",
+          "ev3-049": "MERGE",
+          "ev3-050": "MERGE",
+          "ev3-051": "SPLIT",
+          "ev3-052": "JSONFAIL",
+          "ev3-053": "STOP",
+          "ev3-054": "STOP",
+          "ev3-055": "SPLIT",
+          "ev3-056": "SPLIT",
+          "ev3-057": "SPLIT",
+          "ev3-067": "SPLIT",
+          "ev3-068": "SPLIT",
+          "ev3-081": "MERGE",
+          "ev3-082": "SPLIT",
+          "ev3-083": "JSONFAIL",
+          "ev3-084": "SPLIT",
+          "ev3-085": "SPLIT",
+          "ev3-086": "SPLIT",
+          "ev3-087": "MERGE",
+          "ev3-088": "SPLIT",
+          "ev3-096": "SPLIT",
+          "ev3-125": "SPLIT",
+          "ev3-126": "SPLIT",
+          "ev3-143": "SPLIT"
+        },
+        "behaviour_source": "behaviour_v3 recording where available, else committed json_ok + predicted_topic_count",
+        "recording_used_for": 52,
+        "flag_fallback_for": 12,
+        "setting": "canonical temp=0.0 max_tokens=800 (committed)"
+      },
+      "transitions": {
+        "JSONFAIL -> JSONFAIL": 6,
+        "MERGE -> MERGE": 17,
+        "SPLIT -> SPLIT": 35,
+        "STOP -> STOP": 6
+      }
+    },
+    "v2/budget1200": {
+      "n_cases": 64,
+      "probe": {
+        "n": 64,
+        "strict_ok": 1.0,
+        "schema_fail": 0,
+        "topic_count_ok": 0.5938,
+        "behaviour": {
+          "SPLIT": 38,
+          "MERGE": 20,
+          "STOP": 6
+        },
+        "jsonfail": 0,
+        "mean_chars": 428.2,
+        "domain_set_exact": 0.4219,
+        "boilerplate_rate": 0.125
+      },
+      "baseline_same_subset": {
+        "n": 64,
+        "strict_ok": 1.0,
+        "schema_fail": 0,
+        "topic_count_ok": 0.5938,
+        "behaviour": {
+          "SPLIT": 38,
+          "STOP": 26
+        },
+        "jsonfail": 0,
+        "mean_chars": 0.0,
+        "domain_set_exact": null,
+        "boilerplate_rate": null,
+        "behaviour_by_case": {
+          "ev3-001": "SPLIT",
+          "ev3-002": "SPLIT",
+          "ev3-003": "SPLIT",
+          "ev3-011": "STOP",
+          "ev3-012": "STOP",
+          "ev3-013": "SPLIT",
+          "ev3-014": "SPLIT",
+          "ev3-015": "STOP",
+          "ev3-016": "STOP",
+          "ev3-017": "STOP",
+          "ev3-018": "SPLIT",
+          "ev3-019": "SPLIT",
+          "ev3-020": "SPLIT",
+          "ev3-021": "SPLIT",
+          "ev3-022": "SPLIT",
+          "ev3-023": "SPLIT",
+          "ev3-024": "STOP",
+          "ev3-025": "SPLIT",
+          "ev3-026": "SPLIT",
+          "ev3-027": "STOP",
+          "ev3-028": "STOP",
+          "ev3-029": "SPLIT",
+          "ev3-030": "STOP",
+          "ev3-031": "STOP",
+          "ev3-032": "STOP",
+          "ev3-033": "SPLIT",
+          "ev3-034": "SPLIT",
+          "ev3-035": "SPLIT",
+          "ev3-036": "SPLIT",
+          "ev3-037": "STOP",
+          "ev3-038": "STOP",
+          "ev3-039": "STOP",
+          "ev3-040": "SPLIT",
+          "ev3-041": "STOP",
+          "ev3-042": "STOP",
+          "ev3-043": "STOP",
+          "ev3-044": "SPLIT",
+          "ev3-045": "STOP",
+          "ev3-046": "SPLIT",
+          "ev3-047": "STOP",
+          "ev3-048": "SPLIT",
+          "ev3-049": "STOP",
+          "ev3-050": "STOP",
+          "ev3-051": "STOP",
+          "ev3-052": "STOP",
+          "ev3-053": "STOP",
+          "ev3-054": "STOP",
+          "ev3-055": "SPLIT",
+          "ev3-056": "SPLIT",
+          "ev3-057": "SPLIT",
+          "ev3-067": "SPLIT",
+          "ev3-068": "SPLIT",
+          "ev3-081": "STOP",
+          "ev3-082": "SPLIT",
+          "ev3-083": "SPLIT",
+          "ev3-084": "SPLIT",
+          "ev3-085": "SPLIT",
+          "ev3-086": "SPLIT",
+          "ev3-087": "SPLIT",
+          "ev3-088": "SPLIT",
+          "ev3-096": "SPLIT",
+          "ev3-125": "SPLIT",
+          "ev3-126": "SPLIT",
+          "ev3-143": "SPLIT"
+        },
+        "behaviour_source": "behaviour_v3 recording where available, else committed json_ok + predicted_topic_count",
+        "recording_used_for": 0,
+        "flag_fallback_for": 64,
+        "setting": "canonical temp=0.0 max_tokens=800 (committed)"
+      },
+      "transitions": {
+        "SPLIT -> SPLIT": 38,
+        "STOP -> MERGE": 20,
+        "STOP -> STOP": 6
+      }
+    },
+    "v2/reppen105": {
+      "n_cases": 64,
+      "probe": {
+        "n": 64,
+        "strict_ok": 1.0,
+        "schema_fail": 0,
+        "topic_count_ok": 0.5781,
+        "behaviour": {
+          "SPLIT": 37,
+          "MERGE": 21,
+          "STOP": 6
+        },
+        "jsonfail": 0,
+        "mean_chars": 421.7,
+        "domain_set_exact": 0.4062,
+        "boilerplate_rate": 0.1094
+      },
+      "baseline_same_subset": {
+        "n": 64,
+        "strict_ok": 1.0,
+        "schema_fail": 0,
+        "topic_count_ok": 0.5938,
+        "behaviour": {
+          "SPLIT": 38,
+          "STOP": 26
+        },
+        "jsonfail": 0,
+        "mean_chars": 0.0,
+        "domain_set_exact": null,
+        "boilerplate_rate": null,
+        "behaviour_by_case": {
+          "ev3-001": "SPLIT",
+          "ev3-002": "SPLIT",
+          "ev3-003": "SPLIT",
+          "ev3-011": "STOP",
+          "ev3-012": "STOP",
+          "ev3-013": "SPLIT",
+          "ev3-014": "SPLIT",
+          "ev3-015": "STOP",
+          "ev3-016": "STOP",
+          "ev3-017": "STOP",
+          "ev3-018": "SPLIT",
+          "ev3-019": "SPLIT",
+          "ev3-020": "SPLIT",
+          "ev3-021": "SPLIT",
+          "ev3-022": "SPLIT",
+          "ev3-023": "SPLIT",
+          "ev3-024": "STOP",
+          "ev3-025": "SPLIT",
+          "ev3-026": "SPLIT",
+          "ev3-027": "STOP",
+          "ev3-028": "STOP",
+          "ev3-029": "SPLIT",
+          "ev3-030": "STOP",
+          "ev3-031": "STOP",
+          "ev3-032": "STOP",
+          "ev3-033": "SPLIT",
+          "ev3-034": "SPLIT",
+          "ev3-035": "SPLIT",
+          "ev3-036": "SPLIT",
+          "ev3-037": "STOP",
+          "ev3-038": "STOP",
+          "ev3-039": "STOP",
+          "ev3-040": "SPLIT",
+          "ev3-041": "STOP",
+          "ev3-042": "STOP",
+          "ev3-043": "STOP",
+          "ev3-044": "SPLIT",
+          "ev3-045": "STOP",
+          "ev3-046": "SPLIT",
+          "ev3-047": "STOP",
+          "ev3-048": "SPLIT",
+          "ev3-049": "STOP",
+          "ev3-050": "STOP",
+          "ev3-051": "STOP",
+          "ev3-052": "STOP",
+          "ev3-053": "STOP",
+          "ev3-054": "STOP",
+          "ev3-055": "SPLIT",
+          "ev3-056": "SPLIT",
+          "ev3-057": "SPLIT",
+          "ev3-067": "SPLIT",
+          "ev3-068": "SPLIT",
+          "ev3-081": "STOP",
+          "ev3-082": "SPLIT",
+          "ev3-083": "SPLIT",
+          "ev3-084": "SPLIT",
+          "ev3-085": "SPLIT",
+          "ev3-086": "SPLIT",
+          "ev3-087": "SPLIT",
+          "ev3-088": "SPLIT",
+          "ev3-096": "SPLIT",
+          "ev3-125": "SPLIT",
+          "ev3-126": "SPLIT",
+          "ev3-143": "SPLIT"
+        },
+        "behaviour_source": "behaviour_v3 recording where available, else committed json_ok + predicted_topic_count",
+        "recording_used_for": 0,
+        "flag_fallback_for": 64,
+        "setting": "canonical temp=0.0 max_tokens=800 (committed)"
+      },
+      "transitions": {
+        "SPLIT -> MERGE": 1,
+        "SPLIT -> SPLIT": 37,
+        "STOP -> MERGE": 20,
+        "STOP -> STOP": 6
+      }
+    },
+    "v2/reppen1200": {
+      "n_cases": 64,
+      "probe": {
+        "n": 64,
+        "strict_ok": 1.0,
+        "schema_fail": 0,
+        "topic_count_ok": 0.5781,
+        "behaviour": {
+          "SPLIT": 37,
+          "MERGE": 21,
+          "STOP": 6
+        },
+        "jsonfail": 0,
+        "mean_chars": 421.7,
+        "domain_set_exact": 0.4062,
+        "boilerplate_rate": 0.1094
+      },
+      "baseline_same_subset": {
+        "n": 64,
+        "strict_ok": 1.0,
+        "schema_fail": 0,
+        "topic_count_ok": 0.5938,
+        "behaviour": {
+          "SPLIT": 38,
+          "STOP": 26
+        },
+        "jsonfail": 0,
+        "mean_chars": 0.0,
+        "domain_set_exact": null,
+        "boilerplate_rate": null,
+        "behaviour_by_case": {
+          "ev3-001": "SPLIT",
+          "ev3-002": "SPLIT",
+          "ev3-003": "SPLIT",
+          "ev3-011": "STOP",
+          "ev3-012": "STOP",
+          "ev3-013": "SPLIT",
+          "ev3-014": "SPLIT",
+          "ev3-015": "STOP",
+          "ev3-016": "STOP",
+          "ev3-017": "STOP",
+          "ev3-018": "SPLIT",
+          "ev3-019": "SPLIT",
+          "ev3-020": "SPLIT",
+          "ev3-021": "SPLIT",
+          "ev3-022": "SPLIT",
+          "ev3-023": "SPLIT",
+          "ev3-024": "STOP",
+          "ev3-025": "SPLIT",
+          "ev3-026": "SPLIT",
+          "ev3-027": "STOP",
+          "ev3-028": "STOP",
+          "ev3-029": "SPLIT",
+          "ev3-030": "STOP",
+          "ev3-031": "STOP",
+          "ev3-032": "STOP",
+          "ev3-033": "SPLIT",
+          "ev3-034": "SPLIT",
+          "ev3-035": "SPLIT",
+          "ev3-036": "SPLIT",
+          "ev3-037": "STOP",
+          "ev3-038": "STOP",
+          "ev3-039": "STOP",
+          "ev3-040": "SPLIT",
+          "ev3-041": "STOP",
+          "ev3-042": "STOP",
+          "ev3-043": "STOP",
+          "ev3-044": "SPLIT",
+          "ev3-045": "STOP",
+          "ev3-046": "SPLIT",
+          "ev3-047": "STOP",
+          "ev3-048": "SPLIT",
+          "ev3-049": "STOP",
+          "ev3-050": "STOP",
+          "ev3-051": "STOP",
+          "ev3-052": "STOP",
+          "ev3-053": "STOP",
+          "ev3-054": "STOP",
+          "ev3-055": "SPLIT",
+          "ev3-056": "SPLIT",
+          "ev3-057": "SPLIT",
+          "ev3-067": "SPLIT",
+          "ev3-068": "SPLIT",
+          "ev3-081": "STOP",
+          "ev3-082": "SPLIT",
+          "ev3-083": "SPLIT",
+          "ev3-084": "SPLIT",
+          "ev3-085": "SPLIT",
+          "ev3-086": "SPLIT",
+          "ev3-087": "SPLIT",
+          "ev3-088": "SPLIT",
+          "ev3-096": "SPLIT",
+          "ev3-125": "SPLIT",
+          "ev3-126": "SPLIT",
+          "ev3-143": "SPLIT"
+        },
+        "behaviour_source": "behaviour_v3 recording where available, else committed json_ok + predicted_topic_count",
+        "recording_used_for": 0,
+        "flag_fallback_for": 64,
+        "setting": "canonical temp=0.0 max_tokens=800 (committed)"
+      },
+      "transitions": {
+        "SPLIT -> MERGE": 1,
+        "SPLIT -> SPLIT": 37,
+        "STOP -> MERGE": 20,
+        "STOP -> STOP": 6
+      }
+    },
+    "v2/temp01": {
+      "n_cases": 64,
+      "probe": {
+        "n": 64,
+        "strict_ok": 1.0,
+        "schema_fail": 0,
+        "topic_count_ok": 0.5938,
+        "behaviour": {
+          "SPLIT": 38,
+          "MERGE": 20,
+          "STOP": 6
+        },
+        "jsonfail": 0,
+        "mean_chars": 416.7,
+        "domain_set_exact": 0.4219,
+        "boilerplate_rate": 0.1094
+      },
+      "baseline_same_subset": {
+        "n": 64,
+        "strict_ok": 1.0,
+        "schema_fail": 0,
+        "topic_count_ok": 0.5938,
+        "behaviour": {
+          "SPLIT": 38,
+          "STOP": 26
+        },
+        "jsonfail": 0,
+        "mean_chars": 0.0,
+        "domain_set_exact": null,
+        "boilerplate_rate": null,
+        "behaviour_by_case": {
+          "ev3-001": "SPLIT",
+          "ev3-002": "SPLIT",
+          "ev3-003": "SPLIT",
+          "ev3-011": "STOP",
+          "ev3-012": "STOP",
+          "ev3-013": "SPLIT",
+          "ev3-014": "SPLIT",
+          "ev3-015": "STOP",
+          "ev3-016": "STOP",
+          "ev3-017": "STOP",
+          "ev3-018": "SPLIT",
+          "ev3-019": "SPLIT",
+          "ev3-020": "SPLIT",
+          "ev3-021": "SPLIT",
+          "ev3-022": "SPLIT",
+          "ev3-023": "SPLIT",
+          "ev3-024": "STOP",
+          "ev3-025": "SPLIT",
+          "ev3-026": "SPLIT",
+          "ev3-027": "STOP",
+          "ev3-028": "STOP",
+          "ev3-029": "SPLIT",
+          "ev3-030": "STOP",
+          "ev3-031": "STOP",
+          "ev3-032": "STOP",
+          "ev3-033": "SPLIT",
+          "ev3-034": "SPLIT",
+          "ev3-035": "SPLIT",
+          "ev3-036": "SPLIT",
+          "ev3-037": "STOP",
+          "ev3-038": "STOP",
+          "ev3-039": "STOP",
+          "ev3-040": "SPLIT",
+          "ev3-041": "STOP",
+          "ev3-042": "STOP",
+          "ev3-043": "STOP",
+          "ev3-044": "SPLIT",
+          "ev3-045": "STOP",
+          "ev3-046": "SPLIT",
+          "ev3-047": "STOP",
+          "ev3-048": "SPLIT",
+          "ev3-049": "STOP",
+          "ev3-050": "STOP",
+          "ev3-051": "STOP",
+          "ev3-052": "STOP",
+          "ev3-053": "STOP",
+          "ev3-054": "STOP",
+          "ev3-055": "SPLIT",
+          "ev3-056": "SPLIT",
+          "ev3-057": "SPLIT",
+          "ev3-067": "SPLIT",
+          "ev3-068": "SPLIT",
+          "ev3-081": "STOP",
+          "ev3-082": "SPLIT",
+          "ev3-083": "SPLIT",
+          "ev3-084": "SPLIT",
+          "ev3-085": "SPLIT",
+          "ev3-086": "SPLIT",
+          "ev3-087": "SPLIT",
+          "ev3-088": "SPLIT",
+          "ev3-096": "SPLIT",
+          "ev3-125": "SPLIT",
+          "ev3-126": "SPLIT",
+          "ev3-143": "SPLIT"
+        },
+        "behaviour_source": "behaviour_v3 recording where available, else committed json_ok + predicted_topic_count",
+        "recording_used_for": 0,
+        "flag_fallback_for": 64,
+        "setting": "canonical temp=0.0 max_tokens=800 (committed)"
+      },
+      "transitions": {
+        "SPLIT -> MERGE": 1,
+        "SPLIT -> SPLIT": 37,
+        "STOP -> MERGE": 19,
+        "STOP -> SPLIT": 1,
+        "STOP -> STOP": 6
+      }
+    },
+    "v2/temp01_norep": {
+      "n_cases": 64,
+      "probe": {
+        "n": 64,
+        "strict_ok": 1.0,
+        "schema_fail": 0,
+        "topic_count_ok": 0.6094,
+        "behaviour": {
+          "SPLIT": 39,
+          "MERGE": 19,
+          "STOP": 6
+        },
+        "jsonfail": 0,
+        "mean_chars": 429.3,
+        "domain_set_exact": 0.4375,
+        "boilerplate_rate": 0.125
+      },
+      "baseline_same_subset": {
+        "n": 64,
+        "strict_ok": 1.0,
+        "schema_fail": 0,
+        "topic_count_ok": 0.5938,
+        "behaviour": {
+          "SPLIT": 38,
+          "STOP": 26
+        },
+        "jsonfail": 0,
+        "mean_chars": 0.0,
+        "domain_set_exact": null,
+        "boilerplate_rate": null,
+        "behaviour_by_case": {
+          "ev3-001": "SPLIT",
+          "ev3-002": "SPLIT",
+          "ev3-003": "SPLIT",
+          "ev3-011": "STOP",
+          "ev3-012": "STOP",
+          "ev3-013": "SPLIT",
+          "ev3-014": "SPLIT",
+          "ev3-015": "STOP",
+          "ev3-016": "STOP",
+          "ev3-017": "STOP",
+          "ev3-018": "SPLIT",
+          "ev3-019": "SPLIT",
+          "ev3-020": "SPLIT",
+          "ev3-021": "SPLIT",
+          "ev3-022": "SPLIT",
+          "ev3-023": "SPLIT",
+          "ev3-024": "STOP",
+          "ev3-025": "SPLIT",
+          "ev3-026": "SPLIT",
+          "ev3-027": "STOP",
+          "ev3-028": "STOP",
+          "ev3-029": "SPLIT",
+          "ev3-030": "STOP",
+          "ev3-031": "STOP",
+          "ev3-032": "STOP",
+          "ev3-033": "SPLIT",
+          "ev3-034": "SPLIT",
+          "ev3-035": "SPLIT",
+          "ev3-036": "SPLIT",
+          "ev3-037": "STOP",
+          "ev3-038": "STOP",
+          "ev3-039": "STOP",
+          "ev3-040": "SPLIT",
+          "ev3-041": "STOP",
+          "ev3-042": "STOP",
+          "ev3-043": "STOP",
+          "ev3-044": "SPLIT",
+          "ev3-045": "STOP",
+          "ev3-046": "SPLIT",
+          "ev3-047": "STOP",
+          "ev3-048": "SPLIT",
+          "ev3-049": "STOP",
+          "ev3-050": "STOP",
+          "ev3-051": "STOP",
+          "ev3-052": "STOP",
+          "ev3-053": "STOP",
+          "ev3-054": "STOP",
+          "ev3-055": "SPLIT",
+          "ev3-056": "SPLIT",
+          "ev3-057": "SPLIT",
+          "ev3-067": "SPLIT",
+          "ev3-068": "SPLIT",
+          "ev3-081": "STOP",
+          "ev3-082": "SPLIT",
+          "ev3-083": "SPLIT",
+          "ev3-084": "SPLIT",
+          "ev3-085": "SPLIT",
+          "ev3-086": "SPLIT",
+          "ev3-087": "SPLIT",
+          "ev3-088": "SPLIT",
+          "ev3-096": "SPLIT",
+          "ev3-125": "SPLIT",
+          "ev3-126": "SPLIT",
+          "ev3-143": "SPLIT"
+        },
+        "behaviour_source": "behaviour_v3 recording where available, else committed json_ok + predicted_topic_count",
+        "recording_used_for": 0,
+        "flag_fallback_for": 64,
+        "setting": "canonical temp=0.0 max_tokens=800 (committed)"
+      },
+      "transitions": {
+        "SPLIT -> SPLIT": 38,
+        "STOP -> MERGE": 19,
+        "STOP -> SPLIT": 1,
+        "STOP -> STOP": 6
+      }
+    },
+    "v3-2/budget1200": {
+      "n_cases": 64,
+      "probe": {
+        "n": 64,
+        "strict_ok": 0.8125,
+        "schema_fail": 12,
+        "topic_count_ok": 0.5,
+        "behaviour": {
+          "SPLIT": 32,
+          "MERGE": 12,
+          "STOP": 8,
+          "JSONFAIL": 12
+        },
+        "jsonfail": 12,
+        "mean_chars": 612.8,
+        "domain_set_exact": 0.375,
+        "boilerplate_rate": 0.0
+      },
+      "baseline_same_subset": {
+        "n": 64,
+        "strict_ok": 0.8125,
+        "schema_fail": 12,
+        "topic_count_ok": 0.5,
+        "behaviour": {
+          "SPLIT": 32,
+          "MERGE": 12,
+          "STOP": 8,
+          "JSONFAIL": 12
+        },
+        "jsonfail": 12,
+        "mean_chars": 0.0,
+        "domain_set_exact": null,
+        "boilerplate_rate": null,
+        "behaviour_by_case": {
+          "ev3-001": "SPLIT",
+          "ev3-002": "SPLIT",
+          "ev3-003": "SPLIT",
+          "ev3-011": "MERGE",
+          "ev3-012": "STOP",
+          "ev3-013": "SPLIT",
+          "ev3-014": "MERGE",
+          "ev3-015": "SPLIT",
+          "ev3-016": "JSONFAIL",
+          "ev3-017": "JSONFAIL",
+          "ev3-018": "STOP",
+          "ev3-019": "SPLIT",
+          "ev3-020": "SPLIT",
+          "ev3-021": "SPLIT",
+          "ev3-022": "MERGE",
+          "ev3-023": "SPLIT",
+          "ev3-024": "JSONFAIL",
+          "ev3-025": "JSONFAIL",
+          "ev3-026": "SPLIT",
+          "ev3-027": "STOP",
+          "ev3-028": "JSONFAIL",
+          "ev3-029": "MERGE",
+          "ev3-030": "MERGE",
+          "ev3-031": "MERGE",
+          "ev3-032": "JSONFAIL",
+          "ev3-033": "SPLIT",
+          "ev3-034": "SPLIT",
+          "ev3-035": "SPLIT",
+          "ev3-036": "JSONFAIL",
+          "ev3-037": "JSONFAIL",
+          "ev3-038": "MERGE",
+          "ev3-039": "SPLIT",
+          "ev3-040": "SPLIT",
+          "ev3-041": "STOP",
+          "ev3-042": "STOP",
+          "ev3-043": "SPLIT",
+          "ev3-044": "MERGE",
+          "ev3-045": "MERGE",
+          "ev3-046": "JSONFAIL",
+          "ev3-047": "JSONFAIL",
+          "ev3-048": "SPLIT",
+          "ev3-049": "JSONFAIL",
+          "ev3-050": "STOP",
+          "ev3-051": "SPLIT",
+          "ev3-052": "JSONFAIL",
+          "ev3-053": "STOP",
+          "ev3-054": "STOP",
+          "ev3-055": "SPLIT",
+          "ev3-056": "SPLIT",
+          "ev3-057": "SPLIT",
+          "ev3-067": "SPLIT",
+          "ev3-068": "SPLIT",
+          "ev3-081": "MERGE",
+          "ev3-082": "MERGE",
+          "ev3-083": "SPLIT",
+          "ev3-084": "SPLIT",
+          "ev3-085": "SPLIT",
+          "ev3-086": "SPLIT",
+          "ev3-087": "MERGE",
+          "ev3-088": "SPLIT",
+          "ev3-096": "SPLIT",
+          "ev3-125": "SPLIT",
+          "ev3-126": "SPLIT",
+          "ev3-143": "SPLIT"
+        },
+        "behaviour_source": "behaviour_v3 recording where available, else committed json_ok + predicted_topic_count",
+        "recording_used_for": 52,
+        "flag_fallback_for": 12,
+        "setting": "canonical temp=0.0 max_tokens=800 (committed)"
+      },
+      "transitions": {
+        "JSONFAIL -> JSONFAIL": 12,
+        "MERGE -> MERGE": 12,
+        "SPLIT -> SPLIT": 32,
+        "STOP -> STOP": 8
+      }
+    },
+    "v3-2/reppen105": {
+      "n_cases": 64,
+      "probe": {
+        "n": 64,
+        "strict_ok": 0.8438,
+        "schema_fail": 10,
+        "topic_count_ok": 0.5469,
+        "behaviour": {
+          "SPLIT": 35,
+          "MERGE": 11,
+          "STOP": 8,
+          "JSONFAIL": 10
+        },
+        "jsonfail": 10,
+        "mean_chars": 500.0,
+        "domain_set_exact": 0.4062,
+        "boilerplate_rate": 0.0
+      },
+      "baseline_same_subset": {
+        "n": 64,
+        "strict_ok": 0.8125,
+        "schema_fail": 12,
+        "topic_count_ok": 0.5,
+        "behaviour": {
+          "SPLIT": 32,
+          "MERGE": 12,
+          "STOP": 8,
+          "JSONFAIL": 12
+        },
+        "jsonfail": 12,
+        "mean_chars": 0.0,
+        "domain_set_exact": null,
+        "boilerplate_rate": null,
+        "behaviour_by_case": {
+          "ev3-001": "SPLIT",
+          "ev3-002": "SPLIT",
+          "ev3-003": "SPLIT",
+          "ev3-011": "MERGE",
+          "ev3-012": "STOP",
+          "ev3-013": "SPLIT",
+          "ev3-014": "MERGE",
+          "ev3-015": "SPLIT",
+          "ev3-016": "JSONFAIL",
+          "ev3-017": "JSONFAIL",
+          "ev3-018": "STOP",
+          "ev3-019": "SPLIT",
+          "ev3-020": "SPLIT",
+          "ev3-021": "SPLIT",
+          "ev3-022": "MERGE",
+          "ev3-023": "SPLIT",
+          "ev3-024": "JSONFAIL",
+          "ev3-025": "JSONFAIL",
+          "ev3-026": "SPLIT",
+          "ev3-027": "STOP",
+          "ev3-028": "JSONFAIL",
+          "ev3-029": "MERGE",
+          "ev3-030": "MERGE",
+          "ev3-031": "MERGE",
+          "ev3-032": "JSONFAIL",
+          "ev3-033": "SPLIT",
+          "ev3-034": "SPLIT",
+          "ev3-035": "SPLIT",
+          "ev3-036": "JSONFAIL",
+          "ev3-037": "JSONFAIL",
+          "ev3-038": "MERGE",
+          "ev3-039": "SPLIT",
+          "ev3-040": "SPLIT",
+          "ev3-041": "STOP",
+          "ev3-042": "STOP",
+          "ev3-043": "SPLIT",
+          "ev3-044": "MERGE",
+          "ev3-045": "MERGE",
+          "ev3-046": "JSONFAIL",
+          "ev3-047": "JSONFAIL",
+          "ev3-048": "SPLIT",
+          "ev3-049": "JSONFAIL",
+          "ev3-050": "STOP",
+          "ev3-051": "SPLIT",
+          "ev3-052": "JSONFAIL",
+          "ev3-053": "STOP",
+          "ev3-054": "STOP",
+          "ev3-055": "SPLIT",
+          "ev3-056": "SPLIT",
+          "ev3-057": "SPLIT",
+          "ev3-067": "SPLIT",
+          "ev3-068": "SPLIT",
+          "ev3-081": "MERGE",
+          "ev3-082": "MERGE",
+          "ev3-083": "SPLIT",
+          "ev3-084": "SPLIT",
+          "ev3-085": "SPLIT",
+          "ev3-086": "SPLIT",
+          "ev3-087": "MERGE",
+          "ev3-088": "SPLIT",
+          "ev3-096": "SPLIT",
+          "ev3-125": "SPLIT",
+          "ev3-126": "SPLIT",
+          "ev3-143": "SPLIT"
+        },
+        "behaviour_source": "behaviour_v3 recording where available, else committed json_ok + predicted_topic_count",
+        "recording_used_for": 52,
+        "flag_fallback_for": 12,
+        "setting": "canonical temp=0.0 max_tokens=800 (committed)"
+      },
+      "transitions": {
+        "JSONFAIL -> JSONFAIL": 10,
+        "JSONFAIL -> MERGE": 1,
+        "JSONFAIL -> SPLIT": 1,
+        "MERGE -> MERGE": 10,
+        "MERGE -> SPLIT": 2,
+        "SPLIT -> SPLIT": 32,
+        "STOP -> STOP": 8
+      }
+    },
+    "v3-2/reppen1200": {
+      "n_cases": 64,
+      "probe": {
+        "n": 64,
+        "strict_ok": 0.8438,
+        "schema_fail": 10,
+        "topic_count_ok": 0.5469,
+        "behaviour": {
+          "SPLIT": 35,
+          "MERGE": 11,
+          "STOP": 8,
+          "JSONFAIL": 10
+        },
+        "jsonfail": 10,
+        "mean_chars": 559.8,
+        "domain_set_exact": 0.4062,
+        "boilerplate_rate": 0.0
+      },
+      "baseline_same_subset": {
+        "n": 64,
+        "strict_ok": 0.8125,
+        "schema_fail": 12,
+        "topic_count_ok": 0.5,
+        "behaviour": {
+          "SPLIT": 32,
+          "MERGE": 12,
+          "STOP": 8,
+          "JSONFAIL": 12
+        },
+        "jsonfail": 12,
+        "mean_chars": 0.0,
+        "domain_set_exact": null,
+        "boilerplate_rate": null,
+        "behaviour_by_case": {
+          "ev3-001": "SPLIT",
+          "ev3-002": "SPLIT",
+          "ev3-003": "SPLIT",
+          "ev3-011": "MERGE",
+          "ev3-012": "STOP",
+          "ev3-013": "SPLIT",
+          "ev3-014": "MERGE",
+          "ev3-015": "SPLIT",
+          "ev3-016": "JSONFAIL",
+          "ev3-017": "JSONFAIL",
+          "ev3-018": "STOP",
+          "ev3-019": "SPLIT",
+          "ev3-020": "SPLIT",
+          "ev3-021": "SPLIT",
+          "ev3-022": "MERGE",
+          "ev3-023": "SPLIT",
+          "ev3-024": "JSONFAIL",
+          "ev3-025": "JSONFAIL",
+          "ev3-026": "SPLIT",
+          "ev3-027": "STOP",
+          "ev3-028": "JSONFAIL",
+          "ev3-029": "MERGE",
+          "ev3-030": "MERGE",
+          "ev3-031": "MERGE",
+          "ev3-032": "JSONFAIL",
+          "ev3-033": "SPLIT",
+          "ev3-034": "SPLIT",
+          "ev3-035": "SPLIT",
+          "ev3-036": "JSONFAIL",
+          "ev3-037": "JSONFAIL",
+          "ev3-038": "MERGE",
+          "ev3-039": "SPLIT",
+          "ev3-040": "SPLIT",
+          "ev3-041": "STOP",
+          "ev3-042": "STOP",
+          "ev3-043": "SPLIT",
+          "ev3-044": "MERGE",
+          "ev3-045": "MERGE",
+          "ev3-046": "JSONFAIL",
+          "ev3-047": "JSONFAIL",
+          "ev3-048": "SPLIT",
+          "ev3-049": "JSONFAIL",
+          "ev3-050": "STOP",
+          "ev3-051": "SPLIT",
+          "ev3-052": "JSONFAIL",
+          "ev3-053": "STOP",
+          "ev3-054": "STOP",
+          "ev3-055": "SPLIT",
+          "ev3-056": "SPLIT",
+          "ev3-057": "SPLIT",
+          "ev3-067": "SPLIT",
+          "ev3-068": "SPLIT",
+          "ev3-081": "MERGE",
+          "ev3-082": "MERGE",
+          "ev3-083": "SPLIT",
+          "ev3-084": "SPLIT",
+          "ev3-085": "SPLIT",
+          "ev3-086": "SPLIT",
+          "ev3-087": "MERGE",
+          "ev3-088": "SPLIT",
+          "ev3-096": "SPLIT",
+          "ev3-125": "SPLIT",
+          "ev3-126": "SPLIT",
+          "ev3-143": "SPLIT"
+        },
+        "behaviour_source": "behaviour_v3 recording where available, else committed json_ok + predicted_topic_count",
+        "recording_used_for": 52,
+        "flag_fallback_for": 12,
+        "setting": "canonical temp=0.0 max_tokens=800 (committed)"
+      },
+      "transitions": {
+        "JSONFAIL -> JSONFAIL": 10,
+        "JSONFAIL -> MERGE": 1,
+        "JSONFAIL -> SPLIT": 1,
+        "MERGE -> MERGE": 10,
+        "MERGE -> SPLIT": 2,
+        "SPLIT -> SPLIT": 32,
+        "STOP -> STOP": 8
+      }
+    },
+    "v3-2/temp01": {
+      "n_cases": 64,
+      "probe": {
+        "n": 64,
+        "strict_ok": 0.8438,
+        "schema_fail": 10,
+        "topic_count_ok": 0.5781,
+        "behaviour": {
+          "SPLIT": 37,
+          "MERGE": 9,
+          "STOP": 8,
+          "JSONFAIL": 10
+        },
+        "jsonfail": 10,
+        "mean_chars": 565.9,
+        "domain_set_exact": 0.4219,
+        "boilerplate_rate": 0.0
+      },
+      "baseline_same_subset": {
+        "n": 64,
+        "strict_ok": 0.8125,
+        "schema_fail": 12,
+        "topic_count_ok": 0.5,
+        "behaviour": {
+          "SPLIT": 32,
+          "MERGE": 12,
+          "STOP": 8,
+          "JSONFAIL": 12
+        },
+        "jsonfail": 12,
+        "mean_chars": 0.0,
+        "domain_set_exact": null,
+        "boilerplate_rate": null,
+        "behaviour_by_case": {
+          "ev3-001": "SPLIT",
+          "ev3-002": "SPLIT",
+          "ev3-003": "SPLIT",
+          "ev3-011": "MERGE",
+          "ev3-012": "STOP",
+          "ev3-013": "SPLIT",
+          "ev3-014": "MERGE",
+          "ev3-015": "SPLIT",
+          "ev3-016": "JSONFAIL",
+          "ev3-017": "JSONFAIL",
+          "ev3-018": "STOP",
+          "ev3-019": "SPLIT",
+          "ev3-020": "SPLIT",
+          "ev3-021": "SPLIT",
+          "ev3-022": "MERGE",
+          "ev3-023": "SPLIT",
+          "ev3-024": "JSONFAIL",
+          "ev3-025": "JSONFAIL",
+          "ev3-026": "SPLIT",
+          "ev3-027": "STOP",
+          "ev3-028": "JSONFAIL",
+          "ev3-029": "MERGE",
+          "ev3-030": "MERGE",
+          "ev3-031": "MERGE",
+          "ev3-032": "JSONFAIL",
+          "ev3-033": "SPLIT",
+          "ev3-034": "SPLIT",
+          "ev3-035": "SPLIT",
+          "ev3-036": "JSONFAIL",
+          "ev3-037": "JSONFAIL",
+          "ev3-038": "MERGE",
+          "ev3-039": "SPLIT",
+          "ev3-040": "SPLIT",
+          "ev3-041": "STOP",
+          "ev3-042": "STOP",
+          "ev3-043": "SPLIT",
+          "ev3-044": "MERGE",
+          "ev3-045": "MERGE",
+          "ev3-046": "JSONFAIL",
+          "ev3-047": "JSONFAIL",
+          "ev3-048": "SPLIT",
+          "ev3-049": "JSONFAIL",
+          "ev3-050": "STOP",
+          "ev3-051": "SPLIT",
+          "ev3-052": "JSONFAIL",
+          "ev3-053": "STOP",
+          "ev3-054": "STOP",
+          "ev3-055": "SPLIT",
+          "ev3-056": "SPLIT",
+          "ev3-057": "SPLIT",
+          "ev3-067": "SPLIT",
+          "ev3-068": "SPLIT",
+          "ev3-081": "MERGE",
+          "ev3-082": "MERGE",
+          "ev3-083": "SPLIT",
+          "ev3-084": "SPLIT",
+          "ev3-085": "SPLIT",
+          "ev3-086": "SPLIT",
+          "ev3-087": "MERGE",
+          "ev3-088": "SPLIT",
+          "ev3-096": "SPLIT",
+          "ev3-125": "SPLIT",
+          "ev3-126": "SPLIT",
+          "ev3-143": "SPLIT"
+        },
+        "behaviour_source": "behaviour_v3 recording where available, else committed json_ok + predicted_topic_count",
+        "recording_used_for": 52,
+        "flag_fallback_for": 12,
+        "setting": "canonical temp=0.0 max_tokens=800 (committed)"
+      },
+      "transitions": {
+        "JSONFAIL -> JSONFAIL": 10,
+        "JSONFAIL -> MERGE": 1,
+        "JSONFAIL -> SPLIT": 1,
+        "MERGE -> MERGE": 8,
+        "MERGE -> SPLIT": 4,
+        "SPLIT -> SPLIT": 32,
+        "STOP -> STOP": 8
+      }
+    },
+    "v3-2/temp01_norep": {
+      "n_cases": 64,
+      "probe": {
+        "n": 64,
+        "strict_ok": 0.8438,
+        "schema_fail": 10,
+        "topic_count_ok": 0.5469,
+        "behaviour": {
+          "SPLIT": 35,
+          "MERGE": 10,
+          "STOP": 9,
+          "JSONFAIL": 10
+        },
+        "jsonfail": 10,
+        "mean_chars": 585.7,
+        "domain_set_exact": 0.4219,
+        "boilerplate_rate": 0.0
+      },
+      "baseline_same_subset": {
+        "n": 64,
+        "strict_ok": 0.8125,
+        "schema_fail": 12,
+        "topic_count_ok": 0.5,
+        "behaviour": {
+          "SPLIT": 32,
+          "MERGE": 12,
+          "STOP": 8,
+          "JSONFAIL": 12
+        },
+        "jsonfail": 12,
+        "mean_chars": 0.0,
+        "domain_set_exact": null,
+        "boilerplate_rate": null,
+        "behaviour_by_case": {
+          "ev3-001": "SPLIT",
+          "ev3-002": "SPLIT",
+          "ev3-003": "SPLIT",
+          "ev3-011": "MERGE",
+          "ev3-012": "STOP",
+          "ev3-013": "SPLIT",
+          "ev3-014": "MERGE",
+          "ev3-015": "SPLIT",
+          "ev3-016": "JSONFAIL",
+          "ev3-017": "JSONFAIL",
+          "ev3-018": "STOP",
+          "ev3-019": "SPLIT",
+          "ev3-020": "SPLIT",
+          "ev3-021": "SPLIT",
+          "ev3-022": "MERGE",
+          "ev3-023": "SPLIT",
+          "ev3-024": "JSONFAIL",
+          "ev3-025": "JSONFAIL",
+          "ev3-026": "SPLIT",
+          "ev3-027": "STOP",
+          "ev3-028": "JSONFAIL",
+          "ev3-029": "MERGE",
+          "ev3-030": "MERGE",
+          "ev3-031": "MERGE",
+          "ev3-032": "JSONFAIL",
+          "ev3-033": "SPLIT",
+          "ev3-034": "SPLIT",
+          "ev3-035": "SPLIT",
+          "ev3-036": "JSONFAIL",
+          "ev3-037": "JSONFAIL",
+          "ev3-038": "MERGE",
+          "ev3-039": "SPLIT",
+          "ev3-040": "SPLIT",
+          "ev3-041": "STOP",
+          "ev3-042": "STOP",
+          "ev3-043": "SPLIT",
+          "ev3-044": "MERGE",
+          "ev3-045": "MERGE",
+          "ev3-046": "JSONFAIL",
+          "ev3-047": "JSONFAIL",
+          "ev3-048": "SPLIT",
+          "ev3-049": "JSONFAIL",
+          "ev3-050": "STOP",
+          "ev3-051": "SPLIT",
+          "ev3-052": "JSONFAIL",
+          "ev3-053": "STOP",
+          "ev3-054": "STOP",
+          "ev3-055": "SPLIT",
+          "ev3-056": "SPLIT",
+          "ev3-057": "SPLIT",
+          "ev3-067": "SPLIT",
+          "ev3-068": "SPLIT",
+          "ev3-081": "MERGE",
+          "ev3-082": "MERGE",
+          "ev3-083": "SPLIT",
+          "ev3-084": "SPLIT",
+          "ev3-085": "SPLIT",
+          "ev3-086": "SPLIT",
+          "ev3-087": "MERGE",
+          "ev3-088": "SPLIT",
+          "ev3-096": "SPLIT",
+          "ev3-125": "SPLIT",
+          "ev3-126": "SPLIT",
+          "ev3-143": "SPLIT"
+        },
+        "behaviour_source": "behaviour_v3 recording where available, else committed json_ok + predicted_topic_count",
+        "recording_used_for": 52,
+        "flag_fallback_for": 12,
+        "setting": "canonical temp=0.0 max_tokens=800 (committed)"
+      },
+      "transitions": {
+        "JSONFAIL -> JSONFAIL": 10,
+        "JSONFAIL -> SPLIT": 2,
+        "MERGE -> MERGE": 10,
+        "MERGE -> SPLIT": 1,
+        "MERGE -> STOP": 1,
+        "SPLIT -> SPLIT": 32,
+        "STOP -> STOP": 8
+      }
+    }
+  },
+  "defects": {
+    "ev3-016": {
+      "v2": {
+        "budget1200": {
+          "behaviour": "MERGE",
+          "chars": 381,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "MERGE",
+          "chars": 381,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "MERGE",
+          "chars": 381,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "MERGE",
+          "chars": 381,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "MERGE",
+          "chars": 381,
+          "strict_ok": true
+        }
+      },
+      "corrected-v3": {
+        "budget1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 474,
+          "strict_ok": false
+        },
+        "reppen105": {
+          "behaviour": "JSONFAIL",
+          "chars": 474,
+          "strict_ok": false
+        },
+        "reppen1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 474,
+          "strict_ok": false
+        },
+        "temp01_norep": {
+          "behaviour": "JSONFAIL",
+          "chars": 474,
+          "strict_ok": false
+        },
+        "temp01": {
+          "behaviour": "JSONFAIL",
+          "chars": 474,
+          "strict_ok": false
+        }
+      },
+      "v3-2": {
+        "budget1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 454,
+          "strict_ok": false
+        },
+        "reppen105": {
+          "behaviour": "JSONFAIL",
+          "chars": 454,
+          "strict_ok": false
+        },
+        "reppen1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 454,
+          "strict_ok": false
+        },
+        "temp01_norep": {
+          "behaviour": "JSONFAIL",
+          "chars": 454,
+          "strict_ok": false
+        },
+        "temp01": {
+          "behaviour": "JSONFAIL",
+          "chars": 454,
+          "strict_ok": false
+        }
+      }
+    },
+    "ev3-024": {
+      "v2": {
+        "budget1200": {
+          "behaviour": "MERGE",
+          "chars": 387,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "MERGE",
+          "chars": 387,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "MERGE",
+          "chars": 387,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "SPLIT",
+          "chars": 466,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "SPLIT",
+          "chars": 466,
+          "strict_ok": true
+        }
+      },
+      "corrected-v3": {
+        "budget1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 464,
+          "strict_ok": false
+        },
+        "reppen105": {
+          "behaviour": "JSONFAIL",
+          "chars": 474,
+          "strict_ok": false
+        },
+        "reppen1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 474,
+          "strict_ok": false
+        },
+        "temp01_norep": {
+          "behaviour": "JSONFAIL",
+          "chars": 464,
+          "strict_ok": false
+        },
+        "temp01": {
+          "behaviour": "JSONFAIL",
+          "chars": 474,
+          "strict_ok": false
+        }
+      },
+      "v3-2": {
+        "budget1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 454,
+          "strict_ok": false
+        },
+        "reppen105": {
+          "behaviour": "JSONFAIL",
+          "chars": 454,
+          "strict_ok": false
+        },
+        "reppen1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 454,
+          "strict_ok": false
+        },
+        "temp01_norep": {
+          "behaviour": "JSONFAIL",
+          "chars": 454,
+          "strict_ok": false
+        },
+        "temp01": {
+          "behaviour": "JSONFAIL",
+          "chars": 454,
+          "strict_ok": false
+        }
+      }
+    },
+    "ev3-032": {
+      "v2": {
+        "budget1200": {
+          "behaviour": "MERGE",
+          "chars": 378,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "MERGE",
+          "chars": 378,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "MERGE",
+          "chars": 378,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "MERGE",
+          "chars": 378,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "MERGE",
+          "chars": 378,
+          "strict_ok": true
+        }
+      },
+      "corrected-v3": {
+        "budget1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 381,
+          "strict_ok": false
+        },
+        "reppen105": {
+          "behaviour": "JSONFAIL",
+          "chars": 381,
+          "strict_ok": false
+        },
+        "reppen1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 381,
+          "strict_ok": false
+        },
+        "temp01_norep": {
+          "behaviour": "JSONFAIL",
+          "chars": 381,
+          "strict_ok": false
+        },
+        "temp01": {
+          "behaviour": "JSONFAIL",
+          "chars": 381,
+          "strict_ok": false
+        }
+      },
+      "v3-2": {
+        "budget1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 659,
+          "strict_ok": false
+        },
+        "reppen105": {
+          "behaviour": "JSONFAIL",
+          "chars": 659,
+          "strict_ok": false
+        },
+        "reppen1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 659,
+          "strict_ok": false
+        },
+        "temp01_norep": {
+          "behaviour": "JSONFAIL",
+          "chars": 659,
+          "strict_ok": false
+        },
+        "temp01": {
+          "behaviour": "JSONFAIL",
+          "chars": 793,
+          "strict_ok": false
+        }
+      }
+    },
+    "ev3-046": {
+      "v2": {
+        "budget1200": {
+          "behaviour": "SPLIT",
+          "chars": 478,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "SPLIT",
+          "chars": 478,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "SPLIT",
+          "chars": 478,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "SPLIT",
+          "chars": 478,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "SPLIT",
+          "chars": 478,
+          "strict_ok": true
+        }
+      },
+      "corrected-v3": {
+        "budget1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 464,
+          "strict_ok": false
+        },
+        "reppen105": {
+          "behaviour": "JSONFAIL",
+          "chars": 464,
+          "strict_ok": false
+        },
+        "reppen1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 464,
+          "strict_ok": false
+        },
+        "temp01_norep": {
+          "behaviour": "JSONFAIL",
+          "chars": 474,
+          "strict_ok": false
+        },
+        "temp01": {
+          "behaviour": "JSONFAIL",
+          "chars": 464,
+          "strict_ok": false
+        }
+      },
+      "v3-2": {
+        "budget1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 419,
+          "strict_ok": false
+        },
+        "reppen105": {
+          "behaviour": "JSONFAIL",
+          "chars": 419,
+          "strict_ok": false
+        },
+        "reppen1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 419,
+          "strict_ok": false
+        },
+        "temp01_norep": {
+          "behaviour": "JSONFAIL",
+          "chars": 409,
+          "strict_ok": false
+        },
+        "temp01": {
+          "behaviour": "JSONFAIL",
+          "chars": 419,
+          "strict_ok": false
+        }
+      }
+    },
+    "ev3-052": {
+      "v2": {
+        "budget1200": {
+          "behaviour": "MERGE",
+          "chars": 358,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "MERGE",
+          "chars": 358,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "MERGE",
+          "chars": 358,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "MERGE",
+          "chars": 358,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "MERGE",
+          "chars": 358,
+          "strict_ok": true
+        }
+      },
+      "corrected-v3": {
+        "budget1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 383,
+          "strict_ok": false
+        },
+        "reppen105": {
+          "behaviour": "JSONFAIL",
+          "chars": 383,
+          "strict_ok": false
+        },
+        "reppen1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 383,
+          "strict_ok": false
+        },
+        "temp01_norep": {
+          "behaviour": "JSONFAIL",
+          "chars": 426,
+          "strict_ok": false
+        },
+        "temp01": {
+          "behaviour": "JSONFAIL",
+          "chars": 447,
+          "strict_ok": false
+        }
+      },
+      "v3-2": {
+        "budget1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 490,
+          "strict_ok": false
+        },
+        "reppen105": {
+          "behaviour": "JSONFAIL",
+          "chars": 490,
+          "strict_ok": false
+        },
+        "reppen1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 490,
+          "strict_ok": false
+        },
+        "temp01_norep": {
+          "behaviour": "JSONFAIL",
+          "chars": 490,
+          "strict_ok": false
+        },
+        "temp01": {
+          "behaviour": "JSONFAIL",
+          "chars": 438,
+          "strict_ok": false
+        }
+      }
+    },
+    "ev3-083": {
+      "v2": {
+        "budget1200": {
+          "behaviour": "SPLIT",
+          "chars": 558,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "SPLIT",
+          "chars": 558,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "SPLIT",
+          "chars": 558,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "SPLIT",
+          "chars": 558,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "SPLIT",
+          "chars": 558,
+          "strict_ok": true
+        }
+      },
+      "corrected-v3": {
+        "budget1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 2451,
+          "strict_ok": false
+        },
+        "reppen105": {
+          "behaviour": "SPLIT",
+          "chars": 470,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "SPLIT",
+          "chars": 470,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "JSONFAIL",
+          "chars": 2451,
+          "strict_ok": false
+        },
+        "temp01": {
+          "behaviour": "SPLIT",
+          "chars": 470,
+          "strict_ok": true
+        }
+      },
+      "v3-2": {
+        "budget1200": {
+          "behaviour": "SPLIT",
+          "chars": 708,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "SPLIT",
+          "chars": 638,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "SPLIT",
+          "chars": 638,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "SPLIT",
+          "chars": 665,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "SPLIT",
+          "chars": 749,
+          "strict_ok": true
+        }
+      }
+    },
+    "ev3-017": {
+      "v2": {
+        "budget1200": {
+          "behaviour": "STOP",
+          "chars": 366,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "STOP",
+          "chars": 366,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "STOP",
+          "chars": 366,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "STOP",
+          "chars": 366,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "STOP",
+          "chars": 282,
+          "strict_ok": true
+        }
+      },
+      "corrected-v3": {
+        "budget1200": {
+          "behaviour": "STOP",
+          "chars": 383,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "STOP",
+          "chars": 383,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "STOP",
+          "chars": 383,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "STOP",
+          "chars": 383,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "STOP",
+          "chars": 383,
+          "strict_ok": true
+        }
+      },
+      "v3-2": {
+        "budget1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 2468,
+          "strict_ok": false
+        },
+        "reppen105": {
+          "behaviour": "JSONFAIL",
+          "chars": 1645,
+          "strict_ok": false
+        },
+        "reppen1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 2468,
+          "strict_ok": false
+        },
+        "temp01_norep": {
+          "behaviour": "JSONFAIL",
+          "chars": 2468,
+          "strict_ok": false
+        },
+        "temp01": {
+          "behaviour": "JSONFAIL",
+          "chars": 2468,
+          "strict_ok": false
+        }
+      }
+    },
+    "ev3-025": {
+      "v2": {
+        "budget1200": {
+          "behaviour": "SPLIT",
+          "chars": 537,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "SPLIT",
+          "chars": 499,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "SPLIT",
+          "chars": 499,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "SPLIT",
+          "chars": 519,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "SPLIT",
+          "chars": 495,
+          "strict_ok": true
+        }
+      },
+      "corrected-v3": {
+        "budget1200": {
+          "behaviour": "SPLIT",
+          "chars": 497,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "SPLIT",
+          "chars": 497,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "SPLIT",
+          "chars": 497,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "SPLIT",
+          "chars": 497,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "SPLIT",
+          "chars": 497,
+          "strict_ok": true
+        }
+      },
+      "v3-2": {
+        "budget1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 2468,
+          "strict_ok": false
+        },
+        "reppen105": {
+          "behaviour": "JSONFAIL",
+          "chars": 1645,
+          "strict_ok": false
+        },
+        "reppen1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 2468,
+          "strict_ok": false
+        },
+        "temp01_norep": {
+          "behaviour": "JSONFAIL",
+          "chars": 2468,
+          "strict_ok": false
+        },
+        "temp01": {
+          "behaviour": "JSONFAIL",
+          "chars": 2468,
+          "strict_ok": false
+        }
+      }
+    },
+    "ev3-028": {
+      "v2": {
+        "budget1200": {
+          "behaviour": "MERGE",
+          "chars": 1044,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "MERGE",
+          "chars": 1044,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "MERGE",
+          "chars": 1044,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "MERGE",
+          "chars": 1044,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "MERGE",
+          "chars": 736,
+          "strict_ok": true
+        }
+      },
+      "corrected-v3": {
+        "budget1200": {
+          "behaviour": "SPLIT",
+          "chars": 897,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "SPLIT",
+          "chars": 897,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "SPLIT",
+          "chars": 897,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "SPLIT",
+          "chars": 840,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "SPLIT",
+          "chars": 895,
+          "strict_ok": true
+        }
+      },
+      "v3-2": {
+        "budget1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 1678,
+          "strict_ok": false
+        },
+        "reppen105": {
+          "behaviour": "MERGE",
+          "chars": 769,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "MERGE",
+          "chars": 769,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "SPLIT",
+          "chars": 851,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "MERGE",
+          "chars": 744,
+          "strict_ok": true
+        }
+      }
+    },
+    "ev3-036": {
+      "v2": {
+        "budget1200": {
+          "behaviour": "SPLIT",
+          "chars": 452,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "SPLIT",
+          "chars": 452,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "SPLIT",
+          "chars": 452,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "SPLIT",
+          "chars": 452,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "SPLIT",
+          "chars": 452,
+          "strict_ok": true
+        }
+      },
+      "corrected-v3": {
+        "budget1200": {
+          "behaviour": "MERGE",
+          "chars": 347,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "MERGE",
+          "chars": 347,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "MERGE",
+          "chars": 347,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "MERGE",
+          "chars": 347,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "MERGE",
+          "chars": 347,
+          "strict_ok": true
+        }
+      },
+      "v3-2": {
+        "budget1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 2306,
+          "strict_ok": false
+        },
+        "reppen105": {
+          "behaviour": "SPLIT",
+          "chars": 452,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "SPLIT",
+          "chars": 452,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "SPLIT",
+          "chars": 1121,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "SPLIT",
+          "chars": 452,
+          "strict_ok": true
+        }
+      }
+    },
+    "ev3-037": {
+      "v2": {
+        "budget1200": {
+          "behaviour": "MERGE",
+          "chars": 300,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "MERGE",
+          "chars": 300,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "MERGE",
+          "chars": 300,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "MERGE",
+          "chars": 300,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "MERGE",
+          "chars": 300,
+          "strict_ok": true
+        }
+      },
+      "corrected-v3": {
+        "budget1200": {
+          "behaviour": "MERGE",
+          "chars": 316,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "MERGE",
+          "chars": 299,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "MERGE",
+          "chars": 299,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "MERGE",
+          "chars": 316,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "MERGE",
+          "chars": 299,
+          "strict_ok": true
+        }
+      },
+      "v3-2": {
+        "budget1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 2442,
+          "strict_ok": false
+        },
+        "reppen105": {
+          "behaviour": "JSONFAIL",
+          "chars": 1240,
+          "strict_ok": false
+        },
+        "reppen1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 1799,
+          "strict_ok": false
+        },
+        "temp01_norep": {
+          "behaviour": "JSONFAIL",
+          "chars": 2442,
+          "strict_ok": false
+        },
+        "temp01": {
+          "behaviour": "JSONFAIL",
+          "chars": 1799,
+          "strict_ok": false
+        }
+      }
+    },
+    "ev3-047": {
+      "v2": {
+        "budget1200": {
+          "behaviour": "STOP",
+          "chars": 364,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "STOP",
+          "chars": 364,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "STOP",
+          "chars": 364,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "STOP",
+          "chars": 364,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "STOP",
+          "chars": 364,
+          "strict_ok": true
+        }
+      },
+      "corrected-v3": {
+        "budget1200": {
+          "behaviour": "STOP",
+          "chars": 381,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "STOP",
+          "chars": 381,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "STOP",
+          "chars": 381,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "STOP",
+          "chars": 381,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "STOP",
+          "chars": 381,
+          "strict_ok": true
+        }
+      },
+      "v3-2": {
+        "budget1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 2203,
+          "strict_ok": false
+        },
+        "reppen105": {
+          "behaviour": "JSONFAIL",
+          "chars": 1482,
+          "strict_ok": false
+        },
+        "reppen1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 2203,
+          "strict_ok": false
+        },
+        "temp01_norep": {
+          "behaviour": "JSONFAIL",
+          "chars": 2203,
+          "strict_ok": false
+        },
+        "temp01": {
+          "behaviour": "JSONFAIL",
+          "chars": 2203,
+          "strict_ok": false
+        }
+      }
+    },
+    "ev3-049": {
+      "v2": {
+        "budget1200": {
+          "behaviour": "MERGE",
+          "chars": 371,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "MERGE",
+          "chars": 371,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "MERGE",
+          "chars": 371,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "MERGE",
+          "chars": 371,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "MERGE",
+          "chars": 371,
+          "strict_ok": true
+        }
+      },
+      "corrected-v3": {
+        "budget1200": {
+          "behaviour": "MERGE",
+          "chars": 477,
+          "strict_ok": true
+        },
+        "reppen105": {
+          "behaviour": "MERGE",
+          "chars": 477,
+          "strict_ok": true
+        },
+        "reppen1200": {
+          "behaviour": "MERGE",
+          "chars": 477,
+          "strict_ok": true
+        },
+        "temp01_norep": {
+          "behaviour": "MERGE",
+          "chars": 477,
+          "strict_ok": true
+        },
+        "temp01": {
+          "behaviour": "MERGE",
+          "chars": 477,
+          "strict_ok": true
+        }
+      },
+      "v3-2": {
+        "budget1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 2724,
+          "strict_ok": false
+        },
+        "reppen105": {
+          "behaviour": "JSONFAIL",
+          "chars": 1824,
+          "strict_ok": false
+        },
+        "reppen1200": {
+          "behaviour": "JSONFAIL",
+          "chars": 2724,
+          "strict_ok": false
+        },
+        "temp01_norep": {
+          "behaviour": "JSONFAIL",
+          "chars": 2724,
+          "strict_ok": false
+        },
+        "temp01": {
+          "behaviour": "JSONFAIL",
+          "chars": 2724,
+          "strict_ok": false
+        }
+      }
+    }
+  },
+  "controls": {
+    "ev3-001": {
+      "v2/budget1200": "SPLIT",
+      "v2/reppen105": "SPLIT",
+      "v2/reppen1200": "SPLIT",
+      "v2/temp01_norep": "SPLIT",
+      "v2/temp01": "SPLIT",
+      "corrected-v3/budget1200": "SPLIT",
+      "corrected-v3/reppen105": "SPLIT",
+      "corrected-v3/reppen1200": "SPLIT",
+      "corrected-v3/temp01_norep": "SPLIT",
+      "corrected-v3/temp01": "SPLIT",
+      "v3-2/budget1200": "SPLIT",
+      "v3-2/reppen105": "SPLIT",
+      "v3-2/reppen1200": "SPLIT",
+      "v3-2/temp01_norep": "SPLIT",
+      "v3-2/temp01": "SPLIT"
+    },
+    "ev3-002": {
+      "v2/budget1200": "SPLIT",
+      "v2/reppen105": "SPLIT",
+      "v2/reppen1200": "SPLIT",
+      "v2/temp01_norep": "SPLIT",
+      "v2/temp01": "SPLIT",
+      "corrected-v3/budget1200": "SPLIT",
+      "corrected-v3/reppen105": "SPLIT",
+      "corrected-v3/reppen1200": "SPLIT",
+      "corrected-v3/temp01_norep": "SPLIT",
+      "corrected-v3/temp01": "SPLIT",
+      "v3-2/budget1200": "SPLIT",
+      "v3-2/reppen105": "SPLIT",
+      "v3-2/reppen1200": "SPLIT",
+      "v3-2/temp01_norep": "SPLIT",
+      "v3-2/temp01": "SPLIT"
+    },
+    "ev3-003": {
+      "v2/budget1200": "SPLIT",
+      "v2/reppen105": "SPLIT",
+      "v2/reppen1200": "SPLIT",
+      "v2/temp01_norep": "SPLIT",
+      "v2/temp01": "SPLIT",
+      "corrected-v3/budget1200": "SPLIT",
+      "corrected-v3/reppen105": "SPLIT",
+      "corrected-v3/reppen1200": "SPLIT",
+      "corrected-v3/temp01_norep": "SPLIT",
+      "corrected-v3/temp01": "SPLIT",
+      "v3-2/budget1200": "SPLIT",
+      "v3-2/reppen105": "SPLIT",
+      "v3-2/reppen1200": "SPLIT",
+      "v3-2/temp01_norep": "SPLIT",
+      "v3-2/temp01": "SPLIT"
+    },
+    "ev3-055": {
+      "v2/budget1200": "SPLIT",
+      "v2/reppen105": "SPLIT",
+      "v2/reppen1200": "SPLIT",
+      "v2/temp01_norep": "SPLIT",
+      "v2/temp01": "SPLIT",
+      "corrected-v3/budget1200": "SPLIT",
+      "corrected-v3/reppen105": "SPLIT",
+      "corrected-v3/reppen1200": "SPLIT",
+      "corrected-v3/temp01_norep": "SPLIT",
+      "corrected-v3/temp01": "SPLIT",
+      "v3-2/budget1200": "SPLIT",
+      "v3-2/reppen105": "SPLIT",
+      "v3-2/reppen1200": "SPLIT",
+      "v3-2/temp01_norep": "SPLIT",
+      "v3-2/temp01": "SPLIT"
+    },
+    "ev3-056": {
+      "v2/budget1200": "SPLIT",
+      "v2/reppen105": "SPLIT",
+      "v2/reppen1200": "SPLIT",
+      "v2/temp01_norep": "SPLIT",
+      "v2/temp01": "SPLIT",
+      "corrected-v3/budget1200": "SPLIT",
+      "corrected-v3/reppen105": "SPLIT",
+      "corrected-v3/reppen1200": "SPLIT",
+      "corrected-v3/temp01_norep": "SPLIT",
+      "corrected-v3/temp01": "SPLIT",
+      "v3-2/budget1200": "SPLIT",
+      "v3-2/reppen105": "SPLIT",
+      "v3-2/reppen1200": "SPLIT",
+      "v3-2/temp01_norep": "SPLIT",
+      "v3-2/temp01": "SPLIT"
+    },
+    "ev3-057": {
+      "v2/budget1200": "SPLIT",
+      "v2/reppen105": "SPLIT",
+      "v2/reppen1200": "SPLIT",
+      "v2/temp01_norep": "SPLIT",
+      "v2/temp01": "SPLIT",
+      "corrected-v3/budget1200": "SPLIT",
+      "corrected-v3/reppen105": "SPLIT",
+      "corrected-v3/reppen1200": "SPLIT",
+      "corrected-v3/temp01_norep": "SPLIT",
+      "corrected-v3/temp01": "SPLIT",
+      "v3-2/budget1200": "SPLIT",
+      "v3-2/reppen105": "SPLIT",
+      "v3-2/reppen1200": "SPLIT",
+      "v3-2/temp01_norep": "SPLIT",
+      "v3-2/temp01": "SPLIT"
+    },
+    "ev3-067": {
+      "v2/budget1200": "SPLIT",
+      "v2/reppen105": "SPLIT",
+      "v2/reppen1200": "SPLIT",
+      "v2/temp01_norep": "SPLIT",
+      "v2/temp01": "SPLIT",
+      "corrected-v3/budget1200": "SPLIT",
+      "corrected-v3/reppen105": "SPLIT",
+      "corrected-v3/reppen1200": "SPLIT",
+      "corrected-v3/temp01_norep": "SPLIT",
+      "corrected-v3/temp01": "SPLIT",
+      "v3-2/budget1200": "SPLIT",
+      "v3-2/reppen105": "SPLIT",
+      "v3-2/reppen1200": "SPLIT",
+      "v3-2/temp01_norep": "SPLIT",
+      "v3-2/temp01": "SPLIT"
+    },
+    "ev3-068": {
+      "v2/budget1200": "SPLIT",
+      "v2/reppen105": "SPLIT",
+      "v2/reppen1200": "SPLIT",
+      "v2/temp01_norep": "SPLIT",
+      "v2/temp01": "SPLIT",
+      "corrected-v3/budget1200": "SPLIT",
+      "corrected-v3/reppen105": "SPLIT",
+      "corrected-v3/reppen1200": "SPLIT",
+      "corrected-v3/temp01_norep": "SPLIT",
+      "corrected-v3/temp01": "SPLIT",
+      "v3-2/budget1200": "SPLIT",
+      "v3-2/reppen105": "SPLIT",
+      "v3-2/reppen1200": "SPLIT",
+      "v3-2/temp01_norep": "SPLIT",
+      "v3-2/temp01": "SPLIT"
+    },
+    "ev3-096": {
+      "v2/budget1200": "SPLIT",
+      "v2/reppen105": "SPLIT",
+      "v2/reppen1200": "SPLIT",
+      "v2/temp01_norep": "SPLIT",
+      "v2/temp01": "SPLIT",
+      "corrected-v3/budget1200": "SPLIT",
+      "corrected-v3/reppen105": "SPLIT",
+      "corrected-v3/reppen1200": "SPLIT",
+      "corrected-v3/temp01_norep": "SPLIT",
+      "corrected-v3/temp01": "SPLIT",
+      "v3-2/budget1200": "SPLIT",
+      "v3-2/reppen105": "SPLIT",
+      "v3-2/reppen1200": "SPLIT",
+      "v3-2/temp01_norep": "SPLIT",
+      "v3-2/temp01": "SPLIT"
+    },
+    "ev3-125": {
+      "v2/budget1200": "SPLIT",
+      "v2/reppen105": "SPLIT",
+      "v2/reppen1200": "SPLIT",
+      "v2/temp01_norep": "SPLIT",
+      "v2/temp01": "SPLIT",
+      "corrected-v3/budget1200": "SPLIT",
+      "corrected-v3/reppen105": "SPLIT",
+      "corrected-v3/reppen1200": "SPLIT",
+      "corrected-v3/temp01_norep": "SPLIT",
+      "corrected-v3/temp01": "SPLIT",
+      "v3-2/budget1200": "SPLIT",
+      "v3-2/reppen105": "SPLIT",
+      "v3-2/reppen1200": "SPLIT",
+      "v3-2/temp01_norep": "SPLIT",
+      "v3-2/temp01": "SPLIT"
+    },
+    "ev3-126": {
+      "v2/budget1200": "SPLIT",
+      "v2/reppen105": "SPLIT",
+      "v2/reppen1200": "SPLIT",
+      "v2/temp01_norep": "SPLIT",
+      "v2/temp01": "SPLIT",
+      "corrected-v3/budget1200": "SPLIT",
+      "corrected-v3/reppen105": "SPLIT",
+      "corrected-v3/reppen1200": "SPLIT",
+      "corrected-v3/temp01_norep": "SPLIT",
+      "corrected-v3/temp01": "SPLIT",
+      "v3-2/budget1200": "SPLIT",
+      "v3-2/reppen105": "SPLIT",
+      "v3-2/reppen1200": "SPLIT",
+      "v3-2/temp01_norep": "SPLIT",
+      "v3-2/temp01": "SPLIT"
+    },
+    "ev3-143": {
+      "v2/budget1200": "SPLIT",
+      "v2/reppen105": "SPLIT",
+      "v2/reppen1200": "SPLIT",
+      "v2/temp01_norep": "SPLIT",
+      "v2/temp01": "SPLIT",
+      "corrected-v3/budget1200": "SPLIT",
+      "corrected-v3/reppen105": "SPLIT",
+      "corrected-v3/reppen1200": "SPLIT",
+      "corrected-v3/temp01_norep": "SPLIT",
+      "corrected-v3/temp01": "SPLIT",
+      "v3-2/budget1200": "SPLIT",
+      "v3-2/reppen105": "SPLIT",
+      "v3-2/reppen1200": "SPLIT",
+      "v3-2/temp01_norep": "SPLIT",
+      "v3-2/temp01": "SPLIT"
+    }
+  },
+  "findings": {
+    "n_cases": 64,
+    "settings": [
+      "budget1200",
+      "reppen105",
+      "reppen1200",
+      "temp01",
+      "temp01_norep"
+    ],
+    "models": [
+      "v2",
+      "corrected-v3",
+      "v3-2"
+    ],
+    "quote_invariance": {
+      "ev3-016": {
+        "v2": {
+          "by_setting": {
+            "budget1200": "MERGE",
+            "reppen105": "MERGE",
+            "reppen1200": "MERGE",
+            "temp01_norep": "MERGE",
+            "temp01": "MERGE"
+          },
+          "jsonfail_settings": 0,
+          "n_settings": 5,
+          "invariant_fail": false,
+          "invariant_pass": true
+        },
+        "corrected-v3": {
+          "by_setting": {
+            "budget1200": "JSONFAIL",
+            "reppen105": "JSONFAIL",
+            "reppen1200": "JSONFAIL",
+            "temp01_norep": "JSONFAIL",
+            "temp01": "JSONFAIL"
+          },
+          "jsonfail_settings": 5,
+          "n_settings": 5,
+          "invariant_fail": true,
+          "invariant_pass": false
+        },
+        "v3-2": {
+          "by_setting": {
+            "budget1200": "JSONFAIL",
+            "reppen105": "JSONFAIL",
+            "reppen1200": "JSONFAIL",
+            "temp01_norep": "JSONFAIL",
+            "temp01": "JSONFAIL"
+          },
+          "jsonfail_settings": 5,
+          "n_settings": 5,
+          "invariant_fail": true,
+          "invariant_pass": false
+        }
+      },
+      "ev3-024": {
+        "v2": {
+          "by_setting": {
+            "budget1200": "MERGE",
+            "reppen105": "MERGE",
+            "reppen1200": "MERGE",
+            "temp01_norep": "SPLIT",
+            "temp01": "SPLIT"
+          },
+          "jsonfail_settings": 0,
+          "n_settings": 5,
+          "invariant_fail": false,
+          "invariant_pass": true
+        },
+        "corrected-v3": {
+          "by_setting": {
+            "budget1200": "JSONFAIL",
+            "reppen105": "JSONFAIL",
+            "reppen1200": "JSONFAIL",
+            "temp01_norep": "JSONFAIL",
+            "temp01": "JSONFAIL"
+          },
+          "jsonfail_settings": 5,
+          "n_settings": 5,
+          "invariant_fail": true,
+          "invariant_pass": false
+        },
+        "v3-2": {
+          "by_setting": {
+            "budget1200": "JSONFAIL",
+            "reppen105": "JSONFAIL",
+            "reppen1200": "JSONFAIL",
+            "temp01_norep": "JSONFAIL",
+            "temp01": "JSONFAIL"
+          },
+          "jsonfail_settings": 5,
+          "n_settings": 5,
+          "invariant_fail": true,
+          "invariant_pass": false
+        }
+      },
+      "ev3-032": {
+        "v2": {
+          "by_setting": {
+            "budget1200": "MERGE",
+            "reppen105": "MERGE",
+            "reppen1200": "MERGE",
+            "temp01_norep": "MERGE",
+            "temp01": "MERGE"
+          },
+          "jsonfail_settings": 0,
+          "n_settings": 5,
+          "invariant_fail": false,
+          "invariant_pass": true
+        },
+        "corrected-v3": {
+          "by_setting": {
+            "budget1200": "JSONFAIL",
+            "reppen105": "JSONFAIL",
+            "reppen1200": "JSONFAIL",
+            "temp01_norep": "JSONFAIL",
+            "temp01": "JSONFAIL"
+          },
+          "jsonfail_settings": 5,
+          "n_settings": 5,
+          "invariant_fail": true,
+          "invariant_pass": false
+        },
+        "v3-2": {
+          "by_setting": {
+            "budget1200": "JSONFAIL",
+            "reppen105": "JSONFAIL",
+            "reppen1200": "JSONFAIL",
+            "temp01_norep": "JSONFAIL",
+            "temp01": "JSONFAIL"
+          },
+          "jsonfail_settings": 5,
+          "n_settings": 5,
+          "invariant_fail": true,
+          "invariant_pass": false
+        }
+      },
+      "ev3-046": {
+        "v2": {
+          "by_setting": {
+            "budget1200": "SPLIT",
+            "reppen105": "SPLIT",
+            "reppen1200": "SPLIT",
+            "temp01_norep": "SPLIT",
+            "temp01": "SPLIT"
+          },
+          "jsonfail_settings": 0,
+          "n_settings": 5,
+          "invariant_fail": false,
+          "invariant_pass": true
+        },
+        "corrected-v3": {
+          "by_setting": {
+            "budget1200": "JSONFAIL",
+            "reppen105": "JSONFAIL",
+            "reppen1200": "JSONFAIL",
+            "temp01_norep": "JSONFAIL",
+            "temp01": "JSONFAIL"
+          },
+          "jsonfail_settings": 5,
+          "n_settings": 5,
+          "invariant_fail": true,
+          "invariant_pass": false
+        },
+        "v3-2": {
+          "by_setting": {
+            "budget1200": "JSONFAIL",
+            "reppen105": "JSONFAIL",
+            "reppen1200": "JSONFAIL",
+            "temp01_norep": "JSONFAIL",
+            "temp01": "JSONFAIL"
+          },
+          "jsonfail_settings": 5,
+          "n_settings": 5,
+          "invariant_fail": true,
+          "invariant_pass": false
+        }
+      },
+      "ev3-052": {
+        "v2": {
+          "by_setting": {
+            "budget1200": "MERGE",
+            "reppen105": "MERGE",
+            "reppen1200": "MERGE",
+            "temp01_norep": "MERGE",
+            "temp01": "MERGE"
+          },
+          "jsonfail_settings": 0,
+          "n_settings": 5,
+          "invariant_fail": false,
+          "invariant_pass": true
+        },
+        "corrected-v3": {
+          "by_setting": {
+            "budget1200": "JSONFAIL",
+            "reppen105": "JSONFAIL",
+            "reppen1200": "JSONFAIL",
+            "temp01_norep": "JSONFAIL",
+            "temp01": "JSONFAIL"
+          },
+          "jsonfail_settings": 5,
+          "n_settings": 5,
+          "invariant_fail": true,
+          "invariant_pass": false
+        },
+        "v3-2": {
+          "by_setting": {
+            "budget1200": "JSONFAIL",
+            "reppen105": "JSONFAIL",
+            "reppen1200": "JSONFAIL",
+            "temp01_norep": "JSONFAIL",
+            "temp01": "JSONFAIL"
+          },
+          "jsonfail_settings": 5,
+          "n_settings": 5,
+          "invariant_fail": true,
+          "invariant_pass": false
+        }
+      },
+      "ev3-083": {
+        "v2": {
+          "by_setting": {
+            "budget1200": "SPLIT",
+            "reppen105": "SPLIT",
+            "reppen1200": "SPLIT",
+            "temp01_norep": "SPLIT",
+            "temp01": "SPLIT"
+          },
+          "jsonfail_settings": 0,
+          "n_settings": 5,
+          "invariant_fail": false,
+          "invariant_pass": true
+        },
+        "corrected-v3": {
+          "by_setting": {
+            "budget1200": "JSONFAIL",
+            "reppen105": "SPLIT",
+            "reppen1200": "SPLIT",
+            "temp01_norep": "JSONFAIL",
+            "temp01": "SPLIT"
+          },
+          "jsonfail_settings": 2,
+          "n_settings": 5,
+          "invariant_fail": false,
+          "invariant_pass": false
+        },
+        "v3-2": {
+          "by_setting": {
+            "budget1200": "SPLIT",
+            "reppen105": "SPLIT",
+            "reppen1200": "SPLIT",
+            "temp01_norep": "SPLIT",
+            "temp01": "SPLIT"
+          },
+          "jsonfail_settings": 0,
+          "n_settings": 5,
+          "invariant_fail": false,
+          "invariant_pass": true
+        }
+      }
+    },
+    "literal_quote_cases": [
+      "ev3-016",
+      "ev3-024",
+      "ev3-032",
+      "ev3-046",
+      "ev3-052"
+    ],
+    "loops": {
+      "v2": {
+        "cases": [],
+        "cells_by_setting": {
+          "budget1200": 0,
+          "reppen105": 0,
+          "reppen1200": 0,
+          "temp01": 0,
+          "temp01_norep": 0
+        }
+      },
+      "corrected-v3": {
+        "cases": [
+          "ev3-083"
+        ],
+        "cells_by_setting": {
+          "budget1200": 1,
+          "reppen105": 0,
+          "reppen1200": 0,
+          "temp01": 0,
+          "temp01_norep": 1
+        }
+      },
+      "v3-2": {
+        "cases": [
+          "ev3-017",
+          "ev3-025",
+          "ev3-028",
+          "ev3-036",
+          "ev3-037",
+          "ev3-047",
+          "ev3-049",
+          "ev3-081"
+        ],
+        "cells_by_setting": {
+          "budget1200": 7,
+          "reppen105": 5,
+          "reppen1200": 5,
+          "temp01": 5,
+          "temp01_norep": 7
+        }
+      }
+    },
+    "knob_isolation": {
+      "v2": {
+        "budget_800_vs_1200_at_fixed_penalty": [
+          0,
+          0
+        ],
+        "penalty_on_vs_off_at_fixed_budget": [
+          0,
+          0
+        ],
+        "temperature_on_vs_off_at_fixed_budget": [
+          0,
+          0
+        ]
+      },
+      "corrected-v3": {
+        "budget_800_vs_1200_at_fixed_penalty": [
+          0,
+          0
+        ],
+        "penalty_on_vs_off_at_fixed_budget": [
+          1,
+          0
+        ],
+        "temperature_on_vs_off_at_fixed_budget": [
+          1,
+          1
+        ]
+      },
+      "v3-2": {
+        "budget_800_vs_1200_at_fixed_penalty": [
+          5,
+          5
+        ],
+        "penalty_on_vs_off_at_fixed_budget": [
+          7,
+          5
+        ],
+        "temperature_on_vs_off_at_fixed_budget": [
+          7,
+          7
+        ]
+      }
+    },
+    "movement": {
+      "v2": {
+        "baseline": {
+          "schema": 1.0,
+          "topic_count": 0.5938,
+          "jsonfail": 0,
+          "behaviour": {
+            "SPLIT": 38,
+            "STOP": 26
+          }
+        },
+        "by_setting": {
+          "budget1200": {
+            "schema": 1.0,
+            "d_schema": 0.0,
+            "topic_count": 0.5938,
+            "d_topic_count": 0.0,
+            "jsonfail": 0,
+            "d_jsonfail": 0,
+            "cases_schema_moved": 0,
+            "cases_topic_moved": 0,
+            "behaviour": {
+              "SPLIT": 38,
+              "MERGE": 20,
+              "STOP": 6
+            },
+            "mean_chars": 428.2
+          },
+          "reppen105": {
+            "schema": 1.0,
+            "d_schema": 0.0,
+            "topic_count": 0.5781,
+            "d_topic_count": -0.0157,
+            "jsonfail": 0,
+            "d_jsonfail": 0,
+            "cases_schema_moved": 0,
+            "cases_topic_moved": -1,
+            "behaviour": {
+              "SPLIT": 37,
+              "MERGE": 21,
+              "STOP": 6
+            },
+            "mean_chars": 421.7
+          },
+          "reppen1200": {
+            "schema": 1.0,
+            "d_schema": 0.0,
+            "topic_count": 0.5781,
+            "d_topic_count": -0.0157,
+            "jsonfail": 0,
+            "d_jsonfail": 0,
+            "cases_schema_moved": 0,
+            "cases_topic_moved": -1,
+            "behaviour": {
+              "SPLIT": 37,
+              "MERGE": 21,
+              "STOP": 6
+            },
+            "mean_chars": 421.7
+          },
+          "temp01": {
+            "schema": 1.0,
+            "d_schema": 0.0,
+            "topic_count": 0.5938,
+            "d_topic_count": 0.0,
+            "jsonfail": 0,
+            "d_jsonfail": 0,
+            "cases_schema_moved": 0,
+            "cases_topic_moved": 0,
+            "behaviour": {
+              "SPLIT": 38,
+              "MERGE": 20,
+              "STOP": 6
+            },
+            "mean_chars": 416.7
+          },
+          "temp01_norep": {
+            "schema": 1.0,
+            "d_schema": 0.0,
+            "topic_count": 0.6094,
+            "d_topic_count": 0.0156,
+            "jsonfail": 0,
+            "d_jsonfail": 0,
+            "cases_schema_moved": 0,
+            "cases_topic_moved": 1,
+            "behaviour": {
+              "SPLIT": 39,
+              "MERGE": 19,
+              "STOP": 6
+            },
+            "mean_chars": 429.3
+          }
+        }
+      },
+      "corrected-v3": {
+        "baseline": {
+          "schema": 0.9062,
+          "topic_count": 0.5469,
+          "jsonfail": 6,
+          "behaviour": {
+            "SPLIT": 35,
+            "STOP": 6,
+            "JSONFAIL": 6,
+            "MERGE": 17
+          }
+        },
+        "by_setting": {
+          "budget1200": {
+            "schema": 0.9062,
+            "d_schema": 0.0,
+            "topic_count": 0.5469,
+            "d_topic_count": 0.0,
+            "jsonfail": 6,
+            "d_jsonfail": 0,
+            "cases_schema_moved": 0,
+            "cases_topic_moved": 0,
+            "behaviour": {
+              "SPLIT": 35,
+              "STOP": 6,
+              "JSONFAIL": 6,
+              "MERGE": 17
+            },
+            "mean_chars": 442.0
+          },
+          "reppen105": {
+            "schema": 0.9219,
+            "d_schema": 0.0157,
+            "topic_count": 0.5781,
+            "d_topic_count": 0.0312,
+            "jsonfail": 5,
+            "d_jsonfail": -1,
+            "cases_schema_moved": 1,
+            "cases_topic_moved": 2,
+            "behaviour": {
+              "SPLIT": 37,
+              "STOP": 6,
+              "JSONFAIL": 5,
+              "MERGE": 16
+            },
+            "mean_chars": 408.5
+          },
+          "reppen1200": {
+            "schema": 0.9219,
+            "d_schema": 0.0157,
+            "topic_count": 0.5781,
+            "d_topic_count": 0.0312,
+            "jsonfail": 5,
+            "d_jsonfail": -1,
+            "cases_schema_moved": 1,
+            "cases_topic_moved": 2,
+            "behaviour": {
+              "SPLIT": 37,
+              "STOP": 6,
+              "JSONFAIL": 5,
+              "MERGE": 16
+            },
+            "mean_chars": 408.5
+          },
+          "temp01": {
+            "schema": 0.9219,
+            "d_schema": 0.0157,
+            "topic_count": 0.6094,
+            "d_topic_count": 0.0625,
+            "jsonfail": 5,
+            "d_jsonfail": -1,
+            "cases_schema_moved": 1,
+            "cases_topic_moved": 4,
+            "behaviour": {
+              "SPLIT": 39,
+              "STOP": 6,
+              "JSONFAIL": 5,
+              "MERGE": 14
+            },
+            "mean_chars": 412.0
+          },
+          "temp01_norep": {
+            "schema": 0.9062,
+            "d_schema": 0.0,
+            "topic_count": 0.5469,
+            "d_topic_count": 0.0,
+            "jsonfail": 6,
+            "d_jsonfail": 0,
+            "cases_schema_moved": 0,
+            "cases_topic_moved": 0,
+            "behaviour": {
+              "SPLIT": 35,
+              "STOP": 6,
+              "JSONFAIL": 6,
+              "MERGE": 17
+            },
+            "mean_chars": 442.9
+          }
+        }
+      },
+      "v3-2": {
+        "baseline": {
+          "schema": 0.8125,
+          "topic_count": 0.5,
+          "jsonfail": 12,
+          "behaviour": {
+            "SPLIT": 32,
+            "MERGE": 12,
+            "STOP": 8,
+            "JSONFAIL": 12
+          }
+        },
+        "by_setting": {
+          "budget1200": {
+            "schema": 0.8125,
+            "d_schema": 0.0,
+            "topic_count": 0.5,
+            "d_topic_count": 0.0,
+            "jsonfail": 12,
+            "d_jsonfail": 0,
+            "cases_schema_moved": 0,
+            "cases_topic_moved": 0,
+            "behaviour": {
+              "SPLIT": 32,
+              "MERGE": 12,
+              "STOP": 8,
+              "JSONFAIL": 12
+            },
+            "mean_chars": 612.8
+          },
+          "reppen105": {
+            "schema": 0.8438,
+            "d_schema": 0.0313,
+            "topic_count": 0.5469,
+            "d_topic_count": 0.0469,
+            "jsonfail": 10,
+            "d_jsonfail": -2,
+            "cases_schema_moved": 2,
+            "cases_topic_moved": 3,
+            "behaviour": {
+              "SPLIT": 35,
+              "MERGE": 11,
+              "STOP": 8,
+              "JSONFAIL": 10
+            },
+            "mean_chars": 500.0
+          },
+          "reppen1200": {
+            "schema": 0.8438,
+            "d_schema": 0.0313,
+            "topic_count": 0.5469,
+            "d_topic_count": 0.0469,
+            "jsonfail": 10,
+            "d_jsonfail": -2,
+            "cases_schema_moved": 2,
+            "cases_topic_moved": 3,
+            "behaviour": {
+              "SPLIT": 35,
+              "MERGE": 11,
+              "STOP": 8,
+              "JSONFAIL": 10
+            },
+            "mean_chars": 559.8
+          },
+          "temp01": {
+            "schema": 0.8438,
+            "d_schema": 0.0313,
+            "topic_count": 0.5781,
+            "d_topic_count": 0.0781,
+            "jsonfail": 10,
+            "d_jsonfail": -2,
+            "cases_schema_moved": 2,
+            "cases_topic_moved": 5,
+            "behaviour": {
+              "SPLIT": 37,
+              "MERGE": 9,
+              "STOP": 8,
+              "JSONFAIL": 10
+            },
+            "mean_chars": 565.9
+          },
+          "temp01_norep": {
+            "schema": 0.8438,
+            "d_schema": 0.0313,
+            "topic_count": 0.5469,
+            "d_topic_count": 0.0469,
+            "jsonfail": 10,
+            "d_jsonfail": -2,
+            "cases_schema_moved": 2,
+            "cases_topic_moved": 3,
+            "behaviour": {
+              "SPLIT": 35,
+              "MERGE": 10,
+              "STOP": 9,
+              "JSONFAIL": 10
+            },
+            "mean_chars": 585.7
+          }
+        }
+      }
+    },
+    "best_cell": {
+      "v2": {
+        "best_setting": "temp01_norep",
+        "schema": 1.0,
+        "topic_count": 0.6094,
+        "d_schema": 0.0,
+        "d_topic_count": 0.0156,
+        "cases_schema_moved": 0,
+        "blocking_gates": [
+          "topic_count 0.6094 < 0.90"
+        ],
+        "closes_a_gate": false,
+        "why_not": "topic_count 0.6094 < 0.90; and the gates are defined on the full suites, not on these 64"
+      },
+      "corrected-v3": {
+        "best_setting": "temp01",
+        "schema": 0.9219,
+        "topic_count": 0.6094,
+        "d_schema": 0.0157,
+        "d_topic_count": 0.0625,
+        "cases_schema_moved": 1,
+        "blocking_gates": [
+          "schema 0.9219 < 1.00",
+          "topic_count 0.6094 < 0.90"
+        ],
+        "closes_a_gate": false,
+        "why_not": "schema 0.9219 < 1.00; topic_count 0.6094 < 0.90; and the gates are defined on the full suites, not on these 64"
+      },
+      "v3-2": {
+        "best_setting": "temp01",
+        "schema": 0.8438,
+        "topic_count": 0.5781,
+        "d_schema": 0.0313,
+        "d_topic_count": 0.0781,
+        "cases_schema_moved": 2,
+        "blocking_gates": [
+          "schema 0.8438 < 1.00",
+          "topic_count 0.5781 < 0.90"
+        ],
+        "closes_a_gate": false,
+        "why_not": "schema 0.8438 < 1.00; topic_count 0.5781 < 0.90; and the gates are defined on the full suites, not on these 64"
+      }
+    },
+    "loop_detector": {
+      "unit": "word",
+      "tokenizer": "\\w+",
+      "shingle": 6,
+      "min_repeats": 4,
+      "min_tokens": 60
+    }
+  },
+  "gate_coverage": {
+    "schema": {
+      "probe_covers": true,
+      "why": "counted over the probe subset, not all 146 eval_v3 cases"
+    },
+    "topic_count": {
+      "probe_covers": true,
+      "why": "counted over the probe subset, not all 146"
+    },
+    "boilerplate": {
+      "probe_covers": true,
+      "why": "counted over the probe subset, not all 146"
+    },
+    "two_topic_recall": {
+      "probe_covers": false,
+      "why": "needs the multitopic suite's per-topic labels"
+    },
+    "frozen_domain": {
+      "probe_covers": false,
+      "why": "needs the frozen 329"
+    },
+    "smoke_two_topic": {
+      "probe_covers": false,
+      "why": "needs the smoke suite"
+    }
+  },
+  "complete": true,
+  "rows": 960
+}

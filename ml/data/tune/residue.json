@@ -1,0 +1,179 @@
+{
+  "quote_artefact": {
+    "detector": "\\\"\\\"",
+    "corpus": {
+      "v2 train": {
+        "rows": 8519,
+        "empty_quote_occurrences": 12528,
+        "examples_with_one": 1,
+        "distinct_delimiters": {
+          "\"\"": 12528
+        }
+      },
+      "v3.2 train": {
+        "rows": 9708,
+        "empty_quote_occurrences": 15274,
+        "examples_with_one": 1,
+        "distinct_delimiters": {
+          "\"\"": 15274
+        }
+      }
+    },
+    "eval_v3": {
+      "n_cases": 146,
+      "affected_ids": [
+        "ev3-016",
+        "ev3-024",
+        "ev3-032",
+        "ev3-046",
+        "ev3-052"
+      ],
+      "by_arm": {
+        "v2": {
+          "json_ok": 5,
+          "json_fail": []
+        },
+        "v3-corrected": {
+          "json_ok": 0,
+          "json_fail": [
+            "ev3-016",
+            "ev3-024",
+            "ev3-032",
+            "ev3-046",
+            "ev3-052"
+          ]
+        },
+        "v3-2": {
+          "json_ok": 0,
+          "json_fail": [
+            "ev3-016",
+            "ev3-024",
+            "ev3-032",
+            "ev3-046",
+            "ev3-052"
+          ]
+        }
+      }
+    }
+  },
+  "detectors": {
+    "gate": [
+      "нада[єи]\\s+згоду",
+      "згоду\\s+нада[єи]",
+      "згоду\\s+на\\s+оброб",
+      "надати\\s+телефоном",
+      "надати\\s+поштою",
+      "надати\\s+письмово",
+      "надати\\s+відповідь",
+      "відповідь\\s+нада[єи]",
+      "відповідь\\s+надати",
+      "бажа[єи]\\s+отримати",
+      "просить\\s+надати",
+      "просимо\\s+надати",
+      "повідомити\\s+засобами",
+      "за(хист|щит)\\s+персональних\\s+даних",
+      "персональних\\s+даних",
+      "відповідь\\s+заявник",
+      "звернення\\s+опрацювати",
+      "відповідь\\s+заявник\\w*",
+      "в\\s+телефонному\\s+режимі",
+      "в\\s+письмовому\\s+режимі",
+      "відповідь\\s+нада[єи]ться",
+      "відповідь\\s+буде\\s+надана",
+      "заявник\\w*\\s+нада[єи]",
+      "заявниц\\w*\\s+нада[єи]"
+    ],
+    "r2_extra": [
+      "у\\s+телефонному\\s+режимі",
+      "у\\s+письмовому\\s+режимі"
+    ],
+    "r3": "(прохання|просить|просимо|прошу|проханням)\\s+(терміново|негайно)?\\s*вжити\\s+(необхідні|необхідних|відповідні|належні|належних)?\\s*заход\\w*\\s*(реагування)?\\s*[.!]?$"
+  },
+  "corpus": {
+    "v2 train": {
+      "n": 8519,
+      "gate_leak": 5492,
+      "r2_delivery_mode": 1258,
+      "r3_generic_closer": 45,
+      "gate_rate": 0.6447,
+      "r2_rate": 0.1477,
+      "r3_rate": 0.0053
+    },
+    "v3.2 train": {
+      "n": 9708,
+      "gate_leak": 83,
+      "r2_delivery_mode": 6,
+      "r3_generic_closer": 0,
+      "gate_rate": 0.0085,
+      "r2_rate": 0.0006,
+      "r3_rate": 0.0
+    }
+  },
+  "frozen_329": {
+    "v2": {
+      "n": 329,
+      "gate_leak": 219,
+      "r2_delivery_mode": 90,
+      "r3_generic_closer": 0,
+      "gate_rate": 0.6657,
+      "r2_rate": 0.2736,
+      "r3_rate": 0.0
+    },
+    "previous-v3": {
+      "n": 329,
+      "gate_leak": 95,
+      "r2_delivery_mode": 90,
+      "r3_generic_closer": 10,
+      "gate_rate": 0.2888,
+      "r2_rate": 0.2736,
+      "r3_rate": 0.0304
+    },
+    "corrected-v3": {
+      "n": 329,
+      "gate_leak": 5,
+      "r2_delivery_mode": 2,
+      "r3_generic_closer": 8,
+      "gate_rate": 0.0152,
+      "r2_rate": 0.0061,
+      "r3_rate": 0.0243
+    },
+    "v3.2": {
+      "n": 329,
+      "gate_leak": 3,
+      "r2_delivery_mode": 0,
+      "r3_generic_closer": 6,
+      "gate_rate": 0.0091,
+      "r2_rate": 0.0,
+      "r3_rate": 0.0182
+    }
+  },
+  "behaviour_52": {
+    "previous-v3": {
+      "n": 52,
+      "gate_leak": 1,
+      "r2_delivery_mode": 1,
+      "r3_generic_closer": 0,
+      "gate_rate": 0.0192,
+      "r2_rate": 0.0192,
+      "r3_rate": 0.0
+    },
+    "corrected-v3": {
+      "n": 52,
+      "gate_leak": 0,
+      "r2_delivery_mode": 0,
+      "r3_generic_closer": 1,
+      "gate_rate": 0.0,
+      "r2_rate": 0.0,
+      "r3_rate": 0.0192
+    },
+    "v3.2": {
+      "n": 52,
+      "gate_leak": 0,
+      "r2_delivery_mode": 0,
+      "r3_generic_closer": 0,
+      "gate_rate": 0.0,
+      "r2_rate": 0.0,
+      "r3_rate": 0.0
+    }
+  }
+}
