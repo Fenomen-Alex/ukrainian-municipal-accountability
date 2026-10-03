@@ -69,6 +69,54 @@ _PHONE = re.compile(r"(?:\+?38)?0\d{2}[-\s)]?\d{3}[-\s]?\d{2}[-\s]?\d{2}")
 _BUILDING_NO = re.compile(r"\b(?:будинок|буд\.|№|корп\.?)\s*[№]?\s*(\d+[а-яА-Я]?)", re.IGNORECASE)
 
 
+#: A character that can sit directly against an ASCII quote on both sides.
+_QUOTE_WORD_CHAR = re.compile(r"[0-9A-Za-zА-Яа-яІіЇїЄєҐґ]")
+
+
+def normalize_quotes(text: str | None) -> str | None:
+    r"""Replace ASCII double quotes with typography the corpus already uses.
+
+    A raw ``"`` reaching the model is a JSON hazard: v3 arms copy the source
+    span verbatim into an ``issue`` string, so one unescaped quote terminates
+    the string and ``parse_strict`` rejects the payload.  Rather than deleting
+    the marks -- which would destroy real quotation semantics -- this maps
+    them onto forms already frequent in the corpus, so the existing weights
+    already handle them and no retraining is required.
+
+    Two roles are distinguished, because in this corpus they are distinct:
+
+    * mid-word (``під"їзду``, ``роз"яснень``) is a keyboard typo for an
+      apostrophe -> U+2019, which is how the rest of the corpus writes it;
+    * anything else is a quotation delimiter -> alternating U+201C / U+201D.
+
+    Corpus census backing the split (train/validation/test, 112 ASCII quotes
+    in 55 records): 12 mid-word, the remainder delimiters.  No measurement or
+    other semantic use of ``"`` was found.
+
+    Nothing is deleted, so length and non-quote characters are preserved and
+    the function is idempotent.  ``None`` passes through for callers that
+    treat a missing complaint as empty.
+    """
+    if text is None:
+        return None
+    out: list[str] = []
+    open_next = True
+    for i, ch in enumerate(text):
+        if ch != '"':
+            out.append(ch)
+            continue
+        prev = text[i - 1] if i else ""
+        nxt = text[i + 1] if i + 1 < len(text) else ""
+        if (_QUOTE_WORD_CHAR.match(prev or " ")
+                and _QUOTE_WORD_CHAR.match(nxt or " ")):
+            out.append("’")
+            open_next = True
+        else:
+            out.append("“" if open_next else "”")
+            open_next = not open_next
+    return "".join(out)
+
+
 def _street_spans(text: str) -> list[tuple[int, int]]:
     """Text spans of street phrases, used to protect street names from redaction."""
     spans = []
@@ -126,6 +174,12 @@ class LabeledRecord:
 
 
 def _clean_text(text: str) -> str:
+    # NOTE: normalize_quotes is deliberately NOT applied here. This cleaner feeds
+    # the v2 / v3 / v3.2 corpus builders whose artefacts are frozen and pinned by
+    # ml/data/tune/v3_2/ and the v3.2 report SHA. Rewriting text at this boundary
+    # would change those artefacts. Normalisation is applied at the serving
+    # prompt boundary instead (serve_v2.build_messages), which is what actually
+    # protects the model.
     text = re.sub(r"\s+", " ", (text or "").strip())
     return text.strip()
 

@@ -34,7 +34,7 @@ import argparse
 import json
 import sys
 
-from ml.tune.build_dataset import SYSTEM_PROMPT
+from ml.tune.build_dataset import SYSTEM_PROMPT, normalize_quotes
 
 #: The exact v2 artifact. Byte-identical to ``qwen3-8b-lora-v2-fused``.
 DEFAULT_MODEL = "ml/data/tune/adapters/qwen3-8b-lora-v2-attempt10-fused"
@@ -55,10 +55,16 @@ THINK_PREFIX = "<think>\n\n</think>\n\n"
 
 
 def build_messages(complaint: str) -> list[dict]:
-    """The v2 message list: the fixed system prompt plus the citizen text."""
+    """The v2 message list: the fixed system prompt plus the citizen text.
+
+    ``normalize_quotes`` is applied here, at the single boundary every serving
+    path goes through, so a raw ASCII double quote in live traffic can never be
+    copied verbatim into a JSON ``issue`` string.  Text without ASCII quotes is
+    returned byte-identical, so the v2 contract is unchanged for it.
+    """
     return [
         {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": (complaint or "").strip()},
+        {"role": "user", "content": (normalize_quotes(complaint) or "").strip()},
     ]
 
 
