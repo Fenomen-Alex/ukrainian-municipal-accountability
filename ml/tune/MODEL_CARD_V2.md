@@ -258,8 +258,8 @@ was verified before publication. The MLX 4-bit conversion of the base declares
 the same license.
 
 The **training data is not redistributed with this checkpoint** on Hugging
-Face. Note the scope carefully, because it differs between the two
-distributions of this project:
+Face: this card ships weights only. Note the scope carefully, because it differs
+between the two distributions of this project:
 
 * **Hugging Face (this card):** weights only. No corpus files, no evaluation
   data.
@@ -268,13 +268,24 @@ distributions of this project:
   `.jsonl`. The raw municipal complaint text is **not** PII-free — it contains
   real-world phone numbers and email-like strings.
 
-The municipal complaint corpus has **no recorded source URL, licence, or
-redistribution terms** anywhere in the project. This is an open provenance
-question, not a resolved one; it is recorded as such rather than papered over.
-Anyone redistributing or building on this checkpoint, or cloning and
-redistributing the source repository, should confirm the upstream data terms
-independently. The Apache-2.0 grant above covers **the model weights only** and
-does not extend to the corpus.
+**Source-data licence.** The training corpus is *not* unlicensed and *not*
+Apache-2.0. It comes from a published open-data dataset:
+
+> «Дані про надходження звернень на телефонні "гарячі лінії", в
+> аварійно-диспетчерські служби, телефонні центри тощо», Executive Committee of
+> the Kropyvnytskyi City Council, published under **Creative Commons
+> Attribution 4.0 International** at
+> <https://data.kr-rada.gov.ua/dataset/1770a320-880f-4cd6-9840-78b9e8d93553>
+
+CC BY permits redistribution and re-use **on condition that the creator is
+appropriately credited**, and the corpora here are **modified** (reformatted,
+split, redacted, weak-labelled, chat-formatted). Full attribution, the exact
+publisher wording, the measured PII figures and the open issues are in
+[`DATA_PROVENANCE.md`](../../DATA_PROVENANCE.md). Anyone redistributing or
+building on this checkpoint, or cloning and redistributing the source
+repository, should satisfy that attribution condition. The Apache-2.0 grant
+above covers **the model weights only** and does not extend to, relicense, or
+discharge the CC BY terms of the corpus.
 
 ## Citation and provenance
 

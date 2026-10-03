@@ -62,20 +62,32 @@ metric was misleading on first pass:
 Personal-data measurement (counts only; no values reproduced):
 
 * A naive phone regex matches **every** raw row, but that is the `CATUTTC`
-  territorial-unit code, **not** a phone number.
+  territorial-unit code, **not** a phone number. CONFIRMED against the upstream
+  source: `CATUTTC` is a genuine column of `appeals.csv` (one of 20), holding the
+  territorial-unit code.
 * Real phone numbers inside complaint text occur in ~53 `train` rows, and the
   contexts include a third party's number (`номер чоловіка заявниці`), not only
   the applicant's own. ~22 rows contain email-like strings.
 * Free text also carries addresses, timestamps, organization names and citizen
   references. Redaction exists in `_redact_pii` precisely because such spans exist.
 
-**E1 — documentation contradiction.** `ml/tune/MODEL_CARD_V2.md:260` states "The
-training data is not redistributed here". That is accurate for the **Hugging Face
-model repo** and inaccurate for the **GitHub repo**, which tracks the raw and
-derived corpora above. The claim must be scoped so a reader is not misled about
-the code repository. No legal conclusion is drawn here: the repository records no
-source licence, and `QUOTE_ARTEFACT.md`/`MODEL_CARD_V2.md` already state that the
-data licence is unknown.
+**E1 — documentation contradiction. RESOLVED.** `ml/tune/MODEL_CARD_V2.md` stated
+"The training data is not redistributed here". That is accurate for the
+**Hugging Face model repo** and inaccurate for the **GitHub repo**, which tracks
+the raw and derived corpora above. The claim has been scoped.
+
+**The premise of this finding was itself wrong, and has been corrected.** This
+audit previously recorded that "the repository records no source licence". Primary
+source metadata contradicts that: the corpus derives from a Kropyvnytskyi City
+Council open-data dataset published under **Creative Commons Attribution 4.0
+International**, which permits redistribution with attribution. Two further
+errors surfaced while establishing it: the recorded dataset id was wrong by one
+character (it 404s), and the recorded filename `appeals_2026-08-01.csv` no longer
+exists — the portal serves a single mutable `appeals.csv` with no checksum.
+
+See `DATA_PROVENANCE.md` for the full evidence, the attribution owed, the
+measured residual-PII figures, and `ml/tune/verify_release_provenance.py` for the
+machine check that keeps these claims consistent.
 
 Clean results: no credentials, `.env`, keys or tokens are tracked (all "token"
 matches are NLP metrics such as `object_token_overlap`). Adapters (4.3 GB),

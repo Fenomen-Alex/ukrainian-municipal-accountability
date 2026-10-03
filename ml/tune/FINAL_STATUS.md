@@ -72,11 +72,17 @@ evaluate them against their use case.
 ## Data and privacy
 
 Training and evaluation corpora are tracked in this GitHub repository and are
-**not** PII-free: raw municipal complaints contain real phone numbers and
-email-like strings. They are not redistributed via the Hugging Face artifact.
-No source licence or redistribution authorisation for the corpora is recorded in
-this repository. Full detail and the open provenance question:
-[../FINAL_RELEASE_READINESS.md](../../FINAL_RELEASE_READINESS.md).
+**not** PII-free: raw municipal complaint text contains real-world phone numbers
+and email-like strings, and the heuristic redaction is incomplete — 187
+phone-like and 114 email-like rows remain across the tracked corpora.
+
+The source is openly licensed: a Kropyvnytskyi City Council open-data dataset
+under **Creative Commons Attribution 4.0 International**, which permits
+redistribution and re-use **on condition the creator is credited**. That
+attribution, the exact publisher wording and the measured figures are in
+[DATA_PROVENANCE.md](../../DATA_PROVENANCE.md). The Apache-2.0 licence on the
+model weights does **not** cover the corpus and does not discharge that
+attribution condition. The Hugging Face artifact ships weights only.
 
 ## Where to look next
 

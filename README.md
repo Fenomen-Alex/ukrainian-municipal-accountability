@@ -136,10 +136,23 @@ artifact on Hugging Face does not redistribute them. The raw complaint text
 contains real-world phone numbers and email-like strings; it is *not* PII-free
 and must not be treated as publishable reference data.
 
-**No source licence or redistribution authorisation for the complaint corpora is
-recorded anywhere in this repository.** This is an open provenance question,
-not a resolved one — see the provenance section of
-[FINAL_RELEASE_READINESS.md](FINAL_RELEASE_READINESS.md) before redistributing
-this repository or its data.
+**The source is openly licensed.** The corpora derive from a published
+Kropyvnytskyi City Council open-data dataset under **Creative Commons
+Attribution 4.0 International**, which permits redistribution and re-use with
+attribution. That attribution is recorded in
+[DATA_PROVENANCE.md](DATA_PROVENANCE.md), which is the authoritative provenance
+record. **The Apache-2.0 licence on the model weights does not cover the data.**
 
-No credentials, keys or `.env` files are tracked.
+Two facts worth knowing before you use the corpora:
+
+* **The tracked corpora still contain PII.** The heuristic redaction is
+  pattern-based and incomplete — 187 rows with phone-like numbers and 114 with
+  email-like strings survive across the tracked `.jsonl` files. It is permitted
+  by CC BY, but it is a live distribution of personal data, so treat the corpora
+  as sensitive rather than as reference data.
+* **The source is not versioned.** It is a single mutable `appeals.csv` with no
+  published checksum, so these corpora cannot be re-derived or proven against the
+  source later.
+
+No credentials, keys or `.env` files are tracked, and no model weights are in
+Git.
