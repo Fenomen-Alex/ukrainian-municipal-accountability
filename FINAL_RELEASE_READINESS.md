@@ -342,11 +342,14 @@ instead of another run.
 tested; use it with the limitations in §6 and in `ml/tune/FINAL_STATUS.md` in
 view. Do not represent it as having passed a release review — it did not.
 
-**Two items block any broader release**, and neither is a modelling problem:
+**Sole remaining blocker** is a data-distribution decision, not a modelling one:
 
-1. **Corpus provenance** (§3) — undocumented source licence.
-2. **v2's four failing gates** (§6) — accepted historically, not cleared.
-
-Neither is fixed here, and neither should be quietly dropped from a release
-checklist. Model development remains **frozen**; the cheapest remaining win — the
-quote artefact — is already taken.
+1. **Public derived-data distribution** — classification **C**. The tracked corpora
+   expose contact details (221 phone-like / 121 email-like rows; 85.6 MB,
+   ~30.3k distinct rows). The data is permanently in public history (`e217197`)
+   and tests depend on it (48 failures if removed). Owner must choose: **A**
+   (formally accept exposure) or **B** (authorised history rewrite + skip guards in
+   `ml/tests/test_tune_dataset.py`, `ml/tests/test_v2_augmentation.py` and
+   `ml/tests/test_v3_changes.py`). Fixing the HF model-card provenance is
+   complete; licence and attribution are now documented. The four v2 gates remain
+   unpassed and development remains **FROZEN**.

@@ -152,39 +152,94 @@ a legal conclusion about it.
 ## What this repository redistributes
 
 GitHub distribution is **not** limited to code. Of 216 tracked files, **25 are
-`.jsonl` corpora totalling 78.2 MB**, and they retain the source's verbatim
+`.jsonl` corpora totalling 85.6 MB**, and they retain the source's verbatim
 20-column schema (`content`, `CATUTTC`, `addressLocatorBuilding`,
 `addressThoroughfare`, `uid`, …). No `.csv` from the source and no model weights
 are tracked; adapters are gitignored.
 
-| Asset class | Tracked | Contains source complaint text | Contains PII | Distributed by |
-|---|---:|---:|---:|---|
-| Raw-split corpora `ml/data/{train,validation,test}.jsonl` | yes | yes | yes | GitHub |
-| Training corpora `ml/data/tune/v2/*.jsonl` | yes | yes (in chat turns) | yes | GitHub |
-| Other derived corpora (`multitopic/`, `v3/treatment/`, `gold/`) | yes | yes | yes | GitHub |
-| Source `.csv` | no | — | — | not distributed |
-| Model adapters / weights | no (gitignored) | — | — | not in Git; HF ships weights only |
-| Evaluation outputs and logs | yes | incidental | no | GitHub |
-| Model card, reports, docs | yes | quotes examples | no | GitHub |
-| **Model weights on Hugging Face** | n/a | **no** | **no** | Hugging Face only |
+Reproduce everything in this section with:
 
-Measured residual PII in tracked corpora (full-file scan, phone-like and
-email-like patterns):
+```bash
+python -m ml.tune.audit_public_data          # table
+python -m ml.tune.audit_public_data --write  # refresh the manifest
+python -m ml.tune.audit_public_data --check  # assert the manifest is current
+```
 
-| File | rows | rows w/ phone-like | rows w/ email-like |
-|---|---:|---:|---:|
-| `ml/data/train.jsonl` | 5384 | 53 | 22 |
-| `ml/data/validation.jsonl` | 1124 | 12 | 2 |
-| `ml/data/test.jsonl` | 329 | 1 | 0 |
-| `ml/data/tune/v2/train.jsonl` | 8519 | 56 | 40 |
-| `ml/data/tune/v2/validation.jsonl` | 1124 | 12 | 2 |
-| `ml/data/tune/v2/test.jsonl` | 329 | 1 | 0 |
-| `ml/data/tune/multitopic/train.jsonl` | 979 | 1 | 6 |
-| `ml/data/tune/v3/treatment/train.jsonl` | 9447 | 51 | 42 |
-| **total** | **27235** | **187** | **114** |
+The machine-readable record is `ml/data/tune/public_data_manifest.json`.
 
-**This means PII is currently distributed via GitHub** under a licence that
-permits redistribution. CC BY permits it; it does not make it desirable.
+### Corpus classes
+
+25 tracked paths resolve to **24 distinct files** (one is a symlink) and **21
+distinct content hashes** — several corpora are byte-identical copies, so row
+counts per path would double-count. Totals: **85.6 MB, 32,888 rows per path /
+30,291 distinct rows**.
+
+| Class | Files | MB | Rows (per path) | Phone-like | Email-like | Verbatim source text | Needed for offline tests | Intended public |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| `source_derived_corpus` | 12 | 83.19 | 29,897 | 210 | 118 | **yes** | **yes, 48 tests fail without it** | **undecided — see below** |
+| `annotation_or_provenance_metadata` | 3 | 0.95 | 1,725 | 10 | 3 | partial (uids, quoted text) | yes | undecided |
+| `generated_model_output` | 9 | 1.24 | 1,120 | 0 | 0 | no (model output) | yes | yes |
+| `benchmark_case_set` | 1 | 0.26 | 146 | 1 | 0 | yes (complaint text) | yes | undecided |
+
+Byte-identical duplicate groups (rows counted once above):
+
+| SHA-256 prefix | Paths |
+|---|---|
+| `49a7c3518558` | `ml/data/tune/v2/test.jsonl` == `ml/data/tune/v3/treatment/test.jsonl` |
+| `c7cea07ec00f` | `ml/data/tune/v2/validation.jsonl` == `ml/data/tune/v3/treatment/validation.jsonl` |
+| `fb553d57a4ee` | `ml/data/tune/smoke/results/finetuned-v2/smoke_results.jsonl` == `.../finetuned/smoke_results.jsonl` |
+| — | `ml/data/tune/v2/valid.jsonl` is a **symlink** to `validation.jsonl` |
+
+Aggregate PII indicator across all tracked corpora: **221 phone-like rows,
+121 email-like rows** counted per path. These are heuristic pattern hits, not a
+privacy audit, and they support no legal conclusion.
+
+### Classification of the repository data-distribution state
+
+> **C — distribution status cannot be responsibly established from the available
+> evidence.**
+
+The three permitted classifications were tested against evidence rather than
+chosen by preference:
+
+**A is not supportable.** No document in this project's history records the owner
+reviewing or accepting the PII exposure. The opposite is on record: until commit
+`15a44be` every document asserted the source licence was *unknown*, so the
+question of CC BY *plus* live contact details was never put to anyone.
+
+**B is the correct direction but its remedy is unavailable.** The corpora are not
+required to reproduce the published artifact — the HF weights plus
+`ml/data/tune/artifact_sha256.json` fully determine and verify v2, and model
+development is frozen — so they are not *necessary* to be public. But removing
+them from the public repository is not achievable by the mechanism B implies:
+
+1. **The data is already permanently public.** The corpora were committed in
+   `e217197`, confirmed an ancestor of `origin/master`. `git rm --cached` only
+   untracks them going forward; every row stays downloadable from public
+   history. Purging it requires a history rewrite
+   (`git filter-repo` + force-push), which destroys shared history and needs
+   explicit owner authorisation.
+2. **Untracking breaks the test suite, badly.** Measured at `15a44be`: hiding the
+   12 `source_derived_corpus` files gives **48 failures, 419 passed, 1 collection
+   error** (`ml/tests/test_tune_dataset.py` fails at *collection* time). Removing
+   them is not a quiet `git rm`; it requires skip guards in
+   `test_tune_dataset.py`, `test_v2_augmentation.py` and `test_v3_changes.py`,
+   and it would leave the suite unable to validate corpus construction at all.
+
+So B cannot be executed as written, and executing its cosmetic form would
+misrepresent the exposure as fixed while changing nothing that matters.
+
+**Therefore the question stays open pending exactly one owner decision.** Either
+outcome closes it:
+
+| Owner decision | Effect | Cost |
+|---|---|---|
+| Formally accept the exposure (records A) | classification becomes **A**, distribution may proceed | personal data of Ukrainian citizens stays publicly redistributable under CC BY, which is a copyright licence and not a privacy clearance |
+| Authorise a history rewrite (records B) | classification becomes **B** | `git filter-repo` over `e217197` + force-push, breaking clones and SHAs; plus skip guards for 3 test files |
+| Neither | classification stays **C** | distribution stays **BLOCKED** |
+
+Nothing was removed to improve this audit's appearance. The tracked corpora are
+unchanged; the remediation above is documented, not applied.
 
 ## Preprocessing and PII handling
 
@@ -235,12 +290,20 @@ The published card currently states:
 > documented** in the source project. The municipal complaint corpus has no
 > recorded source URL, license, or redistribution terms."
 
-That statement is **factually wrong** on both counts: a source URL is recorded
-above, and the licence is CC BY 4.0. The card understates the available grant and
-omits the attribution condition. Correcting it is a separate, deliberate change
-to the public artifact and is left to the owner's decision.
+That statement was **factually wrong** on both counts: a source URL is recorded
+above, and the licence is CC BY 4.0. The card understated the available grant and
+omitted the attribution condition.
 
-Everything else checked on the card is accurate: model identity (v2 / attempt-10),
+**Corrected.** The false paragraph was replaced with a metadata-only edit on
+`main`; weights, config, tokenizer, chat template and quantization were not
+touched. The exact before/after text and the fact-check of every new sentence are
+recorded in `hf_model_card_proposed_provenance.md`. The corrected card now states
+the dataset, the official source URL, the CC BY 4.0 terms and attribution
+condition, the licence split between Apache-2.0 weights/code and CC BY 4.0 data,
+and that the source project **does** track source-derived corpora which may retain
+contact details.
+
+Everything else on the card is accurate: model identity (v2 / attempt-10),
 Apache-2.0, base model `mlx-community/Qwen3-8B-4bit`, 4-bit group-size-64
 quantization, intended use, byte-exact system-prompt requirement, serving
 assumptions, Apple-Silicon-only constraint, repository link, and an honest
@@ -257,11 +320,11 @@ defect or the `_PERSON_NAME` over-matching recorded in this repository.
    from the Open Definition overview and the portal-wide default.
 3. **No privacy terms** published by the publisher despite measurable personal
    data in the resource.
-4. **PII remains in distributed corpora** (187 phone-like / 114 email-like rows).
-   Permitted by CC BY, but it is a live distribution of personal data and a
-   defensible target for removal.
-5. **The public model card's provenance paragraph is wrong** and has not been
-   corrected here.
+4. **The data-distribution decision is undecided — classification C.** 221
+   phone-like / 121 email-like rows are publicly distributed via GitHub, the data
+   is permanently in public history at `e217197`, and the decision to accept or
+   remove it belongs to the owner. This is the **sole remaining release blocker**.
+5. Residual `_redact_pii` incompleteness, unchanged and documented above.
 
 ## Reproducing this investigation
 
