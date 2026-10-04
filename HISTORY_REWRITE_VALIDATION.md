@@ -12,6 +12,8 @@ with an explicit hard stop before any remote modification.
 | Pre-rewrite public tip | `e3933372e173c36b5fde26349b5bece8f910c665` |
 | Rewritten local tip | `682b7c318028b0e8c121a7cfddddff92929faec3` |
 | Remediation commit on top | `da1c759ccf8fc4de9a5895003ae9bc8de2b01dba` |
+| Redaction commit | `b6b1ab82a3d9f250752ac82e1554804dc64fe9df` |
+| Current local tip | `649c0b17984a34493e70354b71939f13d0dc467b` |
 | `origin/master` | `e393337` — **unchanged** |
 | Safety reference | local tag `pre-rewrite-e393337` → `e393337` (retained, not pushed) |
 | Tool | `git filter-repo` a40bce548d2c |
