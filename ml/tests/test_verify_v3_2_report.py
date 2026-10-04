@@ -25,6 +25,23 @@ ROOT = Path(__file__).resolve().parents[2]
 REPORT = ROOT / "ml/tune/V3_2_REPORT.md"
 VERIFY = ROOT / "ml/tune/verify_v3_2_report.py"
 
+#: The verifier confirms the adapter-sha claim against the real fused adapter, so
+#: every test here genuinely requires it. That is a multi-GB private artifact which
+#: the public repository does not ship, so in a clean checkout these tests must
+#: skip with a reason rather than fail. The assertions below are unchanged and run
+#: in full wherever the artifact is present.
+V32_FUSED_MANIFEST = ROOT / "ml/data/tune/adapters/qwen3-8b-lora-v3-2-fused/fuse_manifest.json"
+
+pytestmark = pytest.mark.skipif(
+    not V32_FUSED_MANIFEST.exists(),
+    reason=(
+        "private fused v3.2 adapter not present: these tests verify the report "
+        f"against {V32_FUSED_MANIFEST.relative_to(ROOT)}, a multi-GB artifact the "
+        "public repository does not ship. Build it locally (see "
+        "REPRODUCIBILITY.md) to run them."
+    ),
+)
+
 #: (label, pattern, replacement) -- each must make verification fail.
 CORRUPTIONS = [
     ("eval_v3 metric", r"\| `json_parse_rate` \| 0\.9932 \| 0\.9795 \| 0\.9589 \| \*\*0\.9178\*\*",

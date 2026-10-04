@@ -51,6 +51,22 @@ ROOT = Path(__file__).resolve().parents[2]
 TUNE = ROOT / "ml/data/tune"
 ARMS = ("v2", "v3-treatment", "v3-corrected", "v3-2")
 
+#: ``ml/data/tune/eval/`` holds the frozen per-case evaluator output for every
+#: arm. It is gitignored (see ``.gitignore``) and therefore absent from a public
+#: checkout, so the checks that re-derive per-case numbers from it cannot run
+#: there. They skip with a reason instead of failing; the assertions themselves
+#: are unchanged and still run wherever the artefact is present.
+FROZEN_EVAL = TUNE / "eval"
+requires_frozen_eval = pytest.mark.skipif(
+    not (FROZEN_EVAL / "lora.json").exists(),
+    reason=(
+        "frozen per-case evaluator output not present: "
+        f"{(FROZEN_EVAL / 'lora.json').relative_to(ROOT)} is gitignored and is not "
+        "shipped by the public repository. Re-run the evaluation locally to "
+        "rebuild it (see REPRODUCIBILITY.md)."
+    ),
+)
+
 
 @pytest.fixture(scope="module")
 def matrix():
@@ -75,6 +91,7 @@ def test_matrix_agrees_with_committed_eval_v3_aggregates(matrix):
         assert matrix["ev3_topic_count"]["values"][arm] == got["topic_count_accuracy"]
 
 
+@requires_frozen_eval
 def test_matrix_frozen_decomposition_is_faithful():
     """The frozen per-case numbers must reproduce the committed aggregate.
 
@@ -271,6 +288,7 @@ def test_r3_is_worse_in_v3_than_v2():
         assert r["frozen_329"][arm]["r3_rate"] > v2, arm
 
 
+@requires_frozen_eval
 def test_r3_lives_in_issue_not_requested_action():
     """Rules out C2's action supervision as the cause of the R3 residue."""
     d = json.loads((TUNE / "eval/v3-2.json").read_text(encoding="utf-8"))
@@ -310,6 +328,7 @@ def test_probe_covers_52_two_topic_and_14_jsonfail_cases():
 
 
 # ------------------------------------------------------------------- verifier
+@requires_frozen_eval
 def test_verifier_checks_a_substantial_number_of_claims():
     c = verify_final_assessment.Checks()
     rep = verify_final_assessment.build_report()
@@ -443,6 +462,7 @@ def _verify(tmp_path, text):
     return json.loads(j.read_text(encoding="utf-8"))
 
 
+@requires_frozen_eval
 def test_final_verifier_checks_a_substantial_number_of_claims(tmp_path):
     """Guards the failure mode where dispatch matches nothing but still says OK."""
     data = _verify(tmp_path, REPORT_MD.read_text(encoding="utf-8"))
@@ -473,6 +493,7 @@ CORRUPTIONS = [
 ]
 
 
+@requires_frozen_eval
 @pytest.mark.parametrize("label,pattern,replacement", CORRUPTIONS,
                          ids=[c[0] for c in CORRUPTIONS])
 def test_report_corruption_is_detected(tmp_path, label, pattern, replacement):

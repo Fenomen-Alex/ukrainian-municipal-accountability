@@ -95,13 +95,23 @@ def record() -> dict:
     return data
 
 
-def verify() -> int:
+def verify(require_all: bool = False) -> int:
+    """Re-check every pinned arm against the recorded baseline.
+
+    An arm whose directory is absent is *not verified*, not *unchanged*. The
+    adapter directories are gitignored, so a public clone legitimately has
+    almost none of them and a vanished directory there says nothing about
+    corruption. Those are counted separately and never folded into "unchanged";
+    pass ``require_all`` to restore the strict "every pinned arm must be present
+    and identical" behaviour.
+    """
     if not MANIFEST.exists():
         print("no baseline; run --record first")
         return 1
     base = json.loads(MANIFEST.read_text(encoding="utf-8"))
     now = build(tuple(base))
     bad = 0
+    absent = 0
     for arm, was in base.items():
         if arm in THIS_RUN:
             continue  # this run is expected to change
@@ -110,8 +120,8 @@ def verify() -> int:
             print(f"  {arm:<34} skipped (was absent)")
             continue
         if not got.get("present"):
-            print(f"  {arm:<34} FAIL: directory disappeared")
-            bad += 1
+            absent += 1
+            print(f"  {arm:<34} NOT VERIFIED (absent from this checkout)")
             continue
         if got["tree_sha256"] != was["tree_sha256"]:
             print(f"  {arm:<34} FAIL: tree {was['tree_sha256'][:16]} -> {got['tree_sha256'][:16]}")
@@ -124,18 +134,35 @@ def verify() -> int:
             bad += 1
         else:
             print(f"  {arm:<34} unchanged ({got['n_files']} files)")
-    print("ALL REFERENCE ARMS UNCHANGED" if not bad else f"{bad} REFERENCE ARM(S) CHANGED")
-    return 1 if bad else 0
+    if bad:
+        print(f"{bad} REFERENCE ARM(S) CHANGED")
+        return 1
+    if absent:
+        print(
+            f"ALL PRESENT REFERENCE ARMS UNCHANGED "
+            f"({absent} NOT PRESENT IN THIS CHECKOUT - NOT VERIFIED)"
+        )
+        if require_all:
+            print("--require-all: treating absent pinned arms as a failure")
+            return 1
+        return 0
+    print("ALL REFERENCE ARMS UNCHANGED")
+    return 0
 
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--record", action="store_true")
     ap.add_argument("--verify", action="store_true")
+    ap.add_argument(
+        "--require-all",
+        action="store_true",
+        help="fail if any pinned arm is absent, not just on a tree mismatch",
+    )
     a = ap.parse_args()
     if a.record:
         record()
     elif a.verify:
-        raise SystemExit(verify())
+        raise SystemExit(verify(require_all=a.require_all))
     else:
         ap.print_help()

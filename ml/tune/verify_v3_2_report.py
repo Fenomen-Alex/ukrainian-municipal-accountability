@@ -64,7 +64,11 @@ def _load(path: Path) -> dict:
     if not path.exists():
         raise SystemExit(
             f"missing artefact: {path.relative_to(ROOT)}\n"
-            "run bash ml/tune/run_v3_2_eval.sh first"
+            "This artefact is not tracked: the v3.2 fused adapter is a multi-GB "
+            "private build. In the public repository this verifier cannot run -- "
+            "the frozen release it audits is identified by "
+            "ml/data/tune/artifact_sha256.json, which IS tracked. To re-run the "
+            "v3.2 comparison locally, run bash ml/tune/run_v3_2_eval.sh first."
         )
     return json.loads(path.read_text(encoding="utf-8"))
 
