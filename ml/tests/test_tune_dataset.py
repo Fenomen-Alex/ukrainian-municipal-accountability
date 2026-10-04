@@ -20,12 +20,24 @@ from ml.tune.build_dataset import (
     to_json,
 )
 from ml.tune.evaluate import (
+
     Prediction,
     eval_predictions,
     first_topic_domain,
     load_validator,
     parse_payload,
 )
+
+# --- public-checkout guard ---------------------------------------------
+# These tests read corpora generated from the official CC BY source. The
+# public repository does not ship them (see REPRODUCIBILITY.md), so on a
+# clean clone they skip explicitly instead of failing at import time.
+from ml.tests._corpora import corpora_present  # noqa: E402
+
+if not corpora_present():
+    pytestmark = pytest.mark.skip(
+        reason="private/generated corpora absent from the public checkout"
+    )
 
 
 class _FakeTokenizer:
@@ -41,7 +53,7 @@ class _FakeTokenizer:
     def __getattr__(self, item):
         return None
 
-TEST_ROWS = load_split("test")
+TEST_ROWS = [] if not corpora_present() else load_split("test")
 
 
 @pytest.fixture(scope="module")

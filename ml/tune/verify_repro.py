@@ -122,6 +122,21 @@ def main() -> None:
         "structure_lora_calls_train": "\n    train(" in inspect.getsource(lora.train_model),
     }
 
+    train_jsonl = Path(args.data) / "train.jsonl"
+    if not train_jsonl.exists():
+        print(
+            f"\nSKIPPED: training corpus {train_jsonl} is not present.\n"
+            "The public repository does not distribute the source-derived corpora\n"
+            "(path B). Rebuild them locally from the official CC BY source before\n"
+            "running the MLX reproducibility verifier. See REPRODUCIBILITY.md."
+        )
+        _emit(
+            {"skipped": True, "reason": f"missing {train_jsonl}",
+             "structure": structure, "all_structure_ok": all(structure.values())},
+            args.json_out,
+        )
+        sys.exit(2)
+
     if args.child is not None:
         # Child mode: only emit the observed order, for the cross-process check.
         model, tokenizer = load("mlx-community/Qwen3-8B-4bit")

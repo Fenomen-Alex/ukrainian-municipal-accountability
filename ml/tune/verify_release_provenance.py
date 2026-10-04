@@ -52,6 +52,7 @@ SHA_MANIFEST = REPO / "ml/data/tune/artifact_sha256.json"
 #: The only strings permitted as a distribution status.
 ALLOWED_STATUSES = (
     "READY FOR PUBLIC DISTRIBUTION",
+    "READY FOR PUBLIC DISTRIBUTION — PENDING HISTORY CLEANUP",
     "READY EXCEPT FOR EXTERNAL VERIFICATION",
     "BLOCKED",
 )

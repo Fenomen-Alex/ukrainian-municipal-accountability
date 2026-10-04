@@ -21,6 +21,12 @@ from ml.tune.build_eval_v3 import (
 )
 from ml.tune.evaluate import load_validator
 
+# --- public-checkout guard ---------------------------------------------
+# Some checks need corpora generated from the official CC BY source, which the
+# public repository does not ship (see REPRODUCIBILITY.md). Those tests skip
+# individually; the benchmark case set itself is tracked and always tested.
+from ml.tests._corpora import skip_if_missing  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[2]
 EVAL_DIR = ROOT / "ml" / "data" / "tune" / "eval_v3"
 V3_DIR = ROOT / "ml" / "data" / "tune" / "v3"
@@ -130,6 +136,8 @@ def test_provenance_is_closed_and_labelled():
 
 
 def test_real_cases_are_verbatim_held_out_records():
+    skip_if_missing(ROOT / "ml" / "data" / "validation.jsonl", what="held-out corpus")
+    skip_if_missing(ROOT / "ml" / "data" / "test.jsonl", what="held-out corpus")
     cases = _load_cases()
     held = {}
     for split in ("validation", "test"):
@@ -214,6 +222,9 @@ def test_no_case_text_leaks_into_training():
     every training user message.
     """
     cases = _load_cases()
+    skip_if_missing(
+        ROOT / "ml" / "data" / "train.jsonl", what="training corpus"
+    )
     keys = train_content_keys()
     assert keys, "training key set is empty; leakage check would be vacuous"
     leaks = [case["id"] for case in cases if _normalise(case["text"]) in keys]
@@ -224,6 +235,9 @@ def test_suite_is_deterministically_reproducible():
     """Re-running the builder must not change a single case."""
     import ml.tune.build_eval_v3 as builder
 
+    skip_if_missing(
+        ROOT / "ml" / "data" / "train.jsonl", what="training corpus"
+    )
     before = {case["id"]: _normalise(case["text"]) for case in _load_cases()}
     second = builder.build()
     after = {case["id"]: _normalise(case["text"]) for case in second["cases"]}

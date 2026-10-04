@@ -22,6 +22,17 @@ from ml.tune.build_multitopic import (
 )
 from ml.tune.build_v2 import build as build_v2
 
+# --- public-checkout guard ---------------------------------------------
+# These tests read corpora generated from the official CC BY source. The
+# public repository does not ship them (see REPRODUCIBILITY.md), so on a
+# clean clone they skip explicitly instead of failing at import time.
+from ml.tests._corpora import corpora_present  # noqa: E402
+
+if not corpora_present():
+    pytestmark = pytest.mark.skip(
+        reason="private/generated corpora absent from the public checkout"
+    )
+
 DATA = __import__("ml.tune.build_dataset", fromlist=["DATA_DIR"]).DATA_DIR
 MT_DIR = DATA / "tune" / "multitopic"
 V2_DIR = DATA / "tune" / "v2"

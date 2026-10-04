@@ -130,11 +130,17 @@ listed so that integrators can decide whether v2 is fit for their use.
 
 ## Data and privacy
 
-Training and evaluation corpora are **tracked in this GitHub repository**
-(~78 MB of `.jsonl`, including raw municipal complaints) even though the model
-artifact on Hugging Face does not redistribute them. The raw complaint text
-contains real-world phone numbers and email-like strings; it is *not* PII-free
-and must not be treated as publishable reference data.
+The source-derived and generated training corpora are **not tracked in this
+GitHub repository**. They are reproducible from the official open-data source via
+the deterministic pipeline (see [REPRODUCIBILITY.md](REPRODUCIBILITY.md)). What
+is tracked is build code, schema, manifests/hashes, documentation, and a small
+reviewed set of benchmark/provenance artifacts (~2.4 MB of `.jsonl`).
+
+**This is a current-HEAD policy, not a history purge.** The former corpora are
+still present in public Git history (`e217197`); removing them from history
+requires a separately-approved rewrite. See
+[PUBLIC_DATA_HISTORY.md](PUBLIC_DATA_HISTORY.md) and
+[HISTORY_REWRITE_PLAN.md](HISTORY_REWRITE_PLAN.md).
 
 **The source is openly licensed.** The corpora derive from a published
 Kropyvnytskyi City Council open-data dataset under **Creative Commons
@@ -143,16 +149,15 @@ attribution. That attribution is recorded in
 [DATA_PROVENANCE.md](DATA_PROVENANCE.md), which is the authoritative provenance
 record. **The Apache-2.0 licence on the model weights does not cover the data.**
 
-Two facts worth knowing before you use the corpora:
+Two facts worth knowing before you rebuild or use the corpora:
 
-* **The tracked corpora still contain PII.** The heuristic redaction is
-  pattern-based and incomplete — 187 rows with phone-like numbers and 114 with
-  email-like strings survive across the tracked `.jsonl` files. It is permitted
-  by CC BY, but it is a live distribution of personal data, so treat the corpora
-  as sensitive rather than as reference data.
+* **The rebuilt corpora are not PII-free.** The heuristic redaction is
+  pattern-based and incomplete. The former tracked source corpora carried 210
+  phone-like and 118 email-like rows; those files are no longer distributed. Treat
+  any locally rebuilt corpus as sensitive rather than as reference data.
 * **The source is not versioned.** It is a single mutable `appeals.csv` with no
-  published checksum, so these corpora cannot be re-derived or proven against the
-  source later.
+  published checksum, so the historical corpora cannot be re-derived byte-for-byte
+  or proven against the source later.
 
 No credentials, keys or `.env` files are tracked, and no model weights are in
 Git.

@@ -38,6 +38,12 @@ from ml.tune import (
 )
 from ml.tune.build_eval_v3 import BOILER_SENT
 
+# --- public-checkout guard ---------------------------------------------
+# A handful of tests read corpora generated from the official CC BY source,
+# which the public repository does not ship (see REPRODUCIBILITY.md). They skip
+# individually; the committed assessment artifacts are always tested.
+from ml.tests._corpora import skip_if_missing  # noqa: E402
+
 #: gate evaluation lives with the matrix it interprets
 _bad = verify_final_assessment._bad
 
@@ -142,6 +148,9 @@ def test_quote_failures_are_the_source_text_artefact_not_hallucination():
     behaviour does. If this ever reports the artefact as v2-only, the
     "source-text, not model error" classification collapses.
     """
+    skip_if_missing(
+        TUNE / "v2" / "train.jsonl", what="v2 training corpus"
+    )
     qa = residue.build()["quote_artefact"]
     assert qa["eval_v3"]["affected_ids"] == [
         "ev3-016", "ev3-024", "ev3-032", "ev3-046", "ev3-052"]
@@ -221,6 +230,7 @@ def test_action_suppression_is_regime_specific_and_opposite():
 
 def test_v3_arms_omit_actions_rather_than_inventing_them():
     """The mismatch is suppression, not hallucination."""
+    skip_if_missing(TUNE / "v2" / "train.jsonl", what="v2 training corpus")
     r = action_analysis.build()["frozen_presence"]
     for arm in ARMS[1:]:
         assert r[arm]["omitted_action_wanted_by_label"] > 5 * r[arm]["invented_action_not_in_label"], arm
@@ -229,6 +239,7 @@ def test_v3_arms_omit_actions_rather_than_inventing_them():
 
 def test_generation_action_rate_is_below_the_training_prior():
     """The v3 shortfall must exceed prior reproduction, or the diagnosis changes."""
+    skip_if_missing(TUNE / "v2" / "train.jsonl", what="v2 training corpus")
     train = action_analysis.build()["corpus_action_rate"]["v3.2 train (== v3 family)"]["rate"]
     for arm in ARMS[1:]:
         assert action_analysis.build()["frozen_presence"][arm]["predicted_action_rate"] < train, arm
@@ -253,6 +264,7 @@ def test_residue_reports_r3_which_the_gate_cannot_see():
 
 def test_r3_is_worse_in_v3_than_v2():
     """The claim under test. If a future corpus fixes it, this must fail."""
+    skip_if_missing(TUNE / "v2" / "train.jsonl", what="v2 training corpus")
     r = residue.build()
     v2 = r["frozen_329"]["v2"]["r3_rate"]
     for arm in ("previous-v3", "corrected-v3", "v3.2"):

@@ -55,6 +55,25 @@ is replaced.
 > or building on this checkpoint should read the provenance document before
 > redistributing any data.
 
+## Follow-up after path-B repository remediation (not yet on HF)
+
+The published card was corrected as proposed above. One sentence is now stale:
+the card says the source project's public repository **does** track source-derived
+corpus files. After the repository adopted path B (corpora removed from the
+tracked tree at HEAD), that is no longer true.
+
+**Do not upload this in the current task** (HF publication is out of scope).
+At the next authorised HF metadata update, replace:
+
+> The source project's public repository **does** track source-derived corpus
+> files.
+
+with a statement that the source-derived/generated corpora are **not tracked** in
+the public repository and are reproducible from the official CC BY source via the
+deterministic pipeline, while the historical Git footprint remains until a
+separately-approved history rewrite. Keep the CC BY attribution and the
+Apache-2.0/CC BY-4.0 split unchanged.
+
 ## Fact check of every claim above
 
 | Claim | Basis | Verified |

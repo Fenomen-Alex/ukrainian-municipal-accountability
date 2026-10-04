@@ -1,10 +1,11 @@
 # Final release readiness — canonical v2
 
-**Date:** 2026-10-03
+**Date:** 2026-10-04
 **Subject:** the canonical v2 model (`Fenomen-Alex/ukrainian-municipal-accountability-qwen3-8b`)
 **Verdict:** **READY FOR CANONICAL USE as a documented contract — NOT a released model.**
-**Distribution readiness:** **`BLOCKED`** — see §3a. One documentation defect on
-the public model card, not a model problem.
+**Distribution readiness:** **`READY FOR PUBLIC DISTRIBUTION — PENDING HISTORY CLEANUP`** — see §3a.
+The current tree no longer distributes the source-derived/generated corpora; the
+corpora remain in public Git history and require a separately-approved rewrite.
 
 Those halves are not a hedge; they are the precise finding:
 
@@ -33,7 +34,8 @@ earlier "unknown/pending" wording in this document:
 | Public artifact | `Fenomen-Alex/ukrainian-municipal-accountability-qwen3-8b` |
 | Local artifact | `ml/data/tune/adapters/qwen3-8b-lora-v2-attempt10-fused` (gitignored) |
 | SHA manifest key | `qwen3-8b-lora-v2-fused` in `ml/data/tune/artifact_sha256.json` |
-| HF revision verified | `6a831b155aa4891b2a96206df0e665c7355f04bb` |
+| HF artifact revision verified | `6a831b155aa4891b2a96206df0e665c7355f04bb` |
+| HF model-card revision (provenance correction) | `0c1734ed0c87a6c74d854e9b9699a157bbe2d856` |
 
 ---
 
@@ -44,12 +46,12 @@ pass.
 
 | # | Check | Command | Result |
 |---|---|---|---|
-| 1 | Full test suite | `.venv/bin/python -m pytest ml/tests -q` | **486 passed, 11 skipped, 4 subtests** |
+| 1 | Full test suite (clean checkout, corpora absent) | `.venv/bin/python -m pytest ml/tests -q` | **356 passed, 141 skipped, 4 subtests**; skipped tests are corpus-gated and skip explicitly |
 | 2 | Release smoke suite, model-free | `.venv/bin/python -m pytest ml/tests/test_release_smoke.py -q` | **57 passed, 8 skipped** |
 | 3 | Release smoke suite, real model (MLX) | `.venv-mlx/bin/python -m pytest ml/tests/test_release_smoke.py -q` | **65 passed** (47.96 s) |
 | 4 | Assessment claim verifier | `.venv/bin/python -m ml.tune.verify_final_assessment` | **OK (380/380)** |
 | 5 | v3.2 historical report | `.venv/bin/python -m ml.tune.verify_v3_2_report` | **PASS (197/197)** |
-| 6 | Reproducibility (MLX) | `.venv-mlx/bin/python -m ml.tune.verify_repro` | **exit 0**, 9 checks PASS, 0 FAIL |
+| 6 | Reproducibility (MLX) | `.venv-mlx/bin/python -m ml.tune.verify_repro` | requires local corpora; exits 2 with guidance on a clean checkout (see `REPRODUCIBILITY.md`) |
 | 7 | Reference-arm SHA manifest | `.venv/bin/python -m ml.tune.artifact_sha --verify` | **ALL REFERENCE ARMS UNCHANGED** |
 | 8 | Prompt-only round trip | `.venv/bin/python -m ml.tune.serve_v2 --request-only --text …` | valid request body, exit 0 |
 | 9 | Whitespace / conflict markers | `git diff --check` | **clean** |
@@ -112,8 +114,10 @@ The quote fix itself is already released in `e39bed4` and is documented in
 **No credentials, keys, `.env` files, tokens or model weights are tracked.**
 Verified by pattern scan over all tracked files and by explicit path checks.
 
-Tracked corpora: **25 `.jsonl` files, 78.2 MB**, largest being
-`ml/data/tune/v2/train.jsonl` (26.4 MB).
+Tracked corpora: **13 tracked `.jsonl` paths, 2.4 MB** (annotation/provenance
+metadata, generated model output, and the frozen benchmark case set). The
+source-derived/generated training corpora are **not tracked** as of this
+remediation; they are reproducible locally (`REPRODUCIBILITY.md`).
 
 Findings:
 
@@ -156,17 +160,17 @@ filename that no longer exists) are in
 1. **The attribution condition is now satisfied** by that document. It was not
    satisfied before, and the earlier claim in this file — that no licence was
    documented — was wrong.
-2. **PII remains in the distributed corpora.** The heuristic redaction is
-   incomplete: **187** phone-like and **114** email-like rows survive across the
-   25 tracked `.jsonl` files (27,235 rows scanned). CC BY permits this; it is
-   nonetheless a live distribution of personal data.
+2. **PII is no longer in the distributed tree, but persists in history.** The
+   heuristic redaction is incomplete: the former 12 source-derived corpora
+   carried **210** phone-like and **118** email-like rows. Those files are removed
+   from the current tracked tree; the same blobs remain in public Git history
+   (`e217197`) until a separately-approved rewrite. See `PUBLIC_DATA_HISTORY.md`.
 
 ## 3a. Distribution readiness
 
-**Status: `BLOCKED`**
+**Status: `READY FOR PUBLIC DISTRIBUTION — PENDING HISTORY CLEANUP`**
 
-This is a **distribution/readiness** verdict, not a model-quality verdict. It is
-blocked on a single, specific, fixable item — and it is *not* the model.
+This is a **distribution/readiness** verdict, not a model-quality verdict.
 
 **Model-quality statements above are unchanged and remain in force:**
 
@@ -176,48 +180,46 @@ blocked on a single, specific, fixable item — and it is *not* the model.
   four blocking gates (§6).
 * **Model development is frozen.**
 
-### Why distribution is BLOCKED
+### What changed
 
-Attribution is a *condition* of the only licence that permits redistribution, and
-this project's own **public model card currently contradicts it**. The published
-Hugging Face card states:
+The earlier `BLOCKED` verdict rested on a documentation defect on the public
+model card (it stated the corpus had no licence or source). That card was
+corrected in a metadata-only commit, and the earlier false statement is no
+longer published.
 
-> "The **training data is not redistributed here and its license is not
-> documented** in the source project. The municipal complaint corpus has no
-> recorded source URL, license, or redistribution terms."
+The owner then selected remediation **path B**: the source-derived/generated
+corpora are no longer distributed in the tracked tree at the current HEAD.
 
-That is **false** — a source URL is recorded and the licence is CC BY 4.0. So as
-things stand:
+* `git rm` removed the 12 source-derived corpus paths from the current tree.
+* Corpus-dependent tests skip explicitly (`ml/tests/_corpora.py`); tracked
+  benchmark/assessment tests still run on a clean checkout.
+* `ml/tune/public_data_policy.py` encodes the boundary and
+  `audit_public_data.py --check` enforces it: the manifest reports
+  `compliant: true`, `forbidden_tracked: []`.
+* `REPRODUCIBILITY.md`, `PUBLIC_DATA_HISTORY.md`, and `HISTORY_REWRITE_PLAN.md`
+  document rebuilding, historical exposure, and the deferred rewrite.
 
-* the repository ships derived CC BY material **and** satisfies attribution
-  locally, but
-* the **public artifact** misstates the data terms, understates the grant, and
-  omits the attribution condition to anyone who reads only the model card.
+### Why the status is "pending history cleanup"
 
-Redistributing under CC BY while the project's own published card tells users the
-data has no licence is the blocker. It is a documentation defect, not a legal one,
-and it is **fixable by editing the public model card** — which was deliberately
-**not** done in this task, because the public artifact must not be modified
-without the owner's decision.
+`git rm` untracks the corpora going forward but does **not** remove them from
+public Git history. The blobs remain reachable from `e217197` and its ancestors,
+so the historical distribution is not eliminated. Purging it requires
+`git filter-repo` + force-push, which breaks clones and SHAs and requires
+explicit owner authorisation. That plan is written and **not executed**.
 
-### What would change the status
-
-* **To `READY FOR PUBLIC DISTRIBUTION`:** update the public model card's
-  "License and data provenance" section to state CC BY 4.0 with the attribution
-  notice and link `DATA_PROVENANCE.md`. Nothing else is outstanding on the
-  distribution side — the corpus terms are settled and the attribution is already
-  written.
-* **To `READY EXCEPT FOR EXTERNAL VERIFICATION`:** not applicable. External
-  verification did not fail (§5); it **succeeded**.
+The public HF model card still contains one stale sentence (that the source
+project *does* track source-derived corpora). The HF artifact was not modified in
+this task; a one-sentence follow-up is recorded for the next authorised HF
+metadata update.
 
 ### Not blockers, recorded so they are not mistaken for blockers
 
-* **Residual PII in tracked corpora** — permitted by CC BY, but a legitimate
-  remediation target. Removing it would require rebuilding corpora and
-  retraining, which the freeze forbids; a corpus-only redaction without
-  retraining is possible but would change SHA-pinned training data.
-* **The unversioned source** (`appeals.csv`, no checksum) — means the corpora
-  cannot be re-derived later. It does not block distribution of what exists.
+* **Residual `_redact_pii` incompleteness** — applies to locally rebuilt corpora,
+  not the distributed tree. Fixing it would require rebuilding and retraining,
+  which the freeze forbids.
+* **The unversioned source** (`appeals.csv`, no checksum) — means the historical
+  corpora cannot be re-derived byte-for-byte. It does not block distribution of
+  the code/benchmark artifacts.
 * **The erroneous dataset id and dead filename** in earlier documentation —
   corrected in `DATA_PROVENANCE.md`.
 
@@ -342,14 +344,15 @@ instead of another run.
 tested; use it with the limitations in §6 and in `ml/tune/FINAL_STATUS.md` in
 view. Do not represent it as having passed a release review — it did not.
 
-**Sole remaining blocker** is a data-distribution decision, not a modelling one:
+**Sole remaining item** is a historical data-cleanup decision, not a modelling one:
 
-1. **Public derived-data distribution** — classification **C**. The tracked corpora
-   expose contact details (221 phone-like / 121 email-like rows; 85.6 MB,
-   ~30.3k distinct rows). The data is permanently in public history (`e217197`)
-   and tests depend on it (48 failures if removed). Owner must choose: **A**
-   (formally accept exposure) or **B** (authorised history rewrite + skip guards in
-   `ml/tests/test_tune_dataset.py`, `ml/tests/test_v2_augmentation.py` and
-   `ml/tests/test_v3_changes.py`). Fixing the HF model-card provenance is
-   complete; licence and attribution are now documented. The four v2 gates remain
-   unpassed and development remains **FROZEN**.
+1. **Historical derived-data exposure** — classification **B**. The current tree
+   no longer distributes the source-derived/generated corpora (`git rm` at the
+   remediation revision; `audit_public_data --check` reports
+   `compliant: true`). However, the rows remain in public Git history
+   (`e217197`), so a `git filter-repo` + force-push is required to purge them.
+   That is deferred pending explicit owner approval; the plan is written in
+   `HISTORY_REWRITE_PLAN.md` and **not executed**. The HF model-card provenance
+   was corrected; its one stale "does track corpora" sentence is queued as a
+   follow-up metadata edit. The four v2 gates remain unpassed and development
+   remains **FROZEN**.

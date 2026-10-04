@@ -71,10 +71,16 @@ evaluate them against their use case.
 
 ## Data and privacy
 
-Training and evaluation corpora are tracked in this GitHub repository and are
-**not** PII-free: raw municipal complaint text contains real-world phone numbers
-and email-like strings, and the heuristic redaction is incomplete — 187
-phone-like and 114 email-like rows remain across the tracked corpora.
+The source-derived and generated training corpora are **not tracked** in this
+GitHub repository; they are reproducible from the official source via the
+deterministic pipeline ([REPRODUCIBILITY.md](../../REPRODUCIBILITY.md)). The
+former tracked source corpora were **not** PII-free: raw municipal complaint text
+contains real-world phone numbers and email-like strings, and the heuristic
+redaction is incomplete (210 phone-like and 114 email-like rows in the last
+tracked audit). Those files are no longer distributed, but the blobs remain in
+public Git history; see
+[PUBLIC_DATA_HISTORY.md](../../PUBLIC_DATA_HISTORY.md) and
+[HISTORY_REWRITE_PLAN.md](../../HISTORY_REWRITE_PLAN.md).
 
 The source is openly licensed: a Kropyvnytskyi City Council open-data dataset
 under **Creative Commons Attribution 4.0 International**, which permits

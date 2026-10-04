@@ -33,3 +33,19 @@ ml/data/tune/v3/treatment_v3_2/test.jsonl
 
 # per-step logs from run_v3_experiment.sh; regenerated on every run
 ml/data/tune/v3/logs/
+
+# Source-derived / generated corpora removed from the public tree (path B).
+# They are reproducible from the official CC BY source via the deterministic
+# pipeline; see REPRODUCIBILITY.md. Keep them untracked.
+ml/data/train.jsonl
+ml/data/validation.jsonl
+ml/data/test.jsonl
+ml/data/tune/multitopic/train.jsonl
+ml/data/tune/multitopic/eval.jsonl
+ml/data/tune/v2/train.jsonl
+ml/data/tune/v2/validation.jsonl
+ml/data/tune/v2/valid.jsonl
+ml/data/tune/v2/test.jsonl
+ml/data/tune/v3/treatment/train.jsonl
+ml/data/tune/v3/treatment/validation.jsonl
+ml/data/tune/v3/treatment/test.jsonl

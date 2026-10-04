@@ -6,6 +6,8 @@ so every multi-topic metric must be 1.0. That locks in the harness semantics.
 
 from __future__ import annotations
 
+import pytest
+
 import json
 
 from ml.tune.evaluate import load_validator
@@ -16,6 +18,18 @@ from ml.tune.run_eval_multitopic import (
 )
 
 import ml.tune.run_eval_multitopic as m
+
+# --- public-checkout guard ---------------------------------------------
+# These tests read corpora generated from the official CC BY source. The
+# public repository does not ship them (see REPRODUCIBILITY.md), so on a
+# clean clone they skip explicitly instead of failing at import time.
+from ml.tests._corpora import corpora_present  # noqa: E402
+
+if not corpora_present():
+    pytestmark = pytest.mark.skip(
+        reason="private/generated corpora absent from the public checkout"
+    )
+
 
 
 def test_suite_loading_and_targets():

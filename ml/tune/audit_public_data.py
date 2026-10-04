@@ -33,6 +33,8 @@ import subprocess
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 MANIFEST = ROOT / "ml" / "data" / "tune" / "public_data_manifest.json"
 
@@ -277,10 +279,29 @@ def build() -> dict:
         agg["rows"] += info["rows"]
         agg["phone_like_rows"] += info["phone_like_rows"]
         agg["email_like_rows"] += info["email_like_rows"]
+
+    # Public-data boundary (see ml/tune/public_data_policy.py). A tracked path
+    # in NOT_PUBLIC is a hard failure: these corpora are reproducible from the
+    # official source and must not be distributed.
+    from ml.tune import public_data_policy as policy
+
+    forbidden_tracked = sorted(p for p in files if policy.is_forbidden(p))
+    reviewed_absent = sorted(
+        p for p in policy.REVIEWED_PUBLIC_FRAGMENTS if p not in files and p.endswith((".jsonl",))
+    )
+    boundary = {
+        "must_not_track_count": len(policy.NOT_PUBLIC),
+        "forbidden_tracked": forbidden_tracked,
+        "reviewed_public_fragments": sorted(policy.REVIEWED_PUBLIC_FRAGMENTS),
+        "reviewed_fragments_absent": reviewed_absent,
+        "compliant": not forbidden_tracked,
+    }
+
     return {
         "revision": _git("rev-parse", "HEAD"),
         "totals": totals,
         "by_class": by_class,
+        "boundary": boundary,
         "duplicate_groups": [
             {"sha256": sha, "paths": sorted(paths)} for sha, paths in sorted(by_sha.items()) if len(paths) > 1
         ],
@@ -332,8 +353,13 @@ def check() -> int:
         return 1
     stored = json.loads(MANIFEST.read_text(encoding="utf-8"))
     fails = []
-    if stored.get("revision_head_tree") and stored["revision_head_tree"] != _git("rev-parse", "HEAD^{tree}"):
-        fails.append("manifest revision_head_tree does not match HEAD tree")
+    if current["boundary"]["forbidden_tracked"]:
+        for rel in current["boundary"]["forbidden_tracked"]:
+            fails.append(f"forbidden path tracked in public repo: {rel}")
+    # ``revision_head_tree`` is informational: it records the tree the manifest
+    # was generated from. It is not compared here because the manifest is
+    # committed together with the paths it describes (its own blob changes the
+    # tree). File facts and the boundary are what must stay current.
     if sorted(stored.get("files", {})) != sorted(current["files"]):
         fails.append("tracked .jsonl set differs from manifest")
     for rel, v in current["files"].items():

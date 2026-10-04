@@ -243,6 +243,11 @@ class TestMatchesSavedBaseline(unittest.TestCase):
     def test_reproduction_matches_baseline_json_confusion(self):
         if not os.path.exists(os.path.join(DATA_DIR, "baseline.json")):
             self.skipTest("ml/data/baseline.json absent")
+        for required in ("train.jsonl", "test.jsonl"):
+            if not os.path.exists(os.path.join(DATA_DIR, required)):
+                self.skipTest(
+                    f"generated ml/data/{required} absent from public checkout"
+                )
         with open(os.path.join(DATA_DIR, "baseline.json"), encoding="utf-8") as f:
             saved = json.load(f)
         preds, labels = ea.fit_and_predict(

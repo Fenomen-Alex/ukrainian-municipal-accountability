@@ -35,6 +35,8 @@ class TestDeterministicLabelMapping(unittest.TestCase):
     def test_all_kinds_map_within_range(self):
         if not os.path.exists(os.path.join(DATA_DIR, "labels.json")):
             self.skipTest("ml/data/labels.json absent")
+        if not os.path.exists(os.path.join(DATA_DIR, "test.jsonl")):
+            self.skipTest("generated ml/data/test.jsonl absent from public checkout")
         with open(os.path.join(DATA_DIR, "labels.json"), encoding="utf-8") as f:
             label_map = json.load(f)
         with open(os.path.join(DATA_DIR, "test.jsonl"), encoding="utf-8") as f:

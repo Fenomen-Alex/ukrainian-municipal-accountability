@@ -151,95 +151,78 @@ a legal conclusion about it.
 
 ## What this repository redistributes
 
-GitHub distribution is **not** limited to code. Of 216 tracked files, **25 are
-`.jsonl` corpora totalling 85.6 MB**, and they retain the source's verbatim
-20-column schema (`content`, `CATUTTC`, `addressLocatorBuilding`,
-`addressThoroughfare`, `uid`, …). No `.csv` from the source and no model weights
-are tracked; adapters are gitignored.
+**Policy: the generated/source-derived corpora are not distributed.** Following
+the owner's decision (path B), the source-derived and generated complaint corpora
+have been removed from the tracked tree at the current HEAD. What remains tracked
+is build code, schema, manifests, hashes/counts, documentation, and a small,
+explicitly reviewed set of benchmark/provenance artifacts.
 
-Reproduce everything in this section with:
+This is a **current-HEAD** remediation: the corpora still exist in public Git
+history (`e217197` and ancestors), which `git rm` does not remove. See
+`PUBLIC_DATA_HISTORY.md` and `HISTORY_REWRITE_PLAN.md`.
+
+Reproduce the current state with:
 
 ```bash
 python -m ml.tune.audit_public_data          # table
 python -m ml.tune.audit_public_data --write  # refresh the manifest
-python -m ml.tune.audit_public_data --check  # assert the manifest is current
+python -m ml.tune.audit_public_data --check  # assert the manifest and boundary
 ```
 
-The machine-readable record is `ml/data/tune/public_data_manifest.json`.
+The machine-readable record is `ml/data/tune/public_data_manifest.json`; the
+boundary policy is `ml/tune/public_data_policy.py`.
 
-### Corpus classes
+### What is tracked instead
 
-25 tracked paths resolve to **24 distinct files** (one is a symlink) and **21
-distinct content hashes** — several corpora are byte-identical copies, so row
-counts per path would double-count. Totals: **85.6 MB, 32,888 rows per path /
-30,291 distinct rows**.
+At the remediation revision the tracked `.jsonl` count drops from 25 to **13
+paths** (2.4 MB), none in the `source_derived_corpus` class. The remaining
+artifacts are:
 
-| Class | Files | MB | Rows (per path) | Phone-like | Email-like | Verbatim source text | Needed for offline tests | Intended public |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| `source_derived_corpus` | 12 | 83.19 | 29,897 | 210 | 118 | **yes** | **yes, 48 tests fail without it** | **undecided — see below** |
-| `annotation_or_provenance_metadata` | 3 | 0.95 | 1,725 | 10 | 3 | partial (uids, quoted text) | yes | undecided |
-| `generated_model_output` | 9 | 1.24 | 1,120 | 0 | 0 | no (model output) | yes | yes |
-| `benchmark_case_set` | 1 | 0.26 | 146 | 1 | 0 | yes (complaint text) | yes | undecided |
+| Class | Files | MB | Rows (per path) | Phone-like | Email-like | Rationale |
+|---|---:|---:|---:|---:|---:|---|
+| `annotation_or_provenance_metadata` | 3 | 0.95 | 1,725 | 10 | 3 | gold + lineage, needed by the frozen harness |
+| `generated_model_output` | 9 | 1.24 | 1,120 | 0 | 0 | smoke/probe outputs, no personal data |
+| `benchmark_case_set` | 1 | 0.26 | 146 | 1 | 0 | frozen `eval_v3` suite, contact details redacted |
 
-Byte-identical duplicate groups (rows counted once above):
+Aggregate PII indicator across tracked files: **11 phone-like, 3 email-like**
+(heuristic pattern hits in the gold and benchmark sets, not a privacy audit;
+they support no legal conclusion). The 210 phone-like / 118 email-like indicator
+for the former `source_derived_corpus` class applied to the now-untracked corpora;
+those files are reproducible locally (see `REPRODUCIBILITY.md`) but are not
+distributed.
 
-| SHA-256 prefix | Paths |
-|---|---|
-| `49a7c3518558` | `ml/data/tune/v2/test.jsonl` == `ml/data/tune/v3/treatment/test.jsonl` |
-| `c7cea07ec00f` | `ml/data/tune/v2/validation.jsonl` == `ml/data/tune/v3/treatment/validation.jsonl` |
-| `fb553d57a4ee` | `ml/data/tune/smoke/results/finetuned-v2/smoke_results.jsonl` == `.../finetuned/smoke_results.jsonl` |
-| — | `ml/data/tune/v2/valid.jsonl` is a **symlink** to `validation.jsonl` |
-
-Aggregate PII indicator across all tracked corpora: **221 phone-like rows,
-121 email-like rows** counted per path. These are heuristic pattern hits, not a
-privacy audit, and they support no legal conclusion.
+One byte-identical duplicate group remains tracked:
+`ml/data/tune/smoke/results/finetuned-v2/smoke_results.jsonl` ==
+`.../finetuned/smoke_results.jsonl` (generated model output, no personal data).
 
 ### Classification of the repository data-distribution state
 
-> **C — distribution status cannot be responsibly established from the available
-> evidence.**
+> **B — the repository does not publicly distribute the source-derived/generated
+> corpora. Historical exposure requires a separate history rewrite.**
 
-The three permitted classifications were tested against evidence rather than
-chosen by preference:
+The owner selected path B: keep the corpora out of the public tree going forward,
+record the historical exposure honestly, and defer the destructive history
+rewrite until separately approved.
 
-**A is not supportable.** No document in this project's history records the owner
-reviewing or accepting the PII exposure. The opposite is on record: until commit
-`15a44be` every document asserted the source licence was *unknown*, so the
-question of CC BY *plus* live contact details was never put to anyone.
+What was done (non-destructive):
+1. `git rm` of the 12 `source_derived_corpus` paths at the current HEAD.
+2. Explicit skip guards (`ml/tests/_corpora.py`) so corpus-dependent tests skip
+   on a clean checkout; benchmark artifacts that are still tracked keep running.
+3. Boundary policy (`ml/tune/public_data_policy.py`) enforced by
+   `audit_public_data.py --check`.
+4. Documentation: `REPRODUCIBILITY.md`, `PUBLIC_DATA_HISTORY.md`,
+   `HISTORY_REWRITE_PLAN.md`.
 
-**B is the correct direction but its remedy is unavailable.** The corpora are not
-required to reproduce the published artifact — the HF weights plus
-`ml/data/tune/artifact_sha256.json` fully determine and verify v2, and model
-development is frozen — so they are not *necessary* to be public. But removing
-them from the public repository is not achievable by the mechanism B implies:
+What is **not** done, and why:
+- **History purge.** The data was committed in `e217197`, an ancestor of
+  `origin/master`; every historical row remains downloadable. Purging requires
+  `git filter-repo` + force-push, which breaks clones and SHAs and needs explicit
+  owner authorisation. Documented in `HISTORY_REWRITE_PLAN.md`, not executed.
+- **Model/HF changes.** The model artifact is frozen and unchanged; the HF
+  repository was not modified in this task.
 
-1. **The data is already permanently public.** The corpora were committed in
-   `e217197`, confirmed an ancestor of `origin/master`. `git rm --cached` only
-   untracks them going forward; every row stays downloadable from public
-   history. Purging it requires a history rewrite
-   (`git filter-repo` + force-push), which destroys shared history and needs
-   explicit owner authorisation.
-2. **Untracking breaks the test suite, badly.** Measured at `15a44be`: hiding the
-   12 `source_derived_corpus` files gives **48 failures, 419 passed, 1 collection
-   error** (`ml/tests/test_tune_dataset.py` fails at *collection* time). Removing
-   them is not a quiet `git rm`; it requires skip guards in
-   `test_tune_dataset.py`, `test_v2_augmentation.py` and `test_v3_changes.py`,
-   and it would leave the suite unable to validate corpus construction at all.
-
-So B cannot be executed as written, and executing its cosmetic form would
-misrepresent the exposure as fixed while changing nothing that matters.
-
-**Therefore the question stays open pending exactly one owner decision.** Either
-outcome closes it:
-
-| Owner decision | Effect | Cost |
-|---|---|---|
-| Formally accept the exposure (records A) | classification becomes **A**, distribution may proceed | personal data of Ukrainian citizens stays publicly redistributable under CC BY, which is a copyright licence and not a privacy clearance |
-| Authorise a history rewrite (records B) | classification becomes **B** | `git filter-repo` over `e217197` + force-push, breaking clones and SHAs; plus skip guards for 3 test files |
-| Neither | classification stays **C** | distribution stays **BLOCKED** |
-
-Nothing was removed to improve this audit's appearance. The tracked corpora are
-unchanged; the remediation above is documented, not applied.
+Consequently the release posture is: **no new distribution**, with a documented
+historical footprint that is the sole remaining history/policy item.
 
 ## Preprocessing and PII handling
 
@@ -255,8 +238,9 @@ behaviour, verified directly:
 Two defects are visible in that table and both are load-bearing:
 
 1. **Redaction is incomplete.** It is pattern-based and does not catch every
-   phone or any email, which is why 187 phone-like and 114 email-like rows
-   survive in tracked corpora.
+   phone or any email, which is why the untracked source corpora still carried
+   hundreds of phone-like and email-like rows (210 / 118 in the last tracked
+   audit). Those corpora are no longer distributed; they are rebuilt locally.
 2. **`_PERSON_NAME` over-matches**, so legitimate names are destroyed. The third
    row is the direct cause of the empty-quote JSON failures analysed in
    `ml/tune/QUOTE_ARTEFACT.md`; it is reproducible in one line.
@@ -303,6 +287,15 @@ condition, the licence split between Apache-2.0 weights/code and CC BY 4.0 data,
 and that the source project **does** track source-derived corpora which may retain
 contact details.
 
+> **Follow-up required (not applied here).** The sentence above — that the source
+> project *does* track source-derived corpora — became stale when this repository
+> adopted path B and removed them from the tracked tree. The HF task rules for the
+> current remediation forbid any HF publication, so the public card was **not**
+> updated. The local proposal file records the one-sentence change needed at the
+> next authorised HF metadata update: say that the source-derived/generated
+> corpora are **not distributed** and are reproducible from the official source.
+> This is a documentation follow-up, not a model change.
+
 Everything else on the card is accurate: model identity (v2 / attempt-10),
 Apache-2.0, base model `mlx-community/Qwen3-8B-4bit`, 4-bit group-size-64
 quantization, intended use, byte-exact system-prompt requirement, serving
@@ -320,10 +313,12 @@ defect or the `_PERSON_NAME` over-matching recorded in this repository.
    from the Open Definition overview and the portal-wide default.
 3. **No privacy terms** published by the publisher despite measurable personal
    data in the resource.
-4. **The data-distribution decision is undecided — classification C.** 221
-   phone-like / 121 email-like rows are publicly distributed via GitHub, the data
-   is permanently in public history at `e217197`, and the decision to accept or
-   remove it belongs to the owner. This is the **sole remaining release blocker**.
+4. **Historical distribution persists — classification B.** The current tracked
+   tree no longer distributes the source-derived/generated corpora (path B
+   applied). However, the rows remain in public Git history at `e217197`; a
+   history rewrite is required to purge them and is deferred pending explicit
+   owner approval (`HISTORY_REWRITE_PLAN.md`). This historical footprint is the
+   **sole remaining history/data item** for full remediation.
 5. Residual `_redact_pii` incompleteness, unchanged and documented above.
 
 ## Reproducing this investigation

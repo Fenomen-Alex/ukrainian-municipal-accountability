@@ -27,6 +27,7 @@ from ml.cleaner import normalize_text
 from ml.tune.build_dataset import DATA_DIR
 from ml.tune.build_eval_v3 import BOILER_SENT
 from ml.tune.v3_changes import (
+
     C1_SENTENCE_RE,
     TERSE_POOL_MIN_KERNEL,
     TERSE_UPSAMPLE,
@@ -35,6 +36,17 @@ from ml.tune.v3_changes import (
     extract_action_c2,
     terse_pool,
 )
+
+# --- public-checkout guard ---------------------------------------------
+# These tests read corpora generated from the official CC BY source. The
+# public repository does not ship them (see REPRODUCIBILITY.md), so on a
+# clean clone they skip explicitly instead of failing at import time.
+from ml.tests._corpora import corpora_present  # noqa: E402
+
+if not corpora_present():
+    pytestmark = pytest.mark.skip(
+        reason="private/generated corpora absent from the public checkout"
+    )
 
 ROOT = Path(__file__).resolve().parents[2]
 TREATMENT = DATA_DIR / "tune" / "v3" / "treatment"
