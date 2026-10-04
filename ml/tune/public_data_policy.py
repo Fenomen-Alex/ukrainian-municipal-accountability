@@ -109,15 +109,15 @@ REVIEWED_PUBLIC_FRAGMENTS: dict[str, str] = {
 #: be classified before the public-data boundary can be called clean, and each
 #: entry states the measured indicators so the decision is auditable.
 PENDING_PUBLIC_CLASSIFICATION: dict[str, str] = {
-    "ml/data/tune/multitopic/results": (
+        "ml/data/tune/multitopic/results": (
         "Model generations for the multitopic suite (predictions[*].raw) plus "
-        "their reference issue labels. UNRESOLVED: contains 4 phone-like hits "
-        "per arm (e.g. '099 110 34 11' in lora.json and v3-2.json, copied by "
-        "the model from the input). audit_public_data.classify() returns "
-        "'source_derived_corpus' for this prefix, so as a .jsonl it would be "
-        "forbidden. Kept tracked only because published multitopic metrics "
-        "depend on it. Needs an owner decision: redact, reclassify as "
-        "generated model output, or purge from history."
+        "their reference issue labels. Previously contained 4 phone-like hits "
+        "per arm copied by the model from input; those numbers were redacted in "
+        "b6b1ab8 to placeholders, removing incremental exposure. "
+        "audit_public_data.classify() returns 'source_derived_corpus' for this "
+        "prefix; retained because published multitopic metrics depend on it. "
+        "Needs an owner decision: reclassify as generated model output or purge "
+        "from history."
     ),
     "ml/data/error_analysis.json": (
         "Error-taxonomy sample: 45 complaint texts, 0 phone-like / 0 email-like "
