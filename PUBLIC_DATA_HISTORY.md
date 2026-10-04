@@ -12,3 +12,41 @@ The repository previously tracked source-derived complaint corpora in Git. As of
 
 - Current HEAD: source-derived/generated corpora are **not tracked**. 
 - Public history: contains **source-derived/generated corpora** (historical). This cannot be claimed as "eradicated" without rewriting history. The repository's public posture after this remediation is: corpora are not distributed going forward; historical distribution exists and requires separate remediation if desired.
+## Audit of the `*.json` blind spot (`da1c759`)
+
+`ml/tune/audit_public_data.py` measures tracked `*.jsonl` files only. Tracked
+`*.json` data files were therefore neither measured nor justified. A sweep of
+every tracked `ml/data/**/*.json` file for complaint free-text found **21 files**
+carrying it. Two conclusions:
+
+**`ml/data/gold/gemini_batches/` — resolved, safe.** All 400 record texts are
+byte-identical to records in `gold/annotation_set.jsonl`, which is already a
+reviewed public fragment. It therefore adds **zero incremental source-data
+exposure** and only records how those records were partitioned into batches. Its
+measured indicators — 10 phone-like and 3 email-like rows — are the same rows
+already counted in the annotation set, not additional ones. It is now listed in
+`REVIEWED_PUBLIC_FRAGMENTS`, and `ml/tests/test_public_data_policy.py` fails if
+any batch text ever appears that is absent from the annotation set.
+
+**Everything else — unresolved, and publication-blocking.** The remaining
+complaint-bearing `.json` files have no reviewed exception. The significant ones:
+
+| Path | Finding |
+|---|---|
+| `ml/data/tune/multitopic/results/*.json` | 4 phone-like hits per arm (e.g. `099 110 34 11`, `099 203 73 07`) in `predictions[*].raw`, copied by the model from its input. `audit_public_data.classify()` returns `source_derived_corpus` — the **forbidden** class — for this prefix. |
+| `ml/data/error_analysis.json` | 45 complaint texts, 37 of them present in no reviewed pool. 0 phone-like / 0 email-like indicators. |
+| `ml/data/tune/smoke/smoke_cases.json` | 18 complaint texts, none in any reviewed pool; whether they are synthetic or source-derived is not recorded anywhere. |
+| `ml/data/tune/multitopic/real_annotations.json` | 46 human reference labels containing street-level addresses (e.g. `вул.Попова, 18, корп.4, кв.43`). |
+| `ml/data/tune/eval_v3/behaviour/*.json` | `predictions[*].raw` only, no indicators — belongs with generated model output but was unlisted. |
+
+These are recorded in `PENDING_PUBLIC_CLASSIFICATION` in
+`ml/tune/public_data_policy.py` so the open set is explicit, is measurable, and
+cannot grow silently: a test fails if a new tracked complaint-bearing `.json`
+appears with neither a reviewed exception nor a recorded pending entry. **They are
+not approved for publication.** Each needs an explicit decision — redact,
+reclassify as generated model output, or purge from history — and purging would
+break the published multitopic metrics that are computed from them.
+
+The history rewrite (see `HISTORY_REWRITE_VALIDATION.md`) was therefore **not
+published**: the remote still points at the pre-rewrite tip, and these files need
+resolving before a clean public boundary can be claimed.
