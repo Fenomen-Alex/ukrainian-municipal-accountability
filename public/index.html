@@ -9,41 +9,48 @@
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           "Helvetica Neue", Arial, sans-serif;
         line-height: 1.6;
-        max-width: 720px;
-        margin: 0 auto;
-        padding: 2rem 1rem;
+        margin: 0;
+        padding: 1.5rem 1rem;
         background: #f5f7fa;
         color: #1a1a1a;
       }
       .card {
         background: #fff;
         border-radius: 12px;
-        padding: 2rem;
+        padding: clamp(1.25rem, 4vw, 2rem);
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        max-width: min(720px, 92vw);
+        margin: 0 auto;
       }
       h1 {
         margin: 0 0 1rem;
-        font-size: 2rem;
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        line-height: 1.25;
       }
       .cta {
         display: inline-block;
         background: #0057b7;
         color: #fff;
         text-decoration: none;
-        padding: 0.875rem 1.75rem;
+        padding: clamp(0.75rem, 2vw, 0.875rem) clamp(1.25rem, 4vw, 1.75rem);
         border-radius: 8px;
-        font-size: 1.125rem;
+        font-size: clamp(1rem, 2.5vw, 1.125rem);
         margin-top: 1.5rem;
+        min-height: 44px;
+        line-height: 1.2;
       }
       .cta:hover {
         background: #004494;
       }
       ul {
         margin: 1.5rem 0 0;
-        padding-left: 1.5rem;
+        padding-left: clamp(1.25rem, 4vw, 1.5rem);
       }
       li {
         margin-bottom: 0.75rem;
+      }
+      p {
+        margin: 1rem 0 0;
       }
     </style>
   </head>

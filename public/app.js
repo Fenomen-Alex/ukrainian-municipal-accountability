@@ -78,8 +78,8 @@ function renderTopics() {
     div.innerHTML = `
       <h3>Тема ${idx + 1}</h3>
       <div class="field">
-        <label>Сфера (domain)</label>
-        <select data-field="domain" data-id="${topic.id}">
+        <label for="domain-${topic.id}">Сфера (domain)</label>
+        <select id="domain-${topic.id}" data-field="domain" data-id="${topic.id}" aria-label="Сфера">
           <option value="roads">roads</option>
           <option value="water">water</option>
           <option value="heating">heating</option>
@@ -96,23 +96,23 @@ function renderTopics() {
         </select>
       </div>
       <div class="field">
-        <label>Проблема (issue)</label>
-        <textarea data-field="issue" data-id="${topic.id}" placeholder="Конкретна проблема"></textarea>
+        <label for="issue-${topic.id}">Проблема (issue)</label>
+        <textarea id="issue-${topic.id}" data-field="issue" data-id="${topic.id}" placeholder="Конкретна проблема" aria-label="Проблема"></textarea>
       </div>
       <div class="field">
-        <label>Об'єкт (object)</label>
-        <input data-field="object" data-id="${topic.id}" type="text" placeholder="Адреса, об'єкт чи порожньо" />
+        <label for="object-${topic.id}">Об'єкт (object)</label>
+        <input id="object-${topic.id}" data-field="object" data-id="${topic.id}" type="text" placeholder="Адреса, об'єкт чи порожньо" aria-label="Об'єкт" />
       </div>
       <div class="field">
-        <label>Прошу (requested_action)</label>
-        <textarea data-field="requested_action" data-id="${topic.id}" placeholder="Що просите зробити"></textarea>
+        <label for="requested-${topic.id}">Прошу (requested_action)</label>
+        <textarea id="requested-${topic.id}" data-field="requested_action" data-id="${topic.id}" placeholder="Що просите зробити" aria-label="Прошу"></textarea>
       </div>
       <div class="field">
-        <label>Додаткові відомості (attributes, JSON-подібно: ключ=значення, через кому)</label>
-        <input data-field="attrs" data-id="${topic.id}" type="text" placeholder="Наприклад: вулиця=Шевченка, будинок=24" />
+        <label for="attrs-${topic.id}">Додаткові відомості (attributes)</label>
+        <input id="attrs-${topic.id}" data-field="attrs" data-id="${topic.id}" type="text" placeholder="Наприклад: вулиця=Шевченка, будинок=24" aria-label="Додаткові відомості" />
       </div>
       <div class="actions">
-        <button class="btn btn-danger btn-sm" data-action="remove" data-id="${topic.id}">Видалити тему</button>
+        <button type="button" class="btn btn-danger btn-sm" data-action="remove" data-id="${topic.id}">Видалити тему</button>
       </div>
     `;
     topicsContainer.appendChild(div);
@@ -136,17 +136,18 @@ function renderTopics() {
 
   topicsContainer.querySelectorAll("[data-field]").forEach((el) => {
     el.addEventListener("input", (e) => {
-      const id = e.target.dataset.id;
-      const field = e.target.dataset.field;
+      const target = e.target;
+      const id = target.dataset.id;
+      const field = target.dataset.field;
       const t = currentTopics.find((x) => x.id === id);
       if (!t) return;
-      if (field === "domain") t.domain = e.target.value;
-      if (field === "issue") t.issue = e.target.value;
-      if (field === "object") t.object = e.target.value;
-      if (field === "requested_action") t.requested_action = e.target.value;
+      if (field === "domain") t.domain = target.value;
+      if (field === "issue") t.issue = target.value;
+      if (field === "object") t.object = target.value;
+      if (field === "requested_action") t.requested_action = target.value;
       if (field === "attrs") {
         const attrs = {};
-        e.target.value.split(",").forEach((pair) => {
+        target.value.split(",").forEach((pair) => {
           const p = pair.trim();
           if (!p) return;
           const eq = p.indexOf("=");
@@ -168,6 +169,15 @@ function sanitizeTopicsForSchema() {
     requested_action: t.requested_action || "",
     attributes: t.attributes || {},
   }));
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 function renderReview() {
@@ -197,21 +207,12 @@ function renderReview() {
   html += `
     <div class="field">
       <label>Оригінальний опис</label>
-      <textarea readonly>${escapeHtml(complaintTextEl.value)}</textarea>
+      <textarea readonly aria-label="Оригінальний опис">${escapeHtml(complaintTextEl.value)}</textarea>
     </div>
     ${locationEl.value ? `<p><strong>Місце:</strong> ${escapeHtml(locationEl.value)}</p>` : ""}
     ${contactEl.value ? `<p><strong>Контакт:</strong> ${escapeHtml(contactEl.value)}</p>` : ""}
   `;
   reviewContainer.innerHTML = html;
-}
-
-function escapeHtml(s) {
-  return String(s)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
 }
 
 analyzeBtn.addEventListener("click", async () => {

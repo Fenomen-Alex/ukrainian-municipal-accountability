@@ -11,6 +11,7 @@ const __dirname = path.dirname(__filename);
 
 const app = Fastify({
   logger: false,
+  bodyLimit: 10485760, // 10MB
 });
 
 await app.register(cors, { origin: true });
