@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Формування звернення</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 1.5rem 1rem 3rem;
+        background: #f5f7fa;
+        color: #1a1a1a;
+      }
+      .card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 1.75rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        margin-bottom: 1.5rem;
+      }
+      h1,
+      h2 {
+        margin-top: 0;
+      }
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      textarea,
+      input {
+        width: 100%;
+        padding: 0.75rem;
+        border-radius: 8px;
+        border: 1px solid #d0d7de;
+        font-size: 1rem;
+        font-family: inherit;
+        box-sizing: border-box;
+      }
+      textarea {
+        min-height: 180px;
+      }
+      .field {
+        margin-bottom: 1.5rem;
+      }
+      .hint {
+        font-size: 0.875rem;
+        color: #57606a;
+        margin-top: 0.5rem;
+      }
+      .btn {
+        background: #0057b7;
+        color: #fff;
+        border: none;
+        padding: 0.875rem 1.75rem;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      .btn:hover:not(:disabled) {
+        background: #004494;
+      }
+      .btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      .btn-secondary {
+        background: #6c757d;
+      }
+      .btn-secondary:hover:not(:disabled) {
+        background: #5a6268;
+      }
+      .btn-danger {
+        background: #dc3545;
+      }
+      .btn-outline {
+        background: transparent;
+        color: #0057b7;
+        border: 1px solid #0057b7;
+      }
+      .actions {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin-top: 1.5rem;
+      }
+      .topic {
+        border: 1px solid #e1e4e8;
+        border-radius: 8px;
+        padding: 1.25rem;
+        margin-bottom: 1rem;
+      }
+      .error {
+        background: #ffeef0;
+        color: #b62324;
+        border: 1px solid #ffc1c6;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+      }
+      .success {
+        background: #f0fff4;
+        color: #0f7b3e;
+        border: 1px solid #b4f1c1;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+      }
+      .info {
+        background: #f0f6ff;
+        color: #0f5aa8;
+        border: 1px solid #c8dcff;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+      }
+      .spinner {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid #fff;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        margin-right: 0.5rem;
+        vertical-align: -0.125rem;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      pre {
+        white-space: pre-wrap;
+        background: #f6f8fa;
+        padding: 1rem;
+        border-radius: 8px;
+        overflow-x: auto;
+      }
+      .small {
+        font-size: 0.875rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Формування звернення</h1>
+
+    <div id="step1" class="card">
+      <h2>Крок 1. Опишіть проблему</h2>
+      <div class="field">
+        <label for="complaintText">Опис проблеми (обов’язково)</label>
+        <textarea
+          id="complaintText"
+          placeholder="Наприклад: На вулиці Шевченка біля будинку №24 уже тиждень не горять ліхтарі"
+        ></textarea>
+        <div class="hint">
+          Опишіть проблему у власних словах. Не вигадуйте факти, які не вказані.
+        </div>
+      </div>
+      <div class="field">
+        <label for="location">Місце порушення (необов’язково)</label>
+        <input
+          id="location"
+          type="text"
+          placeholder="Адреса, вулиця, будинок тощо"
+        />
+      </div>
+      <div class="field">
+        <label for="contact">Контактні дані для відповіді (необов’язково)</label>
+        <input
+          id="contact"
+          type="text"
+          placeholder="Електронна пошта або телефон (лише якщо потрібні для відповіді)"
+        />
+        <div class="hint">
+          Використовуються лише для включення до тексту звернення. Особисті дані
+          не передаються стороннім сервісам, окрім налаштованого сервісу моделі.
+        </div>
+      </div>
+      <div id="error1" class="error" style="display: none"></div>
+      <div class="actions">
+        <button id="analyzeBtn" class="btn">
+          <span id="analyzeSpinner" class="spinner" style="display: none"></span>
+          Допомогти оформити
+        </button>
+        <a href="/" class="btn btn-outline">Повернутися на головну</a>
+      </div>
+    </div>
+
+    <div id="step2" class="card" style="display: none">
+      <h2>Крок 2. Структурування проблеми</h2>
+      <div id="info2" class="info">
+        Асистент запропонував структуру звернення нижче. Це лише пропозиція —
+        <strong>обов’язково перевірте та відредагуйте</strong> кожне поле перед
+        формуванням тексту.
+      </div>
+      <div id="topicsContainer"></div>
+      <div class="actions">
+        <button id="addTopicBtn" class="btn btn-secondary">
+          Додати тему
+        </button>
+      </div>
+      <div id="error2" class="error" style="display: none"></div>
+      <div class="actions">
+        <button id="toReviewBtn" class="btn">Перейти до перевірки</button>
+        <button id="backToInputBtn" class="btn btn-outline">
+          Повернутися до опису
+        </button>
+      </div>
+    </div>
+
+    <div id="step3" class="card" style="display: none">
+      <h2>Крок 3. Перевірте звернення</h2>
+      <div class="info">
+        Інформація нижче згенерована автоматично. Ви є автором звернення і
+        повинні перевірити кожне твердження. Додаток не надсилає звернення
+        автоматично.
+      </div>
+      <div id="reviewContainer"></div>
+      <div class="actions">
+        <button id="generateAppealBtn" class="btn">
+          Сформувати текст звернення
+        </button>
+        <button id="backToStructBtn" class="btn btn-outline">
+          Повернутися до редагування
+        </button>
+      </div>
+    </div>
+
+    <div id="step4" class="card" style="display: none">
+      <h2>Крок 4. Текст звернення</h2>
+      <div id="statusMsg" class="success" style="display: none"></div>
+      <div class="field">
+        <label for="appealText">Готовий текст звернення</label>
+        <textarea id="appealText"></textarea>
+        <div class="hint">
+          Текст можна редагувати. Нічого не вигадано автоматично — лише те, що
+          ви підтвердили.
+        </div>
+      </div>
+      <div id="channelInfo" class="info" style="display: none"></div>
+      <div class="actions">
+        <button id="copyBtn" class="btn">Копіювати текст</button>
+        <button id="openChannelBtn" class="btn btn-secondary">
+          Відкрити офіційний сайт
+        </button>
+        <button id="backToReviewBtn" class="btn btn-outline">
+          Повернутися до перевірки
+        </button>
+        <a href="/app" class="btn btn-outline">Нове звернення</a>
+      </div>
+      <div id="copyConfirm" class="success" style="display: none; margin-top: 1rem">
+        Текст скопійовано в буфер обміну
+      </div>
+    </div>
+  </body>
+  <script type="module" src="/app.js"></script>
+</html>
