@@ -1,7 +1,7 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/uma-inference:$BUILD_ID', '-f', 'Dockerfile.inference', '.']
-    timeout: 1800s
+    timeout: 3600s
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/uma-inference:$BUILD_ID']
     timeout: 600s
@@ -13,7 +13,7 @@ steps:
       - '--image'
       - 'gcr.io/$PROJECT_ID/uma-inference:$BUILD_ID'
       - '--region'
-      - 'us-central1'
+      - 'europe-west4'
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'
@@ -31,4 +31,7 @@ steps:
       - '1'
       - '--max-instances'
       - '1'
-timeout: 3600s
+      - '--no-gpu-zonal-redundancy'
+timeout: 7200s
+options:
+  machineType: 'E2_HIGHCPU_8'
