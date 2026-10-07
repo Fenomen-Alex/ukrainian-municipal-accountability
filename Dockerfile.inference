@@ -1,0 +1,14 @@
+FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y curl ca-certificates wget python3 python3-pip build-essential cmake git && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+RUN git clone --depth 1 https://github.com/ggml-org/llama.cpp.git /tmp/llama.cpp && cd /tmp/llama.cpp && cmake -B build -DGGML_CUDA=ON -DLLAMA_BUILD_SERVER=ON && cmake --build build --config Release -j$(nproc) && cp build/bin/llama-server /app/llama-server && rm -rf /tmp/llama.cpp
+RUN pip3 install --no-cache-dir huggingface_hub
+ENV MODEL_FILE=Qwen3-8B-v2-q4_k_m.gguf
+ENV HF_REPO=Fenomen-Alex/ukrainian-municipal-accountability-qwen3-8b-gguf
+ENV PORT=8080
+ENV HOST=0.0.0.0
+RUN python3 -c "from huggingface_hub import hf_hub_download; import os; p=hf_hub_download(repo_id=os.environ['HF_REPO'], filename=os.environ['MODEL_FILE']); open('/app/model.path','w').write(p)"
+RUN ln -s "$(cat /app/model.path)" /app/model.gguf
+EXPOSE 8080
+CMD ["/app/llama-server", "--model", "/app/model.gguf", "--host", "0.0.0.0", "--port", "8080", "--threads", "4", "--parallel", "1", "--n-gpu-layers", "99"]
