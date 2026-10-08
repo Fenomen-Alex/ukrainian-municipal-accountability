@@ -1,9 +1,24 @@
 import type { FastifyInstance, FastifyRequest } from "fastify";
 import { ComplaintInput } from "../lib/schema.js";
 import { analyzeComplaint, InferenceError } from "../services/inference.js";
+import { SlidingWindowLimiter } from "../lib/rate-limit.js";
 import type { BuildOptions } from "../app.js";
 
 export async function registerRoutes(app: FastifyInstance, opts: BuildOptions = {}) {
+  const rlOpts = opts.rateLimit === undefined ? { windowMs: 60000, max: 10 } : opts.rateLimit;
+  const limiter = rlOpts === false ? null : new SlidingWindowLimiter(rlOpts.windowMs, rlOpts.max);
+
+  app.addHook("onRequest", async (req, reply) => {
+    if (!limiter || req.method !== "POST" || req.url !== "/api/analyze") return;
+    const r = limiter.check(req.ip);
+    if (!r.allowed) {
+      reply.header("Retry-After", String(r.retryAfterSec));
+      return reply
+        .status(429)
+        .send({ error: "Забагато запитів. Зачекайте хвилину та спробуйте ще раз." });
+    }
+  });
+
   app.post("/api/analyze", async (req: FastifyRequest, reply) => {
     const result = ComplaintInput.safeParse(req.body);
     if (!result.success) {
@@ -30,7 +45,4 @@ export async function registerRoutes(app: FastifyInstance, opts: BuildOptions = 
   });
 
   app.get("/health", async () => ({ status: "ok" }));
-
-  // `opts` is consumed by Task 3 (rate limiting); see registerRoutes signature.
-  void opts;
 }

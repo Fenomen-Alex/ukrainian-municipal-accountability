@@ -175,3 +175,31 @@ describe("POST /api/analyze", () => {
     expect(res.body).not.toContain("fetch failed");
   });
 });
+
+describe("rate limiting", () => {
+  it("429 after max requests per IP", async () => {
+    const limited = await buildApp({ rateLimit: { windowMs: 60000, max: 3 } });
+    let last;
+    for (let i = 0; i < 4; i++) {
+      last = await limited.inject({
+        method: "POST",
+        url: "/api/analyze",
+        payload: { text: "" },
+        remoteAddress: "9.9.9.9",
+      });
+    }
+    expect(last!.statusCode).toBe(429);
+    expect(last!.json().error).toContain("Забагато запитів");
+    expect(last!.headers["retry-after"]).toBeTruthy();
+    await limited.close();
+  });
+
+  it("does not rate-limit other routes", async () => {
+    const limited = await buildApp({ rateLimit: { windowMs: 60000, max: 1 } });
+    for (let i = 0; i < 5; i++) {
+      const res = await limited.inject({ method: "GET", url: "/health" });
+      expect(res.statusCode).toBe(200);
+    }
+    await limited.close();
+  });
+});
