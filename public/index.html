@@ -4,75 +4,108 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Кропивницький — підготовка звернення</title>
-    <style>
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: 1.5rem 1rem;
-        background: #f5f7fa;
-        color: #1a1a1a;
-      }
-      .card {
-        background: #fff;
-        border-radius: 12px;
-        padding: clamp(1.25rem, 4vw, 2rem);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        max-width: min(720px, 92vw);
-        margin: 0 auto;
-      }
-      h1 {
-        margin: 0 0 1rem;
-        font-size: clamp(1.5rem, 5vw, 2rem);
-        line-height: 1.25;
-      }
-      .cta {
-        display: inline-block;
-        background: #0057b7;
-        color: #fff;
-        text-decoration: none;
-        padding: clamp(0.75rem, 2vw, 0.875rem) clamp(1.25rem, 4vw, 1.75rem);
-        border-radius: 8px;
-        font-size: clamp(1rem, 2.5vw, 1.125rem);
-        margin-top: 1.5rem;
-        min-height: 44px;
-        line-height: 1.2;
-      }
-      .cta:hover {
-        background: #004494;
-      }
-      ul {
-        margin: 1.5rem 0 0;
-        padding-left: clamp(1.25rem, 4vw, 1.5rem);
-      }
-      li {
-        margin-bottom: 0.75rem;
-      }
-      p {
-        margin: 1rem 0 0;
-      }
-    </style>
+    <meta
+      name="description"
+      content="Асистент підготовки звернення до місцевого самоврядування Кропивницького. Ви перевіряєте та редагуєте все самостійно."
+    />
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <div class="card">
-      <h1>Підготовка офіційного звернення до органів місцевого самоврядування</h1>
-      <p>
-        Цей інструмент допомагає громадянам Кропивницького підготувати текст
-        офіційного звернення щодо проблем у комунальній сфері.
-      </p>
-      <p>
-        <strong>Асистент лише допомагає оформити звернення.</strong> Ви завжди
-        перевіряєте та редагуєте отриманий результат. Додаток не надсилає
-        звернення автоматично — це робите лише ви самостійно через офіційний
-        канал.
-      </p>
-      <ul>
-        <li>Опишіть проблему у власних словах — без вигадок та домислів</li>
-        <li>Перегляньте та виправте структуровані дані перед формуванням тексту</li>
-        <li>Скопіюйте готовий текст та надішліть його через офіційний сайт</li>
-      </ul>
-      <a class="cta" href="/app">Описати проблему</a>
-    </div>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>Звернення</a>
+        <span class="badge">Неофіційний інструмент</span>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero fade-up">
+        <h1>Підготовка офіційного звернення до органів місцевого самоврядування</h1>
+        <p class="lead">
+          Цей інструмент допомагає громадянам Кропивницького підготувати текст
+          офіційного звернення щодо проблем у комунальній сфері. Асистент лише
+          допомагає оформити звернення — перевіряєте, редагуєте та надсилаєте
+          ви самостійно.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="/app">Описати проблему</a>
+          <a class="btn btn-outline" href="#yak-ts-pratsiuie">Як це працює</a>
+        </div>
+      </section>
+
+      <section id="yak-ts-pratsiuie" aria-labelledby="how-title">
+        <h2 id="how-title" class="section-title">Як це працює</h2>
+        <ol class="steps">
+          <li class="step-card">
+            <span class="step-num" aria-hidden="true"></span>
+            <h3>Опишіть проблему</h3>
+            <p>
+              Розкажіть про проблему у власних словах — без вигадок і домислів.
+              Чим конкретніше, тим краще.
+            </p>
+          </li>
+          <li class="step-card">
+            <span class="step-num" aria-hidden="true"></span>
+            <h3>Перевірте структуру</h3>
+            <p>
+              Асистент запропонує структуровані дані. Це лише пропозиція — ви
+              редагуєте кожне поле перед формуванням тексту.
+            </p>
+          </li>
+          <li class="step-card">
+            <span class="step-num" aria-hidden="true"></span>
+            <h3>Підготуйте та надішліть</h3>
+            <p>
+              Скопіюйте готовий текст звернення та надішліть його самостійно
+              через офіційний сайт міської ради.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="control-title">
+        <h2 id="control-title" class="section-title">Ви контролюєте процес</h2>
+        <ul class="checklist">
+          <li>Жодних автоматичних відправок — звернення надсилаєте лише ви.</li>
+          <li>Асистент нічого не вигадує — ви підтверджуєте кожне твердження.</li>
+          <li>Без реєстрації та особистого кабінету.</li>
+          <li>Безкоштовно для використання.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="privacy-title">
+        <h2 id="privacy-title" class="section-title">Приватність</h2>
+        <ul class="checklist">
+          <li>
+            Опис проблеми передається на сервер сервісу лише для структурування;
+            сервіс не зберігає ваш опис після обробки.
+          </li>
+          <li>Чернетки звернень зберігаються тільки у вашому браузері.</li>
+          <li>Ми не використовуємо cookie, аналітику та рекламні трекери.</li>
+          <li>Реєстрація та збір персональних даних не потрібні.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="disclaimer-title">
+        <div class="info disclaimer">
+          <h2 id="disclaimer-title" class="visually-hidden">Застереження</h2>
+          <p>
+            <strong>Це не офіційний сервіс Кропивницької міської ради</strong>
+            і він не пов’язаний з нею організаційно. Асистент допомагає лише
+            оформити текст звернення; за зміст і надсилання звернення відповідає
+            його автор.
+          </p>
+          <p>
+            Додаток не надсилає звернення автоматично — це робите лише ви
+            самостійно через офіційний канал.
+          </p>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <p>Асистент підготовки звернень громадян щодо проблем у Кропивницькому.</p>
+        <p><a href="/app">Підготувати звернення</a></p>
+      </footer>
+    </main>
   </body>
 </html>
