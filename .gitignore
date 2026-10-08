@@ -1,7 +1,8 @@
 node_modules/
 dist/
-.env
 .DS_Store
+test-results/
+playwright-report/
 .venv/
 .venv-mlx/
 ml/data/embeddings/
