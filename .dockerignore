@@ -1,0 +1,10 @@
+node_modules
+.git
+.env
+.env.*
+*.log
+__pycache__
+.pytest_cache
+.DS_Store
+tests
+playwright.config.ts
