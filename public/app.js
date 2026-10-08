@@ -14,6 +14,10 @@ const DOMAIN_LABELS = {
   other: "Інше",
 };
 
+const ATTRIBUTE_LABELS = {
+  street: "Вулиця",
+};
+
 const DOMAIN_ORDER = [
   "roads",
   "water",
@@ -465,10 +469,8 @@ function buildAppeal(topics, context) {
   const lines = [];
   lines.push("Звернення громадянина до органу місцевого самоврядування");
   lines.push("");
-  if (context.channelUrl) {
-    lines.push(`Канал надсилання (офіційний): ${context.channelUrl}`);
-    lines.push("");
-  }
+  lines.push("До: ______________________________________ (орган місцевого самоврядування)");
+  lines.push("");
   if (topics.length === 0) {
     lines.push("Проблема не визначена.");
     lines.push("");
@@ -476,12 +478,12 @@ function buildAppeal(topics, context) {
     topics.forEach((topic, idx) => {
       lines.push(`${idx + 1}. Проблема: ${topic.issue || "—"}`);
       if (topic.object) lines.push(`   Об'єкт: ${topic.object}`);
-      if (topic.domain) lines.push(`   Сфера: ${topic.domain}`);
+      if (topic.domain) lines.push(`   Сфера: ${DOMAIN_LABELS[topic.domain] || topic.domain}`);
       if (topic.requested_action) lines.push(`   Прошу: ${topic.requested_action}`);
       if (Object.keys(topic.attributes).length > 0) {
         lines.push("   Додаткові відомості:");
         for (const [k, v] of Object.entries(topic.attributes)) {
-          if (v) lines.push(`     - ${k}: ${v}`);
+          if (v) lines.push(`     - ${ATTRIBUTE_LABELS[k] || k}: ${v}`);
         }
       }
       lines.push("");
@@ -494,6 +496,12 @@ function buildAppeal(topics, context) {
   if (context.contact) {
     lines.push(`Контактні дані для відповіді: ${context.contact}`);
     lines.push("");
+  }
+  lines.push("Дата: ____ . ____ . 20___ р.          Підпис: ______________");
+  lines.push("");
+  lines.push("———");
+  if (context.channelUrl) {
+    lines.push(`Канал надсилання (офіційний): ${context.channelUrl}`);
   }
   lines.push(
     "Звернення підготовлене за допомогою асистента. Кожне твердження перевірено користувачем перед надсиланням.",

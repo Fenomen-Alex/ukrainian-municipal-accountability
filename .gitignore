@@ -50,3 +50,6 @@ ml/data/tune/v2/test.jsonl
 ml/data/tune/v3/treatment/train.jsonl
 ml/data/tune/v3/treatment/validation.jsonl
 ml/data/tune/v3/treatment/test.jsonl
+
+# Playwright MCP browser artifacts
+.playwright-mcp/
