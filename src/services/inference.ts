@@ -86,6 +86,46 @@ function tryParseAt(s: string, start: number): StructuredComplaint | null {
   }
 }
 
+interface CachedIdentityToken {
+  value: string;
+  expiresAt: number;
+}
+
+let cachedIdentityToken: CachedIdentityToken | null = null;
+
+const IDENTITY_TOKEN_URL =
+  "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity";
+const IDENTITY_TOKEN_TTL_MS = 50 * 60 * 1000;
+const IDENTITY_TOKEN_REFRESH_MARGIN_MS = 30 * 1000;
+
+export async function fetchIdentityToken(audience: string): Promise<string> {
+  if (cachedIdentityToken && cachedIdentityToken.expiresAt > Date.now() + IDENTITY_TOKEN_REFRESH_MARGIN_MS) {
+    return cachedIdentityToken.value;
+  }
+  let resp: Response;
+  try {
+    resp = await fetch(`${IDENTITY_TOKEN_URL}?audience=${encodeURIComponent(audience)}`, {
+      headers: { "Metadata-Flavor": "Google" },
+      signal: AbortSignal.timeout(3000),
+    });
+  } catch {
+    throw new InferenceError("Identity token fetch failed");
+  }
+  if (!resp.ok) {
+    throw new InferenceError(`Identity token fetch failed with status ${resp.status}`);
+  }
+  const value = (await resp.text()).trim();
+  if (!value) {
+    throw new InferenceError("Identity token fetch returned an empty token");
+  }
+  cachedIdentityToken = { value, expiresAt: Date.now() + IDENTITY_TOKEN_TTL_MS };
+  return value;
+}
+
+export function clearIdentityTokenCache(): void {
+  cachedIdentityToken = null;
+}
+
 export function parseModelContent(content: string): StructuredComplaint {
   const str = String(content);
   for (let i = 0; i < str.length; i++) {
@@ -119,12 +159,19 @@ export async function analyzeComplaint(input: ComplaintInput): Promise<Inference
     stop: ["\n!\n"],
   };
 
+  const origin = inferenceUrl.replace(/\/$/, "");
+  const headers: Record<string, string> = { "Content-Type": "application/json" };
+  if (process.env.INFERENCE_AUTH === "metadata") {
+    const token = await fetchIdentityToken(origin);
+    headers["Authorization"] = `Bearer ${token}`;
+  }
+
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 120000);
   try {
-    const resp = await fetch(inferenceUrl.replace(/\/$/, "") + "/v1/chat/completions", {
+    const resp = await fetch(origin + "/v1/chat/completions", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers,
       body: JSON.stringify(body),
       signal: controller.signal,
     });
