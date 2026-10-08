@@ -26,6 +26,77 @@ const SYSTEM_PROMPT = `Ти — система, що перетворює зве
 - Розділяй декілька проблем окремими об'єктами в масиві. Не об'єднуй їх.
 - Якщо в тексті є явне прохання або дія (прошу, треба, потрібно, звертаюся, щоб зробили, відремонтувати, прибрати тощо) — внеси його у \`requested_action\` для відповідної проблеми. Якщо такого прохання немає у тексті — не додавай. Не включай персональних даних (ПІБ, номери телефонів).`;
 
+function extractJsonValueAt(s: string, from: number): { value: string; end: number } | null {
+  const rel = s.slice(from).search(/[{[]/);
+  if (rel < 0) return null;
+  const start = from + rel;
+  const stack: string[] = [];
+  const closing: Record<string, string> = { "{": "}", "[": "]" };
+  let inString = false;
+  let escaped = false;
+  for (let i = start; i < s.length; i++) {
+    const c = s[i]!;
+    if (inString) {
+      if (escaped) escaped = false;
+      else if (c === "\\") escaped = true;
+      else if (c === '"') inString = false;
+      continue;
+    }
+    if (c === '"') {
+      inString = true;
+      continue;
+    }
+    if (c === "{" || c === "[") {
+      stack.push(c);
+    } else if (c === "}" || c === "]") {
+      if (stack.length === 0) return null;
+      const top = stack.pop()!;
+      if (closing[top] !== c) return null;
+      if (stack.length === 0) return { value: s.slice(start, i + 1), end: i + 1 };
+    }
+  }
+  return null;
+}
+
+function tryParseAt(s: string, start: number): StructuredComplaint | null {
+  const values: string[] = [];
+  let pos = start;
+  for (;;) {
+    const hit = extractJsonValueAt(s, pos);
+    if (!hit) break;
+    values.push(hit.value);
+    let j = hit.end;
+    while (j < s.length && /\s/.test(s[j]!)) j++;
+    if (s[j] !== ",") break;
+    pos = j + 1;
+  }
+  if (values.length === 0) return null;
+  const jsonStr = values.length === 1 ? values[0]! : `[${values.join(",")}]`;
+  try {
+    const parsed = JSON.parse(jsonStr);
+    if (Array.isArray(parsed)) return StructuredComplaint.parse({ topics: parsed });
+    if (parsed && typeof parsed === "object") {
+      const obj = parsed as Record<string, unknown>;
+      if (Array.isArray(obj.topics)) return StructuredComplaint.parse(obj);
+      if ("domain" in obj) return StructuredComplaint.parse({ topics: [obj] });
+    }
+    return StructuredComplaint.parse(parsed);
+  } catch {
+    return null;
+  }
+}
+
+export function parseModelContent(content: string): StructuredComplaint {
+  const str = String(content);
+  for (let i = 0; i < str.length; i++) {
+    const c = str[i];
+    if (c !== "{" && c !== "[") continue;
+    const out = tryParseAt(str, i);
+    if (out) return out;
+  }
+  throw new InferenceError("No parseable JSON topic structure in model output");
+}
+
 export async function analyzeComplaint(input: ComplaintInput): Promise<InferenceResult> {
   const normalized = normalizeComplaintInput(input);
   const inferenceUrl = process.env.INFERENCE_SERVICE_URL;
@@ -45,6 +116,7 @@ export async function analyzeComplaint(input: ComplaintInput): Promise<Inference
     temperature: 0,
     max_tokens: 800,
     stream: false,
+    stop: ["\n!\n"],
   };
 
   const controller = new AbortController();
@@ -65,16 +137,9 @@ export async function analyzeComplaint(input: ComplaintInput): Promise<Inference
     if (!content) {
       throw new InferenceError("No content in inference response");
     }
-    // extract JSON
     const str = String(content);
-    const start = str.indexOf("[");
-    const end = str.lastIndexOf("]");
-    const jsonStr = start >= 0 && end > start ? str.slice(start, end + 1) : str;
-    const parsed = JSON.parse(jsonStr.trim());
-    const structured = StructuredComplaint.parse(
-      Array.isArray(parsed) ? { topics: parsed } : parsed,
-    );
-    return { structured, raw: jsonStr.trim() };
+    const structured = parseModelContent(str);
+    return { structured, raw: str };
   } catch (err) {
     if (err instanceof InferenceError) throw err;
     throw new InferenceError(err instanceof Error ? err.message : String(err));
