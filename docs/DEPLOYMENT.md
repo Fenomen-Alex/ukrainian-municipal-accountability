@@ -40,9 +40,34 @@ Deploying by tag reuses existing service config (env vars are preserved).
 - PORT=8080, HOST=0.0.0.0
 - INFERENCE_SERVICE_URL=https://uma-inference-...-a.run.app (required in prod;
   when unset, dev falls back to local inference)
+- INFERENCE_AUTH=metadata (required in prod; sends a Google identity token as
+  `Authorization: Bearer` to the inference service via the Cloud Run metadata
+  server. Unset in dev = plain request.)
+
+## Inference service
+- Service: uma-inference, region europe-west4 (GPU), URL
+  https://uma-inference-j67732jniq-ez.a.run.app
+- Auth: NOT public. `allUsers` invoker removed; only
+  `686770229755-compute@developer.gserviceaccount.com` (uma-app's runtime
+  service account) holds `roles/run.invoker`. Anonymous calls get 403 at the
+  Cloud Run edge.
+  ```bash
+  gcloud run services remove-iam-policy-binding uma-inference \
+    --region europe-west4 --member=allUsers --role=roles/run.invoker
+  gcloud run services add-iam-policy-binding uma-inference \
+    --region europe-west4 \
+    --member=serviceAccount:686770229755-compute@developer.gserviceaccount.com \
+    --role=roles/run.invoker
+  ```
+- Scaling: min-instances 0 (scale-to-zero), max-instances 1, 1 GPU, CPU only
+  during requests. Cold start = container start + model load (observed ~1-3
+  min); the web fetch timeout is 120 s, so a cold inference can surface as a
+  generic 502 — retry succeeds once warm.
 
 ## Notes
-- Web container is Node + tsx; no Python/MLX in the request path.
+- Web container is node:20-slim + prod node_modules + src + public (~90 MB).
+  No Python, no MLX, no `ml/` directory in the image; the local-MLX fallback
+  cannot run there (fails closed if `INFERENCE_SERVICE_URL` is ever unset).
 - Inference runs on a separate Cloud Run service (llama-server, GGUF model)
   and is treated as untrusted upstream: response is validated with zod,
   errors are sanitized, and upstream failure surfaces as 502 with a generic
