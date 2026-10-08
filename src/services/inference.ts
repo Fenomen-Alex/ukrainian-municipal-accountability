@@ -71,7 +71,9 @@ export async function analyzeComplaint(input: ComplaintInput): Promise<Inference
     const end = str.lastIndexOf("]");
     const jsonStr = start >= 0 && end > start ? str.slice(start, end + 1) : str;
     const parsed = JSON.parse(jsonStr.trim());
-    const structured = StructuredComplaint.parse(parsed);
+    const structured = StructuredComplaint.parse(
+      Array.isArray(parsed) ? { topics: parsed } : parsed,
+    );
     return { structured, raw: jsonStr.trim() };
   } catch (err) {
     if (err instanceof InferenceError) throw err;
