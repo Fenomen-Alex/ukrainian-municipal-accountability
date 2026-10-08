@@ -139,6 +139,20 @@ a {
   background: rgba(0, 87, 183, 0.08);
 }
 
+.btn-danger {
+  background: #dc3545;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: #bb2d3b;
+}
+
+.btn-sm {
+  padding: 0.45rem 0.85rem;
+  min-height: 38px;
+  font-size: 0.9rem;
+}
+
 :focus-visible {
   outline: 3px solid #1a73e8;
   outline-offset: 2px;

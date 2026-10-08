@@ -3,267 +3,148 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Формування звернення</title>
-    <style>
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: clamp(1rem, 3vw, 1.5rem) clamp(0.5rem, 2vw, 1rem)
-          clamp(2rem, 4vw, 3rem);
-        background: #f5f7fa;
-        color: #1a1a1a;
-      }
-      .card {
-        background: #fff;
-        border-radius: 12px;
-        padding: clamp(1rem, 3vw, 1.75rem);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        margin-bottom: clamp(1rem, 3vw, 1.5rem);
-        max-width: min(900px, 96vw);
-        margin-left: auto;
-        margin-right: auto;
-      }
-      h1,
-      h2 {
-        margin-top: 0;
-        line-height: 1.25;
-      }
-      h1 {
-        font-size: clamp(1.5rem, 5vw, 2rem);
-      }
-      h2 {
-        font-size: clamp(1.25rem, 4vw, 1.5rem);
-      }
-      label {
-        display: block;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-      }
-      textarea,
-      input,
-      select {
-        width: 100%;
-        padding: clamp(0.625rem, 2vw, 0.75rem);
-        border-radius: 8px;
-        border: 1px solid #d0d7de;
-        font-size: clamp(0.95rem, 2.5vw, 1rem);
-        font-family: inherit;
-        box-sizing: border-box;
-      }
-      textarea {
-        min-height: clamp(120px, 30vh, 180px);
-        resize: vertical;
-      }
-      .field {
-        margin-bottom: clamp(1rem, 3vw, 1.5rem);
-      }
-      .hint {
-        font-size: clamp(0.8rem, 2vw, 0.875rem);
-        color: #57606a;
-        margin-top: 0.5rem;
-      }
-      .btn {
-        background: #0057b7;
-        color: #fff;
-        border: none;
-        padding: clamp(0.75rem, 2vw, 0.875rem) clamp(1rem, 3vw, 1.75rem);
-        border-radius: 8px;
-        font-size: clamp(0.95rem, 2.5vw, 1rem);
-        cursor: pointer;
-        min-height: 44px;
-        white-space: normal;
-        text-align: center;
-      }
-      .btn:hover:not(:disabled) {
-        background: #004494;
-      }
-      .btn:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-      }
-      .btn-secondary {
-        background: #6c757d;
-      }
-      .btn-secondary:hover:not(:disabled) {
-        background: #5a6268;
-      }
-      .btn-danger {
-        background: #dc3545;
-      }
-      .btn-outline {
-        background: transparent;
-        color: #0057b7;
-        border: 1px solid #0057b7;
-      }
-      .actions {
-        display: flex;
-        gap: clamp(0.5rem, 2vw, 0.75rem);
-        flex-wrap: wrap;
-        margin-top: clamp(1rem, 3vw, 1.5rem);
-      }
-      .topic {
-        border: 1px solid #e1e4e8;
-        border-radius: 8px;
-        padding: clamp(1rem, 3vw, 1.25rem);
-        margin-bottom: clamp(0.75rem, 2vw, 1rem);
-      }
-      .error {
-        background: #ffeef0;
-        color: #b62324;
-        border: 1px solid #ffc1c6;
-        padding: clamp(0.75rem, 2vw, 1rem);
-        border-radius: 8px;
-        margin-bottom: clamp(0.75rem, 2vw, 1rem);
-      }
-      .success {
-        background: #f0fff4;
-        color: #0f7b3e;
-        border: 1px solid #b4f1c1;
-        padding: clamp(0.75rem, 2vw, 1rem);
-        border-radius: 8px;
-        margin-bottom: clamp(0.75rem, 2vw, 1rem);
-      }
-      .info {
-        background: #f0f6ff;
-        color: #0f5aa8;
-        border: 1px solid #c8dcff;
-        padding: clamp(0.75rem, 2vw, 1rem);
-        border-radius: 8px;
-        margin-bottom: clamp(0.75rem, 2vw, 1rem);
-      }
-      .spinner {
-        display: inline-block;
-        width: 1rem;
-        height: 1rem;
-        border: 2px solid #fff;
-        border-top-color: transparent;
-        border-radius: 50%;
-        animation: spin 0.8s linear infinite;
-        margin-right: 0.5rem;
-        vertical-align: -0.125rem;
-      }
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-      pre {
-        white-space: pre-wrap;
-        background: #f6f8fa;
-        padding: clamp(0.75rem, 2vw, 1rem);
-        border-radius: 8px;
-        overflow-x: auto;
-        word-wrap: break-word;
-      }
-    </style>
+    <title>Формування звернення — Кропивницький</title>
+    <meta
+      name="description"
+      content="Опишіть проблему, перевірте структуру та підготуйте текст звернення до місцевого самоврядування."
+    />
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <h1>Формування звернення</h1>
-    <div id="step1" class="card">
-      <h2>Крок 1. Опишіть проблему</h2>
-      <div class="field">
-        <label for="complaintText">Опис проблеми (обов’язково)</label>
-        <textarea
-          id="complaintText"
-          placeholder="Наприклад: На вулиці Шевченка біля будинку №24 уже тиждень не горять ліхтарі"
-        ></textarea>
-        <div class="hint">
-          Опишіть проблему у власних словах. Не вигадуйте факти, які не вказані.
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>Звернення</a>
+        <span class="badge">Неофіційний інструмент</span>
+      </div>
+    </header>
+
+    <main class="container app-main">
+      <nav aria-label="Кроки підготовки звернення">
+        <ol class="stepper">
+          <li class="stepper-item is-active" data-step="1">Крок 1: Опис</li>
+          <li class="stepper-item" data-step="2">Крок 2: Структура</li>
+          <li class="stepper-item" data-step="3">Крок 3: Перевірка</li>
+          <li class="stepper-item" data-step="4">Крок 4: Текст</li>
+        </ol>
+      </nav>
+
+      <section id="step1" class="card fade-up" aria-labelledby="step1-title">
+        <h2 id="step1-title" class="step-heading" tabindex="-1">Крок 1. Опишіть проблему</h2>
+        <div class="field">
+          <label for="complaintText">Опис проблеми (обов’язково)</label>
+          <textarea
+            id="complaintText"
+            rows="6"
+            placeholder="Наприклад: На вулиці Шевченка біля будинку №24 уже тиждень не горять ліхтарі"
+            aria-describedby="counter"
+          ></textarea>
+          <div id="counter" class="counter" aria-live="polite">0 / 10000</div>
+          <div class="hint">
+            Опишіть проблему у власних словах. Не вигадуйте факти, які не
+            вказані.
+          </div>
         </div>
-      </div>
-      <div class="field">
-        <label for="location">Місце порушення (необов’язково)</label>
-        <input
-          id="location"
-          type="text"
-          placeholder="Адреса, вулиця, будинок тощо"
-        />
-      </div>
-      <div class="field">
-        <label for="contact">Контактні дані для відповіді (необов’язково)</label>
-        <input
-          id="contact"
-          type="text"
-          placeholder="Електронна пошта або телефон"
-        />
-        <div class="hint">
-          Використовуються лише для включення до тексту звернення.
+        <div class="field">
+          <label for="location">Місце порушення (необов’язково)</label>
+          <input
+            id="location"
+            type="text"
+            placeholder="Адреса, вулиця, будинок тощо"
+          />
         </div>
-      </div>
-      <div id="error1" class="error" style="display: none"></div>
-      <div class="actions">
-        <button id="analyzeBtn" class="btn">
-          <span id="analyzeSpinner" class="spinner" style="display: none"></span>
-          Допомогти оформити
-        </button>
-        <a href="/" class="btn btn-outline">Повернутися на головну</a>
-      </div>
-    </div>
-    <div id="step2" class="card" style="display: none">
-      <h2>Крок 2. Структурування проблеми</h2>
-      <div id="info2" class="info">
-        Асистент запропонував структуру звернення нижче. Це лише пропозиція —
-        <strong>обов’язково перевірте та відредагуйте</strong> кожне поле перед
-        формуванням тексту.
-      </div>
-      <div id="topicsContainer"></div>
-      <div class="actions">
-        <button id="addTopicBtn" class="btn btn-secondary">
-          Додати тему
-        </button>
-      </div>
-      <div id="error2" class="error" style="display: none"></div>
-      <div class="actions">
-        <button id="toReviewBtn" class="btn">Перейти до перевірки</button>
-        <button id="backToInputBtn" class="btn btn-outline">
-          Повернутися до опису
-        </button>
-      </div>
-    </div>
-    <div id="step3" class="card" style="display: none">
-      <h2>Крок 3. Перевірте звернення</h2>
-      <div class="info">
-        Інформація нижче згенерована автоматично. Ви є автором звернення і
-        повинні перевірити кожне твердження.
-      </div>
-      <div id="reviewContainer"></div>
-      <div class="actions">
-        <button id="generateAppealBtn" class="btn">
-          Сформувати текст звернення
-        </button>
-        <button id="backToStructBtn" class="btn btn-outline">
-          Повернутися до редагування
-        </button>
-      </div>
-    </div>
-    <div id="step4" class="card" style="display: none">
-      <h2>Крок 4. Текст звернення</h2>
-      <div id="statusMsg" class="success" style="display: none"></div>
-      <div class="field">
-        <label for="appealText">Готовий текст звернення</label>
-        <textarea id="appealText"></textarea>
-        <div class="hint">
-          Текст можна редагувати. Нічого не вигадано автоматично — лише те, що
-          ви підтвердили.
+        <div class="field">
+          <label for="contact">Контактні дані для відповіді (необов’язково)</label>
+          <input
+            id="contact"
+            type="text"
+            placeholder="Електронна пошта або телефон"
+          />
+          <div class="hint">
+            Використовуються лише для включення до тексту звернення.
+          </div>
         </div>
-      </div>
-      <div id="channelInfo" class="info" style="display: none"></div>
-      <div class="actions">
-        <button id="copyBtn" class="btn">Копіювати текст</button>
-        <button id="openChannelBtn" class="btn btn-secondary">
-          Відкрити офіційний сайт
-        </button>
-        <button id="backToReviewBtn" class="btn btn-outline">
-          Повернутися до перевірки
-        </button>
-        <a href="/app" class="btn btn-outline">Нове звернення</a>
-      </div>
-      <div id="copyConfirm" class="success" style="display: none; margin-top: 1rem">
-        Текст скопійовано в буфер обміну
-      </div>
-    </div>
+        <div id="error1" class="error hidden" role="alert"></div>
+        <div id="analyzeStatus" class="info hidden" aria-live="polite">
+          Аналіз триває — це займає до хвилини. Будь ласка, зачекайте.
+        </div>
+        <div class="actions">
+          <button id="analyzeBtn" class="btn" type="button">
+            <span id="analyzeSpinner" class="spinner hidden" aria-hidden="true"></span>
+            Допомогти оформити
+          </button>
+          <a href="/" class="btn btn-outline">Повернутися на головну</a>
+        </div>
+      </section>
+
+      <section id="step2" class="card hidden" aria-labelledby="step2-title">
+        <h2 id="step2-title" class="step-heading" tabindex="-1">Крок 2. Структурування проблеми</h2>
+        <div id="info2" class="info">
+          Асистент запропонував структуру звернення нижче. Це лише пропозиція —
+          <strong>обов’язково перевірте та відредагуйте</strong> кожне поле перед
+          формуванням тексту.
+        </div>
+        <div id="topicsContainer"></div>
+        <div class="actions">
+          <button id="addTopicBtn" class="btn btn-secondary" type="button">
+            Додати тему
+          </button>
+        </div>
+        <div id="error2" class="error hidden" role="alert"></div>
+        <div class="actions">
+          <button id="toReviewBtn" class="btn" type="button">Перейти до перевірки</button>
+          <button id="backToInputBtn" class="btn btn-outline" type="button">
+            Повернутися до опису
+          </button>
+        </div>
+      </section>
+
+      <section id="step3" class="card hidden" aria-labelledby="step3-title">
+        <h2 id="step3-title" class="step-heading" tabindex="-1">Крок 3. Перевірте звернення</h2>
+        <div class="info">
+          Інформація нижче згенерована автоматично. Ви є автором звернення і
+          повинні перевірити кожне твердження.
+        </div>
+        <div id="reviewContainer"></div>
+        <div class="actions">
+          <button id="generateAppealBtn" class="btn" type="button">
+            Сформувати текст звернення
+          </button>
+          <button id="backToStructBtn" class="btn btn-outline" type="button">
+            Повернутися до редагування
+          </button>
+        </div>
+      </section>
+
+      <section id="step4" class="card hidden" aria-labelledby="step4-title">
+        <h2 id="step4-title" class="step-heading" tabindex="-1">Крок 4. Текст звернення</h2>
+        <div id="statusMsg" class="success hidden"></div>
+        <div class="field">
+          <label for="appealText">Готовий текст звернення</label>
+          <textarea id="appealText" rows="14"></textarea>
+          <div class="hint">
+            Текст можна редагувати. Нічого не вигадано автоматично — лише те, що
+            ви підтвердили.
+          </div>
+        </div>
+        <div id="channelInfo" class="info hidden"></div>
+        <div class="actions">
+          <button id="copyBtn" class="btn" type="button">Копіювати текст</button>
+          <button id="openChannelBtn" class="btn btn-secondary" type="button">
+            Відкрити офіційний сайт
+          </button>
+          <button id="backToReviewBtn" class="btn btn-outline" type="button">
+            Повернутися до перевірки
+          </button>
+          <a href="/app" class="btn btn-outline">Нове звернення</a>
+        </div>
+        <div id="copyConfirm" class="success hidden" aria-live="polite"></div>
+      </section>
+
+      <footer class="site-footer">
+        <p>Асистент не надсилає звернення автоматично — надсилання лише ви.</p>
+        <p><a href="/">На головну</a></p>
+      </footer>
+    </main>
   </body>
   <script type="module" src="/app.js"></script>
 </html>
