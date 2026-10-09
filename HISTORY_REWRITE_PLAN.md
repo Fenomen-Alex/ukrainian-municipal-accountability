@@ -1,6 +1,8 @@
-# History Rewrite Plan (Deferred - Do Not Execute in This Task)
+# History Rewrite Plan (EXECUTED — rewrite published to remote)
 
-This plan documents how to remove source-derived/generated corpora from the entire Git history. **It is not executed in the current task.** Execution requires explicit owner approval, coordination with downstream consumers (forks, clones, mirrors, CI, release artifacts), and verification of backups.
+**Status (current):** The rewrite described below was executed and validated, and the rewritten history has been published to `origin/master`. All 12 paths are absent from every branch/tag reachable from origin; only local safety tags (`pre-rewrite-e393337`, `pre-rewrite-redacted-e393337`) and transient GitHub orphaned-object retention remain. No further execution is required.
+
+Original plan (retained for audit):
 
 ## Affected paths (historical)
 

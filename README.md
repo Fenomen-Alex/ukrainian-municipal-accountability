@@ -136,11 +136,17 @@ the deterministic pipeline (see [REPRODUCIBILITY.md](REPRODUCIBILITY.md)). What
 is tracked is build code, schema, manifests/hashes, documentation, and a small
 reviewed set of benchmark/provenance artifacts (~2.4 MB of `.jsonl`).
 
-**This is a current-HEAD policy, not a history purge.** The former corpora are
-still present in public Git history (`e217197`); removing them from history
-requires a separately-approved rewrite. See
-[PUBLIC_DATA_HISTORY.md](PUBLIC_DATA_HISTORY.md) and
-[HISTORY_REWRITE_PLAN.md](HISTORY_REWRITE_PLAN.md).
+**This policy also covers the full Git history.** The former corpora were
+purged from every branch and tag in a validated `git filter-repo` rewrite
+([HISTORY_REWRITE_PLAN.md](HISTORY_REWRITE_PLAN.md),
+[HISTORY_REWRITE_VALIDATION.md](HISTORY_REWRITE_VALIDATION.md)), and the
+rewritten history is what this repository now serves: no ref reaches the old
+corpus blobs. Until GitHub garbage-collects the orphaned pre-rewrite objects, a
+direct commit or file URL minted before the rewrite may still answer — it
+belongs to no branch or tag and will stop being served. For the full
+data-exposure record, including the still-pending classification of a few
+tracked evaluation `.json` files, see
+[PUBLIC_DATA_HISTORY.md](PUBLIC_DATA_HISTORY.md).
 
 **The source is openly licensed.** The corpora derive from a published
 Kropyvnytskyi City Council open-data dataset under **Creative Commons

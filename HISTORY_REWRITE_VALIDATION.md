@@ -294,4 +294,6 @@ python -m ml.tune.audit_public_data --check
 Not done, and deliberately so: no force-push, no change to `origin/master`, no
 Hugging Face modification, no tag or GitHub release created, no model weight
 touched, no training or evaluation job run, and the pre-rewrite safety reference
-left in place.
+left in place.---
+## Addendum (current state, Oct 2026)
+Remote: `origin/master` is the rewritten tip `8d169c4`. All 12 paths absent from refs. GitHub orphan URLs for pre-rewrite commits/files may still 200 (transient); no push pending. No further rewrite planned.
